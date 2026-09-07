@@ -1,16 +1,1051 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700;900&family=Shippori+Mincho:wght@400;500;600;700&display=swap');
-:root{--ink:#17171a;--night:#0a0b0e;--night2:#15161a;--ivory:#f6f1e7;--paper:#e9e2d6;--gold:#b99a61;--gold2:#806b48;--red:#7d1e29;--line:#c8bdad;--muted:#777066;--serif:'Noto Serif JP','Shippori Mincho',serif}
-html{scroll-behavior:smooth}body{font-family:var(--serif);background:var(--ivory);color:var(--ink);letter-spacing:.025em}body:before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.035;background-image:radial-gradient(#4b4135 .5px,transparent .5px);background-size:6px 6px}
-.imperial-header{background:#08090b;color:#a8a197;border-bottom:1px solid #34343a;font-size:9px;letter-spacing:.16em}.imperial-header-inner{max-width:1320px;padding:8px 28px;gap:26px}.imperial-header a{color:#e3ded4}.imperial-header .current{color:#d1ae73}
-.site-header{background:rgba(10,11,14,.96)!important;color:#e8e1d6;border-bottom:1px solid #3a393d!important;box-shadow:0 8px 32px #0004}.header-inner{max-width:1320px;min-height:82px;padding:0 28px}.brand{gap:15px}.brand-mark{width:43px;height:43px;border:1px solid var(--gold)!important;color:var(--gold)!important;position:relative}.brand-mark:after{content:'';position:absolute;inset:4px;border:1px solid #b99a6133}.brand strong{color:#eee8dd;font-weight:500;letter-spacing:.22em}.brand small{color:#918b82;letter-spacing:.27em}.global-nav{gap:27px}.global-nav a{color:#c6c0b6;font-size:11px;position:relative}.global-nav a:after{content:'';position:absolute;left:0;right:0;bottom:17px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:.3s}.global-nav a:hover{color:#fff}.global-nav a:hover:after{transform:scaleX(1);transform-origin:left}.menu-toggle{color:#ddd6cb;border-color:#5c5549;background:#121318}
-.hero{min-height:700px!important;background:radial-gradient(ellipse at 72% 40%,#3b3025 0,#211e1b 25%,#111216 60%,#090a0d 100%)!important;color:#eee9df!important;border-bottom:1px solid #4c4030;position:relative}.hero:before{content:'';position:absolute;inset:0;opacity:.45;background:linear-gradient(90deg,transparent 49.9%,#b99a6126 50%,transparent 50.1%),linear-gradient(#b99a6110 1px,transparent 1px);background-size:100% 100%,100% 92px}.hero:after{content:'玲瓏\A SHIKI CHŌ';white-space:pre;position:absolute;right:5%;bottom:42px;color:#b99a61;font:9px/2.3 Georgia,serif;letter-spacing:.32em;opacity:.55}.hero-inner{max-width:1320px;padding:165px 28px 145px!important}.hero-watermark{right:9%;top:12%;font-size:clamp(130px,20vw,270px)!important;line-height:.85;color:#b99a610d!important}.vertical-label{color:var(--gold)!important;letter-spacing:.25em!important}.kicker{color:#c5a66f!important;letter-spacing:.32em}.hero h1{font-size:clamp(55px,8.5vw,112px)!important;font-weight:400;letter-spacing:.08em;line-height:1.23}.hero h1 em{color:#eee3d0!important}.hero-lead{color:#bdb6ac!important;font-size:14px;letter-spacing:.09em}.hero-rule{color:#a99572!important;border-color:#65563e!important}.hero-seal{color:var(--gold)!important;opacity:.08}
-.season-status{background:#111216!important;color:#ddd7cd!important;border-bottom:1px solid #38383c}.status-inner{max-width:1320px;min-height:108px}.eyebrow{color:var(--gold)!important;letter-spacing:.25em}.status-light{border-left-color:#554b3d!important}.status-light span{background:var(--gold)!important;box-shadow:0 0 0 5px #b99a6118}.status-light b{color:#e0cfae}.status-light small,#last-updated{color:#8f8980!important}
-.section{padding-top:115px!important;padding-bottom:115px!important}.section-title{gap:26px}.section-title>span{font:10px Georgia,serif;color:var(--gold2);letter-spacing:.2em}.section-title h2{font-weight:500;letter-spacing:.13em}.section-title>div>p{font:9px Georgia,serif;letter-spacing:.27em;color:var(--muted);margin-bottom:3px}.section-title:after{content:'';height:1px;background:linear-gradient(90deg,var(--line),transparent);flex:1;margin-bottom:13px}
-.news-section{background:#e7e1d6!important;border-block:1px solid #d0c5b4}.news-list{border-top:1px solid var(--ink)!important}.news-list article{min-height:78px;border-bottom:1px solid #c9c0b2!important;padding:0 12px;transition:.2s}.news-list article:hover{background:#f1ece3}.news-list time{font-family:Georgia,serif;color:#847b6e;font-size:10px}.news-list span{border-color:#8e2930!important;color:#8e2930!important;letter-spacing:.12em}.news-list a:hover{color:var(--red)}
-.about-section{background:#121317!important;color:#e6e0d6!important;border-block:1px solid #34343a}.about-section .section-title h2{color:#eee9df}.about-section .section-title>div>p{color:#9c958b}.document-copy p{color:#aaa59d!important}.document-copy .lead{color:#e4ddd1!important}.document-copy strong{color:#d2b67e!important}.mission-card{background:linear-gradient(145deg,#18191e,#101115)!important;border:1px solid #68573a!important;box-shadow:inset 0 0 0 1px #b99a6110,0 20px 50px #0004}.mission-card span{color:var(--gold)}.mission-card strong{font-weight:400;color:#eee6d7}
-.departments-section{background:#0b0c0f!important;color:#e5dfd5!important;border-block:1px solid #35353a}.departments-section:before{content:'四季廳';position:absolute;right:4%;top:9%;font-size:170px;color:#b99a6108;font-weight:900;pointer-events:none}.departments-section .section-title h2{color:#eee9df}.section-intro.light-copy{color:#99948c}.leader{border-block:1px solid #39383a!important;padding:30px 0}.leader span,.department-grid span,.sub-departments span{color:#c0a16b!important;letter-spacing:.16em}.leader strong{font-weight:400;color:#f0e9dd}.leader small{color:#949088!important}.department-grid,.sub-departments{gap:1px;background:#3b3a3c!important}.department-grid article,.sub-departments article{background:#17181c!important;padding:29px 25px;transition:.25s;position:relative;overflow:hidden}.department-grid article:hover,.sub-departments article:hover{background:#1d1e23;transform:translateY(-2px)}.department-grid article>b{color:var(--gold);font:11px Georgia,serif}.department-grid h3,.sub-departments h3{font-weight:400;color:#eee9df}.department-grid p,.sub-departments p{color:#99938a!important}
-.gods-section{background:#eee8dd!important;border-bottom:1px solid #d0c4b2}.gods-section .section-intro{color:#686158;max-width:800px}.god-tabs{border:1px solid #b8ae9f!important;background:#ddd6ca!important;box-shadow:0 8px 25px #3c2d1909}.god-tab{background:transparent!important;color:#5f584e!important;border-right:1px solid #b8ae9f!important;position:relative;transition:.25s}.god-tab:after{content:'';position:absolute;left:18%;right:18%;bottom:0;height:2px;background:var(--red);transform:scaleX(0);transition:.25s}.god-tab:hover,.god-tab.active{background:#18191d!important;color:#f2ece1!important}.god-tab.active:after{transform:scaleX(1)}.god-panel{background:#f6f1e7!important;border:1px solid #c7bcae!important;border-top:0!important;box-shadow:0 25px 55px #463a2a12}.season-kanji{color:#ad9870!important;border-right:1px solid #c8bdad!important;font-weight:400}.god-panel h3{font-weight:400;color:#252329}.god-panel span{color:#806b4a;letter-spacing:.2em}.god-panel p{color:#6e675e}.god-panel dl{border-top:1px solid #d0c5b6;margin-top:24px;padding-top:15px}.god-panel dt{color:#89755a}.god-panel dd{color:#38332e}.four-law{border-left:3px solid var(--red)!important;background:#e4ddd1!important;color:#5d564d!important;padding:18px 22px}
-.duties-section{background:#f3eee5!important}.duties-grid article{background:#f9f5ed!important;transition:.25s}.duties-grid article:hover{box-shadow:0 12px 30px #3b302014;transform:translateY(-2px)}.sword-note{border-left-color:var(--red)!important;background:#e6dfd3!important}.chain-section{background:#dcd4c7!important;border-block:1px solid #c0b5a5}.chain div{background:#eee9df!important;border-color:#bcb09f!important}.chain span{color:var(--red)!important}
-.archive-trigger{right:22px;bottom:22px}.archive-trigger button{background:#0b0c0e;border:1px solid #5a5041;color:#b6aa95;padding:10px 14px;letter-spacing:.12em;box-shadow:0 5px 20px #0004;transition:.25s}.archive-trigger button:hover{color:#fff;border-color:var(--gold);background:#14151a}.archive-modal{background:#050608e8;backdrop-filter:blur(7px)}.archive-box{background:linear-gradient(145deg,#17181c,#0d0e11)!important;border:1px solid #67573d!important;box-shadow:0 30px 100px #000b!important;padding:52px}.archive-box:before{content:'CONFIDENTIAL';position:absolute;right:25px;top:24px;font:8px Georgia,serif;letter-spacing:.28em;color:#9c8360}.archive-box h2{color:#eee8dd;font-weight:400;letter-spacing:.14em}.archive-box p{color:#9e9990}.archive-close{color:#a9a196}.archive-box input{background:#08090b;border:1px solid #47423a;color:#eee8dd}.archive-box form button{background:var(--red);padding:11px 22px;letter-spacing:.1em}.archive-content{border-top-color:#45444a}.archive-content.unlocked{animation:reveal .7s ease}@keyframes reveal{from{opacity:0;filter:blur(4px);transform:translateY(8px)}to{opacity:1;filter:none;transform:none}}
-.contact-section{background:#121317!important;color:#e5dfd5!important;border-top:1px solid #38383c}.contact-section p{color:#99938b!important}.address{border-left-color:#514a3f!important}.address strong{color:#eee9df}.imperial-footer,.site-footer{background:#08090c!important;border-top:1px solid #302f33}.footer-title{color:#e4ddd1!important}.slogan{color:#b99a68!important}
-@media(max-width:680px){.imperial-header-inner{padding:7px 16px;gap:18px}.header-inner{min-height:66px;padding:0 18px}.brand{gap:10px}.brand-mark{width:37px;height:37px}.brand strong{font-size:17px}.brand small{font-size:8px}.global-nav{top:66px;background:#0d0e11!important;border-color:#37373b!important;padding:10px 18px}.global-nav a{color:#d2ccc2;padding:12px 0}.global-nav a:after{display:none}.hero{min-height:610px!important}.hero-inner{padding:120px 20px 100px!important}.hero h1{font-size:49px!important}.hero-lead{font-size:12px}.hero:after{right:18px;bottom:24px}.hero-watermark{right:-4%;top:18%;font-size:120px!important}.section{padding:75px 0!important}.section-shell,.content-width{padding-left:18px;padding-right:18px}.section-title{gap:15px}.section-title h2{font-size:27px}.section-title:after{display:none}.news-list article{padding:13px 5px;min-height:0;grid-template-columns:78px 50px 1fr;gap:8px}.about-grid{grid-template-columns:1fr!important;gap:30px}.mission-card{min-height:210px}.department-grid,.sub-departments{grid-template-columns:1fr!important}.department-grid article{padding:26px 20px}.departments-section:before{font-size:100px;top:18%}.god-tabs{grid-template-columns:1fr 1fr}.god-tab{padding:14px 7px;font-size:11px}.god-panel{grid-template-columns:1fr!important;padding:28px 22px!important;gap:25px}.season-kanji{writing-mode:horizontal-tb;border-right:0!important;border-bottom:1px solid #c8bdad!important;padding:0 0 17px!important;font-size:72px!important}.god-panel h3{font-size:30px}.chain{display:flex;flex-direction:column}.chain i{transform:rotate(90deg)}.archive-trigger{right:12px;bottom:12px}.archive-box{padding:38px 22px}.archive-box form{display:flex;flex-direction:column;gap:8px}}
+　@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700;900&display=swap');
+
+:root {
+  --paper: #eee8d8;
+  --paper-light: #f6f1e5;
+  --paper-dark: #ddd3bd;
+  --ink: #211f1a;
+  --muted: #70695c;
+  --red: #7b1e24;
+  --red-dark: #511218;
+  --gold: #9a8252;
+  --line: #8d826d;
+  --navy: #202936;
+  --shadow: rgba(35, 29, 20, .16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(80,60,30,.035) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 80% 70%, rgba(80,60,30,.025) 0 1px, transparent 1.5px),
+    var(--paper);
+  background-size: 7px 7px, 11px 11px, auto;
+  font-family: "Noto Serif JP", "Yu Mincho", serif;
+  line-height: 1.9;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--red);
+}
+
+.content-width {
+  width: min(1120px, calc(100% - 48px));
+  margin: auto;
+}
+
+/* ========================================
+   帝國統括情報網
+======================================== */
+
+.imperial-header {
+  background: var(--navy);
+  color: #eee8d8;
+  border-bottom: 3px solid var(--red);
+  font-size: 12px;
+  letter-spacing: .08em;
+}
+
+.imperial-header-inner {
+  width: min(1180px, calc(100% - 32px));
+  margin: auto;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.imperial-header-inner span,
+.imperial-header-inner a {
+  padding: 0 16px;
+  border-right: 1px solid rgba(255,255,255,.18);
+}
+
+.imperial-header-inner a:hover {
+  color: #fff;
+  background: rgba(255,255,255,.08);
+}
+
+.imperial-header .current {
+  color: #fff;
+  font-weight: 700;
+}
+
+/* ========================================
+   四季廳 ヘッダー
+======================================== */
+
+.site-header {
+  background: var(--paper-light);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.header-inner {
+  width: min(1180px, calc(100% - 32px));
+  min-height: 92px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-mark {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--red);
+  color: var(--red);
+  font-size: 25px;
+  position: relative;
+}
+
+.brand-mark::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 1px solid var(--gold);
+}
+
+.brand strong {
+  display: block;
+  font-family: "Shippori Mincho", serif;
+  font-size: 28px;
+  letter-spacing: .18em;
+}
+
+.brand small {
+  display: block;
+  font-family: Georgia, serif;
+  font-size: 9px;
+  letter-spacing: .16em;
+  color: var(--muted);
+}
+
+nav {
+  display: flex;
+}
+
+nav a {
+  padding: 12px 17px;
+  font-size: 12px;
+  letter-spacing: .08em;
+  border-left: 1px solid var(--paper-dark);
+}
+
+nav a:hover {
+  background: var(--paper-dark);
+}
+
+.menu-toggle {
+  display: none;
+}
+
+/* ========================================
+   帝國官報風 HERO
+======================================== */
+
+.hero {
+  min-height: 650px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  background:
+    linear-gradient(rgba(246,241,229,.86), rgba(246,241,229,.86)),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 34px,
+      rgba(70,60,45,.045) 35px
+    );
+}
+
+.hero::before {
+  content: "帝國行政機關";
+  position: absolute;
+  right: 7%;
+  top: 90px;
+  writing-mode: vertical-rl;
+  font-size: 12px;
+  letter-spacing: .5em;
+  color: var(--red);
+}
+
+.hero-watermark {
+  position: absolute;
+  right: 8%;
+  bottom: -45px;
+  font-family: "Shippori Mincho", serif;
+  font-size: clamp(150px, 22vw, 300px);
+  line-height: .72;
+  color: rgba(65,48,31,.045);
+  writing-mode: vertical-rl;
+  user-select: none;
+}
+
+.vertical-label {
+  position: absolute;
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  font-size: 11px;
+  letter-spacing: .25em;
+  color: var(--red);
+}
+
+.hero-inner {
+  width: min(920px, calc(100% - 100px));
+  margin: auto;
+  position: relative;
+  padding: 80px 0;
+}
+
+.kicker {
+  font-family: Georgia, serif;
+  font-size: 11px;
+  letter-spacing: .25em;
+  color: var(--red);
+  margin: 0 0 28px;
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: "Shippori Mincho", serif;
+  font-weight: 600;
+  font-size: clamp(52px, 8vw, 100px);
+  line-height: 1.15;
+  letter-spacing: .08em;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--red);
+}
+
+.hero-lead {
+  margin: 42px 0;
+  font-size: 15px;
+  letter-spacing: .08em;
+}
+
+.hero-rule {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: .12em;
+}
+
+.hero-rule i {
+  height: 1px;
+  flex: 1;
+  background: var(--line);
+}
+
+/* ========================================
+   巡行状況
+======================================== */
+
+.season-status {
+  background: var(--red-dark);
+  color: var(--paper-light);
+  border-bottom: 6px double var(--gold);
+}
+
+.status-inner {
+  min-height: 105px;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 35px;
+  align-items: center;
+}
+
+.eyebrow {
+  font-family: Georgia, serif;
+  font-size: 10px;
+  letter-spacing: .18em;
+  color: var(--gold);
+}
+
+.status-inner h2 {
+  margin: 3px 0 0;
+  font-size: 18px;
+  letter-spacing: .08em;
+}
+
+.status-light {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 8px;
+  align-items: center;
+}
+
+.status-light span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #d7c99e;
+  box-shadow: 0 0 12px rgba(215,201,158,.8);
+}
+
+.status-light b {
+  font-size: 13px;
+}
+
+.status-light small {
+  grid-column: 1 / -1;
+  color: #d5cbb8;
+  font-size: 10px;
+}
+
+#last-updated {
+  font-size: 10px;
+  color: #c8bda9;
+}
+
+/* ========================================
+   セクション共通
+======================================== */
+
+.section {
+  padding: 105px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.section-title {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  align-items: start;
+  margin-bottom: 65px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 18px;
+}
+
+.section-title > span {
+  color: var(--red);
+  font-family: Georgia, serif;
+  font-size: 13px;
+  letter-spacing: .2em;
+}
+
+.section-title p {
+  margin: 0;
+  color: var(--muted);
+  font-family: Georgia, serif;
+  font-size: 10px;
+  letter-spacing: .2em;
+}
+
+.section-title h2 {
+  margin: 3px 0 0;
+  font-family: "Shippori Mincho", serif;
+  font-size: 34px;
+  letter-spacing: .15em;
+}
+
+/* ========================================
+   官報
+======================================== */
+
+.news-list {
+  border-top: 3px double var(--ink);
+}
+
+.news-list article {
+  display: grid;
+  grid-template-columns: 150px 70px 1fr;
+  gap: 20px;
+  align-items: center;
+  min-height: 80px;
+  border-bottom: 1px solid var(--line);
+}
+
+.news-list time {
+  font-family: Georgia, serif;
+  font-size: 12px;
+}
+
+.news-list article > span {
+  color: var(--paper-light);
+  background: var(--red);
+  text-align: center;
+  padding: 3px 8px;
+  font-size: 10px;
+  letter-spacing: .12em;
+}
+
+.news-list a {
+  font-size: 14px;
+}
+
+/* ========================================
+   四季廳とは
+======================================== */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 90px;
+}
+
+.document-copy {
+  font-size: 14px;
+  letter-spacing: .05em;
+}
+
+.document-copy .lead {
+  font-size: 19px;
+  line-height: 2;
+  border-left: 4px solid var(--red);
+  padding-left: 22px;
+}
+
+.mission-card {
+  border: 1px solid var(--line);
+  padding: 40px 30px;
+  background: rgba(255,255,255,.18);
+  text-align: center;
+  position: relative;
+}
+
+.mission-card::before,
+.mission-card::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-color: var(--gold);
+}
+
+.mission-card::before {
+  left: 10px;
+  top: 10px;
+  border-left: 1px solid;
+  border-top: 1px solid;
+}
+
+.mission-card::after {
+  right: 10px;
+  bottom: 10px;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+}
+
+.mission-card span {
+  font-size: 10px;
+  color: var(--red);
+  letter-spacing: .2em;
+}
+
+.mission-card strong {
+  display: block;
+  margin: 25px 0;
+  font-family: "Shippori Mincho", serif;
+  font-size: 27px;
+  line-height: 1.7;
+  color: var(--red);
+}
+
+/* ========================================
+   組織
+======================================== */
+
+.departments-section {
+  background:
+    linear-gradient(rgba(32,41,54,.96), rgba(32,41,54,.96)),
+    repeating-linear-gradient(0deg, transparent 0, transparent 30px, rgba(255,255,255,.03) 31px);
+  color: var(--paper-light);
+}
+
+.section-title.light {
+  border-color: rgba(238,232,216,.35);
+}
+
+.section-title.light h2,
+.light-copy {
+  color: var(--paper-light);
+}
+
+.leader {
+  border: 1px solid rgba(238,232,216,.35);
+  border-left: 5px solid var(--gold);
+  padding: 25px 30px;
+  margin-bottom: 35px;
+}
+
+.leader span {
+  font-size: 10px;
+  color: var(--gold);
+}
+
+.leader strong {
+  display: block;
+  font-family: "Shippori Mincho", serif;
+  font-size: 27px;
+}
+
+.leader small {
+  color: #c8c1b3;
+}
+
+.department-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid rgba(238,232,216,.35);
+  border-left: 1px solid rgba(238,232,216,.35);
+}
+
+.department-grid article {
+  padding: 30px;
+  min-height: 300px;
+  border-right: 1px solid rgba(238,232,216,.35);
+  border-bottom: 1px solid rgba(238,232,216,.35);
+}
+
+.department-grid b {
+  font-family: Georgia, serif;
+  color: var(--gold);
+  font-size: 12px;
+}
+
+.department-grid span {
+  display: block;
+  margin-top: 25px;
+  font-size: 10px;
+  color: #c9c0af;
+}
+
+.department-grid h3 {
+  font-family: "Shippori Mincho", serif;
+  font-size: 22px;
+  letter-spacing: .1em;
+}
+
+.department-grid p {
+  font-size: 12px;
+  color: #d2cbbd;
+}
+
+.department-grid small {
+  font-size: 10px;
+  color: var(--gold);
+}
+
+.sub-departments {
+  margin-top: 45px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(238,232,216,.35);
+}
+
+.sub-departments article {
+  padding: 25px;
+  border-right: 1px solid rgba(238,232,216,.35);
+}
+
+.sub-departments span {
+  color: var(--gold);
+  font-size: 11px;
+}
+
+.sub-departments h3 {
+  font-size: 15px;
+}
+
+.sub-departments p {
+  color: #c9c1b2;
+  font-size: 11px;
+}
+
+/* ========================================
+   現人神
+======================================== */
+
+.section-intro {
+  max-width: 760px;
+  margin-bottom: 35px;
+  font-size: 14px;
+}
+
+.god-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.god-tab {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 18px;
+  font: inherit;
+  cursor: pointer;
+  color: var(--ink);
+}
+
+.god-tab.active {
+  color: var(--paper-light);
+  background: var(--red);
+}
+
+.god-panel {
+  display: none;
+  grid-template-columns: 220px 1fr;
+  min-height: 330px;
+  border: 1px solid var(--line);
+  border-top: 0;
+  padding: 55px;
+}
+
+.god-panel.active {
+  display: grid;
+}
+
+.season-kanji {
+  font-family: "Shippori Mincho", serif;
+  font-size: 170px;
+  line-height: 1;
+  color: var(--red);
+  opacity: .8;
+}
+
+.god-panel span {
+  font-family: Georgia, serif;
+  font-size: 10px;
+  letter-spacing: .15em;
+  color: var(--muted);
+}
+
+.god-panel h3 {
+  margin: 5px 0 20px;
+  font-family: "Shippori Mincho", serif;
+  font-size: 34px;
+}
+
+.god-panel dl {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  font-size: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.god-panel dt,
+.god-panel dd {
+  margin: 0;
+  padding: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.god-panel dt {
+  color: var(--red);
+}
+
+.four-law {
+  margin: 35px 0 0;
+  padding: 20px;
+  border-top: 3px double var(--red);
+  border-bottom: 3px double var(--red);
+  text-align: center;
+  font-size: 13px;
+}
+
+/* ========================================
+   業務
+======================================== */
+
+.duties-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.duties-grid article {
+  min-height: 190px;
+  padding: 30px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.duties-grid article:last-child {
+  grid-column: span 2;
+}
+
+.duties-grid b {
+  font-family: Georgia, serif;
+  color: var(--red);
+  font-size: 11px;
+}
+
+.duties-grid h3 {
+  font-size: 18px;
+}
+
+.duties-grid p {
+  font-size: 12px;
+}
+
+.sword-note {
+  margin-top: 45px;
+  border: 1px solid var(--line);
+  padding: 30px;
+  background: rgba(123,30,36,.035);
+}
+
+.sword-note span {
+  color: var(--red);
+  font-size: 11px;
+  letter-spacing: .15em;
+}
+
+.sword-note p {
+  margin-bottom: 0;
+  font-size: 12px;
+}
+
+/* ========================================
+   行政系統
+======================================== */
+
+.chain-section {
+  padding: 65px 0;
+  background: var(--paper-dark);
+  border-bottom: 1px solid var(--line);
+}
+
+.chain {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: 18px;
+}
+
+.chain div {
+  text-align: center;
+  padding: 20px 10px;
+  border: 1px solid var(--line);
+  background: var(--paper-light);
+}
+
+.chain span {
+  display: block;
+  color: var(--red);
+  font-size: 11px;
+}
+
+.chain b {
+  display: block;
+  margin-top: 5px;
+  font-size: 11px;
+}
+
+.chain i {
+  color: var(--red);
+  font-style: normal;
+}
+
+/* ========================================
+   相談窓口
+======================================== */
+
+.contact-section {
+  padding: 100px 0;
+  background: var(--red-dark);
+  color: var(--paper-light);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 100px;
+}
+
+.contact-grid h2 {
+  font-family: "Shippori Mincho", serif;
+  font-size: 34px;
+  letter-spacing: .12em;
+}
+
+.contact-grid p {
+  color: #d7cfc0;
+  font-size: 13px;
+}
+
+.address {
+  border: 1px solid rgba(238,232,216,.35);
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.address strong {
+  color: var(--gold);
+  font-family: "Shippori Mincho", serif;
+  font-size: 19px;
+}
+
+/* ========================================
+   秘密閲覧室
+======================================== */
+
+.archive-trigger {
+  padding: 25px;
+  text-align: center;
+  background: #17191d;
+}
+
+.archive-trigger button {
+  background: transparent;
+  border: 1px solid #777;
+  color: #aaa;
+  padding: 10px 20px;
+  font-family: inherit;
+  font-size: 11px;
+  letter-spacing: .1em;
+  cursor: pointer;
+}
+
+.archive-trigger button:hover {
+  color: #eee;
+  border-color: #aaa;
+}
+
+.archive-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  background: rgba(10,10,10,.88);
+}
+
+.archive-modal.open {
+  display: flex;
+}
+
+.archive-box {
+  width: min(650px, 100%);
+  background: #171717;
+  color: #ddd;
+  border: 1px solid #6d5b45;
+  padding: 55px;
+  position: relative;
+  box-shadow: 0 20px 80px #000;
+}
+
+.archive-box h2 {
+  font-family: "Shippori Mincho", serif;
+  color: #b6a27a;
+}
+
+.archive-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: 0;
+  color: #aaa;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.archive-box input {
+  width: 70%;
+  background: #0d0d0d;
+  border: 1px solid #555;
+  color: #ddd;
+  padding: 12px;
+}
+
+.archive-box form button {
+  padding: 12px 20px;
+  border: 0;
+  background: #6c1d23;
+  color: white;
+}
+
+.archive-content {
+  display: none;
+  margin-top: 30px;
+  border-top: 1px solid #6d5b45;
+  padding-top: 25px;
+}
+
+.archive-content.visible {
+  display: block;
+}
+
+.classified {
+  color: #a33;
+  font-family: Georgia, serif;
+  letter-spacing: .2em;
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.imperial-footer {
+  padding: 65px 0;
+  background: #1e2228;
+  color: #d4ccbd;
+  text-align: center;
+}
+
+.footer-title {
+  font-family: "Shippori Mincho", serif;
+  font-size: 23px;
+  letter-spacing: .18em;
+}
+
+.slogan {
+  color: var(--gold);
+  font-size: 12px;
+}
+
+.footer-links {
+  margin: 25px 0;
+  font-size: 11px;
+  color: #aaa;
+}
+
+.imperial-footer small {
+  color: #777;
+}
+
+/* ========================================
+   スマートフォン
+======================================== */
+
+@media (max-width: 800px) {
+
+  .imperial-header-inner {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .header-inner {
+    min-height: 75px;
+  }
+
+  .brand strong {
+    font-size: 22px;
+  }
+
+  .brand small {
+    display: none;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+    border: 1px solid var(--line);
+    background: transparent;
+    padding: 8px 12px;
+    font-family: inherit;
+  }
+
+  .hero {
+    min-height: 580px;
+  }
+
+  .hero-inner {
+    width: calc(100% - 70px);
+  }
+
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .vertical-label {
+    left: 12px;
+  }
+
+  .status-inner,
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .status-inner {
+    padding: 25px 0;
+    gap: 12px;
+  }
+
+  .news-list article {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 18px 0;
+  }
+
+  .department-grid,
+  .sub-departments,
+  .god-tabs {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .god-panel {
+    grid-template-columns: 1fr;
+    padding: 30px;
+  }
+
+  .season-kanji {
+    font-size: 100px;
+  }
+
+  .duties-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .duties-grid article:last-child {
+    grid-column: auto;
+  }
+
+  .chain {
+    grid-template-columns: 1fr;
+  }
+
+  .chain i {
+    transform: rotate(90deg);
+  }
+
+  .section {
+    padding: 70px 0;
+  }
+}
