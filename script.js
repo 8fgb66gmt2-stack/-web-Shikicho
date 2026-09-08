@@ -24,5 +24,12 @@ document.addEventListener('DOMContentLoaded',()=>{
  const detailClose=document.querySelector('#deity-detail-close');const closeDeity=()=>{deityModal.classList.remove('open');deityModal.setAttribute('aria-hidden','true')};if(detailClose)detailClose.addEventListener('click',closeDeity);deityModal.addEventListener('click',e=>{if(e.target===deityModal)closeDeity()});
  tabs.forEach(tab=>tab.addEventListener('click',()=>{const d=deityDetails[tab.dataset.season];if(!d)return;document.querySelector('#deity-detail-kicker').textContent=`${d.season} / FOUR DIVINE SEASONS`;document.querySelector('#deity-detail-name').textContent=d.name;document.querySelector('#deity-detail-title').textContent=d.title;document.querySelector('#deity-name-value').textContent=d.name;document.querySelector('#deity-divinity').textContent=d.divinity;document.querySelector('#deity-age').textContent=d.age;document.querySelector('#deity-status').textContent=d.status;document.querySelector('#deity-guard').textContent=d.guard;document.querySelector('#deity-department').textContent=d.department;document.querySelector('#deity-duties').textContent=d.duties;document.querySelector('#deity-ritual').textContent=d.ritual;document.querySelector('#deity-notice').textContent=d.notice;deityModal.classList.add('open');deityModal.setAttribute('aria-hidden','false') }));
  document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(reportModal.classList.contains('open'))closeReport();else if(modal.classList.contains('open'))hide();else if(deityModal.classList.contains('open'))closeDeity()}});
- const replacements=[['担当：加州 清光','課長：加州 稀世光'],['課長：雪柳','課長：雪柳 浪雪'],['課長：南海太郎朝尊','課長：南海 美哉臣']];document.querySelectorAll('.sub-departments h3').forEach(el=>{replacements.forEach(([from,to])=>{if(el.textContent.includes(from))el.textContent=el.textContent.replace(from,to)})});
+ document.querySelectorAll('.sub-departments h3').forEach(el=>{
+   let text=el.textContent.replace(/\s+/g,' ').trim();
+   if(text.includes('担当：加州 清光')) text=text.replace('担当：加州 清光','課長：加州 稀世光');
+   text=text.replace(/課長：雪柳(?: 浪雪)+/,'課長：雪柳 浪雪');
+   if(text.includes('課長：雪柳')&&!text.includes('課長：雪柳 浪雪')) text=text.replace('課長：雪柳','課長：雪柳 浪雪');
+   if(text.includes('課長：南海太郎朝尊')) text=text.replace('課長：南海太郎朝尊','課長：南海 美哉臣');
+   el.textContent=text;
+ });
 });
