@@ -1,202 +1,65 @@
 /* =========================================================
-   四季廳｜玲瓏浪漫・帝國官廳樣式
+   四季廳｜玲瓏浪漫・日ノ本帝國中央官廳樣式
    NIPPON IMPERIAL GOVERNMENT / SHIKI AGENCY
-   ── 玲瓏の時代、四季を司る帝國官廳 ──
+   日ノ本帝國暦 玲瓏二百三十七年
    ========================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Shippori+Mincho:wght@400;500;600;700&display=swap');
 
-:root {
-  --ink:#28221e;
-  --ink-soft:#5b5048;
-  --ebicha:#743b36;
-  --ebicha-dark:#472321;
-  --ebicha-light:#a66d65;
-  --navy:#263b46;
-  --green:#314c43;
-  --turquoise:#507b7a;
-  --gold:#a88955;
-  --gold-light:#d9c79b;
-  --gold-faint:rgba(168,137,85,.24);
-  --paper:#f1ebdc;
-  --paper-light:#faf7ef;
-  --paper-dark:#e1d7c3;
-  --paper-deep:#cfc1aa;
+:root{
+  --ink:#29231f;--ink-soft:#5b5048;
+  --ebicha:#743b36;--ebicha-dark:#472321;--ebicha-light:#a66d65;
+  --navy:#263b46;--green:#314c43;--turquoise:#507b7a;
+  --gold:#a88955;--gold-light:#d9c79b;--gold-faint:rgba(168,137,85,.24);
+  --paper:#f1ebdc;--paper-light:#faf7ef;--paper-dark:#e1d7c3;--paper-deep:#cfc1aa;
   --shadow:rgba(43,31,24,.16);
 }
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;background:#d9cfbc}
 body{
-  margin:0;color:var(--ink);
-  background:
-    radial-gradient(circle at 15% 12%,rgba(255,255,255,.48),transparent 26%),
-    radial-gradient(circle at 85% 80%,rgba(116,59,54,.055),transparent 30%),
-    repeating-linear-gradient(0deg,rgba(70,52,38,.026) 0,rgba(70,52,38,.026) 1px,transparent 1px,transparent 5px),
-    var(--paper);
-  font-family:"Shippori Mincho","Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif;
-  line-height:1.95;letter-spacing:.055em;overflow-x:hidden;
+ margin:0;color:var(--ink);overflow-x:hidden;line-height:1.95;letter-spacing:.055em;
+ font-family:"Shippori Mincho","Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif;
+ background:
+  radial-gradient(circle at 15% 12%,rgba(255,255,255,.5),transparent 27%),
+  radial-gradient(circle at 85% 80%,rgba(116,59,54,.055),transparent 30%),
+  repeating-linear-gradient(0deg,rgba(70,52,38,.026) 0,rgba(70,52,38,.026) 1px,transparent 1px,transparent 5px),
+  var(--paper);
 }
-
-body::before{
-  content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.22;
-  background:
-    repeating-linear-gradient(90deg,transparent 0,transparent 4px,rgba(65,48,34,.022) 5px),
-    repeating-linear-gradient(0deg,transparent 0,transparent 7px,rgba(255,255,255,.018) 8px);
-  mix-blend-mode:multiply;
-}
-
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.2;mix-blend-mode:multiply;background:repeating-linear-gradient(90deg,transparent 0,transparent 4px,rgba(65,48,34,.022) 5px),repeating-linear-gradient(0deg,transparent 0,transparent 7px,rgba(255,255,255,.018) 8px)}
 ::selection{background:var(--ebicha);color:#fffaf0}
-a{color:var(--ebicha);text-decoration:none;transition:color .25s,background .25s}
-a:hover{color:var(--turquoise)}
+a{color:var(--ebicha);text-decoration:none;transition:color .25s,background .25s}a:hover{color:var(--turquoise)}
 
-/* =========================================================
-   帝國官廳ヘッダー
-   ========================================================= */
-header{
-  position:relative;color:#f7f0e2;
-  background:
-    linear-gradient(90deg,rgba(40,20,20,.22),transparent 22%,transparent 78%,rgba(40,20,20,.22)),
-    linear-gradient(135deg,var(--ebicha-dark),var(--ebicha) 48%,var(--ebicha-dark));
-  border-top:5px double var(--gold);
-  border-bottom:5px double var(--gold);
-  box-shadow:0 5px 18px var(--shadow);
-}
-header::before{
-  content:"◆　四季廳　◆　SHIKI AGENCY　◆　玲瓏帝國官廳　◆";
-  display:block;padding:5px 12px;text-align:center;
-  color:var(--gold-light);font-size:.59rem;letter-spacing:.27em;
-  border-bottom:1px solid rgba(217,199,155,.38);
-}
-header::after{
-  content:"";position:absolute;left:50%;bottom:-7px;width:14px;height:14px;
-  transform:translateX(-50%) rotate(45deg);background:var(--ebicha-dark);
-  border-right:1px solid var(--gold);border-bottom:1px solid var(--gold);z-index:3;
-}
-nav{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;padding:13px 20px}
-nav a{
-  position:relative;padding:6px 19px;color:#fbf5e9;font-size:.8rem;letter-spacing:.13em;
-  border-left:1px solid rgba(255,255,255,.2);
-}
-nav a:last-child{border-right:1px solid rgba(255,255,255,.2)}
-nav a::before{content:"・";color:var(--gold);margin-right:6px}
-nav a::after{content:"";position:absolute;left:18px;right:18px;bottom:1px;height:1px;background:var(--gold-light);transform:scaleX(0);transition:transform .28s}
-nav a:hover::after{transform:scaleX(1)}
+/* 日ノ本帝國・中央官廳 */
+header{position:relative;color:#f7f0e2;background:linear-gradient(90deg,rgba(40,20,20,.25),transparent 22%,transparent 78%,rgba(40,20,20,.25)),linear-gradient(135deg,var(--ebicha-dark),var(--ebicha) 48%,var(--ebicha-dark));border-top:5px double var(--gold);border-bottom:5px double var(--gold);box-shadow:0 5px 18px var(--shadow)}
+header::before{content:"◆　日ノ本帝國　◆　四季廳　◆　SHIKI AGENCY　◆";display:block;padding:5px 12px;text-align:center;color:var(--gold-light);font-size:.59rem;letter-spacing:.27em;border-bottom:1px solid rgba(217,199,155,.38)}
+header::after{content:"";position:absolute;left:50%;bottom:-7px;width:14px;height:14px;transform:translateX(-50%) rotate(45deg);background:var(--ebicha-dark);border-right:1px solid var(--gold);border-bottom:1px solid var(--gold);z-index:3}
+nav{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;padding:13px 20px}nav a{position:relative;padding:6px 19px;color:#fbf5e9;font-size:.8rem;letter-spacing:.13em;border-left:1px solid rgba(255,255,255,.2)}nav a:last-child{border-right:1px solid rgba(255,255,255,.2)}nav a::before{content:"・";color:var(--gold);margin-right:6px}nav a::after{content:"";position:absolute;left:18px;right:18px;bottom:1px;height:1px;background:var(--gold-light);transform:scaleX(0);transition:transform .28s}nav a:hover::after{transform:scaleX(1)}
 
-/* =========================================================
-   本文紙面
-   ========================================================= */
-main{
-  width:min(1160px,calc(100% - 34px));margin:0 auto;position:relative;
-  background:rgba(250,247,239,.86);
-  box-shadow:0 0 0 1px rgba(116,59,54,.18),0 18px 55px rgba(45,35,25,.14);
-}
-main::before,main::after{
-  content:"";position:absolute;top:0;bottom:0;width:1px;background:var(--gold-faint);pointer-events:none;
-}
-main::before{left:14px}main::after{right:14px}
+main{width:min(1160px,calc(100% - 34px));margin:0 auto;position:relative;background:rgba(250,247,239,.87);box-shadow:0 0 0 1px rgba(116,59,54,.18),0 18px 55px rgba(45,35,25,.14)}
+main::before,main::after{content:"";position:absolute;top:0;bottom:0;width:1px;background:var(--gold-faint);pointer-events:none}main::before{left:14px}main::after{right:14px}
 
-/* =========================================================
-   玲瓏浪漫・表紙
-   ========================================================= */
-.hero,#hero{
-  position:relative;min-height:590px;display:flex;flex-direction:column;justify-content:center;align-items:center;
-  text-align:center;padding:100px 35px;overflow:hidden;
-  background:
-    radial-gradient(circle at 50% 45%,rgba(216,198,155,.08),transparent 34%),
-    linear-gradient(110deg,#243841,#314d46 52%,#253a43);
-}
-.hero::before,#hero::before{
-  content:"";position:absolute;inset:0;opacity:.18;pointer-events:none;
-  background:
-    linear-gradient(45deg,transparent 46%,rgba(216,198,155,.35) 47%,rgba(216,198,155,.35) 48%,transparent 49%) 0 0/42px 42px,
-    linear-gradient(-45deg,transparent 46%,rgba(216,198,155,.18) 47%,rgba(216,198,155,.18) 48%,transparent 49%) 0 0/42px 42px;
-}
-.hero::after,#hero::after{
-  content:"";position:absolute;inset:24px;border:1px solid rgba(216,198,155,.72);pointer-events:none;
-  box-shadow:inset 0 0 0 6px rgba(255,255,255,.018),inset 0 0 0 7px rgba(216,198,155,.2),0 0 0 1px rgba(0,0,0,.08);
-}
-.hero h1,#hero h1{
-  position:relative;z-index:1;margin:0;color:#f8f0df;
-  font-family:"Shippori Mincho","Noto Serif JP",serif;font-size:clamp(3.4rem,9vw,7rem);font-weight:500;
-  line-height:1.03;letter-spacing:.28em;text-shadow:2px 3px 0 rgba(24,16,13,.35);
-}
-.hero h1::before,#hero h1::before{
-  content:"四　季　廳";position:absolute;left:50%;top:-38px;transform:translateX(-50%);
-  color:var(--gold-light);font-size:.62rem;letter-spacing:.5em;white-space:nowrap;
-}
-.hero .subtitle,#hero .subtitle{position:relative;z-index:1;margin-top:27px;color:var(--gold-light);font-family:Georgia,serif;font-size:.78rem;letter-spacing:.38em}
-.hero .lead,#hero .lead{position:relative;z-index:1;margin-top:36px;color:#fffaf0;font-size:clamp(1.25rem,3vw,2rem);font-weight:500;letter-spacing:.2em;line-height:1.8}
-.hero .lead::before,.hero .lead::after{color:var(--gold-light);font-size:1.25em}
-.hero .lead::before{content:"「"}.hero .lead::after{content:"」"}
+/* 玲瓏浪漫・表紙 */
+.hero,#hero{position:relative;min-height:590px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:100px 35px;overflow:hidden;background:radial-gradient(circle at 50% 45%,rgba(216,198,155,.1),transparent 34%),linear-gradient(110deg,#243841,#314d46 52%,#253a43)}
+.hero::before,#hero::before{content:"";position:absolute;inset:0;opacity:.18;pointer-events:none;background:linear-gradient(45deg,transparent 46%,rgba(216,198,155,.35) 47%,rgba(216,198,155,.35) 48%,transparent 49%) 0 0/42px 42px,linear-gradient(-45deg,transparent 46%,rgba(216,198,155,.18) 47%,rgba(216,198,155,.18) 48%,transparent 49%) 0 0/42px 42px}
+.hero::after,#hero::after{content:"";position:absolute;inset:24px;border:1px solid rgba(216,198,155,.72);pointer-events:none;box-shadow:inset 0 0 0 6px rgba(255,255,255,.018),inset 0 0 0 7px rgba(216,198,155,.2),0 0 0 1px rgba(0,0,0,.08)}
+.hero h1,#hero h1{position:relative;z-index:1;margin:0;color:#f8f0df;font-family:"Shippori Mincho","Noto Serif JP",serif;font-size:clamp(3.4rem,9vw,7rem);font-weight:500;line-height:1.03;letter-spacing:.28em;text-shadow:2px 3px 0 rgba(24,16,13,.35)}
+.hero h1::before,#hero h1::before{content:"日ノ本帝國暦　玲瓏二百三十七年";position:absolute;left:50%;top:-42px;transform:translateX(-50%);color:var(--gold-light);font-size:.6rem;letter-spacing:.18em;white-space:nowrap}
+.hero .subtitle,#hero .subtitle{position:relative;z-index:1;margin-top:27px;color:var(--gold-light);font-family:Georgia,serif;font-size:.78rem;letter-spacing:.38em}.hero .lead,#hero .lead{position:relative;z-index:1;margin-top:36px;color:#fffaf0;font-size:clamp(1.25rem,3vw,2rem);font-weight:500;letter-spacing:.2em;line-height:1.8}.hero .lead::before,.hero .lead::after{color:var(--gold-light);font-size:1.25em}.hero .lead::before{content:"「"}.hero .lead::after{content:"」"}
 
-/* =========================================================
-   セクション・官報
-   ========================================================= */
-section{position:relative;padding:86px clamp(28px,6.5vw,88px);border-bottom:1px solid rgba(116,59,54,.19)}
-section::after{content:"✦";position:absolute;right:clamp(25px,5vw,65px);bottom:-10px;background:var(--paper-light);padding:0 9px;color:var(--gold);font-size:.8rem}
-section>.section-number,.section-number{display:block;margin-bottom:9px;color:var(--ebicha);font-family:Georgia,serif;font-size:.67rem;letter-spacing:.42em;text-transform:uppercase}
-section>.section-number::before{content:"— ";color:var(--gold)}
-h2{position:relative;margin:0 0 40px;padding:0 0 18px;color:var(--ebicha-dark);font-size:clamp(1.7rem,4vw,2.45rem);font-weight:600;letter-spacing:.18em;border-bottom:1px solid var(--gold)}
-h2::before{content:"";position:absolute;left:0;bottom:5px;width:100%;height:1px;background:rgba(168,137,85,.42)}
-h2::after{content:"◆";position:absolute;right:0;bottom:-8px;color:var(--gold);font-size:.7rem;background:var(--paper-light);padding-left:10px}
-h3{margin:40px 0 15px;padding-left:15px;color:var(--navy);font-size:1.25rem;letter-spacing:.11em;border-left:4px solid var(--ebicha)}
+section{position:relative;padding:86px clamp(28px,6.5vw,88px);border-bottom:1px solid rgba(116,59,54,.19)}section::after{content:"✦";position:absolute;right:clamp(25px,5vw,65px);bottom:-10px;background:var(--paper-light);padding:0 9px;color:var(--gold);font-size:.8rem}section>.section-number,.section-number{display:block;margin-bottom:9px;color:var(--ebicha);font-family:Georgia,serif;font-size:.67rem;letter-spacing:.42em;text-transform:uppercase}section>.section-number::before{content:"— ";color:var(--gold)}
+h2{position:relative;margin:0 0 40px;padding:0 0 18px;color:var(--ebicha-dark);font-size:clamp(1.7rem,4vw,2.45rem);font-weight:600;letter-spacing:.18em;border-bottom:1px solid var(--gold)}h2::before{content:"";position:absolute;left:0;bottom:5px;width:100%;height:1px;background:rgba(168,137,85,.42)}h2::after{content:"◆";position:absolute;right:0;bottom:-8px;color:var(--gold);font-size:.7rem;background:var(--paper-light);padding-left:10px}h3{margin:40px 0 15px;padding-left:15px;color:var(--navy);font-size:1.25rem;letter-spacing:.11em;border-left:4px solid var(--ebicha)}
 
-.news,.notice,.announcement{
-  position:relative;background:linear-gradient(135deg,rgba(255,255,255,.62),transparent),var(--paper-dark);
-  border:1px solid rgba(116,59,54,.32);box-shadow:inset 0 0 0 5px rgba(255,255,255,.22),0 7px 18px rgba(60,45,35,.07);
-}
-.news::before,.notice::before,.announcement::before{
-  content:"官　報　・　公　告";display:block;padding:7px 12px;color:#f7f0e2;background:var(--ebicha);
-  text-align:center;font-size:.7rem;letter-spacing:.38em;border-bottom:2px solid var(--gold);
-}
+.news,.notice,.announcement{position:relative;background:linear-gradient(135deg,rgba(255,255,255,.62),transparent),var(--paper-dark);border:1px solid rgba(116,59,54,.32);box-shadow:inset 0 0 0 5px rgba(255,255,255,.22),0 7px 18px rgba(60,45,35,.07)}.news::before,.notice::before,.announcement::before{content:"官　報　・　公　告";display:block;padding:7px 12px;color:#f7f0e2;background:var(--ebicha);text-align:center;font-size:.7rem;letter-spacing:.38em;border-bottom:2px solid var(--gold)}
+.card,.department,.person,.season-card{position:relative;background:linear-gradient(135deg,rgba(255,255,255,.55),rgba(255,255,255,.18)),var(--paper);border:1px solid rgba(116,59,54,.27);box-shadow:4px 5px 0 rgba(116,59,54,.055),0 11px 22px rgba(50,40,30,.065);transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}.card:hover,.department:hover,.person:hover,.season-card:hover{transform:translateY(-4px);border-color:rgba(168,137,85,.58);box-shadow:7px 9px 0 rgba(116,59,54,.075),0 16px 28px rgba(50,40,30,.11)}.card::before,.department::before,.person::before,.season-card::before{content:"◆";position:absolute;top:10px;right:14px;color:var(--gold);font-size:.62rem}.season-card{overflow:hidden;border-top:4px solid var(--ebicha)}.season-card.spring{border-top-color:#9b5d58}.season-card.summer{border-top-color:#507b7a}.season-card.autumn{border-top-color:#9a7549}.season-card.winter{border-top-color:#465765}.season-card h3{border-left:0;padding-left:0;margin-top:0;color:var(--ebicha-dark)}
 
-/* =========================================================
-   カード／局舎／人物資料
-   ========================================================= */
-.card,.department,.person,.season-card{
-  position:relative;background:linear-gradient(135deg,rgba(255,255,255,.55),rgba(255,255,255,.18)),var(--paper);
-  border:1px solid rgba(116,59,54,.27);box-shadow:4px 5px 0 rgba(116,59,54,.055),0 11px 22px rgba(50,40,30,.065);
-  transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease;
-}
-.card:hover,.department:hover,.person:hover,.season-card:hover{transform:translateY(-4px);border-color:rgba(168,137,85,.58);box-shadow:7px 9px 0 rgba(116,59,54,.075),0 16px 28px rgba(50,40,30,.11)}
-.card::before,.department::before,.person::before,.season-card::before{content:"◆";position:absolute;top:10px;right:14px;color:var(--gold);font-size:.62rem}
-.season-card{overflow:hidden;border-top:4px solid var(--ebicha)}
-.season-card.spring{border-top-color:#9b5d58}.season-card.summer{border-top-color:#507b7a}.season-card.autumn{border-top-color:#9a7549}.season-card.winter{border-top-color:#465765}
-.season-card h3{border-left:0;padding-left:0;margin-top:0;color:var(--ebicha-dark)}
-
-/* =========================================================
-   資料表示・表
-   ========================================================= */
 dl{margin:0}dt{margin-top:18px;color:var(--ebicha);font-size:.72rem;letter-spacing:.16em;font-weight:700}dd{margin-left:0;padding-bottom:12px;border-bottom:1px dotted rgba(116,59,54,.3)}
-table{width:100%;border-collapse:collapse;background:rgba(250,247,239,.68);border-top:3px double var(--ebicha);border-bottom:3px double var(--ebicha)}
-th,td{padding:12px 15px;text-align:left;border-bottom:1px solid rgba(116,59,54,.2)}th{color:#f8f0e2;background:var(--ebicha);font-weight:500;letter-spacing:.1em}tr:nth-child(even){background:rgba(228,220,203,.35)}
-button,.button,[type="button"],[type="submit"]{display:inline-block;padding:9px 22px;color:#f8f0e2;background:var(--ebicha);border:1px solid var(--gold);font-family:inherit;letter-spacing:.12em;cursor:pointer;box-shadow:3px 3px 0 rgba(116,59,54,.12);transition:.25s}
-button:hover,.button:hover,[type="button"]:hover,[type="submit"]:hover{background:var(--ebicha-dark);transform:translateY(-2px)}
-blockquote{margin:30px 0;padding:18px 25px;color:var(--ink-soft);background:rgba(228,220,203,.34);border-left:3px solid var(--gold);font-style:normal}
-strong{color:var(--ebicha-dark)}
-hr{border:0;border-top:1px solid var(--gold);position:relative;margin:40px 0}hr::after{content:"◆";position:absolute;left:50%;top:-.72em;transform:translateX(-50%);padding:0 9px;background:var(--paper-light);color:var(--gold);font-size:.65rem}
+table{width:100%;border-collapse:collapse;background:rgba(250,247,239,.68);border-top:3px double var(--ebicha);border-bottom:3px double var(--ebicha)}th,td{padding:12px 15px;text-align:left;border-bottom:1px solid rgba(116,59,54,.2)}th{color:#f8f0e2;background:var(--ebicha);font-weight:500;letter-spacing:.1em}tr:nth-child(even){background:rgba(228,220,203,.35)}
+button,.button,[type="button"],[type="submit"]{display:inline-block;padding:9px 22px;color:#f8f0e2;background:var(--ebicha);border:1px solid var(--gold);font-family:inherit;letter-spacing:.12em;cursor:pointer;box-shadow:3px 3px 0 rgba(116,59,54,.12);transition:.25s}button:hover,.button:hover,[type="button"]:hover,[type="submit"]:hover{background:var(--ebicha-dark);transform:translateY(-2px)}
+blockquote{margin:30px 0;padding:18px 25px;color:var(--ink-soft);background:rgba(228,220,203,.34);border-left:3px solid var(--gold)}strong{color:var(--ebicha-dark)}hr{border:0;border-top:1px solid var(--gold);position:relative;margin:40px 0}hr::after{content:"◆";position:absolute;left:50%;top:-.72em;transform:translateX(-50%);padding:0 9px;background:var(--paper-light);color:var(--gold);font-size:.65rem}
 
-/* =========================================================
-   玲瓏浪漫・フッター
-   ========================================================= */
-footer{position:relative;margin-top:0;padding:58px 25px 70px;text-align:center;color:#eee5d7;background:linear-gradient(135deg,#382321,#4d2725 50%,#382321);border-top:5px double var(--gold)}
-footer::before{content:"四季を護る者たち";display:block;margin-bottom:14px;color:var(--gold-light);font-size:1.1rem;letter-spacing:.3em}
-footer::after{content:"NIPPON IMPERIAL GOVERNMENT  ·  SHIKI AGENCY";display:block;margin-top:18px;color:rgba(217,199,155,.7);font-family:Georgia,serif;font-size:.58rem;letter-spacing:.25em}
+footer{position:relative;padding:58px 25px 70px;text-align:center;color:#eee5d7;background:linear-gradient(135deg,#382321,#4d2725 50%,#382321);border-top:5px double var(--gold)}footer::before{content:"四季を護る者たち";display:block;margin-bottom:14px;color:var(--gold-light);font-size:1.1rem;letter-spacing:.3em}footer::after{content:"日ノ本帝國　｜　四季廳　｜　玲瓏二百三十七年";display:block;margin-top:18px;color:rgba(217,199,155,.7);font-family:Georgia,serif;font-size:.58rem;letter-spacing:.18em}
 
-/* =========================================================
-   スクロールバー／スマートフォン／印刷
-   ========================================================= */
 ::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:var(--paper-dark)}::-webkit-scrollbar-thumb{background:var(--ebicha);border:2px solid var(--paper-dark)}
-@media(max-width:700px){
-  header::before{font-size:.48rem;letter-spacing:.16em}
-  nav{padding:9px 7px}nav a{padding:5px 8px;font-size:.68rem;letter-spacing:.06em}nav a::before{display:none}
-  main{width:100%;box-shadow:none}main::before,main::after{display:none}
-  .hero,#hero{min-height:510px;padding:80px 22px}.hero::after,#hero::after{inset:14px}.hero h1,#hero h1{font-size:clamp(2.8rem,15vw,4.8rem);letter-spacing:.2em}.hero h1::before,#hero h1::before{top:-30px;font-size:.48rem}
-  .hero .subtitle,#hero .subtitle{font-size:.62rem;letter-spacing:.2em}.hero .lead,#hero .lead{font-size:1.05rem;letter-spacing:.12em}
-  section{padding:60px 23px}h2{font-size:1.55rem}h3{font-size:1.08rem}
-  table{font-size:.83rem;display:block;overflow-x:auto;white-space:nowrap}
-}
-@media print{
-  body{background:#fff}body::before,header::after,.hero::before,#hero::before{display:none}main{width:100%;box-shadow:none}section{break-inside:avoid}a{color:inherit;text-decoration:underline}
-}
+@media(max-width:700px){header::before{font-size:.48rem;letter-spacing:.12em}nav{padding:9px 7px}nav a{padding:5px 8px;font-size:.68rem;letter-spacing:.06em}nav a::before{display:none}main{width:100%;box-shadow:none}main::before,main::after{display:none}.hero,#hero{min-height:510px;padding:80px 22px}.hero::after,#hero::after{inset:14px}.hero h1,#hero h1{font-size:clamp(2.8rem,15vw,4.8rem);letter-spacing:.2em}.hero h1::before,#hero h1::before{top:-30px;font-size:.48rem;letter-spacing:.08em}.hero .subtitle,#hero .subtitle{font-size:.65rem;letter-spacing:.22em}section{padding:58px 22px}h2{font-size:1.65rem}table{display:block;overflow-x:auto;white-space:nowrap}}
+@media print{body{background:#fff;color:#000}body::before{display:none}header,footer{color:#000;background:#fff}.hero,#hero{color:#000;background:#fff}a{color:#000}section{break-inside:avoid}}
