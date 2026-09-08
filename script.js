@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded',()=>{
  const theme=document.createElement('link');theme.rel='stylesheet';theme.href='imperial.css';document.head.appendChild(theme);
  const ryoryo=document.createElement('link');ryoryo.rel='stylesheet';ryoryo.href='ryoryo.css';document.head.appendChild(ryoryo);
+ const archiveFix=document.createElement('link');archiveFix.rel='stylesheet';archiveFix.href='archive-fix.css';document.head.appendChild(archiveFix);
  const menu=document.querySelector('.menu-toggle'),nav=document.querySelector('#global-nav');
  if(menu&&nav){menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',open);menu.textContent=open?'閉じる':'選單'});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');nav.setAttribute('aria-expanded','false');menu.textContent='選單'}))}
  const updated=document.querySelector('#last-updated');if(updated){const d=new Date();updated.textContent=`最終更新：帝國暦 ${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`}
