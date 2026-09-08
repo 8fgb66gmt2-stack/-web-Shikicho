@@ -2,14 +2,14 @@ document.addEventListener('DOMContentLoaded',()=>{
  const theme=document.createElement('link');theme.rel='stylesheet';theme.href='imperial.css';document.head.appendChild(theme);
  const ryoryo=document.createElement('link');ryoryo.rel='stylesheet';ryoryo.href='ryoryo.css';document.head.appendChild(ryoryo);
  const menu=document.querySelector('.menu-toggle'),nav=document.querySelector('#global-nav');
- if(menu&&nav){menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',open);menu.textContent=open?'閉じる':'選單'});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='選單'}))}
+ if(menu&&nav){menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',open);menu.textContent=open?'閉じる':'選單'});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');nav.setAttribute('aria-expanded','false');menu.textContent='選單'}))}
  const updated=document.querySelector('#last-updated');if(updated){const d=new Date();updated.textContent=`最終更新：帝國暦 ${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`}
  const tabs=[...document.querySelectorAll('.god-tab')],panels=[...document.querySelectorAll('.god-panel')];tabs.forEach(tab=>tab.addEventListener('click',()=>{const season=tab.dataset.season;tabs.forEach(t=>t.classList.toggle('active',t===tab));panels.forEach(p=>p.classList.toggle('active',p.id===`panel-${season}`))}));
  const modal=document.querySelector('#archive-modal'),open=document.querySelector('#archive-open'),close=document.querySelector('#archive-close'),form=document.querySelector('#archive-form'),input=document.querySelector('#archive-password'),content=document.querySelector('#archive-content'),error=document.querySelector('#archive-error');
  const show=()=>{modal.classList.add('open');modal.setAttribute('aria-hidden','false');setTimeout(()=>input.focus(),50)},hide=()=>{modal.classList.remove('open');modal.setAttribute('aria-hidden','true')};
  if(open)open.addEventListener('click',show);if(close)close.addEventListener('click',hide);if(modal)modal.addEventListener('click',e=>{if(e.target===modal)hide()});
  const revealArchive=()=>{
-  content.classList.add('unlocked');
+  content.classList.add('unlocked','visible');
   content.innerHTML=`
    <div class="archive-document">
     <div class="archive-stamp">機密指定 / CONFIDENTIAL</div>
@@ -37,6 +37,6 @@ document.addEventListener('DOMContentLoaded',()=>{
   const next=document.querySelector('#archive-next'),record=document.querySelector('#archive-next-record');
   if(next&&record)next.addEventListener('click',()=>{record.hidden=false;next.hidden=true;record.scrollIntoView({behavior:'smooth',block:'nearest'})});
  };
- if(form)form.addEventListener('submit',e=>{e.preventDefault();const value=input.value.trim();const key=value.normalize('NFKC').replace(/\s+/g,' ').trim().toLowerCase();const accepted=['雛菊','花葉雛菊','春','四季を絶やすこと','四時を絶やすこと勿れ','hinagiku','kayo hinagiku','kayohinagiku','hanaba hinagiku','hanaba-hinagiku','spring','four seasons','preserve the four seasons','do not let the four seasons cease','do not let the four seasons perish'];const acceptedKeys=accepted.map(v=>v.normalize('NFKC').replace(/\s+/g,' ').trim().toLowerCase());if(acceptedKeys.includes(key)){revealArchive();error.textContent='認証成功。機密資料への閲覧権限を確認しました。'}else{content.classList.remove('unlocked');content.innerHTML='';error.textContent='認証失敗。認証キーワードを確認してください。'}});
+ if(form)form.addEventListener('submit',e=>{e.preventDefault();const value=input.value.trim();const key=value.normalize('NFKC').replace(/\s+/g,' ').trim().toLowerCase();const accepted=['雛菊','花葉雛菊','春','四季を絶やすこと','四時を絶やすこと勿れ','hinagiku','kayo hinagiku','kayohinagiku','hanaba hinagiku','hanaba-hinagiku','spring','four seasons','preserve the four seasons','do not let the four seasons cease','do not let the four seasons perish'];const acceptedKeys=accepted.map(v=>v.normalize('NFKC').replace(/\s+/g,' ').trim().toLowerCase());if(acceptedKeys.includes(key)){revealArchive();error.textContent='認証成功。機密資料への閲覧権限を確認しました。'}else{content.classList.remove('unlocked','visible');content.innerHTML='';error.textContent='認証失敗。認証キーワードを確認してください。'}});
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))hide()});
 });
