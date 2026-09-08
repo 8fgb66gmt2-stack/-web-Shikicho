@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>四季廳 長官室｜機密回付</title>
+<link rel="stylesheet" href="imperial.css">
+<link rel="stylesheet" href="ryoryo.css">
+<style>
+html,body{margin:0;min-height:100%;background:#111;color:#e9e1d5}
+body{font-family:"Noto Serif JP",serif}
+.chief-page{min-height:100vh;box-sizing:border-box;padding:60px 20px;background:radial-gradient(circle at 50% 20%,#211d19 0,#111 55%)}
+.chief-document{width:min(820px,100%);box-sizing:border-box;margin:0 auto;padding:52px 48px;border:1px solid #66594c;background:linear-gradient(135deg,#171513,#0d0d0c);box-shadow:0 30px 100px rgba(0,0,0,.65)}
+.chief-seal{font-size:.75rem;letter-spacing:.22em;opacity:.7}
+h1{font-weight:400;font-size:clamp(1.8rem,4vw,3rem);letter-spacing:.15em;margin:20px 0 30px}
+.rule{height:1px;background:#66594c;margin:26px 0}
+p{line-height:2}
+.alert{color:#c7a989;letter-spacing:.08em}
+.meta{padding:16px;border:1px solid #403a33;background:#12110f;line-height:1.9;word-break:break-word}
+.back{display:inline-block;margin-top:30px;padding:12px 20px;border:1px solid #75624c;color:#e9e1d5;text-decoration:none;letter-spacing:.08em}
+.back:hover{background:#75624c;color:#fff}
+@media(max-width:600px){.chief-page{padding:28px 12px}.chief-document{padding:32px 22px}}
+</style>
+</head>
+<body>
+<main class="chief-page">
+<section class="chief-document">
+<div class="chief-seal">日ノ本帝國　四季廳　長官室</div>
+<h1>長官室への御案内</h1>
+<div class="rule"></div>
+<p>通報資料の受付処理が完了しました。</p>
+<p class="alert">【機密取扱】　本件は通常相談案件として処理されません。</p>
+<p>確認された資料に関する記録は、四季廳長官室へ直接回付されます。</p>
+<div class="rule"></div>
+<div class="meta" id="reference">回付番号：確認中<br>件名：確認中</div>
+<p>長官室にて資料照合を行います。以後の閲覧には、別途権限が必要となる場合があります。</p>
+<a class="back" href="index.html">四季廳本廳舍へ戻る</a>
+</section>
+</main>
+<script>
+const params=new URLSearchParams(location.search);
+const ref=params.get('ref');
+const subject=params.get('subject');
+const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+if(ref||subject)document.querySelector('#reference').innerHTML=`回付番号：${esc(ref)}<br>件名：${esc(subject)}`;
+</script>
+</body>
+</html>
