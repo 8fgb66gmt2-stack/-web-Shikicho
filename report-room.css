@@ -28,3 +28,54 @@
 .chief-document .chief-alert{color:#c7a989;letter-spacing:.08em}
 .chief-return{margin-top:28px;border:1px solid #75624c;background:transparent;color:#e9e1d5;padding:11px 20px;cursor:pointer;font:inherit}
 @media(max-width:600px){.report-box,.chief-document{padding:28px 22px}.report-modal,.chief-room{padding:25px 12px}}
+
+/* 四季廳・最終表示レイヤー補正 */
+.hero h1,
+.hero h1 em,
+.hero-lead,
+.hero .kicker,
+.hero .hero-rule,
+.hero .hero-rule span {
+  opacity:1 !important;
+  visibility:visible !important;
+}
+.hero h1 {
+  color:#fbf4e8 !important;
+}
+.hero h1 em {
+  color:#f0d8cf !important;
+}
+.hero:after {
+  z-index:1 !important;
+  pointer-events:none !important;
+  color:#d6c18d !important;
+  opacity:.16 !important;
+}
+.hero-inner {
+  position:relative;
+  z-index:2 !important;
+}
+.hero-watermark {
+  opacity:.09 !important;
+  pointer-events:none !important;
+}
+.shiki-credo:before,
+.shiki-credo:after {
+  pointer-events:none !important;
+}
+.shiki-credo:before {
+  opacity:.10 !important;
+}
+.shiki-credo:after {
+  opacity:.12 !important;
+}
+.shiki-credo-inner,
+.shiki-credo-title,
+.shiki-credo-final,
+.shiki-credo-mission {
+  opacity:1 !important;
+  visibility:visible !important;
+}
+.mission-card:before {
+  opacity:.11 !important;
+}
