@@ -16,3 +16,30 @@
 
 /* 玲瓏浪漫・最終仕上げ */
 @import url('ryoryo-final.css');
+
+/* 玲瓏浪漫・装飾文字の可読性補正 */
+.hero:after {
+  color:#d6c18d !important;
+  opacity:.16 !important;
+  text-shadow:0 1px 0 rgba(255,255,255,.08) !important;
+}
+.hero-watermark {
+  color:#d6c18d !important;
+  opacity:.09 !important;
+}
+.shiki-credo:before {
+  color:#d6b76d !important;
+  opacity:.085 !important;
+}
+.shiki-credo:after {
+  color:#e1c98e !important;
+  opacity:.13 !important;
+}
+.mission-card:before {
+  color:#907344 !important;
+  opacity:.11 !important;
+}
+.section:before {
+  color:#907344 !important;
+  opacity:.32 !important;
+}
