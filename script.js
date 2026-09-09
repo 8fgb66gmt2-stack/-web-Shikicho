@@ -32,119 +32,23 @@ document.addEventListener('DOMContentLoaded',()=>{
    if(text.includes('課長：南海太郎朝尊')) text=text.replace('課長：南海太郎朝尊','課長：南海 美哉臣');
    el.textContent=text;
  });
-
- /* =========================================================
-    政府公式身份・本廳舍案内
-    トップページにのみ表示する四季廳公式情報パネル
- ========================================================= */
  const hero=document.querySelector('.hero');
  if(hero && !document.querySelector('.official-identity')){
-   const official=document.createElement('section');
-   official.className='official-identity';
-   official.id='official';
-   official.innerHTML=`
-     <div class="official-seal" aria-hidden="true"><span>帝</span></div>
-     <div class="official-main">
-       <div class="official-kicker">NIPPON IMPERIAL GOVERNMENT / OFFICIAL</div>
-       <div class="official-title">日ノ本帝國政府公式</div>
-       <div class="official-agency">四季廳</div>
-       <div class="official-meta-grid">
-         <div><small>機關番号</small><strong>NIG-SK-0237</strong></div>
-         <div><small>所管</small><strong>神祇行政・四季保全・現人神護持</strong></div>
-         <div><small>所在地</small><strong>帝都・四季廳本廳舍</strong></div>
-         <div><small>機關種別</small><strong>勅命行政機關</strong></div>
-       </div>
-       <div class="official-actions">
-         <a href="#building">本廳舍案内　→</a>
-         <a href="#contact">問い合わせ窓口　→</a>
-       </div>
-     </div>
-     <div class="official-status">
-       <span class="official-status-dot"></span>
-       <strong>公式サイト</strong>
-       <small>本ページは四季廳の<br>公開情報を掲載しています</small>
-     </div>`;
-   hero.parentNode.insertBefore(official,hero);
-
-   const building=document.createElement('section');
-   building.className='official-building';
-   building.id='building';
-   building.innerHTML=`
-     <div class="official-building-inner">
-       <div class="official-building-heading">
-         <span>HEADQUARTERS / 本廳舍</span>
-         <h2>四季廳本廳舍案内</h2>
-       </div>
-       <div class="official-building-grid">
-         <div class="building-facility"><b>四季廳 本廳舍</b><p>日ノ本帝國・帝都に置かれた四季廳中央官廳。長官室、保全課各局、護衛官関係部署その他の行政機能を集約しています。</p></div>
-         <dl class="building-data">
-           <div><dt>所在地</dt><dd>帝都・四季廳本廳舍</dd></div>
-           <div><dt>機關番号</dt><dd>NIG-SK-0237</dd></div>
-           <div><dt>主管</dt><dd>四季廳長官</dd></div>
-         </dl>
-       </div>
-     </div>`;
-   const status=document.querySelector('.season-status');
-   if(status)status.parentNode.insertBefore(building,status); else hero.parentNode.appendChild(building);
-
-   const officialStyle=document.createElement('style');
-   officialStyle.textContent=`
-     .official-identity{position:relative;display:grid;grid-template-columns:92px minmax(0,1fr) auto;gap:24px;align-items:stretch;padding:22px clamp(22px,6vw,88px);background:#fbfaf5;border-top:1px solid rgba(70,53,40,.14);border-bottom:4px solid #752b2d}
-     .official-seal{width:78px;height:78px;display:grid;place-items:center;align-self:center;border:2px solid #752b2d;border-radius:50%;background:#f7f0e5;color:#752b2d;box-shadow:inset 0 0 0 4px #f7f0e5,inset 0 0 0 5px rgba(170,141,85,.65);font-family:serif;font-size:2rem;font-weight:700}
-     .official-seal span{display:block;line-height:1}
-     .official-kicker{color:#756e65;font: .54rem Georgia,serif;letter-spacing:.2em}
-     .official-title{margin-top:2px;color:#752b2d;font-size:1.1rem;font-weight:700;letter-spacing:.13em}
-     .official-agency{margin-top:1px;color:#26231f;font-size:.77rem;letter-spacing:.17em}
-     .official-meta-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:13px;border-top:1px solid rgba(61,48,38,.15);border-bottom:1px solid rgba(61,48,38,.15)}
-     .official-meta-grid>div{padding:8px 12px 8px 0;border-right:1px solid rgba(61,48,38,.12)}
-     .official-meta-grid>div:not(:first-child){padding-left:12px}
-     .official-meta-grid>div:last-child{border-right:0}
-     .official-meta-grid small{display:block;color:#756e65;font-size:.51rem;letter-spacing:.11em}
-     .official-meta-grid strong{display:block;margin-top:2px;color:#26231f;font-size:.68rem;line-height:1.55}
-     .official-actions{display:flex;gap:22px;margin-top:11px}
-     .official-actions a{color:#752b2d;font-size:.64rem;letter-spacing:.09em;border-bottom:1px solid rgba(117,43,45,.35);padding-bottom:3px}
-     .official-actions a:hover{color:#263c44;border-color:#263c44}
-     .official-status{min-width:150px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding-left:20px;border-left:1px solid rgba(61,48,38,.14)}
-     .official-status-dot{width:9px;height:9px;border-radius:50%;background:#587c59;box-shadow:0 0 0 5px rgba(88,124,89,.10);margin-bottom:8px}
-     .official-status strong{color:#3f6041;font-size:.7rem;letter-spacing:.12em}
-     .official-status small{margin-top:5px;color:#756e65;font-size:.52rem;line-height:1.7}
-     .official-building{padding:28px clamp(22px,6vw,88px);background:#f2ede2;border-bottom:1px solid rgba(61,48,38,.15)}
-     .official-building-inner{border:1px solid rgba(61,48,38,.18);background:#fbfaf5}
-     .official-building-heading{display:flex;align-items:end;gap:16px;padding:17px 19px;border-bottom:1px solid rgba(61,48,38,.14)}
-     .official-building-heading span{color:#756e65;font: .53rem Georgia,serif;letter-spacing:.16em}
-     .official-building-heading h2{margin:0;padding:0;border:0;color:#542022;font-size:1.3rem;letter-spacing:.12em}
-     .official-building-heading h2:after{display:none}
-     .official-building-grid{display:grid;grid-template-columns:1fr 320px}
-     .building-facility{padding:19px 21px;color:#5e5750;font-size:.76rem}
-     .building-facility b{color:#752b2d;font-size:.86rem;letter-spacing:.08em}
-     .building-facility p{margin:7px 0 0;line-height:1.85}
-     .building-data{margin:0;border-left:1px solid rgba(61,48,38,.14)}
-     .building-data>div{display:grid;grid-template-columns:80px 1fr;padding:9px 13px;border-bottom:1px solid rgba(61,48,38,.12)}
-     .building-data>div:last-child{border-bottom:0}
-     .building-data dt{color:#752b2d;font-size:.56rem;letter-spacing:.1em}
-     .building-data dd{margin:0;color:#5e5750;font-size:.61rem}
-     @media(max-width:800px){
-       .official-identity{grid-template-columns:64px 1fr;gap:15px;padding:18px 22px}
-       .official-seal{width:58px;height:58px;font-size:1.45rem}
-       .official-meta-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-       .official-meta-grid>div:nth-child(2n){border-right:0}
-       .official-meta-grid>div:nth-child(n+3){border-top:1px solid rgba(61,48,38,.12)}
-       .official-status{grid-column:2;padding:10px 0 0;border-left:0;border-top:1px solid rgba(61,48,38,.12);min-width:0}
-       .official-actions{gap:15px;flex-wrap:wrap}
-       .official-building-heading{display:block}
-       .official-building-heading span{display:block;margin-bottom:5px}
-       .official-building-grid{grid-template-columns:1fr}
-       .building-data{border-left:0;border-top:1px solid rgba(61,48,38,.14)}
-     }
-     @media(max-width:560px){
-       .official-identity{grid-template-columns:1fr}
-       .official-seal{margin-bottom:-3px}
-       .official-status{grid-column:auto}
-       .official-meta-grid{grid-template-columns:1fr}
-       .official-meta-grid>div,.official-meta-grid>div:not(:first-child){border-right:0;padding-left:0;border-top:1px solid rgba(61,48,38,.12)}
-       .official-meta-grid>div:first-child{border-top:0}
-     }
-   `;
-   document.head.appendChild(officialStyle);
+   const official=document.createElement('section');official.className='official-identity';official.id='official';official.innerHTML=`<div class="official-seal" aria-hidden="true"><span>帝</span></div><div class="official-main"><div class="official-kicker">NIPPON IMPERIAL GOVERNMENT / OFFICIAL</div><div class="official-title">日ノ本帝國政府公式</div><div class="official-agency">四季廳</div><div class="official-meta-grid"><div><small>機關番号</small><strong>NIG-SK-0237</strong></div><div><small>所管</small><strong>神祇行政・四季保全・現人神護持</strong></div><div><small>所在地</small><strong>帝都・四季廳本廳舍</strong></div><div><small>機關種別</small><strong>勅命行政機關</strong></div></div><div class="official-actions"><a href="#building">本廳舍案内　→</a><a href="#contact">問い合わせ窓口　→</a></div></div><div class="official-status"><span class="official-status-dot"></span><strong>公式サイト</strong><small>本ページは四季廳の<br>公開情報を掲載しています</small></div>`;hero.parentNode.insertBefore(official,hero);
+   const building=document.createElement('section');building.className='official-building';building.id='building';building.innerHTML=`<div class="official-building-inner"><div class="official-building-heading"><span>HEADQUARTERS / 本廳舍</span><h2>四季廳本廳舍案内</h2></div><div class="official-building-grid"><div class="building-facility"><b>四季廳 本廳舍</b><p>日ノ本帝國・帝都に置かれた四季廳中央官廳。長官室、保全課各局、護衛官関係部署その他の行政機能を集約しています。</p></div><dl class="building-data"><div><dt>所在地</dt><dd>帝都・四季廳本廳舍</dd></div><div><dt>機關番号</dt><dd>NIG-SK-0237</dd></div><div><dt>主管</dt><dd>四季廳長官</dd></div></dl></div></div>`;
+   const status=document.querySelector('.season-status');if(status)status.parentNode.insertBefore(building,status);else hero.parentNode.appendChild(building);
+   const officialStyle=document.createElement('style');officialStyle.textContent=`.official-identity{position:relative;display:grid;grid-template-columns:92px minmax(0,1fr) auto;gap:24px;align-items:stretch;padding:22px clamp(22px,6vw,88px);background:#fbfaf5;border-top:1px solid rgba(70,53,40,.14);border-bottom:4px solid #752b2d}.official-seal{width:78px;height:78px;display:grid;place-items:center;align-self:center;border:2px solid #752b2d;border-radius:50%;background:#f7f0e5;color:#752b2d;box-shadow:inset 0 0 0 4px #f7f0e5,inset 0 0 0 5px rgba(170,141,85,.65);font-family:serif;font-size:2rem;font-weight:700}.official-seal span{display:block;line-height:1}.official-kicker{color:#756e65;font:.54rem Georgia,serif;letter-spacing:.2em}.official-title{margin-top:2px;color:#752b2d;font-size:1.1rem;font-weight:700;letter-spacing:.13em}.official-agency{margin-top:1px;color:#26231f;font-size:.77rem;letter-spacing:.17em}.official-meta-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:13px;border-top:1px solid rgba(61,48,38,.15);border-bottom:1px solid rgba(61,48,38,.15)}.official-meta-grid>div{padding:8px 12px 8px 0;border-right:1px solid rgba(61,48,38,.12)}.official-meta-grid>div:not(:first-child){padding-left:12px}.official-meta-grid>div:last-child{border-right:0}.official-meta-grid small{display:block;color:#756e65;font-size:.51rem;letter-spacing:.11em}.official-meta-grid strong{display:block;margin-top:2px;color:#26231f;font-size:.68rem;line-height:1.55}.official-actions{display:flex;gap:22px;margin-top:11px}.official-actions a{color:#752b2d;font-size:.64rem;letter-spacing:.09em;border-bottom:1px solid rgba(117,43,45,.35);padding-bottom:3px}.official-actions a:hover{color:#263c44;border-color:#263c44}.official-status{min-width:150px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding-left:20px;border-left:1px solid rgba(61,48,38,.14)}.official-status-dot{width:9px;height:9px;border-radius:50%;background:#587c59;box-shadow:0 0 0 5px rgba(88,124,89,.10);margin-bottom:8px}.official-status strong{color:#3f6041;font-size:.7rem;letter-spacing:.12em}.official-status small{margin-top:5px;color:#756e65;font-size:.52rem;line-height:1.7}.official-building{padding:28px clamp(22px,6vw,88px);background:#f2ede2;border-bottom:1px solid rgba(61,48,38,.15)}.official-building-inner{border:1px solid rgba(61,48,38,.18);background:#fbfaf5}.official-building-heading{display:flex;align-items:end;gap:16px;padding:17px 19px;border-bottom:1px solid rgba(61,48,38,.14)}.official-building-heading span{color:#756e65;font:.53rem Georgia,serif;letter-spacing:.16em}.official-building-heading h2{margin:0;padding:0;border:0;color:#542022;font-size:1.3rem;letter-spacing:.12em}.official-building-heading h2:after{display:none}.official-building-grid{display:grid;grid-template-columns:1fr 320px}.building-facility{padding:19px 21px;color:#5e5750;font-size:.76rem}.building-facility b{color:#752b2d;font-size:.86rem;letter-spacing:.08em}.building-facility p{margin:7px 0 0;line-height:1.85}.building-data{margin:0;border-left:1px solid rgba(61,48,38,.14)}.building-data>div{display:grid;grid-template-columns:80px 1fr;padding:9px 13px;border-bottom:1px solid rgba(61,48,38,.12)}.building-data>div:last-child{border-bottom:0}.building-data dt{color:#752b2d;font-size:.56rem;letter-spacing:.1em}.building-data dd{margin:0;color:#5e5750;font-size:.61rem}@media(max-width:800px){.official-identity{grid-template-columns:64px 1fr;gap:15px;padding:18px 22px}.official-seal{width:58px;height:58px;font-size:1.45rem}.official-meta-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.official-meta-grid>div:nth-child(2n){border-right:0}.official-meta-grid>div:nth-child(n+3){border-top:1px solid rgba(61,48,38,.12)}.official-status{grid-column:2;padding:10px 0 0;border-left:0;border-top:1px solid rgba(61,48,38,.12);min-width:0}.official-actions{gap:15px;flex-wrap:wrap}.official-building-heading{display:block}.official-building-heading span{display:block;margin-bottom:5px}.official-building-grid{grid-template-columns:1fr}.building-data{border-left:0;border-top:1px solid rgba(61,48,38,.14)}}@media(max-width:560px){.official-identity{grid-template-columns:1fr}.official-seal{margin-bottom:-3px}.official-status{grid-column:auto}.official-meta-grid{grid-template-columns:1fr}.official-meta-grid>div,.official-meta-grid>div:not(:first-child){border-right:0;padding-left:0;border-top:1px solid rgba(61,48,38,.12)}.official-meta-grid>div:first-child{border-top:0}}`;document.head.appendChild(officialStyle);
  }
+ /* 官報・公告：各項目を実際に開ける官報閲覧室 */
+ const gazetteData=[
+  {date:'帝國暦237.09.02',type:'研究',title:'帝國大學農學部・理學部との共同研究「四時神性波動に於ける氣候影響調査」の開示について',body:'帝國大學農學部および理學部との共同研究として実施された「四時神性波動に於ける氣候影響調査」について、その概要を公開いたします。四季神性の周期的変動と本邦の氣候現象との関連を調査し、四季巡行の安定性を継続的に確認することを目的とするものです。',office:'四季廳・研究調整室',number:'237-0902-R'},
+  {date:'帝國暦237.08.20',type:'人事',title:'春局局長に京極馨氏（帝國高等學院首席卒）が正式就任致しました',body:'春局局長の人事について、京極馨氏の就任を正式に公告いたします。京極氏は帝國高等學院を首席で卒業し、春季行政および現人神護持に関する職務を担います。',office:'四季廳・人事課',number:'237-0820-P'},
+  {date:'帝國暦237.08.05',type:'注意',title:'【注意喚起】現人神の神性を騙る不法占拠及び詐術行為への厳罰対処について',body:'現人神の御名、神性その他の公的権威を騙り、神域または関係施設を不法に占拠する行為、ならびに神性を利用した詐術行為について、厳正に対処することを改めて周知いたします。疑わしい事案を確認した場合は、四季廳相談窓口または帝都警察廳へ御通報ください。',office:'四季廳・外事課',number:'237-0805-W'},
+  {date:'帝國暦237.07.15',type:'祭祀',title:'附属神域・霊脈調整に伴ふ「夏祭」執り行ひの儀令開示',body:'附属神域における霊脈調整に伴い、夏季の安寧と四季巡行の正常化を祈念する「夏祭」を執り行います。本儀令は関係各局および神域関係者へ周知するため開示するものです。',office:'四季廳・四季祭祀課',number:'237-0715-R'}
+ ];
+ const gazetteModal=document.createElement('div');gazetteModal.className='gazette-modal';gazetteModal.id='gazette-modal';gazetteModal.setAttribute('aria-hidden','true');gazetteModal.innerHTML='<div class="gazette-panel" role="dialog" aria-modal="true" aria-labelledby="gazette-title"><button type="button" class="gazette-close" id="gazette-close" aria-label="閉じる">×</button><div class="gazette-stamp">日ノ本帝國　四季廳</div><span class="gazette-kicker" id="gazette-kicker">OFFICIAL GAZETTE / 官報・公告</span><h2 id="gazette-title"></h2><div class="gazette-meta"><span id="gazette-date"></span><span id="gazette-type"></span><span id="gazette-number"></span></div><div class="gazette-rule"></div><p class="gazette-office" id="gazette-office"></p><div class="gazette-body" id="gazette-body"></div><div class="gazette-end">以上、公告する。<br><span>四季廳</span></div></div></div>';document.body.appendChild(gazetteModal);
+ const gazetteStyle=document.createElement('style');gazetteStyle.textContent=`.news-list article a{cursor:pointer}.gazette-modal{position:fixed;inset:0;z-index:10001;display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:44px 18px;background:rgba(18,16,14,.82);backdrop-filter:blur(3px)}.gazette-modal.open{display:flex}.gazette-panel{position:relative;width:min(860px,100%);margin:20px auto;padding:50px 56px;background:#f7f2e8;color:#28231f;border:1px solid #8c7657;box-shadow:0 28px 100px rgba(0,0,0,.55);font-family:'Noto Serif JP',serif}.gazette-close{position:absolute;top:12px;right:16px;border:0;background:transparent;color:#5a1e25;font-size:30px;line-height:1;cursor:pointer}.gazette-stamp{position:absolute;top:22px;right:58px;border:2px solid #752b2d;color:#752b2d;padding:6px 10px;font-size:10px;letter-spacing:.14em;transform:rotate(-5deg)}.gazette-kicker{display:block;color:#776c60;font-size:10px;letter-spacing:.18em;margin-bottom:18px}.gazette-panel h2{margin:0 80px 20px 0;color:#4c1b22;font-size:clamp(22px,3vw,34px);font-weight:500;line-height:1.7}.gazette-meta{display:flex;flex-wrap:wrap;gap:8px 22px;color:#6e645a;font-size:11px;letter-spacing:.08em}.gazette-rule{height:1px;background:#aa9879;margin:24px 0}.gazette-office{color:#752b2d;font-size:12px;letter-spacing:.1em}.gazette-body{margin-top:18px;font-size:15px;line-height:2.2;white-space:pre-line}.gazette-end{margin-top:34px;padding-top:18px;border-top:1px solid #b9a98f;text-align:right;color:#5e554d;font-size:13px;line-height:1.9}.gazette-end span{color:#752b2d;letter-spacing:.15em}@media(max-width:650px){.gazette-modal{padding:18px 10px}.gazette-panel{padding:42px 22px}.gazette-stamp{position:static;display:inline-block;margin-bottom:18px;transform:rotate(-3deg)}.gazette-panel h2{margin-right:0;font-size:22px}.gazette-body{font-size:14px;line-height:2}}`;document.head.appendChild(gazetteStyle);
+ const gazetteClose=document.querySelector('#gazette-close');const closeGazette=()=>{gazetteModal.classList.remove('open');gazetteModal.setAttribute('aria-hidden','true')};if(gazetteClose)gazetteClose.addEventListener('click',closeGazette);gazetteModal.addEventListener('click',e=>{if(e.target===gazetteModal)closeGazette()});
+ document.querySelectorAll('.news-list article a').forEach((link,i)=>{const d=gazetteData[i];if(!d)return;link.removeAttribute('href');link.setAttribute('role','button');link.addEventListener('click',()=>{document.querySelector('#gazette-date').textContent=d.date;document.querySelector('#gazette-type').textContent=d.type;document.querySelector('#gazette-number').textContent=`官報番号 ${d.number}`;document.querySelector('#gazette-title').textContent=d.title;document.querySelector('#gazette-office').textContent=`所管：${d.office}`;document.querySelector('#gazette-body').textContent=d.body;gazetteModal.classList.add('open');gazetteModal.setAttribute('aria-hidden','false')})});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(gazetteModal.classList.contains('open'))closeGazette();else if(reportModal.classList.contains('open'))closeReport();else if(modal.classList.contains('open'))hide();else if(deityModal.classList.contains('open'))closeDeity()}});
 });
