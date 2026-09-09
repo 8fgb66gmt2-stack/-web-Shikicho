@@ -1,0 +1,302 @@
+/* =========================================================
+   四季廳｜玲瓏浪漫・最終意匠
+   RYORYO ROMANTIC IMPERIAL EDITION / FINAL
+   ========================================================= */
+
+:root{
+  --rr-ink:#211d1b;
+  --rr-muted:#746d65;
+  --rr-red:#782631;
+  --rr-red-deep:#491820;
+  --rr-blue:#2f4650;
+  --rr-green:#52685f;
+  --rr-gold:#a48750;
+  --rr-gold-light:#d6c18d;
+  --rr-ivory:#f6f1e6;
+  --rr-paper:#fbf8f0;
+  --rr-mist:#e9e1d3;
+  --rr-line:rgba(74,57,45,.18);
+}
+
+html{background:#d6cec0}
+body{
+  color:var(--rr-ink)!important;
+  background:
+    radial-gradient(circle at 12% 18%,rgba(255,255,255,.52),transparent 24%),
+    radial-gradient(circle at 88% 82%,rgba(120,38,49,.045),transparent 27%),
+    repeating-linear-gradient(0deg,rgba(80,61,43,.022) 0 1px,transparent 1px 6px),
+    var(--rr-ivory)!important;
+  font-family:"Noto Serif JP","Shippori Mincho","Yu Mincho","Hiragino Mincho ProN",serif!important;
+  letter-spacing:.04em!important;
+}
+body:after{
+  content:"";position:fixed;inset:13px;pointer-events:none;z-index:9997;
+  border:1px solid rgba(164,135,80,.11)
+}
+
+/* 帝都ポータル */
+.imperial-header{
+  background:#181716!important;color:#e9dfcf!important;
+  border-bottom:1px solid rgba(214,193,141,.42)!important;
+}
+.imperial-header-inner{max-width:1240px!important;min-height:36px!important}
+.imperial-header-inner>:first-child{color:var(--rr-gold-light)!important}
+.imperial-header .current{
+  background:rgba(120,38,49,.82)!important;color:#fff!important;
+  border-bottom:1px solid var(--rr-gold-light)
+}
+
+/* 四季廳本廳舎 */
+.site-header{
+  background:rgba(251,248,240,.97)!important;
+  color:var(--rr-ink)!important;
+  border-top:3px double var(--rr-gold)!important;
+  border-bottom:1px solid rgba(164,135,80,.45)!important;
+  box-shadow:0 8px 25px rgba(51,37,26,.11)!important;
+  backdrop-filter:blur(6px)
+}
+.site-header:before{
+  content:"日ノ本帝國　｜　帝都統括情報網　｜　四季廳本廳舍　｜　勅命行政機關"!important;
+  color:#85745d!important;
+  text-align:center!important;
+  padding:6px 16px!important;
+  font-size:.52rem!important;
+  letter-spacing:.25em!important;
+  border-bottom:1px solid rgba(164,135,80,.18)!important;
+}
+.header-inner{min-height:86px!important}
+.brand{color:var(--rr-ink)!important}
+.brand-mark{
+  border:1px solid var(--rr-gold)!important;color:var(--rr-gold)!important;
+  box-shadow:inset 0 0 0 4px rgba(164,135,80,.045)!important
+}
+.brand-mark:after{border-color:rgba(164,135,80,.45)!important}
+.brand strong{font-family:"Shippori Mincho",serif!important;font-weight:500!important;letter-spacing:.22em!important}
+.brand small{color:#7a7268!important;letter-spacing:.27em!important}
+#global-nav a,
+.global-nav a{
+  color:#403b35!important;
+  border-left:1px solid transparent!important;
+  border-bottom:2px solid transparent!important;
+  letter-spacing:.08em!important;
+}
+#global-nav a:hover,
+.global-nav a:hover{
+  color:var(--rr-red)!important;background:#f0eadd!important;
+  border-bottom-color:var(--rr-gold)!important
+}
+
+/* 本文 */
+main{
+  max-width:1240px!important;width:min(1240px,calc(100% - 34px))!important;
+  background:rgba(251,249,244,.96)!important;
+  box-shadow:0 0 0 1px rgba(79,62,48,.11),0 24px 65px rgba(55,41,29,.12)!important
+}
+.section{
+  padding-top:96px!important;padding-bottom:96px!important;
+  border-bottom:1px solid var(--rr-line)!important
+}
+.section:before{
+  content:"四季廳"!important;right:4vw!important;left:auto!important;top:31px!important;
+  width:auto!important;height:auto!important;background:none!important;
+  font-family:"Shippori Mincho",serif!important;font-size:10px!important;
+  letter-spacing:.38em!important;color:var(--rr-gold)!important;opacity:.3!important;
+  writing-mode:vertical-rl
+}
+.section:after{
+  content:"◆"!important;width:auto!important;height:auto!important;
+  transform:translateX(-50%)!important;bottom:-10px!important;
+  padding:0 8px!important;background:var(--rr-paper)!important;
+  border:0!important;color:var(--rr-gold)!important;font-size:.58rem!important
+}
+.section-title{gap:20px!important;margin-bottom:44px!important}
+.section-title>span{
+  min-width:44px!important;padding-bottom:12px!important;
+  color:var(--rr-gold)!important;border-bottom:2px solid var(--rr-red)!important;
+  font-family:Georgia,serif!important
+}
+.section-title p{color:#867d71!important;letter-spacing:.25em!important}
+h2{
+  color:var(--rr-red-deep)!important;
+  font-family:"Shippori Mincho",serif!important;font-weight:500!important;
+  letter-spacing:.14em!important;border-bottom:1px solid var(--rr-gold)!important
+}
+h2:after{content:""!important}
+h3{font-family:"Shippori Mincho",serif!important;font-weight:500!important}
+
+/* 表紙 */
+.hero{
+  min-height:650px!important;
+  background:
+    radial-gradient(circle at 50% 48%,rgba(214,193,141,.12),transparent 32%),
+    linear-gradient(125deg,#24373f 0%,#304a4a 47%,#233640 100%)!important;
+  color:#faf6ee!important
+}
+.hero:before{
+  content:""!important;inset:25px!important;border:1px solid rgba(214,193,141,.72)!important;
+  box-shadow:inset 0 0 0 6px rgba(255,255,255,.015),inset 0 0 0 7px rgba(214,193,141,.12)!important
+}
+.hero:after{
+  content:"春　夏　秋　冬"!important;position:absolute;right:-24px;bottom:28px!important;
+  color:#d6c18d!important;opacity:.055!important;font-size:5rem!important;
+  letter-spacing:.44em!important;white-space:nowrap
+}
+.hero-inner{max-width:920px!important;padding:115px 30px!important}
+.kicker{color:var(--rr-gold-light)!important;letter-spacing:.38em!important;font-size:.6rem!important}
+.hero h1{
+  font-family:"Shippori Mincho",serif!important;font-weight:500!important;
+  letter-spacing:.17em!important;font-size:clamp(3.5rem,8vw,6.8rem)!important;
+  text-shadow:0 2px 24px rgba(0,0,0,.18)!important
+}
+.hero h1 em{color:#f0d8cf!important;font-style:normal!important}
+.hero-lead{color:#eee8de!important;letter-spacing:.13em!important}
+.hero-lead:before{content:"「";color:var(--rr-gold-light)}
+.hero-lead:after{content:"」";color:var(--rr-gold-light)}
+.hero-rule{color:var(--rr-gold-light)!important}
+.hero-rule i{background:var(--rr-gold-light)!important}
+.hero-watermark{color:#d6c18d!important;opacity:.055!important}
+.vertical-label{color:#dfcfaa!important}
+
+/* 季節ステータス */
+.season-status{
+  background:#f0ebe1!important;border-bottom:3px double var(--rr-red)!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.75)!important
+}
+.status-inner{min-height:116px!important}
+.status-light{background:#f8f5ee!important;border:1px solid #c8bda9!important}
+.status-light span{background:#647a68!important;box-shadow:0 0 0 4px rgba(100,122,104,.1)!important}
+.status-light b{color:#4e554e!important}
+#last-updated{color:#81786d!important}
+
+/* 官報 */
+.news-section{background:#fcfaf5!important}
+.news-list{
+  border-top:3px double var(--rr-red)!important;
+  border-bottom:3px double var(--rr-red)!important;
+}
+.news-list article{
+  min-height:76px!important;border-bottom:1px solid #ddd3c4!important;
+}
+.news-list article:hover{background:rgba(120,38,49,.035)!important}
+.news-list article>span{
+  background:transparent!important;border:1px solid #b49b73!important;
+  color:#80663e!important
+}
+.news-list a{color:#37322d!important}
+.news-list a:hover{color:var(--rr-red)!important}
+
+/* 概要 */
+.about-section{background:#eee8dd!important}
+.document-copy .lead{
+  border-left:4px solid var(--rr-red)!important;
+  font-family:"Shippori Mincho",serif!important
+}
+.mission-card{
+  background:linear-gradient(150deg,#fffdf9,#ece4d6)!important;
+  border:1px solid #bda47b!important;border-top:4px solid var(--rr-red)!important;
+  box-shadow:inset 0 0 0 5px rgba(164,135,80,.035),8px 11px 0 rgba(73,24,32,.045)!important
+}
+.mission-card:before{content:"四季廳"!important;color:var(--rr-gold)!important;opacity:.07!important}
+.mission-card strong{color:var(--rr-red-deep)!important;font-family:"Shippori Mincho",serif!important}
+
+/* 現人神 */
+.gods-section{background:#fbf8f0!important}
+.god-tabs{border-top:1px solid #c9bdab!important;border-bottom:1px solid #c9bdab!important}
+.god-tab{background:#f0eadf!important;color:#5b544c!important}
+.god-tab:hover{background:#e8dfd1!important;color:var(--rr-red)!important}
+.god-tab.active{background:#292629!important;color:#f6f0e5!important;box-shadow:inset 0 -3px 0 var(--rr-gold-light)!important}
+.god-tab.active:before{color:var(--rr-gold-light)!important}
+.god-panel{background:#f7f2e8!important;border-color:#cfc4b4!important;box-shadow:0 18px 44px rgba(70,52,35,.07)!important}
+.season-kanji{color:var(--rr-gold)!important;opacity:.17!important;border-right-color:#cec2b1!important}
+.god-panel h3{color:var(--rr-red-deep)!important}
+.god-panel dt{color:#816a47!important}
+.god-panel dd{color:#484139!important}
+
+/* 組織・保全課 */
+.departments-section{
+  background:
+    linear-gradient(130deg,#1d1b1b,#292323 55%,#1a1918)!important;
+  color:#eee7dc!important
+}
+.departments-section .section-title p,
+.departments-section .section-intro,
+.departments-section .department-grid p,
+.departments-section .department-grid small,
+.departments-section .sub-departments p,
+.departments-section .leader small{color:#b8aea1!important}
+.department-grid,.sub-departments{gap:1px!important;background:#4d433c!important}
+.department-grid article,.sub-departments article{
+  background:linear-gradient(145deg,#292625,#211f1e)!important;
+  border:0!important
+}
+.department-grid article:hover,.sub-departments article:hover{background:#302d2b!important}
+.department-grid h3,.sub-departments h3,.leader>strong{color:#efe7da!important}
+.leader{border-color:#655a4b!important;background:#272422!important}
+.leader:before{color:#d0b476!important;opacity:.12!important}
+
+/* 業務 */
+.duties-section{background:#eee9df!important}
+.duty-grid article{background:#fbf9f4!important;border-color:#d5cab9!important}
+.duty-grid article:hover{border-color:#b49b73!important;box-shadow:0 14px 30px rgba(61,46,32,.08)!important}
+.duty-grid b{color:var(--rr-gold)!important}
+.duty-grid h3{color:#433a34!important}
+
+/* 宣言 */
+.shiki-credo{
+  background:
+    radial-gradient(circle at 50% 30%,rgba(214,193,141,.08),transparent 25%),
+    linear-gradient(135deg,#281719,#391d22 52%,#201718)!important;
+  border-top:1px solid #ae8c55!important;border-bottom:1px solid #735142!important
+}
+.shiki-credo-mark{color:var(--rr-gold-light)!important;border-color:#9b8054!important}
+.shiki-credo-title{font-family:"Shippori Mincho",serif!important;font-weight:500!important;letter-spacing:.18em!important}
+.shiki-credo-final strong{color:#d5b66f!important}
+
+/* 相談窓口 */
+.contact-section{background:#f5f0e6!important}
+.contact-grid{border-color:#cfc4b3!important}
+.report-box{background:#fcfaf5!important;border-color:#b9a481!important}
+
+/* 共通カード */
+.card,.department,.person,.season-card{
+  background:#fbf9f4!important;border-color:#d6cbbb!important;
+  box-shadow:0 7px 18px rgba(46,35,25,.06)!important
+}
+.card:hover,.department:hover,.person:hover,.season-card:hover{
+  border-color:#b69b71!important;box-shadow:0 11px 26px rgba(46,35,25,.1)!important
+}
+
+table{background:#fbf9f4!important;border-top:3px double var(--rr-red)!important;border-bottom:3px double var(--rr-red)!important}
+th{background:var(--rr-red)!important;color:#fff8ef!important}
+
+/* 最終フッター */
+footer,.site-footer{
+  background:#191817!important;color:#e9e0d3!important;
+  border-top:3px double var(--rr-gold)!important
+}
+footer:before,.site-footer:before{color:var(--rr-gold-light)!important}
+footer:after{color:rgba(214,193,141,.62)!important}
+
+/* スクロール */
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:#ddd4c7}
+::-webkit-scrollbar-thumb{background:#7b2b32;border:2px solid #ddd4c7}
+
+@media(max-width:900px){
+  main{width:100%!important}
+  .section{padding-top:76px!important;padding-bottom:76px!important}
+  .hero{min-height:590px!important}
+}
+@media(max-width:680px){
+  body:after{inset:6px}
+  .site-header:before{font-size:.43rem!important;letter-spacing:.11em!important}
+  .hero{min-height:540px!important}
+  .hero-inner{padding:80px 20px!important}
+  .hero h1{font-size:clamp(2.65rem,15vw,4.3rem)!important}
+  .section{padding-top:62px!important;padding-bottom:62px!important}
+  .section:before{top:23px!important;font-size:8px!important}
+  .news-list article{grid-template-columns:1fr!important;gap:5px!important}
+  .god-tabs{grid-template-columns:1fr 1fr!important}
+  .god-panel{grid-template-columns:1fr!important}
+  .season-kanji{min-height:100px;border-right:0!important;border-bottom:1px solid #cec2b1!important}
+}
