@@ -1,3 +1,6 @@
+/* 玲瓏浪漫・最終仕上げ */
+@import url('ryoryo-final.css');
+
 /* 機密閲覧室・スクロール修正 */
 .archive-modal.open {
   display: flex !important;
@@ -13,9 +16,6 @@
 .archive-document { max-width:100%; overflow:visible; }
 #archive-next-record[hidden] { display:none !important; }
 #archive-next-record { display:block; }
-
-/* 玲瓏浪漫・最終仕上げ */
-@import url('ryoryo-final.css');
 
 /* 玲瓏浪漫・装飾文字の可読性補正 */
 .hero:after {
