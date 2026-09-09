@@ -8,30 +8,11 @@
   -webkit-overflow-scrolling: touch;
   padding: 40px 20px !important;
 }
+.archive-box { max-height: none !important; height: auto !important; overflow: visible !important; margin: 20px auto !important; flex: 0 1 auto; }
+.archive-content.visible,.archive-content.unlocked { display:block !important; overflow:visible !important; }
+.archive-document { max-width:100%; overflow:visible; }
+#archive-next-record[hidden] { display:none !important; }
+#archive-next-record { display:block; }
 
-.archive-box {
-  max-height: none !important;
-  height: auto !important;
-  overflow: visible !important;
-  margin: 20px auto !important;
-  flex: 0 1 auto;
-}
-
-.archive-content.visible,
-.archive-content.unlocked {
-  display: block !important;
-  overflow: visible !important;
-}
-
-.archive-document {
-  max-width: 100%;
-  overflow: visible;
-}
-
-#archive-next-record[hidden] {
-  display: none !important;
-}
-
-#archive-next-record {
-  display: block;
-}
+/* 玲瓏浪漫・最終仕上げ */
+@import url('ryoryo-final.css');
