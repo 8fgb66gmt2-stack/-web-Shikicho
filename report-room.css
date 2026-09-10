@@ -79,3 +79,52 @@
 .mission-card:before {
   opacity:.11 !important;
 }
+
+/* =========================================================
+   四季廳｜モバイル選單表示修正
+   「選單」を開いたとき、global-nav を確実に表示する
+   ========================================================= */
+@media(max-width:700px){
+  .header-inner{
+    flex-wrap:wrap;
+  }
+
+  .menu-toggle{
+    display:block !important;
+    margin-left:auto;
+    cursor:pointer;
+    position:relative;
+    z-index:60;
+  }
+
+  #global-nav{
+    display:none !important;
+    width:100%;
+    margin-left:0;
+    flex-direction:column;
+    align-items:stretch;
+    order:3;
+    border-top:1px solid rgba(255,255,255,.18);
+    background:rgba(84,32,34,.98);
+  }
+
+  #global-nav.open{
+    display:flex !important;
+  }
+
+  #global-nav a{
+    display:flex !important;
+    width:100%;
+    min-height:46px;
+    padding:10px 14px;
+    align-items:center;
+    border-left:0;
+    border-bottom:1px solid rgba(255,255,255,.12);
+    color:#fffaf2 !important;
+    font-size:.72rem;
+  }
+
+  #global-nav a:last-child{
+    border-bottom:0;
+  }
+}
