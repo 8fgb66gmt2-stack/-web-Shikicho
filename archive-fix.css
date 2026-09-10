@@ -43,3 +43,52 @@
   color:#907344 !important;
   opacity:.32 !important;
 }
+
+/* 帝國法令告知・簡潔な公式告知帯 */
+.law-banner {
+  background:#fbf8f1 !important;
+  border-bottom:1px solid rgba(61,48,38,.16) !important;
+  box-shadow:none !important;
+}
+.law-banner-inner {
+  max-width:1180px !important;
+  min-height:44px !important;
+  padding:7px 28px !important;
+  gap:20px !important;
+}
+.law-banner-label {
+  gap:0 !important;
+}
+.law-banner-label .mark {
+  display:none !important;
+}
+.law-banner-label span {
+  display:none !important;
+}
+.law-banner-label strong {
+  margin:0 !important;
+  color:#542022 !important;
+  font-size:12px !important;
+  font-weight:600 !important;
+  letter-spacing:.12em !important;
+}
+.law-banner a {
+  padding:0 !important;
+  border:0 !important;
+  color:#752b2d !important;
+  font-size:11px !important;
+  letter-spacing:.08em !important;
+}
+.law-banner a:hover {
+  background:none !important;
+  color:#542022 !important;
+}
+.law-banner a::after {
+  margin-left:5px;
+  color:#aa8d55 !important;
+}
+@media(max-width:700px){
+  .law-banner-inner{min-height:40px !important;padding:6px 16px !important;gap:12px !important}
+  .law-banner-label strong{font-size:11px !important;letter-spacing:.08em !important}
+  .law-banner a{font-size:10px !important}
+}
