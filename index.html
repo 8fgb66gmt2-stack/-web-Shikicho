@@ -36,7 +36,7 @@
 @media(max-width:700px){.arg-teaser .content-width{grid-template-columns:44px 1fr;gap:14px;padding:24px 18px}.arg-teaser a{grid-column:1/-1;justify-self:start}}
 </style>\n<style>
 .person-search-section{margin:48px auto;max-width:980px;padding:28px;border:1px solid rgba(117,43,45,.22);background:rgba(255,253,248,.72)}
-.person-search-kicker{font:10px Georgia,serif;letter-spacing:.18em;color:#8a7650}.person-search-section h2{margin:9px 0 7px;font-weight:500;letter-spacing:.12em}.person-search-intro{font-size:12px;line-height:1.9;color:#6f6860}.person-search-form{display:flex;gap:8px;margin-top:17px}#person-search-input{flex:1;border:1px solid rgba(117,43,45,.28);background:#fffdf8;padding:11px 12px;font-family:inherit;font-size:13px}#person-search-button{border:1px solid #752b2d;background:#752b2d;color:#fffaf3;padding:10px 18px;font-family:inherit;letter-spacing:.12em;cursor:pointer}.person-search-result{margin-top:18px}.person-record{border-top:1px solid rgba(117,43,45,.18);padding:17px 2px 3px}.person-record small{display:block;color:#8a7650;font:10px Georgia,serif;letter-spacing:.14em;margin-bottom:7px}.person-record h3{margin:0 0 9px;font-weight:500;letter-spacing:.08em}.person-record p{margin:6px 0;line-height:1.9;font-size:12px;color:#625c55}.person-record .warning{color:#752b2d}@media(max-width:600px){.person-search-section{padding:22px 18px}.person-search-form{flex-direction:column}#person-search-button{width:100%}}
+.person-search-kicker{font:10px Georgia,serif;letter-spacing:.18em;color:#8a7650}.person-search-section h2{margin:9px 0 7px;font-weight:500;letter-spacing:.12em}.person-search-intro{font-size:12px;line-height:1.9;color:#6f6860}.person-search-form{display:flex;gap:8px;margin-top:17px}#person-search-input{flex:1;border:1px solid rgba(117,43,45,.28);background:#fffdf8;padding:11px 12px;font-family:inherit;font-size:13px}#person-search-button{border:1px solid #752b2d;background:#752b2d;color:#fffaf3;padding:10px 18px;font-family:inherit;letter-spacing:.12em;cursor:pointer}.person-search-result{margin-top:18px}.person-record{border-top:1px solid rgba(117,43,45,.18);padding:17px 2px 3px}.person-record small{display:block;color:#8a7650;font:10px Georgia,serif;letter-spacing:.14em;margin-bottom:7px}.person-record h3{margin:0 0 9px;font-weight:500;letter-spacing:.08em}.person-record p{margin:6px 0;line-height:1.9;font-size:12px;color:#625c55}.person-record .warning{color:#752b2d}.person-clue{margin-top:15px;border:1px solid rgba(117,43,45,.42);background:#fffaf3;color:#752b2d;padding:11px 14px;font-family:inherit;font-size:11px;letter-spacing:.08em;cursor:pointer}.person-clue:hover{background:#f3ebe0}@media(max-width:600px){.person-search-section{padding:22px 18px}.person-search-form{flex-direction:column}#person-search-button{width:100%}}
 </style></head>
 <body>
 <div class="imperial-header">
@@ -266,6 +266,8 @@ document.querySelectorAll('.god-tab').forEach(btn=>btn.addEventListener('click',
     'じゃあ、始めようか。\n――四季廳の記録を、最初から。'
   ];
 
+  function showAuthorNext(){const visited=(()=>{try{return localStorage.getItem('shikiManuscriptVisited')==='1'}catch(e){return false}})();authorInvestigation=false;if(visited){window.location.href='manuscript-hg04.html'}else{window.location.href='work-record.html';}}
+
   let index = 0;
 
   function render() {
@@ -286,7 +288,7 @@ document.querySelectorAll('.god-tab').forEach(btn=>btn.addEventListener('click',
     try { sessionStorage.setItem('shikiInvestigationStarted', '1'); } catch(e) {}
   }
 
-  next.addEventListener('click', () => {
+  next.addEventListener('click', () => {\n    if(authorInvestigation){if(authorIndex<authorLines.length-1){authorIndex++;renderAuthor();}else{showAuthorNext();}return;}
     if (newsInvestigationMode) {
       if (newsInvestigationIndex < newsInvestigationLines.length - 1) {
         newsInvestigationIndex++;
@@ -323,7 +325,7 @@ document.querySelectorAll('.god-tab').forEach(btn=>btn.addEventListener('click',
   });
 
   close.addEventListener('click', closePanel);
-  hint.addEventListener('click', openPanel);
+  hint.addEventListener('click', openPanel);\n\n  // 旧稿から戻ったとき、春月が「作者名義」の照合を一緒に行う。\n  try{if(localStorage.getItem('shikiManuscriptVisited')==='1'){setTimeout(()=>{authorInvestigation=true;authorIndex=0;authorLines=[\n    '……おかえり。',\n    '読んできたんだね。旧稿。',\n    '……やっぱり、あの名前が残っていたでしょう。',\n    '四季廳の記録では、僕は花葉春月。漫画家として『ヴラド・ドラクラ』を書いたことになっている。',\n    'でも、帝國大學の旧稿には「大窪晶与」。',\n    '同じ作品。同じ物語。作者名義だけが違う。',\n    '……ここまで来たら、二つの記録を並べて考えてみるしかないね。',\n    '君は、どう思う？'\n  ];renderAuthor();panel.classList.add('is-visible');hint.classList.remove('is-visible');},450)}}catch(e){}
 
   // 初回表示はHTML側でも可視化しておき、JavaScriptやキャッシュの状態に左右されないようにする。
   // 閉じた後だけ、このセッションでは右下の「調査記録を開く」に切り替える。
@@ -348,8 +350,8 @@ document.querySelectorAll('.god-tab').forEach(btn=>btn.addEventListener('click',
 </script>
 <script>
 (()=>{const i=document.getElementById('person-search-input'),b=document.getElementById('person-search-button'),o=document.getElementById('person-search-result');if(!i||!b||!o)return;
-const records={'花葉雛菊':{code:'PERSON / HN-01',title:'花葉 雛菊',meta:'春の現人神',body:'四季廳における春季現人神。現在の春季巡行を担う。花葉春月の配偶者。',extra:'公開記録上、現在の任務および婚姻関係は確認されています。',warning:'関連する過去記録の一部について、照合が必要です。'},'花葉春月':{code:'PERSON / HG-01',title:'花葉 春月',meta:'四季廳長官',body:'四季廳長官。春季現人神・花葉雛菊の配偶者。四季神祇行政および各局の統括を担当。',extra:'公開記録上、現職および婚姻関係は確認されています。',warning:'長官就任以前の記録に、一部照合待ちの資料があります。'}};
-function s(){const q=i.value.trim(),r=records[q];if(!q){o.innerHTML='<p class="person-record"><span class="warning">検索語を入力してください。</span></p>';return}if(!r){o.innerHTML='<p class="person-record"><span class="warning">該当する公開人物記録はありません。</span><br>氏名を正確に入力してください。</p>';return}o.innerHTML='<article class="person-record"><small>'+r.code+'</small><h3>'+r.title+'</h3><p><strong>'+r.meta+'</strong></p><p>'+r.body+'</p><p>'+r.extra+'</p><p class="warning">'+r.warning+'</p></article>';try{localStorage.setItem('shikiPersonSearch:'+q,'1')}catch(e){}}
+function startAuthorInvestigation(){authorInvestigation=true;authorIndex=0;panel.classList.add('is-visible');hint.classList.remove('is-visible');authorLines=localStorage.getItem('shikiManuscriptVisited')==='1'?['……戻ってきたんだね。','旧稿、読んできたんだ。','……うん。僕も、あの名前が気になってる。','四季廳の人物記録では、僕は花葉春月。漫画家として『ヴラド・ドラクラ』を書いたことになっている。','でも、帝國大學の旧稿には「大窪晶与」と残っていた。','同じ作品。同じ物語。それなのに、作者名義だけが違う。','……君は、どう思う？','僕はね、急いで答えを出さなくてもいいと思う。','まずは、この二つの記録が同じものを指しているか。そこから確かめよう。','四季廳の記録と、帝國大學の記録。','二つを並べて読むと……ひとつの人物像が浮かんでくる。','……「大窪晶与」という名前について、もう少し調べてみる？'] : ['……ああ。見つけたんだ。','僕の著作記録だね。','『ヴラド・ドラクラ』。僕が書いた歴史漫画。','ただ……その先に、帝國大學へ寄託された旧稿がある。','僕も、そこは少し気になってるんだ。','よかったら、一緒に見てみようか。','作品そのものじゃなくて――作者名義のほうを。'];renderAuthor();}function renderAuthor(){text.textContent=authorLines[authorIndex];progress.textContent=(authorIndex+1)+' / '+authorLines.length;next.textContent=authorIndex===authorLines.length-1?'次の記録へ　›':'次へ　›';}let authorInvestigation=false,authorIndex=0,authorLines=[];const records={'花葉雛菊':{code:'PERSON / HN-01',title:'花葉 雛菊',meta:'春の現人神',body:'四季廳における春季現人神。現在の春季巡行を担う。花葉春月の配偶者。',extra:'公開記録上、現在の任務および婚姻関係は確認されています。',warning:'関連する過去記録の一部について、照合が必要です。'},'花葉春月':{code:'PERSON / HG-01',title:'花葉 春月',meta:'四季廳長官',body:'四季廳長官。春季現人神・花葉雛菊の配偶者。四季神祇行政および各局の統括を担当。',extra:'公開記録上、現職および婚姻関係は確認されています。',warning:'長官就任以前の記録に、一部照合待ちの資料があります。',work:'work-record.html'}};
+function s(){const q=i.value.trim(),r=records[q];if(!q){o.innerHTML='<p class="person-record"><span class="warning">検索語を入力してください。</span></p>';return}if(!r){o.innerHTML='<p class="person-record"><span class="warning">該当する公開人物記録はありません。</span><br>氏名を正確に入力してください。</p>';return}o.innerHTML='<article class="person-record"><small>'+r.code+'</small><h3>'+r.title+'</h3><p><strong>'+r.meta+'</strong></p><p>'+r.body+'</p><p>'+r.extra+'</p><p class="warning">'+r.warning+'</p>'+(r.work?'<button type="button" class="person-clue" id="person-clue">……ねえ。著作記録も、一緒に見てみる？</button>':'')+'</article>';try{localStorage.setItem('shikiPersonSearch:'+q,'1')}catch(e){} if(r.work){document.getElementById('person-clue')?.addEventListener('click',startAuthorInvestigation);}}
 b.addEventListener('click',s);i.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();s()}})})();
 </script></body>
 </html>
