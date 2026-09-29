@@ -400,7 +400,16 @@ function startAuthorInvestigation(){
 }
 function renderAuthor(){const s=window.__shikiAuthorInvestigation;text.textContent=s.lines[s.index];progress.textContent=(s.index+1)+' / '+s.lines.length;next.textContent=s.index===s.lines.length-1?'次の記録へ　›':'次へ　›';}
 const records={'花葉雛菊':{code:'PERSON / HN-01',title:'花葉 雛菊',meta:'春の現人神',body:'四季廳における春季現人神。現在の春季巡行を担う。花葉春月の配偶者。',extra:'公開記録上、現在の任務および婚姻関係は確認されています。',warning:'関連する過去記録の一部について、照合が必要です。'},'花葉春月':{code:'PERSON / HG-01',title:'花葉 春月',meta:'四季廳長官',body:'四季廳長官。春季現人神・花葉雛菊の配偶者。四季神祇行政および各局の統括を担当。',extra:'公開記録上、現職および婚姻関係は確認されています。',warning:'長官就任以前の記録に、一部照合待ちの資料があります。',work:'work-record.html'}};
-function s(){const q=i.value.trim(),r=records[q];if(!q){o.innerHTML='<p class="person-record"><span class="warning">検索語を入力してください。</span></p>';return}if(!r){o.innerHTML='<p class="person-record"><span class="warning">該当する公開人物記録はありません。</span><br>氏名を正確に入力してください。</p>';return}o.innerHTML='<article class="person-record"><small>'+r.code+'</small><h3>'+r.title+'</h3><p><strong>'+r.meta+'</strong></p><p>'+r.body+'</p><p>'+r.extra+'</p><p class="warning">'+r.warning+'</p>'+(r.work?'<button type="button" class="person-clue" id="person-clue">……ねえ。著作記録も、一緒に見てみる？</button>':'')+'</article>';try{localStorage.setItem('shikiPersonSearch:'+q,'1')}catch(e){} if(r.work){document.getElementById('person-clue')?.addEventListener('click',startAuthorInvestigation);}}
+function s(){const q=i.value.trim(),r=records[q];if(!q){o.innerHTML='<p class="person-record"><span class="warning">検索語を入力してください。</span></p>';return}if(!r){o.innerHTML='<p class="person-record"><span class="warning">該当する公開人物記録はありません。</span><br>氏名を正確に入力してください。</p>';return}o.innerHTML='<article class="person-record"><small>'+r.code+'</small><h3>'+r.title+'</h3><p><strong>'+r.meta+'</strong></p><p>'+r.body+'</p><p>'+r.extra+'</p><p class="warning">'+r.warning+'</p>'+(r.work?'<button type="button" class="person-clue" id="person-clue">……ねえ。著作記録も、一緒に見てみる？</button>':'')+'</article>';try{localStorage.setItem('shikiPersonSearch:'+q,'1')}catch(e){} if(r.work){
+  const clue=document.getElementById('person-clue');
+  if(clue){
+    clue.addEventListener('click',function(event){
+      event.preventDefault();
+      event.stopPropagation();
+      window.location.href='work-record.html';
+    });
+  }
+}}
 b.addEventListener('click',s);i.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();s()}})})();
 </script></body>
 </html>
