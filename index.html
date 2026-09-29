@@ -288,7 +288,8 @@ document.querySelectorAll('.god-tab').forEach(btn=>btn.addEventListener('click',
     try { sessionStorage.setItem('shikiInvestigationStarted', '1'); } catch(e) {}
   }
 
-  next.addEventListener('click', () => {\n    if(authorInvestigation){if(authorIndex<authorLines.length-1){authorIndex++;renderAuthor();}else{showAuthorNext();}return;}
+  next.addEventListener('click', () => {
+    if(authorInvestigation){if(authorIndex<authorLines.length-1){authorIndex++;renderAuthor();}else{showAuthorNext();}return;}
     if (newsInvestigationMode) {
       if (newsInvestigationIndex < newsInvestigationLines.length - 1) {
         newsInvestigationIndex++;
@@ -325,7 +326,12 @@ document.querySelectorAll('.god-tab').forEach(btn=>btn.addEventListener('click',
   });
 
   close.addEventListener('click', closePanel);
-  hint.addEventListener('click', openPanel);\n\n  // 旧稿から戻ったとき、春月が「作者名義」の照合を一緒に行う。\n  try{if(localStorage.getItem('shikiManuscriptVisited')==='1'){setTimeout(()=>{authorInvestigation=true;authorIndex=0;authorLines=[\n    '……おかえり。',\n    '読んできたんだね。旧稿。',\n    '……やっぱり、あの名前が残っていたでしょう。',\n    '四季廳の記録では、僕は花葉春月。漫画家として『ヴラド・ドラクラ』を書いたことになっている。',\n    'でも、帝國大學の旧稿には「大窪晶与」。',\n    '同じ作品。同じ物語。作者名義だけが違う。',\n    '……ここまで来たら、二つの記録を並べて考えてみるしかないね。',\n    '君は、どう思う？'\n  ];renderAuthor();panel.classList.add('is-visible');hint.classList.remove('is-visible');},450)}}catch(e){}
+  hint.addEventListener('click', openPanel);
+
+  // 旧稿から戻ったとき、春月が「作者名義」の照合を一緒に行う。
+  try{if(localStorage.getItem('shikiManuscriptVisited')==='1'){setTimeout(()=>{authorInvestigation=true;authorIndex=0;authorLines=[
+    '……おかえり。',\n    '読んできたんだね。旧稿。',\n    '……やっぱり、あの名前が残っていたでしょう。',\n    '四季廳の記録では、僕は花葉春月。漫画家として『ヴラド・ドラクラ』を書いたことになっている。',\n    'でも、帝國大學の旧稿には「大窪晶与」。',\n    '同じ作品。同じ物語。作者名義だけが違う。',\n    '……ここまで来たら、二つの記録を並べて考えてみるしかないね。',\n    '君は、どう思う？'
+  ];renderAuthor();panel.classList.add('is-visible');hint.classList.remove('is-visible');},450)}}catch(e){}
 
   // 初回表示はHTML側でも可視化しておき、JavaScriptやキャッシュの状態に左右されないようにする。
   // 閉じた後だけ、このセッションでは右下の「調査記録を開く」に切り替える。
