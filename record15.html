@@ -75,12 +75,13 @@ h1{font-size:clamp(30px,5vw,56px);font-weight:400;letter-spacing:.12em;margin:16
 </div>
 </article>
 
-<a class="back" href="archive.html">← 資料室目録へ戻る</a>
+<a class="back" href="archive.html" id="back-to-archive">← 資料室目録へ戻る</a>
 </main>
 <script>
 const input=document.getElementById('key'),btn=document.getElementById('unlock'),result=document.getElementById('result'),secret=document.getElementById('secret');
 function check(){const v=input.value.trim().replace(/\s/g,'');if(v==='春'||v==='はる'){result.textContent='照合語一致。封緘を解除します。';secret.style.display='block';document.title='第十五號・開封済｜四季廳';try{localStorage.setItem('shikiRecord15Solved','1')}catch(e){}}else{result.textContent='照合不一致。資料中の語句を確認してください。';}}
 btn.addEventListener('click',check);input.addEventListener('keydown',e=>{if(e.key==='Enter')check();});
+document.getElementById('back-to-archive').addEventListener('click',()=>{try{if(localStorage.getItem('shikiRecord15Solved')==='1')localStorage.setItem('shikiReturnStage','record15')}catch(e){}});
 </script>
 </body>
 </html>
