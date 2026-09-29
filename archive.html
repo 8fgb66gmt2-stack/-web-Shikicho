@@ -95,13 +95,31 @@
   const panel=document.getElementById('shiki-investigation'), hint=document.getElementById('investigation-hint'), text=document.getElementById('investigation-text'), next=document.getElementById('investigation-next'), close=document.getElementById('investigation-close'), progress=document.getElementById('investigation-progress'), record16=document.getElementById('record16'), uni=document.getElementById('university-link');
   const solved=()=>{try{return localStorage.getItem('shikiRecord15Solved')==='1'}catch(e){return false}};
   let lines=[],index=0;
-  function render(){text.textContent=lines[index];progress.textContent=(index+1)+' / '+lines.length;}
-  function open(){panel.classList.add('is-visible');hint.classList.remove('is-visible');render();}
-  function start(){lines=solved()?['……戻ってきたんだね。','第十五號の照合は済んだんだね。','……じゃあ、やっぱり十六號が気になる。','目録には「資料未登録」とある。','でも、関連記録の存在だけは確認されている。','だったら……登録されていないのは、資料じゃなくて「記録」なのかもしれない。','ここから先は、四季廳の資料室だけでは分からなさそうだね。']:['……ここが附属資料室か。','トップページから直接来ると、普通の資料室にしか見えないね。','……十五號はある。','でも、十六號がない。','資料番号って、普通は順番に振るよね。','……これ。わざわざ「資料番号の欠落は資料そのものの欠落を意味しません」って書いてある。','まずは十五號を読んでみようか。'];index=0;open();}
+  function render(){
+    if(!lines.length)return;
+    if(index<0)index=0;
+    if(index>=lines.length)index=lines.length-1;
+    text.textContent=lines[index];
+    progress.textContent=(index+1)+' / '+lines.length;
+    next.textContent=(index===lines.length-1)?'調査記録を閉じる':'次へ　›';
+  }
+  function openPanel(){
+    panel.classList.add('is-visible');
+    hint.classList.remove('is-visible');
+    render();
+  }
+  function start(){
+    lines=solved()
+      ? ['……戻ってきたんだね。','第十五號の照合は済んだんだね。','……じゃあ、やっぱり十六號が気になる。','目録には「資料未登録」とある。','でも、関連記録の存在だけは確認されている。','だったら……登録されていないのは、資料じゃなくて「記録」なのかもしれない。','ここから先は、四季廳の資料室だけでは分からなさそうだね。']
+      : ['……ここが附属資料室か。','トップページから直接来ると、普通の資料室にしか見えないね。','……十五號はある。','でも、十六號がない。','資料番号って、普通は順番に振るよね。','……これ。わざわざ「資料番号の欠落は資料そのものの欠落を意味しません」って書いてある。','まずは十五號を読んでみようか。'];
+    index=0;
+    next.textContent='次へ　›';
+    openPanel();
+  }
   next.addEventListener('click',()=>{if(index<lines.length-1){index++;render()}else{next.textContent='調査記録を閉じる';panel.classList.remove('is-visible');hint.classList.add('is-visible');}});
   close.addEventListener('click',()=>{panel.classList.remove('is-visible');hint.classList.add('is-visible');});
   hint.addEventListener('click',()=>open());
-  record16.addEventListener('click',(e)=>{if(e.target.closest('a'))return;if(solved()){lines=['……やっぱり、ここだ。','第十六號そのものは登録されていない。','でも、さっきの第十五號には「ARCHIVE 16」と残っていた。','つまり……この資料室にない記録を、別の場所では参照している。','僕、ひとつ心当たりがある。','日ノ本帝國國立帝國大學のARCHIVE 16。','ただし、そこにあるのは行政資料じゃない。','……人物相関図なんだ。','四季廳の記録では見えなかった「人と人との繋がり」を、そっちから見てみようか。'];index=0;open();uni.classList.add('is-visible');}else{lines=['……ここは、まだ開かないね。','先に第十五號を読んで、封緘を解除してみよう。'];index=0;open();}});
+  record16.addEventListener('click',(e)=>{if(e.target.closest('a'))return;if(solved()){lines=['……やっぱり、ここだ。','第十六號そのものは登録されていない。','でも、さっきの第十五號には「ARCHIVE 16」と残っていた。','つまり……この資料室にない記録を、別の場所では参照している。','僕、ひとつ心当たりがある。','日ノ本帝國國立帝國大學のARCHIVE 16。','ただし、そこにあるのは行政資料じゃない。','……人物相関図なんだ。','四季廳の記録では見えなかった「人と人との繋がり」を、そっちから見てみようか。'];index=0;openPanel();uni.classList.add('is-visible');}else{lines=['……ここは、まだ開かないね。','先に第十五號を読んで、封緘を解除してみよう。'];index=0;open();}});
   record16.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();record16.click();}});
   // 資料室では春月が常に待機。既読状態に関係なく、ページを開けば会話を表示する。
   setTimeout(start,350);
