@@ -236,9 +236,7 @@ document.querySelectorAll('.god-tab').forEach(btn=>btn.addEventListener('click',
   }
 
   seasonStatus?.addEventListener('click', () => {
-    let checked = false;
-    try { checked = localStorage.getItem('shikiStatusChecked') === '1'; } catch(e) {}
-    if (!checked) startStatusInvestigation();
+    startStatusInvestigation();
   });
   seasonStatus?.addEventListener('keydown', (event) => {
     if (event.key === 'Enter' || event.key === ' ') {
