@@ -88,12 +88,13 @@
 <button type="button" class="shiki-investigation-hint" id="investigation-hint">春月との調査記録を開く</button>
 <div class="shiki-investigation" id="shiki-investigation" aria-live="polite">
   <div class="shiki-investigation-head"><span>SHIKI AGENCY / SITE INVESTIGATION</span><button type="button" id="investigation-close" aria-label="会話を閉じる">×</button></div>
-  <div class="shiki-investigation-body"><span class="shiki-investigation-name">花葉 春月</span><p class="shiki-investigation-text" id="investigation-text"></p><button type="button" class="shiki-investigation-next" id="investigation-next">次へ　›</button><span class="shiki-investigation-progress" id="investigation-progress"></span><button type="button" id="archive-first-dialogue" style="display:none;margin-top:10px;border:1px solid rgba(117,43,45,.35);background:rgba(255,255,255,.82);color:#4b2527;padding:7px 12px;font:inherit;font-size:12px;cursor:pointer">最初の会話を見直す</button></div>
+  <div class="shiki-investigation-body"><span class="shiki-investigation-name">花葉 春月</span><p class="shiki-investigation-text" id="investigation-text"></p><button type="button" class="shiki-investigation-next" id="investigation-next">次へ　›</button><span class="shiki-investigation-progress" id="investigation-progress"></span><button type="button" id="archive-first-dialogue" style="display:none;margin-top:10px;border:1px solid rgba(117,43,45,.35);background:rgba(255,255,255,.82);color:#4b2527;padding:7px 12px;font:inherit;font-size:12px;cursor:pointer">最初の会話を見直す</button>
+      <button type="button" id="archive-solved-dialogue" style="display:none;margin-top:10px;border:1px solid rgba(117,43,45,.35);background:rgba(255,255,255,.82);color:#4b2527;padding:7px 12px;font:inherit;font-size:12px;cursor:pointer">第15号読了後の会話を見直す</button></div>
 </div>
 <script>
 (() => {
   const panel=document.getElementById('shiki-investigation'), hint=document.getElementById('investigation-hint'), text=document.getElementById('investigation-text'), next=document.getElementById('investigation-next'), close=document.getElementById('investigation-close'), progress=document.getElementById('investigation-progress'), record16=document.getElementById('record16'), uni=document.getElementById('university-link');
-  const firstDialogue=document.getElementById('archive-first-dialogue');
+  const firstDialogue=document.getElementById('archive-first-dialogue'), solvedDialogue=document.getElementById('archive-solved-dialogue');
   const solved=()=>{try{return localStorage.getItem('shikiRecord15Solved')==='1'}catch(e){return false}};
   const archive16Visited=()=>{try{return localStorage.getItem('shikiArchive16Visited')==='1'}catch(e){return false}};
   let lines=[],index=0;
@@ -110,6 +111,11 @@
     hint.classList.remove('is-visible');
     render();
   }
+  function showSolvedDialogue(){
+    lines=['……第十五號の照合、済んだんだね。','じゃあ、次は第十六號だ。','目録には「資料未登録」とある。','でも、関連記録の存在だけは確認されている。','……変だよね。','僕たちがまだ中身を見ていない以上、今は推測しかできない。','だから、先にN.I.U. ARCHIVE 16を見てみようか。','そこに何が残されているのか――君と一緒に確かめたい。'];
+    index=0; next.textContent='次へ　›'; solvedDialogue.style.display='none'; openPanel();
+  }
+
   function showFirstDialogue(){
     lines=['……ここが附属資料室か。','トップページから直接来ると、普通の資料室にしか見えないね。','……十五號はある。','でも、十六號がない。','資料番号って、普通は順番に振るよね。','……これ。わざわざ「資料番号の欠落は資料そのものの欠落を意味しません」って書いてある。','まずは十五號を読んでみようか。'];
     index=0;
@@ -120,7 +126,7 @@
 
   function start(){
     if(archive16Visited()){
-      lines=['……おかえり。','ちゃんと読んできたんだね。ARCHIVE 16。','……どうだった？','四季廳の資料室にある記録とは、ずいぶん違ったでしょう。','こっちは行政記録だからね。誰が、いつ、何をしたか。そういうことは残る。','でも――誰が誰を好きだったとか、誰に救われたとか、誰と決別したとか。','そういうものは、あまり記録されない。','……だから、あの頁が必要だったのかもしれないね。','僕自身の名前も、載っていたでしょう。','雛菊ちゃんのことも。','それから……僕たちの周りにいる人たちのことも。','あの頁を読んで、何か気づいた？','……そう。','じゃあ、少しだけ整理しようか。','四季廳の記録では、「春は正常に巡行している」。','でも、帝國大學の記録には――春をめぐって、もっとたくさんの人間の名前が残っていた。','つまり、四季の異常を調べるなら……四季そのものだけを見ていても、足りないんだ。','人と人との関係まで辿らないと、見えてこない。','……たぶん、ここからが本当の調査なんだと思う。','ARCHIVE 16の中で、気になった名前はあった？','だったら、その人の記録を探してみよう。','四季廳の資料室にも、まだ公開されていない記録があるかもしれないから。'];
+      lines=['……おかえり。','ちゃんと読んできたんだね。ARCHIVE 16。','……どうだった？','四季廳の資料室にある記録とは、ずいぶん違ったでしょう。','こっちは行政記録だからね。誰が、いつ、何をしたか。そういうことは残る。','でも――誰が誰を好きだったとか、誰に救われたとか、誰と決別したとか。','そういうものは、あまり記録されない。','……だから、あの頁が必要だったのかもしれないね。','僕自身の名前も、載っていたでしょう。','雛菊ちゃんのことも。','それから……僕たちの周りにいる人たちのことも。','あの頁を読んで、何か気づいた？','……そう。','じゃあ、少しだけ整理しようか。','四季廳の記録では、「春は正常に巡行している」。','でも、帝國大學の記録には――春をめぐって、もっとたくさんの人間の名前が残っていた。','つまり、四季の異常を調べるなら……四季そのものだけを見ていても、足りないんだ。','人と人との関係まで辿らないと、見えてこない。','……たぶん、ここからが本当の調査なんだと思う。','ARCHIVE 16の中で、気になった名前はあった？','だったら、その人の記録を探してみよう。','四季廳の資料室にも、まだ公開されていない記録があるかもしれないから.'];
     }else if(solved()){
       lines=['……第十五號の照合、済んだんだね。','じゃあ、次は第十六號だ。','目録には「資料未登録」とある。','でも、関連記録の存在だけは確認されている。','……変だよね。','僕たちがまだ中身を見ていない以上、今は推測しかできない。','だから、先にN.I.U. ARCHIVE 16を見てみようか。','そこに何が残されているのか――君と一緒に確かめたい。'];
     }else{
@@ -134,12 +140,14 @@
   close.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();panel.classList.remove('is-visible');hint.classList.add('is-visible');});
   hint.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();openPanel();});
   firstDialogue?.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();showFirstDialogue();});
+  solvedDialogue?.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();showSolvedDialogue();});
   record16.addEventListener('click',(e)=>{if(e.target.closest('a'))return;if(solved()){lines=['……やっぱり、ここだ。','第十六號そのものは登録されていない。','でも、さっきの第十五號には「ARCHIVE 16」と残っていた。','つまり……この資料室にない記録を、別の場所では参照している。','僕、ひとつ心当たりがある。','日ノ本帝國國立帝國大學のARCHIVE 16。','ただし、そこにあるのは行政資料じゃない。','……人物相関図なんだ。','四季廳の記録では見えなかった「人と人との繋がり」を、そっちから見てみようか。'];index=0;openPanel();uni.classList.add('is-visible');}else{lines=['……ここは、まだ開かないね。','先に第十五號を読んで、封緘を解除してみよう。'];index=0;openPanel();}});
   record16.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();record16.click();}});
   uni.addEventListener('click',()=>{try{localStorage.setItem('shikiArchive16Visited','1')}catch(e){}});
   // 資料室では春月が常に待機。既読状態に関係なく、ページを開けば会話を表示する。
   setTimeout(start,350);
   if(firstDialogue && (solved() || archive16Visited())) firstDialogue.style.display='inline-block';
+  if(solvedDialogue && !archive16Visited() && solved()) solvedDialogue.style.display='inline-block';
 })();
 </script>
 </body>
