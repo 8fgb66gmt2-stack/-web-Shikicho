@@ -107,6 +107,7 @@
     next.textContent=(index===lines.length-1)?'調査記録を閉じる':'次へ　›';
   }
   function openPanel(){
+    if(!lines.length){ start(); return; }
     panel.classList.add('is-visible');
     hint.classList.remove('is-visible');
     render();
@@ -142,7 +143,7 @@
   }
   next.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();if(index<lines.length-1){index++;render()}else{next.textContent='調査記録を閉じる';panel.classList.remove('is-visible');hint.classList.add('is-visible');}});
   close.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();panel.classList.remove('is-visible');hint.classList.add('is-visible');});
-  hint.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();openPanel();});
+  hint.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();if(!lines.length){start();}else{openPanel();}});
   firstDialogue?.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();showFirstDialogue();});
   solvedDialogue?.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();showSolvedDialogue();});
   record16.addEventListener('click',(e)=>{if(e.target.closest('a'))return;if(solved()){lines=['……やっぱり、ここだ。','第十六號そのものは登録されていない。','でも、さっきの第十五號には「ARCHIVE 16」と残っていた。','つまり……この資料室にない記録を、別の場所では参照している。','僕、ひとつ心当たりがある。','日ノ本帝國國立帝國大學のARCHIVE 16。','ただし、そこにあるのは行政資料じゃない。','……人物相関図なんだ。','四季廳の記録では見えなかった「人と人との繋がり」を、そっちから見てみようか。'];index=0;openPanel();uni.classList.add('is-visible');}else{lines=['……ここは、まだ開かないね。','先に第十五號を読んで、封緘を解除してみよう。'];index=0;openPanel();}});
