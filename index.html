@@ -82,10 +82,145 @@
 <section id="contact" class="section contact-section"><div class="content-width"><div class="section-title"><span>07</span><div><p>INQUIRY / CONSULTATION</p><h2>相談窓口</h2></div></div><div class="contact-box"><p>四季神祇、現人神の保護、神祇災害その他四季廳所管事項についてのご相談を受け付けています。</p><div><strong>四季廳 本廳舍・相談窓口</strong><span>帝都・四季廳本廳舍　平日 09:00–17:00</span></div></div></div></section>
 </main>
 <footer class="site-footer"><div class="content-width"><strong>四季廳</strong><span>日ノ本帝國　四季神祇行政機關</span><nav><a href="archive.html">附属資料室</a><a href="constitution.html">帝國法令</a><a href="miyauchi.html">宮内廳との連携</a></nav><small>四季を絶やすこと勿れ。</small></div></footer>
+
+<style>
+/* 春月・サイト内調査会話 */
+.shiki-investigation{
+  position:fixed;right:24px;bottom:24px;z-index:120;
+  width:min(430px,calc(100vw - 32px));
+  color:#292622;background:rgba(250,247,239,.97);
+  border:1px solid rgba(80,64,48,.35);
+  border-top:3px solid #752b2d;
+  box-shadow:0 14px 42px rgba(35,25,20,.25);
+  backdrop-filter:blur(8px);
+  opacity:0;transform:translateY(18px);
+  pointer-events:none;transition:.28s ease;
+}
+.shiki-investigation.is-visible{opacity:1;transform:none;pointer-events:auto}
+.shiki-investigation-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:9px 14px;border-bottom:1px solid rgba(61,48,38,.14);
+  background:#f2ede2;
+}
+.shiki-investigation-head small{font:10px Georgia,serif;letter-spacing:.15em;color:#756e65}
+.shiki-investigation-close{
+  border:0;background:transparent;color:#756e65;font-size:17px;
+  line-height:1;cursor:pointer;padding:2px 4px;
+}
+.shiki-investigation-body{padding:17px 18px 15px}
+.shiki-investigation-name{
+  display:inline-block;color:#752b2d;font-size:11px;font-weight:600;
+  letter-spacing:.13em;border-bottom:1px solid #aa8d55;padding-bottom:2px;
+}
+.shiki-investigation-text{
+  margin:10px 0 14px;font-size:13px;line-height:1.95;
+  min-height:52px;white-space:pre-line;
+}
+.shiki-investigation-next{
+  width:100%;border:1px solid rgba(117,43,45,.45);
+  background:#fffdf8;color:#542022;padding:9px 12px;
+  font-family:inherit;font-size:11px;letter-spacing:.12em;cursor:pointer;
+}
+.shiki-investigation-next:hover{background:#f3ebe0}
+.shiki-investigation-progress{
+  margin-top:9px;text-align:right;color:#9a9288;
+  font:9px Georgia,serif;letter-spacing:.12em;
+}
+.shiki-investigation-hint{
+  position:fixed;right:24px;bottom:24px;z-index:119;
+  display:none;border:1px solid rgba(117,43,45,.42);
+  background:rgba(250,247,239,.96);color:#542022;
+  padding:10px 14px;font-family:inherit;font-size:10px;
+  letter-spacing:.12em;cursor:pointer;box-shadow:0 7px 22px rgba(35,25,20,.16);
+}
+.shiki-investigation-hint.is-visible{display:block}
+@media(max-width:700px){
+  .shiki-investigation{right:12px;bottom:12px;width:calc(100vw - 24px)}
+  .shiki-investigation-hint{right:12px;bottom:12px}
+}
+</style>
+
+<div class="shiki-investigation" id="shiki-investigation" aria-live="polite" aria-label="春月とのサイト内調査">
+  <div class="shiki-investigation-head">
+    <small>SHIKI AGENCY / SITE INVESTIGATION</small>
+    <button class="shiki-investigation-close" id="shiki-investigation-close" aria-label="会話を閉じる">×</button>
+  </div>
+  <div class="shiki-investigation-body">
+    <span class="shiki-investigation-name" id="shiki-investigation-name">花葉 春月</span>
+    <p class="shiki-investigation-text" id="shiki-investigation-text"></p>
+    <button class="shiki-investigation-next" id="shiki-investigation-next">次へ　›</button>
+    <div class="shiki-investigation-progress" id="shiki-investigation-progress"></div>
+  </div>
+</div>
+<button class="shiki-investigation-hint" id="shiki-investigation-hint">春月との調査記録を開く</button>
+
 <script>
 const toggle=document.querySelector('.menu-toggle'),nav=document.getElementById('global-nav');
 toggle?.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!open));nav.classList.toggle('open',!open)});
 document.querySelectorAll('.god-tab').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.god-tab').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.god-panel').forEach(p=>p.classList.remove('active'));btn.classList.add('active');document.getElementById('panel-'+btn.dataset.season)?.classList.add('active')}));
+</script>
+<script>
+(() => {
+  const panel = document.getElementById('shiki-investigation');
+  const text = document.getElementById('shiki-investigation-text');
+  const next = document.getElementById('shiki-investigation-next');
+  const close = document.getElementById('shiki-investigation-close');
+  const hint = document.getElementById('shiki-investigation-hint');
+  const progress = document.getElementById('shiki-investigation-progress');
+
+  const lines = [
+    '……こんにちは。\nここまで来てくれたんだね。',
+    '実は僕も、このサイトを少し調べているんだ。',
+    '四季廳の公式記録だから、もちろん大事なことは全部載っている。\n……そういうことになっているんだけど。',
+    'どうも、いくつか気になるところがあるんだよね。',
+    '僕ひとりだと見落としてしまいそうだから……\nよかったら、一緒に見てもらえる？',
+    'まずは、このページを上から順番に見てみようか。\n急がなくて大丈夫だよ。',
+    '……それと、もし「変だな」と思うところがあったら、覚えておいて。\nたぶん、それが入口になるから。',
+    'じゃあ、始めようか。\n――四季廳の記録を、最初から。'
+  ];
+
+  let index = 0;
+
+  function render() {
+    text.textContent = lines[index];
+    progress.textContent = (index + 1) + ' / ' + lines.length;
+    next.textContent = index === lines.length - 1 ? '調査を始める　›' : '次へ　›';
+  }
+
+  function openPanel() {
+    panel.classList.add('is-visible');
+    hint.classList.remove('is-visible');
+    render();
+  }
+
+  function closePanel() {
+    panel.classList.remove('is-visible');
+    hint.classList.add('is-visible');
+    try { sessionStorage.setItem('shikiInvestigationStarted', '1'); } catch(e) {}
+  }
+
+  next.addEventListener('click', () => {
+    if (index < lines.length - 1) {
+      index++;
+      render();
+    } else {
+      closePanel();
+    }
+  });
+
+  close.addEventListener('click', closePanel);
+  hint.addEventListener('click', openPanel);
+
+  try {
+    if (!sessionStorage.getItem('shikiInvestigationStarted')) {
+      window.setTimeout(openPanel, 900);
+    } else {
+      hint.classList.add('is-visible');
+    }
+  } catch(e) {
+    window.setTimeout(openPanel, 900);
+  }
+})();
 </script>
 </body>
 </html>
