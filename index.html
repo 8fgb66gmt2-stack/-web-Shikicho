@@ -289,6 +289,12 @@ document.querySelectorAll('.god-tab').forEach(btn=>btn.addEventListener('click',
   }
 
   next.addEventListener('click', () => {
+    if(window.__shikiAuthorReturn){
+      const s=window.__shikiAuthorReturn;
+      if(s.index<s.lines.length-1){s.index++;text.textContent=s.lines[s.index];progress.textContent=(s.index+1)+' / '+s.lines.length;next.textContent=s.index===s.lines.length-1?'閉じる':'次へ　›';}
+      else{window.__shikiAuthorReturn=null;closePanel();}
+      return;
+    }
     if(authorInvestigation){if(authorIndex<authorLines.length-1){authorIndex++;renderAuthor();}else{showAuthorNext();}return;}
     if (newsInvestigationMode) {
       if (newsInvestigationIndex < newsInvestigationLines.length - 1) {
@@ -329,7 +335,7 @@ document.querySelectorAll('.god-tab').forEach(btn=>btn.addEventListener('click',
   hint.addEventListener('click', openPanel);
 
   // 旧稿から戻ったとき、春月が「作者名義」の照合を一緒に行う。
-  try{if(localStorage.getItem('shikiManuscriptVisited')==='1'){setTimeout(()=>{authorInvestigation=true;authorIndex=0;authorLines=[
+  try{if(localStorage.getItem('shikiManuscriptVisited')==='1'){setTimeout(()=>{window.__shikiAuthorReturn={index:0,lines:[
     '……おかえり。',
     '読んできたんだね。旧稿。',
     '……やっぱり、あの名前が残っていたでしょう。',
@@ -338,7 +344,7 @@ document.querySelectorAll('.god-tab').forEach(btn=>btn.addEventListener('click',
     '同じ作品。同じ物語。作者名義だけが違う。',
     '……ここまで来たら、二つの記録を並べて考えてみるしかないね。',
     '君は、どう思う？'
-  ];renderAuthor();panel.classList.add('is-visible');hint.classList.remove('is-visible');},450)}}catch(e){}
+  ]};text.textContent=window.__shikiAuthorReturn.lines[0];progress.textContent='1 / '+window.__shikiAuthorReturn.lines.length;next.textContent='次へ　›';panel.classList.add('is-visible');hint.classList.remove('is-visible');},450)}}catch(e){}
 
   // 初回表示はHTML側でも可視化しておき、JavaScriptやキャッシュの状態に左右されないようにする。
   // 閉じた後だけ、このセッションでは右下の「調査記録を開く」に切り替える。
