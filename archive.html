@@ -83,7 +83,7 @@
   </section>
 
   <p class="room-note">資料室記録管理番号：SH-ARCHIVE / 237<br>最終整理：帝國暦237年09月08日</p>
-  <a class="back" href="index.html">← 四季廳本廳舍へ戻る</a>
+  <a class="back" id="back-to-shiki" href="index.html">← 四季廳本廳舍へ戻る</a>
 </main>
 <button type="button" class="shiki-investigation-hint" id="investigation-hint">春月との調査記録を開く</button>
 <div class="shiki-investigation" id="shiki-investigation" aria-live="polite">
@@ -126,8 +126,8 @@
   }
 
   function start(){
-    let returnStage='';
-    try{returnStage=localStorage.getItem('shikiReturnStage')||''; localStorage.removeItem('shikiReturnStage')}catch(e){}
+    let returnStage=new URLSearchParams(location.search).get('return')||'';
+    try{if(!returnStage)returnStage=localStorage.getItem('shikiReturnStage')||''; localStorage.removeItem('shikiReturnStage')}catch(e){}
     if(returnStage==='record15'){
       lines=['……第十五號の照合、済んだんだね。','じゃあ、次は第十六號だ。','目録には「資料未登録」とある。','でも、関連記録の存在だけは確認されている。','……変だよね。','僕たちがまだ中身を見ていない以上、今は推測しかできない。','だから、先にN.I.U. ARCHIVE 16を見てみようか。','そこに何が残されているのか――君と一緒に確かめたい。'];
     }else if(returnStage==='archive16' || archive16Visited()){
@@ -149,6 +149,7 @@
   record16.addEventListener('click',(e)=>{if(e.target.closest('a'))return;if(solved()){lines=['……やっぱり、ここだ。','第十六號そのものは登録されていない。','でも、さっきの第十五號には「ARCHIVE 16」と残っていた。','つまり……この資料室にない記録を、別の場所では参照している。','僕、ひとつ心当たりがある。','日ノ本帝國國立帝國大學のARCHIVE 16。','ただし、そこにあるのは行政資料じゃない。','……人物相関図なんだ。','四季廳の記録では見えなかった「人と人との繋がり」を、そっちから見てみようか。'];index=0;openPanel();uni.classList.add('is-visible');}else{lines=['……ここは、まだ開かないね。','先に第十五號を読んで、封緘を解除してみよう。'];index=0;openPanel();}});
   record16.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();record16.click();}});
   uni.addEventListener('click',()=>{try{localStorage.setItem('shikiArchive16Visited','1');localStorage.setItem('shikiReturnStage','archive16')}catch(e){}});
+  document.getElementById('back-to-shiki')?.addEventListener('click',(e)=>{e.preventDefault();const stage=new URLSearchParams(location.search).get('return')||'';const target=stage==='archive16'?'archive16':(stage==='record15'||solved()?'record15':'');window.location.href=target?'index.html?return='+target:'index.html';});
   // 資料室では春月が常に待機。既読状態に関係なく、ページを開けば会話を表示する。
   setTimeout(start,350);
   if(firstDialogue && (solved() || archive16Visited())) firstDialogue.style.display='inline-block';
