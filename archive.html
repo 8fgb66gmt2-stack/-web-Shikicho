@@ -85,10 +85,10 @@
   <p class="room-note">資料室記録管理番号：SH-ARCHIVE / 237<br>最終整理：帝國暦237年09月08日</p>
   <a class="back" href="index.html">← 四季廳本廳舍へ戻る</a>
 </main>
-<button class="shiki-investigation-hint" id="investigation-hint">春月との調査記録を開く</button>
+<button type="button" class="shiki-investigation-hint" id="investigation-hint">春月との調査記録を開く</button>
 <div class="shiki-investigation" id="shiki-investigation" aria-live="polite">
-  <div class="shiki-investigation-head"><span>SHIKI AGENCY / SITE INVESTIGATION</span><button id="investigation-close" aria-label="会話を閉じる">×</button></div>
-  <div class="shiki-investigation-body"><span class="shiki-investigation-name">花葉 春月</span><p class="shiki-investigation-text" id="investigation-text"></p><button class="shiki-investigation-next" id="investigation-next">次へ　›</button><span class="shiki-investigation-progress" id="investigation-progress"></span></div>
+  <div class="shiki-investigation-head"><span>SHIKI AGENCY / SITE INVESTIGATION</span><button type="button" id="investigation-close" aria-label="会話を閉じる">×</button></div>
+  <div class="shiki-investigation-body"><span class="shiki-investigation-name">花葉 春月</span><p class="shiki-investigation-text" id="investigation-text"></p><button type="button" class="shiki-investigation-next" id="investigation-next">次へ　›</button><span class="shiki-investigation-progress" id="investigation-progress"></span></div>
 </div>
 <script>
 (() => {
@@ -116,9 +116,9 @@
     next.textContent='次へ　›';
     openPanel();
   }
-  next.addEventListener('click',()=>{if(index<lines.length-1){index++;render()}else{next.textContent='調査記録を閉じる';panel.classList.remove('is-visible');hint.classList.add('is-visible');}});
-  close.addEventListener('click',()=>{panel.classList.remove('is-visible');hint.classList.add('is-visible');});
-  hint.addEventListener('click',()=>open());
+  next.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();if(index<lines.length-1){index++;render()}else{next.textContent='調査記録を閉じる';panel.classList.remove('is-visible');hint.classList.add('is-visible');}});
+  close.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();panel.classList.remove('is-visible');hint.classList.add('is-visible');});
+  hint.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();openPanel();});
   record16.addEventListener('click',(e)=>{if(e.target.closest('a'))return;if(solved()){lines=['……やっぱり、ここだ。','第十六號そのものは登録されていない。','でも、さっきの第十五號には「ARCHIVE 16」と残っていた。','つまり……この資料室にない記録を、別の場所では参照している。','僕、ひとつ心当たりがある。','日ノ本帝國國立帝國大學のARCHIVE 16。','ただし、そこにあるのは行政資料じゃない。','……人物相関図なんだ。','四季廳の記録では見えなかった「人と人との繋がり」を、そっちから見てみようか。'];index=0;openPanel();uni.classList.add('is-visible');}else{lines=['……ここは、まだ開かないね。','先に第十五號を読んで、封緘を解除してみよう。'];index=0;open();}});
   record16.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();record16.click();}});
   // 資料室では春月が常に待機。既読状態に関係なく、ページを開けば会話を表示する。
