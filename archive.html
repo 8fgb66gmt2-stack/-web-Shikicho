@@ -43,6 +43,8 @@
 .shiki-investigation-progress{float:right;color:#8b8378;font:10px Arial,sans-serif;padding-top:9px}
 .arg-link{display:none;margin-top:18px;padding:14px 15px;border:1px solid rgba(109,32,40,.35);background:rgba(109,32,40,.05);color:#6d2028;text-decoration:none;line-height:1.7;font-size:12px}
 .arg-link.is-visible{display:block}
+.shiki-investigation-hint{position:fixed;right:22px;bottom:22px;z-index:29;display:none;border:1px solid rgba(109,32,40,.45);background:#eee7d9;color:#6d2028;padding:10px 14px;font:12px serif;cursor:pointer;box-shadow:0 8px 25px rgba(0,0,0,.28)}
+.shiki-investigation-hint.is-visible{display:block}
 @media(max-width:700px){.shiki-investigation{right:12px;bottom:12px;width:calc(100vw - 24px)}}
 </style>
 </head>
@@ -83,23 +85,25 @@
   <p class="room-note">資料室記録管理番号：SH-ARCHIVE / 237<br>最終整理：帝國暦237年09月08日</p>
   <a class="back" href="index.html">← 四季廳本廳舍へ戻る</a>
 </main>
+<button class="shiki-investigation-hint" id="investigation-hint">春月との調査記録を開く</button>
 <div class="shiki-investigation" id="shiki-investigation" aria-live="polite">
   <div class="shiki-investigation-head"><span>SHIKI AGENCY / SITE INVESTIGATION</span><button id="investigation-close" aria-label="会話を閉じる">×</button></div>
   <div class="shiki-investigation-body"><span class="shiki-investigation-name">花葉 春月</span><p class="shiki-investigation-text" id="investigation-text"></p><button class="shiki-investigation-next" id="investigation-next">次へ　›</button><span class="shiki-investigation-progress" id="investigation-progress"></span></div>
 </div>
 <script>
 (() => {
-  const panel=document.getElementById('shiki-investigation'), text=document.getElementById('investigation-text'), next=document.getElementById('investigation-next'), close=document.getElementById('investigation-close'), progress=document.getElementById('investigation-progress'), record16=document.getElementById('record16'), uni=document.getElementById('university-link');
+  const panel=document.getElementById('shiki-investigation'), hint=document.getElementById('investigation-hint'), text=document.getElementById('investigation-text'), next=document.getElementById('investigation-next'), close=document.getElementById('investigation-close'), progress=document.getElementById('investigation-progress'), record16=document.getElementById('record16'), uni=document.getElementById('university-link');
   const solved=()=>{try{return localStorage.getItem('shikiRecord15Solved')==='1'}catch(e){return false}};
   let lines=[],index=0;
   function render(){text.textContent=lines[index];progress.textContent=(index+1)+' / '+lines.length;}
-  function open(){panel.classList.add('is-visible');render();}
+  function open(){panel.classList.add('is-visible');hint.classList.remove('is-visible');render();}
   function start(){lines=solved()?['……戻ってきたんだね。','第十五號の照合は済んだんだね。','……じゃあ、やっぱり十六號が気になる。','目録には「資料未登録」とある。','でも、関連記録の存在だけは確認されている。','だったら……登録されていないのは、資料じゃなくて「記録」なのかもしれない。','ここから先は、四季廳の資料室だけでは分からなさそうだね。']:['……ここが附属資料室か。','トップページから直接来ると、普通の資料室にしか見えないね。','……十五號はある。','でも、十六號がない。','資料番号って、普通は順番に振るよね。','……これ。わざわざ「資料番号の欠落は資料そのものの欠落を意味しません」って書いてある。','まずは十五號を読んでみようか。'];index=0;open();}
-  next.addEventListener('click',()=>{if(index<lines.length-1){index++;render()}else{panel.classList.remove('is-visible');}});
-  close.addEventListener('click',()=>panel.classList.remove('is-visible'));
+  next.addEventListener('click',()=>{if(index<lines.length-1){index++;render()}else{next.textContent='調査記録を閉じる';panel.classList.remove('is-visible');hint.classList.add('is-visible');}});
+  close.addEventListener('click',()=>{panel.classList.remove('is-visible');hint.classList.add('is-visible');});
+  hint.addEventListener('click',()=>open());
   record16.addEventListener('click',(e)=>{if(e.target.closest('a'))return;if(solved()){lines=['……やっぱり、ここだ。','第十六號そのものは登録されていない。','でも、さっきの第十五號には「ARCHIVE 16」と残っていた。','つまり……この資料室にない記録を、別の場所では参照している。','僕、ひとつ心当たりがある。','日ノ本帝國國立帝國大學のARCHIVE 16。','ただし、そこにあるのは行政資料じゃない。','……人物相関図なんだ。','四季廳の記録では見えなかった「人と人との繋がり」を、そっちから見てみようか。'];index=0;open();uni.classList.add('is-visible');}else{lines=['……ここは、まだ開かないね。','先に第十五號を読んで、封緘を解除してみよう。'];index=0;open();}});
   record16.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();record16.click();}});
-  if(!solved())setTimeout(start,350);
+  if(!solved())setTimeout(start,350); else hint.classList.add('is-visible');
 })();
 </script>
 </body>
