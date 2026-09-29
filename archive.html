@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0d0d10">
+<title>附属資料室｜四季廳｜日ノ本帝國</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="imperial.css">
+<style>
+:root{--ink:#111116;--paper:#e9e3d6;--paper2:#d8d0c0;--gold:#b9a56e;--red:#6d2028;--muted:#746f66}
+.archive-page{min-height:100vh;background:radial-gradient(circle at 50% 0,#27242a 0,#121216 42%,#0b0b0e 100%);color:#e9e3d6;font-family:serif}
+.archive-top{border-bottom:1px solid rgba(185,165,110,.35);padding:13px 28px;font-size:11px;letter-spacing:.18em;color:#aaa28f}
+.archive-wrap{max-width:1080px;margin:auto;padding:72px 28px 100px}
+.archive-kicker{font-size:11px;letter-spacing:.28em;color:#b9a56e}
+.archive-title{font-size:clamp(34px,6vw,68px);font-weight:400;letter-spacing:.12em;margin:14px 0 8px}
+.archive-sub{color:#aaa49a;letter-spacing:.14em;font-size:12px}
+.seal{float:right;width:68px;height:68px;border:1px solid rgba(185,165,110,.65);display:grid;place-items:center;color:#b9a56e;writing-mode:vertical-rl;letter-spacing:.15em}
+.notice{margin:55px 0 30px;border:1px solid rgba(185,165,110,.3);background:rgba(255,255,255,.025);padding:24px;position:relative}
+.notice:before{content:'四季廳附属資料室';position:absolute;top:-9px;left:18px;background:#121216;padding:0 9px;color:#b9a56e;font-size:10px;letter-spacing:.18em}
+.notice p{line-height:2;color:#c9c2b5;margin:0}
+.doc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:22px}
+.doc{display:block;text-decoration:none;color:inherit;border:1px solid rgba(185,165,110,.2);padding:22px;background:rgba(255,255,255,.018);transition:.25s}
+.doc:hover{border-color:rgba(185,165,110,.7);background:rgba(185,165,110,.045);transform:translateY(-2px)}
+.doc small{display:block;color:#8f897e;font-size:10px;letter-spacing:.15em;margin-bottom:9px}
+.doc strong{font-size:18px;font-weight:500;letter-spacing:.08em}
+.doc p{font-size:12px;line-height:1.9;color:#aaa49b;margin:12px 0 0}
+.doc.locked{position:relative;border-color:rgba(109,32,40,.55);background:linear-gradient(135deg,rgba(109,32,40,.08),rgba(255,255,255,.01))}
+.doc.locked strong{color:#d8c9b5}
+.redact{letter-spacing:.3em;color:#5e5960}
+.room-note{margin-top:42px;padding:25px 0;border-top:1px solid rgba(185,165,110,.18);border-bottom:1px solid rgba(185,165,110,.18);text-align:center;color:#817b71;font-size:11px;letter-spacing:.12em;line-height:2}
+.back{display:inline-block;margin-top:40px;color:#c8bb98;text-decoration:none;border-bottom:1px solid rgba(200,187,152,.35);padding-bottom:5px}
+@media(max-width:700px){.archive-wrap{padding:48px 18px 70px}.seal{float:none;margin-bottom:22px}.doc-grid{grid-template-columns:1fr}.archive-title{letter-spacing:.07em}}
+</style>
+</head>
+<body class="archive-page">
+<div class="archive-top">日ノ本帝國　帝都統括情報網　／　四季廳附属資料室</div>
+<main class="archive-wrap">
+  <div class="seal">封<br>緘</div>
+  <p class="archive-kicker">SHIKI AGENCY / ARCHIVE ROOM</p>
+  <h1 class="archive-title">附属資料室</h1>
+  <p class="archive-sub">公開行政資料・寄託資料・神祇記録</p>
+
+  <section class="notice">
+    <p>本資料室では、四季廳に関する公開行政資料を閲覧できます。<br>
+    一部資料は保存状態、個人情報保護その他の理由により非公開とされています。<br>
+    <span class="redact">なお、資料番号の欠落は資料そのものの欠落を意味しません。</span></p>
+  </section>
+
+  <section>
+    <div class="doc-grid">
+      <a class="doc" href="constitution.html"><small>LAW / 01</small><strong>帝國法令・四季廳関係規程</strong><p>四季神祇行政に関する現行法令・規程。</p></a>
+      <a class="doc" href="#records"><small>PUBLIC RECORD / 02</small><strong>四季廳沿革記録</strong><p>四季廳の成立および制度変遷に関する公開記録。</p></a>
+      <a class="doc" href="#records"><small>DIVINE SEASON / 03</small><strong>現人神制度資料</strong><p>四柱の現人神と四季神祇制度に関する資料。</p></a>
+      <a class="doc" href="#records"><small>DISASTER / 04</small><strong>神祇災害記録</strong><p>異常気象、霊脈障害その他の記録。</p></a>
+      <a class="doc" href="#records"><small>GUARD / 05</small><strong>護衛官服務記録</strong><p>現人神護衛制度および任務記録。</p></a>
+      <a class="doc" href="#records"><small>RESEARCH / 06</small><strong>帝國大學共同研究</strong><p>四時神性波動その他の共同研究資料。</p></a>
+    </div>
+  </section>
+
+  <section id="records" class="notice">
+    <p style="margin-bottom:16px;color:#b9a56e;letter-spacing:.16em">寄託資料 / DEPOSITED RECORDS</p>
+    <p>帝國大學文科附属資料室より寄託された資料の一部を収録しています。</p>
+    <div class="doc-grid">
+      <a class="doc locked" href="record15.html"><small>SHIKI / RESTRICTED / 015</small><strong>第十五號　封緘記録</strong><p>寄託元：日ノ本帝國國立帝國大學　／　公開状態：封緘</p></a>
+      <div class="doc" aria-hidden="true"><small>SHIKI / RESTRICTED / 016</small><strong>第十六號　<span class="redact">資料未登録</span></strong><p>関連記録の存在のみ確認。公開目録への登録なし。</p></div>
+    </div>
+  </section>
+
+  <p class="room-note">資料室記録管理番号：SH-ARCHIVE / 237<br>最終整理：帝國暦237年09月08日</p>
+  <a class="back" href="index.html">← 四季廳本廳舍へ戻る</a>
+</main>
+</body>
+</html>
