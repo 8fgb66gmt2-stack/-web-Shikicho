@@ -330,7 +330,14 @@ document.querySelectorAll('.god-tab').forEach(btn=>btn.addEventListener('click',
 
   // 旧稿から戻ったとき、春月が「作者名義」の照合を一緒に行う。
   try{if(localStorage.getItem('shikiManuscriptVisited')==='1'){setTimeout(()=>{authorInvestigation=true;authorIndex=0;authorLines=[
-    '……おかえり。',\n    '読んできたんだね。旧稿。',\n    '……やっぱり、あの名前が残っていたでしょう。',\n    '四季廳の記録では、僕は花葉春月。漫画家として『ヴラド・ドラクラ』を書いたことになっている。',\n    'でも、帝國大學の旧稿には「大窪晶与」。',\n    '同じ作品。同じ物語。作者名義だけが違う。',\n    '……ここまで来たら、二つの記録を並べて考えてみるしかないね。',\n    '君は、どう思う？'
+    '……おかえり。',
+    '読んできたんだね。旧稿。',
+    '……やっぱり、あの名前が残っていたでしょう。',
+    '四季廳の記録では、僕は花葉春月。漫画家として『ヴラド・ドラクラ』を書いたことになっている。',
+    'でも、帝國大學の旧稿には「大窪晶与」。',
+    '同じ作品。同じ物語。作者名義だけが違う。',
+    '……ここまで来たら、二つの記録を並べて考えてみるしかないね。',
+    '君は、どう思う？'
   ];renderAuthor();panel.classList.add('is-visible');hint.classList.remove('is-visible');},450)}}catch(e){}
 
   // 初回表示はHTML側でも可視化しておき、JavaScriptやキャッシュの状態に左右されないようにする。
