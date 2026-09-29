@@ -31,6 +31,19 @@
 .room-note{margin-top:42px;padding:25px 0;border-top:1px solid rgba(185,165,110,.18);border-bottom:1px solid rgba(185,165,110,.18);text-align:center;color:#817b71;font-size:11px;letter-spacing:.12em;line-height:2}
 .back{display:inline-block;margin-top:40px;color:#c8bb98;text-decoration:none;border-bottom:1px solid rgba(200,187,152,.35);padding-bottom:5px}
 @media(max-width:700px){.archive-wrap{padding:48px 18px 70px}.seal{float:none;margin-bottom:22px}.doc-grid{grid-template-columns:1fr}.archive-title{letter-spacing:.07em}}
+
+.shiki-investigation{position:fixed;right:22px;bottom:22px;width:min(420px,calc(100vw - 44px));z-index:30;background:#eee7d9;color:#27242a;border:1px solid rgba(109,32,40,.42);border-top:3px solid #6d2028;box-shadow:0 16px 45px rgba(0,0,0,.42);opacity:0;transform:translateY(14px);pointer-events:none;transition:.28s ease}
+.shiki-investigation.is-visible{opacity:1;transform:none;pointer-events:auto}
+.shiki-investigation-head{display:flex;justify-content:space-between;align-items:center;padding:9px 13px;border-bottom:1px solid rgba(37,35,41,.15);font:10px Arial,sans-serif;letter-spacing:.14em;color:#746f66}
+.shiki-investigation-close{border:0;background:none;color:#6d2028;font-size:20px;cursor:pointer}
+.shiki-investigation-body{padding:17px 18px 15px}
+.shiki-investigation-name{display:block;color:#6d2028;font-size:13px;letter-spacing:.12em;margin-bottom:9px}
+.shiki-investigation-text{white-space:pre-line;line-height:1.9;font-size:14px;margin:0 0 13px}
+.shiki-investigation-next{border:1px solid #6d2028;background:transparent;color:#6d2028;padding:8px 13px;font:12px serif;cursor:pointer}
+.shiki-investigation-progress{float:right;color:#8b8378;font:10px Arial,sans-serif;padding-top:9px}
+.arg-link{display:none;margin-top:18px;padding:14px 15px;border:1px solid rgba(109,32,40,.35);background:rgba(109,32,40,.05);color:#6d2028;text-decoration:none;line-height:1.7;font-size:12px}
+.arg-link.is-visible{display:block}
+@media(max-width:700px){.shiki-investigation{right:12px;bottom:12px;width:calc(100vw - 24px)}}
 </style>
 </head>
 <body class="archive-page">
@@ -62,13 +75,32 @@
     <p style="margin-bottom:16px;color:#b9a56e;letter-spacing:.16em">寄託資料 / DEPOSITED RECORDS</p>
     <p>帝國大學文科附属資料室より寄託された資料の一部を収録しています。</p>
     <div class="doc-grid">
-      <a class="doc locked" href="record15.html"><small>SHIKI / RESTRICTED / 015</small><strong>第十五號　封緘記録</strong><p>寄託元：日ノ本帝國國立帝國大學　／　公開状態：封緘</p></a>
-      <div class="doc" aria-hidden="true"><small>SHIKI / RESTRICTED / 016</small><strong>第十六號　<span class="redact">資料未登録</span></strong><p>関連記録の存在のみ確認。公開目録への登録なし。</p></div>
+      <a class="doc locked" id="record15" href="record15.html"><small>SHIKI / RESTRICTED / 015</small><strong>第十五號　封緘記録</strong><p>寄託元：日ノ本帝國國立帝國大學　／　公開状態：封緘</p></a>
+      <div class="doc" id="record16" tabindex="0" role="button" aria-label="第十六號資料未登録を調査する"><small>SHIKI / RESTRICTED / 016</small><strong>第十六號　<span class="redact">資料未登録</span></strong><p>関連記録の存在のみ確認。公開目録への登録なし。</p><a class="arg-link" id="university-link" href="https://8fgb66gmt2-stack.github.io/https-8fgb66gmt2-stack.github.io-nippon-imperial-university-/archive16.html">N.I.U. ARCHIVE 16　――　人物相関図を閲覧する →</a></div>
     </div>
   </section>
 
   <p class="room-note">資料室記録管理番号：SH-ARCHIVE / 237<br>最終整理：帝國暦237年09月08日</p>
   <a class="back" href="index.html">← 四季廳本廳舍へ戻る</a>
 </main>
+<div class="shiki-investigation" id="shiki-investigation" aria-live="polite">
+  <div class="shiki-investigation-head"><span>SHIKI AGENCY / SITE INVESTIGATION</span><button id="investigation-close" aria-label="会話を閉じる">×</button></div>
+  <div class="shiki-investigation-body"><span class="shiki-investigation-name">花葉 春月</span><p class="shiki-investigation-text" id="investigation-text"></p><button class="shiki-investigation-next" id="investigation-next">次へ　›</button><span class="shiki-investigation-progress" id="investigation-progress"></span></div>
+</div>
+<script>
+(() => {
+  const panel=document.getElementById('shiki-investigation'), text=document.getElementById('investigation-text'), next=document.getElementById('investigation-next'), close=document.getElementById('investigation-close'), progress=document.getElementById('investigation-progress'), record16=document.getElementById('record16'), uni=document.getElementById('university-link');
+  const solved=()=>{try{return localStorage.getItem('shikiRecord15Solved')==='1'}catch(e){return false}};
+  let lines=[],index=0;
+  function render(){text.textContent=lines[index];progress.textContent=(index+1)+' / '+lines.length;}
+  function open(){panel.classList.add('is-visible');render();}
+  function start(){lines=solved()?['……戻ってきたんだね。','第十五號の照合は済んだんだね。','……じゃあ、やっぱり十六號が気になる。','目録には「資料未登録」とある。','でも、関連記録の存在だけは確認されている。','だったら……登録されていないのは、資料じゃなくて「記録」なのかもしれない。','ここから先は、四季廳の資料室だけでは分からなさそうだね。']:['……ここが附属資料室か。','トップページから直接来ると、普通の資料室にしか見えないね。','……十五號はある。','でも、十六號がない。','資料番号って、普通は順番に振るよね。','……これ。わざわざ「資料番号の欠落は資料そのものの欠落を意味しません」って書いてある。','まずは十五號を読んでみようか。'];index=0;open();}
+  next.addEventListener('click',()=>{if(index<lines.length-1){index++;render()}else{panel.classList.remove('is-visible');}});
+  close.addEventListener('click',()=>panel.classList.remove('is-visible'));
+  record16.addEventListener('click',(e)=>{if(e.target.closest('a'))return;if(solved()){lines=['……やっぱり、ここだ。','第十六號そのものは登録されていない。','でも、さっきの第十五號には「ARCHIVE 16」と残っていた。','つまり……この資料室にない記録を、別の場所では参照している。','僕、ひとつ心当たりがある。','日ノ本帝國國立帝國大學のARCHIVE 16。','ただし、そこにあるのは行政資料じゃない。','……人物相関図なんだ。','四季廳の記録では見えなかった「人と人との繋がり」を、そっちから見てみようか。'];index=0;open();uni.classList.add('is-visible');}else{lines=['……ここは、まだ開かないね。','先に第十五號を読んで、封緘を解除してみよう。'];index=0;open();}});
+  record16.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();record16.click();}});
+  if(!solved())setTimeout(start,350);
+})();
+</script>
 </body>
 </html>
