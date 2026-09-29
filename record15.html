@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b0b0d">
+<title>第十五號・封緘記録｜四季廳</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="imperial.css">
+<style>
+body{margin:0;background:#0b0b0d;color:#ddd5c7;font-family:serif}
+.record{max-width:920px;margin:auto;padding:58px 24px 100px}
+.head{border-bottom:1px solid rgba(185,165,110,.4);padding-bottom:24px}
+.kicker{font:11px/1.5 Arial,sans-serif;letter-spacing:.22em;color:#b9a56e}
+h1{font-size:clamp(30px,5vw,56px);font-weight:400;letter-spacing:.12em;margin:16px 0 5px}
+.meta{color:#817a70;font-size:11px;letter-spacing:.12em}
+.paper{margin-top:38px;background:#e7e0d3;color:#252329;padding:clamp(28px,6vw,64px);box-shadow:0 12px 40px rgba(0,0,0,.35);position:relative}
+.paper:before{content:'四季廳　秘';position:absolute;top:22px;right:25px;color:#8b2029;border:1px solid #8b2029;padding:5px 8px;font-size:11px;letter-spacing:.16em}
+.paper h2{font-size:23px;font-weight:500;letter-spacing:.12em;margin:0 0 25px}
+.paper p{line-height:2.15;margin:12px 0}
+.paper hr{border:0;border-top:1px solid rgba(37,35,41,.2);margin:28px 0}
+.note{border-left:2px solid #8b2029;padding:10px 18px;margin:28px 0;color:#514a43}
+.redact{background:#29262a;color:#29262a;padding:0 6px}
+.redact:hover{color:#d5cfc3}
+.question{margin-top:35px;padding-top:25px;border-top:1px solid rgba(37,35,41,.2)}
+.question label{display:block;font-size:12px;letter-spacing:.14em;margin-bottom:10px}
+.question input{width:min(100%,360px);box-sizing:border-box;padding:12px;border:1px solid #999083;background:#f0eadf;color:#222;font:16px serif}
+.question button{margin-left:7px;padding:12px 18px;border:1px solid #8b2029;background:#8b2029;color:#fff;font:13px serif;cursor:pointer}
+#result{margin-top:18px;min-height:24px;line-height:1.9}
+.secret{display:none;margin-top:25px;border-top:1px dashed #8b2029;padding-top:22px}
+.secret strong{color:#8b2029}
+.back{display:inline-block;margin-top:35px;color:#b9a56e;text-decoration:none}
+.small{font-size:10px;color:#766f67;letter-spacing:.1em}
+@media(max-width:650px){.record{padding:35px 15px 70px}.paper{padding:28px 22px}.question button{margin:8px 0 0}}
+</style>
+</head>
+<body>
+<main class="record">
+<header class="head">
+<p class="kicker">SHIKI AGENCY / RESTRICTED ARCHIVE / DOCUMENT 015</p>
+<h1>第十五號・封緘記録</h1>
+<p class="meta">寄託元：日ノ本帝國國立帝國大學　｜　管理：四季廳附属資料室</p>
+</header>
+
+<article class="paper">
+<h2>春季神性循環・補遺記録</h2>
+<p>本記録は、公開行政資料に収録された「四季巡行狀況」とは別に保存された補遺である。</p>
+<p>帝國暦二三六年、春季神性波動について、通常値からの乖離が確認された。</p>
+<p>当時の報告書には、以下の一文が残されている。</p>
+<div class="note">「春は失われたのではない。<br>ただ、帰る場所を失つたのである。」</div>
+<p>この記述について、当時の担当者は「詩的表現に過ぎない」と処理した。</p>
+<p>しかし、同年から数年間にわたり、春季巡行記録の一部に欠落が存在する。</p>
+<hr>
+<p>欠落期間：帝國暦二三六年　――　<span class="redact">██████████</span></p>
+<p>現人神記録：花葉雛菊　／　護衛官記録：花葉さくら</p>
+<p>関係資料：<span class="redact">N.I.U. ARCHIVE 15</span>　／　<span class="redact">ARCHIVE 16</span></p>
+
+<div class="question">
+<label for="key">封緘解除照合語　／　記録に残る「帰る場所」を入力</label>
+<input id="key" autocomplete="off" placeholder="照合語を入力">
+<button id="unlock" type="button">照合</button>
+<div id="result" aria-live="polite"></div>
+<div class="secret" id="secret">
+<strong>照合一致。</strong>
+<p>――記録を読む者へ。</p>
+<p>この記録は、春が来なかったことを証明するものではない。</p>
+<p>むしろ逆だ。</p>
+<p>「春が来た」と記録する必要があった者がいた。</p>
+<p>四季廳公開記録：<b>正常。</b></p>
+<p>帝國大學寄託記録：<b>欠落。</b></p>
+<p>どちらか一方だけを読む者は、何も知らない。</p>
+<p>二つを続けて読んだ者だけが、次の頁を探すことになる。</p>
+<p class="small">照合済記録：SH-015 / 閲覧状態：開封済</p>
+</div>
+</div>
+</article>
+
+<a class="back" href="archive.html">← 資料室目録へ戻る</a>
+</main>
+<script>
+const input=document.getElementById('key'),btn=document.getElementById('unlock'),result=document.getElementById('result'),secret=document.getElementById('secret');
+function check(){const v=input.value.trim().replace(/\s/g,'');if(v==='春'||v==='はる'){result.textContent='照合語一致。封緘を解除します。';secret.style.display='block';document.title='第十五號・開封済｜四季廳';}else{result.textContent='照合不一致。資料中の語句を確認してください。';}}
+btn.addEventListener('click',check);input.addEventListener('keydown',e=>{if(e.key==='Enter')check();});
+</script>
+</body>
+</html>
