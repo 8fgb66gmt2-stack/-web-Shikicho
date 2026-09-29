@@ -79,7 +79,7 @@ h1{font-size:clamp(30px,5vw,56px);font-weight:400;letter-spacing:.12em;margin:16
 </main>
 <script>
 const input=document.getElementById('key'),btn=document.getElementById('unlock'),result=document.getElementById('result'),secret=document.getElementById('secret');
-function check(){const v=input.value.trim().replace(/\s/g,'');if(v==='春'||v==='はる'){result.textContent='照合語一致。封緘を解除します。';secret.style.display='block';document.title='第十五號・開封済｜四季廳';}else{result.textContent='照合不一致。資料中の語句を確認してください。';}}
+function check(){const v=input.value.trim().replace(/\s/g,'');if(v==='春'||v==='はる'){result.textContent='照合語一致。封緘を解除します。';secret.style.display='block';document.title='第十五號・開封済｜四季廳';try{localStorage.setItem('shikiRecord15Solved','1')}catch(e){}}else{result.textContent='照合不一致。資料中の語句を確認してください。';}}
 btn.addEventListener('click',check);input.addEventListener('keydown',e=>{if(e.key==='Enter')check();});
 </script>
 </body>
