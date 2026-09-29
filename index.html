@@ -145,7 +145,10 @@
 .shiki-investigation-hint.is-visible{display:block}
 @media(max-width:700px){
   .shiki-investigation{right:12px;bottom:12px;width:calc(100vw - 24px)}
-  .shiki-investigation-hint{right:12px;bottom:12px}
+  .shiki-save-controls{display:flex;gap:8px;margin-top:10px}
+.shiki-save-controls button{border:1px solid rgba(117,43,45,.35);background:rgba(255,255,255,.82);color:#4b2527;padding:7px 12px;font:inherit;font-size:12px;cursor:pointer}
+.shiki-save-controls button:hover{background:#fff}
+.shiki-investigation-hint{right:12px;bottom:12px}
 }
 </style>
 
@@ -167,6 +170,10 @@
     <p class="shiki-investigation-text" id="shiki-investigation-text"></p>
     <button class="shiki-investigation-next" id="shiki-investigation-next">次へ　›</button>
     <div class="shiki-investigation-progress" id="shiki-investigation-progress"></div>
+    <div class="shiki-save-controls" id="shiki-save-controls" hidden>
+      <button type="button" id="shiki-continue">続きから</button>
+      <button type="button" id="shiki-new-game">最初から</button>
+    </div>
   </div>
 </div>
 <button class="shiki-investigation-hint" id="shiki-investigation-hint">春月との調査記録を開く</button>
@@ -184,6 +191,9 @@ document.querySelectorAll('.god-tab').forEach(btn=>btn.addEventListener('click',
   const close = document.getElementById('shiki-investigation-close');
   const hint = document.getElementById('shiki-investigation-hint');
   const progress = document.getElementById('shiki-investigation-progress');
+  const saveControls = document.getElementById('shiki-save-controls');
+  const continueButton = document.getElementById('shiki-continue');
+  const newGameButton = document.getElementById('shiki-new-game');
   const seasonStatus = document.getElementById('season-status');
   const newsRecord = document.getElementById('news-record-2370902');
   const newsInvestigationLines = [
@@ -334,11 +344,27 @@ document.querySelectorAll('.god-tab').forEach(btn=>btn.addEventListener('click',
   close.addEventListener('click', closePanel);
   hint.addEventListener('click', openPanel);
 
-  // 旧稿から戻ったときは、通常の初回会話より先に作者名義の照合会話を開く。
-  // 別scriptの変数には依存せず、window上の状態だけで完結させる。
-  let manuscriptReturn = new URLSearchParams(location.search).get('return') === 'author' || location.hash === '#author-return';
-  try { manuscriptReturn = manuscriptReturn || localStorage.getItem('shikiManuscriptVisited') === '1'; } catch(e) {}
-  if(manuscriptReturn){
+  const manuscriptReturn = new URLSearchParams(location.search).get('return') === 'author';
+
+  const saveKeys = [
+    'shikiStatusChecked',
+    'shikiNewsChecked',
+    'shikiRecord15Solved',
+    'shikiArchive16Visited',
+    'shikiManuscriptVisited'
+  ];
+
+  function hasSavedProgress(){
+    try { return saveKeys.some(key => localStorage.getItem(key) === '1'); }
+    catch(e) { return false; }
+  }
+
+  function clearSavedProgress(){
+    try { saveKeys.forEach(key => localStorage.removeItem(key)); } catch(e) {}
+    try { sessionStorage.removeItem('shikiInvestigationStarted'); } catch(e) {}
+  }
+
+  function openAuthorReturn(){
     window.__shikiAuthorReturn={index:0,lines:[
       '……おかえり。',
       '読んできたんだね。旧稿。',
@@ -349,35 +375,83 @@ document.querySelectorAll('.god-tab').forEach(btn=>btn.addEventListener('click',
       '……ここまで来たら、二つの記録を並べて考えてみるしかないね。',
       '君は、どう思う？'
     ]};
+    panel.classList.add('is-visible');
+    hint.classList.remove('is-visible');
+    saveControls.hidden=true;
     text.textContent=window.__shikiAuthorReturn.lines[0];
     progress.textContent='1 / '+window.__shikiAuthorReturn.lines.length;
     next.textContent='次へ　›';
-    panel.classList.add('is-visible');
-    hint.classList.remove('is-visible');
   }
 
-  // 初回表示はHTML側でも可視化しておき、JavaScriptやキャッシュの状態に左右されないようにする。
-  // 閉じた後だけ、このセッションでは右下の「調査記録を開く」に切り替える。
-  try {
-    if (manuscriptReturn) {
-      // 旧稿からの帰還会話をそのまま維持する。
-    } else if (sessionStorage.getItem('shikiInvestigationStarted')) {
-      closePanel();
-    } else {
-      window.setTimeout(() => {
-        panel.classList.add('is-visible');
-        hint.classList.remove('is-visible');
-        render();
-      }, 300);
+  function openResume(){
+    saveControls.hidden=true;
+    let hasManuscript=false,hasArchive=false,hasRecord=false,hasNews=false;
+    try{
+      hasManuscript=localStorage.getItem('shikiManuscriptVisited')==='1';
+      hasArchive=localStorage.getItem('shikiArchive16Visited')==='1';
+      hasRecord=localStorage.getItem('shikiRecord15Solved')==='1';
+      hasNews=localStorage.getItem('shikiNewsChecked')==='1';
+    }catch(e){}
+    if(hasManuscript){ openAuthorReturn(); return; }
+    panel.classList.add('is-visible');
+    hint.classList.remove('is-visible');
+    if(hasArchive){
+      text.textContent='……ARCHIVE 16まで読んだんだね。';
+      progress.textContent='調査記録：ARCHIVE 16';
+    }else if(hasRecord){
+      text.textContent='……第十五號の照合まで済んでいるね。';
+      progress.textContent='調査記録：SH-015';
+    }else if(hasNews){
+      text.textContent='……前回は、附属資料室へ向かうところまで来ていたね。';
+      progress.textContent='調査記録：公開記録';
+    }else{
+      text.textContent='……前回の調査記録が残っているよ。';
+      progress.textContent='調査記録：途中';
     }
-  } catch(e) {
-    window.setTimeout(() => {
+    next.textContent='閉じる';
+  }
+
+  continueButton?.addEventListener('click', openResume);
+
+  newGameButton?.addEventListener('click', () => {
+    clearSavedProgress();
+    window.__shikiAuthorReturn=null;
+    window.__shikiAuthorInvestigation=null;
+    index=0;
+    investigationMode=false;
+    newsInvestigationMode=false;
+    saveControls.hidden=true;
+    panel.classList.add('is-visible');
+    hint.classList.remove('is-visible');
+    render();
+  });
+
+  next.addEventListener('click',()=>{
+    if(!saveControls.hidden && next.textContent==='閉じる'){
+      closePanel();
+      return;
+    }
+  });
+
+  if(manuscriptReturn){
+    openAuthorReturn();
+  }else if(hasSavedProgress()){
+    window.setTimeout(()=>{
+      panel.classList.add('is-visible');
+      hint.classList.remove('is-visible');
+      saveControls.hidden=false;
+      text.textContent='……前回の調査記録が残っているよ。';
+      progress.textContent='自動保存済み';
+      next.textContent='閉じる';
+    },300);
+  }else{
+    window.setTimeout(()=>{
       panel.classList.add('is-visible');
       hint.classList.remove('is-visible');
       render();
-    }, 300);
+    },300);
   }
-})();
+
 </script>
 <script>
 (()=>{const i=document.getElementById('person-search-input'),b=document.getElementById('person-search-button'),o=document.getElementById('person-search-result');if(!i||!b||!o)return;
