@@ -336,8 +336,8 @@ document.querySelectorAll('.god-tab').forEach(btn=>btn.addEventListener('click',
 
   // 旧稿から戻ったときは、通常の初回会話より先に作者名義の照合会話を開く。
   // 別scriptの変数には依存せず、window上の状態だけで完結させる。
-  let manuscriptReturn = false;
-  try { manuscriptReturn = localStorage.getItem('shikiManuscriptVisited') === '1'; } catch(e) {}
+  let manuscriptReturn = location.hash === '#author-return';
+  try { manuscriptReturn = manuscriptReturn || localStorage.getItem('shikiManuscriptVisited') === '1'; } catch(e) {}
   if(manuscriptReturn){
     window.__shikiAuthorReturn={index:0,lines:[
       '……おかえり。',
