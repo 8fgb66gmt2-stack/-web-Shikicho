@@ -393,21 +393,14 @@ document.querySelectorAll('.god-tab').forEach(btn=>btn.addEventListener('click',
       hasNews=localStorage.getItem('shikiNewsChecked')==='1';
     }catch(e){}
     if(hasManuscript){ openAuthorReturn(); return; }
+    if(hasArchive || hasRecord || hasNews){
+      window.location.href='archive.html';
+      return;
+    }
     panel.classList.add('is-visible');
     hint.classList.remove('is-visible');
-    if(hasArchive){
-      text.textContent='……ARCHIVE 16まで読んだんだね。';
-      progress.textContent='調査記録：ARCHIVE 16';
-    }else if(hasRecord){
-      text.textContent='……第十五號の照合まで済んでいるね。';
-      progress.textContent='調査記録：SH-015';
-    }else if(hasNews){
-      text.textContent='……前回は、附属資料室へ向かうところまで来ていたね。';
-      progress.textContent='調査記録：公開記録';
-    }else{
-      text.textContent='……前回の調査記録が残っているよ。';
-      progress.textContent='調査記録：途中';
-    }
+    text.textContent='……前回の調査記録が残っているよ。';
+    progress.textContent='調査記録：途中';
     next.textContent='閉じる';
   }
 
