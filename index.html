@@ -2245,6 +2245,7 @@ function s(){const q=i.value.trim(),r=records[q];if(!q){o.innerHTML='<p class="p
   }
 }}
 b.addEventListener('click',s);i.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();s()}})})();
-</script><script src="shiki-exploration.js"></script>
-</body>
+</script><script src="shiki-exploration.js?v=20260930-6"></script>
+<script>
+(()=>{const panel=document.getElementById('shiki-investigation');const text=document.getElementById('shiki-investigation-text');const next=document.getElementById('shiki-investigation-next');const hint=document.getElementById('shiki-investigation-hint');const progress=document.getElementById('shiki-investigation-progress');const seal=document.querySelector('.brand-mark');if(!panel||!text||!next||!seal)return;const lines=['……待って。','この紋章、少し気にならない？','桜、太陽、紅葉、雪。四つの季節が、ひとつの円に結ばれている。','僕は四季廳のページを見ていて、この紋章と同じ四つの手掛かりが、別々の頁に残されている気がしてるんだ。','……一緒に探してみようか。','まずは、本廳舎の中にある「最終更新」を見てみよう。'];let i=0,active=false;function open(){active=true;i=0;panel.classList.add('is-visible');hint?.classList.remove('is-visible');text.textContent=lines[0];progress.textContent='1 / '+lines.length;next.textContent='次へ　›'}function step(e){if(!active)return;e.preventDefault();e.stopImmediatePropagation();if(i<lines.length-1){i++;text.textContent=lines[i];progress.textContent=(i+1)+' / '+lines.length;next.textContent=i===lines.length-1?'探索を始める':'次へ　›'}else{active=false;panel.classList.remove('is-visible');try{localStorage.setItem('shikiExploreStarted','1')}catch(e){}}}seal.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open()});next.addEventListener('click',step,true);})();</script></body>
 </html>
