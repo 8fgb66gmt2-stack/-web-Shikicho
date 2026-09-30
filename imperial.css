@@ -1049,3 +1049,82 @@ nav a:hover {
     padding: 70px 0;
   }
 }
+
+/* 玲瓏浪漫・四季廳共通意匠 */
+:root{
+  --ryo-red:#76252c;--ryo-red-deep:#4b171d;--ryo-gold:#a8894e;
+  --ryo-gold-light:#d8c58e;--ryo-paper:#f5f0e5;--ryo-ink:#29251f;
+}
+body{
+  background:
+    radial-gradient(circle at 12% 18%,rgba(118,37,44,.025) 0 1px,transparent 1.5px),
+    radial-gradient(circle at 82% 71%,rgba(86,64,36,.035) 0 1px,transparent 1.5px),
+    repeating-linear-gradient(0deg,rgba(70,52,34,.018) 0 1px,transparent 1px 6px),
+    var(--ryo-paper);
+}
+.imperial-header{
+  background:linear-gradient(90deg,#20262c,#26343a 55%,#20262c);
+  border-bottom:1px solid rgba(216,197,142,.48);
+  box-shadow:0 2px 9px rgba(30,24,20,.16);
+}
+.imperial-header-inner{font-family:Georgia,"Times New Roman",serif;letter-spacing:.14em}
+.imperial-header-inner a,.imperial-header-inner span{transition:background .2s,color .2s}
+.site-header{
+  background:linear-gradient(rgba(247,242,231,.97),rgba(247,242,231,.97));
+  border-bottom:1px solid rgba(118,37,44,.35);
+  box-shadow:0 8px 24px rgba(49,34,24,.08);
+}
+.site-header:after{
+  content:"";display:block;height:3px;
+  background:linear-gradient(90deg,transparent 0 8%,var(--ryo-gold) 18%,var(--ryo-red) 50%,var(--ryo-gold) 82%,transparent 92%);
+}
+.brand-mark{background:rgba(118,37,44,.025);box-shadow:inset 0 0 0 1px rgba(168,137,78,.12)}
+.brand strong{font-family:"Shippori Mincho","Yu Mincho",serif;color:var(--ryo-red-deep);text-shadow:0 1px 0 #fff}
+#global-nav a,nav a{transition:background .2s,color .2s}
+#global-nav a:hover,nav a:hover{color:var(--ryo-red);background:rgba(118,37,44,.045)}
+.hero{
+  background:linear-gradient(115deg,rgba(242,236,223,.94),rgba(246,241,229,.86)),
+    repeating-linear-gradient(0deg,transparent 0 35px,rgba(77,58,37,.04) 36px);
+}
+.hero h1{color:var(--ryo-ink);text-shadow:0 1px 0 #fff}
+.hero h1 em,.kicker{color:var(--ryo-red)}
+.hero:before{border-color:rgba(118,37,44,.38)}
+.hero:after{border-color:rgba(168,137,78,.45)}
+.hero-rule i{background:linear-gradient(90deg,transparent,var(--ryo-gold),transparent)}
+.season-status{background:linear-gradient(105deg,#4b171d,#76252c 52%,#4b171d);border-bottom:5px double var(--ryo-gold)}
+.section{background:rgba(255,253,248,.55)}
+.card,.department,.person,.season-card{
+  border-color:rgba(118,37,44,.16);box-shadow:0 5px 16px rgba(49,34,24,.13);
+  transition:transform .22s,box-shadow .22s,border-color .22s;
+}
+.card:hover,.department:hover,.person:hover,.season-card:hover{
+  transform:translateY(-3px);border-color:rgba(118,37,44,.38);
+  box-shadow:0 11px 25px rgba(49,34,24,.14);
+}
+footer{border-top:4px double var(--ryo-gold)}
+.record19-university-link{
+  display:none;margin-top:12px;padding:16px 17px;border:1px solid rgba(118,37,44,.34);
+  border-top:3px double var(--ryo-gold);
+  background:linear-gradient(135deg,rgba(118,37,44,.055),rgba(168,137,78,.055));
+  color:#29251f;text-decoration:none;box-shadow:0 7px 18px rgba(49,34,24,.07);
+}
+.record19-university-link.is-visible{display:block}
+.record19-university-link:hover{background:linear-gradient(135deg,rgba(118,37,44,.09),rgba(168,137,78,.08))}
+.record19-university-link span{display:block;color:#7c6a48;font:10px Georgia,serif;letter-spacing:.16em}
+.record19-university-link strong{display:block;margin:7px 0 3px;color:var(--ryo-red-deep);font-family:"Shippori Mincho","Yu Mincho",serif;letter-spacing:.08em}
+.record19-university-link em{display:block;margin-top:7px;color:var(--ryo-red);font-size:.72rem;font-style:normal}
+.university-transfer{
+  margin-top:30px;padding:20px 22px;border:1px solid rgba(118,37,44,.34);
+  border-top:3px double var(--ryo-gold);
+  background:linear-gradient(135deg,rgba(118,37,44,.055),rgba(168,137,78,.055));
+  box-shadow:0 7px 18px rgba(49,34,24,.07);
+}
+.university-transfer span{display:block;color:#7c6a48;font:10px Georgia,serif;letter-spacing:.16em}
+.university-transfer strong{display:block;margin:7px 0 2px;color:var(--ryo-red-deep)}
+.university-transfer small{display:block;color:#746b60}
+.university-transfer a{display:inline-block;margin-top:10px;color:var(--ryo-red);font-size:.8rem}
+@media(max-width:700px){
+  .site-header:after{height:2px}
+  .brand-mark{width:43px;height:43px}.brand strong{font-size:1.08rem}
+  .record19-university-link,.university-transfer{padding:16px}
+}
