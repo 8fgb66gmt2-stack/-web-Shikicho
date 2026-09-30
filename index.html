@@ -931,7 +931,9 @@ document.querySelectorAll('.god-tab').forEach(btn=>btn.addEventListener('click',
     }
   });
 
-  if(archiveReturn){
+  if(portalReturn){
+    openPortalReturn();
+  }else if(archiveReturn){
     openArchiveReturn(archiveReturn);
   }else if(manuscriptReturn){
     openAuthorReturn();
