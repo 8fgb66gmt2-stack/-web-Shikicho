@@ -890,13 +890,16 @@ document.querySelectorAll('.god-tab').forEach(btn=>btn.addEventListener('click',
 
   function openResume(){
     saveControls.hidden=true;
+    let achievement40Complete=false;
     let hasManuscript=false,hasArchive=false,hasRecord=false,hasNews=false;
     try{
+      achievement40Complete=localStorage.getItem('shikiAchievement40Complete')==='1';
       hasManuscript=localStorage.getItem('shikiManuscriptVisited')==='1';
       hasArchive=localStorage.getItem('shikiArchive16Visited')==='1';
       hasRecord=localStorage.getItem('shikiRecord15Solved')==='1';
       hasNews=localStorage.getItem('shikiNewsChecked')==='1';
     }catch(e){}
+    if(achievement40Complete){ openPortalReturn(); return; }
     if(hasManuscript){ openAuthorReturn(); return; }
     if(hasArchive || hasRecord || hasNews){
       window.location.href='archive.html';
