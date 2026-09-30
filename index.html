@@ -330,7 +330,76 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9998;b
 .duty-grid article{position:relative;overflow:hidden}.duty-grid article:before{content:"";position:absolute;inset:8px;border:1px solid rgba(169,133,77,.18);pointer-events:none}.duty-grid article:after{content:"◆";position:absolute;right:16px;top:12px;color:var(--a-gold);font-size:8px;opacity:.8}
 .site-footer{position:relative;overflow:hidden}.site-footer:after{content:"日ノ本帝國　四季廳";position:absolute;right:30px;bottom:20px;font-family:"Shippori Mincho",serif;font-size:58px;letter-spacing:.18em;color:var(--a-gold);opacity:.045;white-space:nowrap}
 @media(max-width:800px){.site-header:before,.site-header:after{display:none}.hero-inner:before{left:0;top:50px}.hero-inner:after{right:0;top:50px}.hero h1:after{font-size:6px;letter-spacing:.25em}.section>.content-width:before{inset:-18px -12px}.section>.content-width:after{left:-12px;top:-18px;width:35px;height:35px}.section-title:before{left:-4px}.arg-teaser:before{display:none}.departments-section:after{display:none}.site-footer:after{font-size:30px;right:12px}}
-</style></head>
+</style><style id="shiki-portal-architecture">
+/* 四季廳ポータル構造設計：官庁建築をDOMとして扱う */
+.shiki-portal{background:#f5eddd!important}
+.portal-registry{background:#172b27;color:#e8d9bc;border-top:1px solid #a9854d;border-bottom:1px solid #a9854d}
+.portal-registry-inner{max-width:1440px;margin:auto;padding:8px 28px;display:flex;align-items:center;gap:28px;font:9px Georgia,serif;letter-spacing:.18em}
+.portal-registry-inner span:not(.registry-code){opacity:.75}
+.registry-code{color:#d5b979}
+.registry-status{margin-left:auto;border-left:1px solid rgba(213,185,121,.4);padding-left:20px;color:#d5b979}
+.portal-shell{max-width:1480px;margin:auto;display:grid;grid-template-columns:196px minmax(0,1fr);min-height:100vh;border-left:1px solid rgba(169,133,77,.3);border-right:1px solid rgba(169,133,77,.3)}
+.portal-rail{position:sticky;top:0;height:100vh;align-self:start;background:#20352f;color:#f4ead7;padding:30px 20px;box-sizing:border-box;border-right:5px double #a9854d;display:flex;flex-direction:column;z-index:8}
+.rail-seal{width:62px;height:62px;margin:0 auto 20px;border:1px solid #c9ae70;outline:1px solid rgba(201,174,112,.35);outline-offset:4px;display:grid;place-items:center;color:#d9bf82;font-family:"Shippori Mincho",serif}
+.rail-seal span{font-size:29px}.rail-seal small{display:block;font:7px Georgia,serif;letter-spacing:.2em;margin-top:-13px}
+.rail-title{text-align:center;font-family:"Shippori Mincho",serif;line-height:1.65;letter-spacing:.22em;font-size:15px;margin:0}
+.rail-rule{height:1px;background:linear-gradient(90deg,transparent,#a9854d,transparent);margin:23px 0}
+.rail-index{font:8px Georgia,serif;letter-spacing:.25em;color:#c9ae70;margin:0 0 10px}
+.rail-nav{display:grid;gap:0}
+.rail-nav a{display:grid;grid-template-columns:26px 1fr;gap:6px;align-items:center;padding:10px 2px;color:#eee3d0;text-decoration:none;border-bottom:1px solid rgba(201,174,112,.18);font-family:"Shippori Mincho",serif;font-size:11px;letter-spacing:.08em}
+.rail-nav a b{font:8px Georgia,serif;color:#c9ae70}.rail-nav a:hover{color:#fff;background:rgba(255,255,255,.045);padding-left:7px}
+.rail-bottom{margin-top:auto;padding-top:18px;border-top:1px solid rgba(201,174,112,.22);display:grid;gap:7px;font-family:"Shippori Mincho",serif}.rail-bottom span{font-size:9px;color:#d6bb7d;letter-spacing:.18em}.rail-bottom small{font-size:9px;line-height:1.7;color:#c7c0b3}
+.portal-body{min-width:0;background:#f8f0df}
+.portal-document-head{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:38px;padding:30px 52px 27px;background:#fffaf0;border-bottom:3px double #241f1b;position:relative}
+.portal-document-head:before{content:"勅命行政機關 / 中央官庁";position:absolute;right:52px;top:11px;font:8px Georgia,serif;letter-spacing:.22em;color:#8c6d3d}
+.document-class{font:8px Georgia,serif;letter-spacing:.3em;color:#8b6c3d}.portal-document-head h1{margin:7px 0 4px;color:#4d1119;font:500 28px "Shippori Mincho","Yu Mincho",serif;letter-spacing:.13em}.portal-document-head p{margin:0;color:#6d6256;font:10px "Shippori Mincho",serif;letter-spacing:.1em}
+.document-meta{margin:0;display:grid;grid-template-columns:1fr 1fr;border-left:1px solid #c7b58f;padding-left:20px}.document-meta div{padding:6px 10px;border-bottom:1px solid #d8cbb4}.document-meta dt{font:8px Georgia,serif;color:#876b3f;letter-spacing:.15em}.document-meta dd{margin:3px 0 0;font:11px "Shippori Mincho",serif;color:#29231f}
+.portal-body>.hero{border-left:0;border-right:0}
+.portal-current-grid{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(330px,.85fr);align-items:stretch;border-bottom:1px solid #b8a17a}
+.portal-current-grid>.season-status,.portal-current-grid>.arg-teaser{min-width:0}
+.portal-current-grid>.season-status{border-bottom:0}.portal-current-grid>.arg-teaser{border-bottom:0}
+.portal-person-frame{background:#e9dbc2;padding:8px 34px 34px;border-bottom:1px solid #b8a17a}
+.portal-person-frame .person-search-section{max-width:none;margin:28px auto 0;background:#fffaf0!important}
+.portal-file-tabs{display:grid;grid-template-columns:repeat(4,1fr);border-top:6px double #a9854d;border-bottom:1px solid #241f1b;background:#e8dcc5}
+.file-tab{padding:15px 18px;border-right:1px solid #b8a17a;display:grid;gap:5px}.file-tab:last-child{border-right:0}.file-tab span{font:8px Georgia,serif;letter-spacing:.18em;color:#8a6839}.file-tab b{font:12px "Shippori Mincho",serif;color:#4d1119;font-weight:500}
+.portal-body>.section{border-left:1px solid rgba(169,133,77,.2);border-right:1px solid rgba(169,133,77,.2)}
+.portal-body>.news-section{padding-top:92px}
+.portal-body>.about-section{background:#fffaf0!important}
+.portal-body>.gods-section{background:#f0e5d1!important}
+.portal-body>.guards-section{background:#fffaf0!important}
+.portal-body>.duties-section{background:#eee2cf!important}
+.portal-body>.contact-section{background:#fffaf0!important}
+.portal-body>.departments-section{border-left:0;border-right:0}
+.portal-body>.section>.content-width{max-width:1120px}
+.portal-body>.section>.content-width:before{inset:-28px -20px}
+.portal-body>.section>.content-width:after{left:-20px;top:-28px}
+.portal-body .section-title h2{font-size:37px!important}
+.portal-body .section-title{margin-bottom:42px!important}
+.portal-body .news-list article{display:grid;grid-template-columns:155px 70px 1fr;align-items:center;gap:16px}
+.portal-body .news-list article a{min-width:0}
+.portal-body .god-tabs{overflow:hidden}
+.portal-body .department-grid{margin-top:28px}
+.portal-body .site-footer{margin-top:0}
+@media(max-width:980px){
+ .portal-shell{display:block;border:0}.portal-rail{position:relative;top:auto;height:auto;min-height:0;border-right:0;border-bottom:5px double #a9854d;padding:16px 18px;display:block}
+ .rail-seal{display:none}.rail-title{display:inline-block;text-align:left;margin-right:20px}.rail-rule{display:none}.rail-index{display:inline-block;margin:0 10px 0 0}.rail-nav{display:flex;flex-wrap:wrap;gap:0}.rail-nav a{padding:8px 9px;border-bottom:0;border-right:1px solid rgba(201,174,112,.18);grid-template-columns:auto 1fr}.rail-bottom{display:none}
+ .portal-document-head{grid-template-columns:1fr;padding:24px 24px 20px}.document-meta{border-left:0;padding-left:0}
+ .portal-current-grid{grid-template-columns:1fr}.portal-current-grid>.season-status{border-bottom:5px double #a9854d}.portal-current-grid>.arg-teaser{border-bottom:0}
+ .portal-file-tabs{grid-template-columns:repeat(2,1fr)}
+ .portal-person-frame{padding:8px 18px 26px}
+}
+@media(max-width:700px){
+ .portal-registry-inner{padding:7px 14px;gap:10px;font-size:7px;flex-wrap:wrap}.registry-status{margin-left:0}
+ .portal-document-head{padding:20px 18px}.portal-document-head h1{font-size:22px}.document-meta{grid-template-columns:1fr 1fr}
+ .portal-file-tabs{grid-template-columns:1fr 1fr}.file-tab{padding:12px 10px}.file-tab b{font-size:10px}
+ .portal-body>.section{padding-left:0;padding-right:0}.portal-body .news-list article{grid-template-columns:1fr;gap:5px;padding:14px 8px}.portal-body .section-title h2{font-size:28px!important}
+}
+</style>
+<style id="shiki-portal-return-state">
+body:has(#shiki-investigation.is-visible) .portal-registry{box-shadow:inset 0 -2px 0 #d4b878}
+.portal-return-stamp{display:none}
+</style>
+</head>
 <body>
 <div class="imperial-header">
   <div class="imperial-header-inner">
@@ -357,8 +426,53 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9998;b
     <a href="constitution.html">憲法全文を閲覧する</a>
   </div>
 </section>
-<main id="home">
-<section class="hero">
+<main id="home" class="shiki-portal">
+  <div class="portal-registry">
+    <div class="portal-registry-inner">
+      <span class="registry-code">SHIKI AGENCY / IMPERIAL GOVERNMENT</span>
+      <span>本廳舍　｜　帝都統括</span>
+      <span>帝國暦 237</span>
+      <span class="registry-status">PUBLIC PORTAL</span>
+    </div>
+  </div>
+
+  <div class="portal-shell">
+    <aside class="portal-rail" aria-label="四季廳案内">
+      <div class="rail-seal"><span>四</span><small>SHIKI</small></div>
+      <p class="rail-title">四季廳<br>本廳舍</p>
+      <div class="rail-rule"></div>
+      <p class="rail-index">INDEX / 目次</p>
+      <nav class="rail-nav">
+        <a href="#news"><b>01</b><span>官報・公告</span></a>
+        <a href="#about"><b>02</b><span>四季廳とは</span></a>
+        <a href="#gods"><b>03</b><span>現人神</span></a>
+        <a href="#guards"><b>04</b><span>護衛官</span></a>
+        <a href="#departments"><b>05</b><span>組織・保全課</span></a>
+        <a href="#duties"><b>06</b><span>業務案内</span></a>
+        <a href="#contact"><b>07</b><span>相談窓口</span></a>
+      </nav>
+      <div class="rail-bottom">
+        <span>勅命行政機關</span>
+        <small>四季を絶やすこと勿れ。</small>
+      </div>
+    </aside>
+
+    <div class="portal-body">
+      <section class="portal-document-head" aria-label="四季廳文書情報">
+        <div>
+          <span class="document-class">DOCUMENT / PUBLIC ADMINISTRATION</span>
+          <h1>四季廳帝都統括情報網</h1>
+          <p>日ノ本帝國　四季神祇行政機關　｜　中央官庁情報公開頁</p>
+        </div>
+        <dl class="document-meta">
+          <div><dt>機關番号</dt><dd>SHIKI-001</dd></div>
+          <div><dt>管轄</dt><dd>全國</dd></div>
+          <div><dt>本廳</dt><dd>帝都</dd></div>
+          <div><dt>公開区分</dt><dd>一般公開</dd></div>
+        </dl>
+      </section>
+
+      <section class="hero">
   <div class="hero-watermark">四<br>季<br>廳</div>
   <div class="vertical-label">日ノ本帝國　勅命行政機關</div>
   <div class="hero-inner">
@@ -368,20 +482,36 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9998;b
     <div class="hero-rule"><span>玲瓏二三七年</span><i></i><span>帝都・四季廳本廳舍</span></div>
   </div>
 </section>
-<section class="season-status" id="season-status" data-investigation-target="season-status" tabindex="0" aria-label="四時巡行状況を調査する"><div class="content-width status-inner"><div><span class="eyebrow">四時巡行狀況 / SEASONAL STATUS</span><h2>現在、四季は正常に巡行しています</h2></div><div class="status-light"><span></span><b>正常</b><small>四現人神・各護衛官とも通常任務</small></div><time id="last-updated">最終更新：帝國暦 237.09.08</time></div></section>
-<section class="arg-teaser" aria-label="附属資料室への案内"><div class="content-width"><div class="arg-teaser-mark">秘</div><div><span class="arg-eyebrow">RESTRICTED ARCHIVE / 附属資料室</span><h2>公開目録に登録されていない資料があります。</h2><p>帝國大學文科附属資料室より寄託された記録の一部は、現在も封緘されたままです。</p></div><a href="archive.html">資料室を閲覧する <b>→</b></a></div></section>\n<section id="person-search" class="person-search-section" aria-label="人物記録検索">
+
+      <div class="portal-current-grid">
+        <section class="season-status" id="season-status" data-investigation-target="season-status" tabindex="0" aria-label="四時巡行状況を調査する"><div class="content-width status-inner"><div><span class="eyebrow">四時巡行狀況 / SEASONAL STATUS</span><h2>現在、四季は正常に巡行しています</h2></div><div class="status-light"><span></span><b>正常</b><small>四現人神・各護衛官とも通常任務</small></div><time id="last-updated">最終更新：帝國暦 237.09.08</time></div></section>
+        <section class="arg-teaser" aria-label="附属資料室への案内"><div class="content-width"><div class="arg-teaser-mark">秘</div><div><span class="arg-eyebrow">RESTRICTED ARCHIVE / 附属資料室</span><h2>公開目録に登録されていない資料があります。</h2><p>帝國大學文科附属資料室より寄託された記録の一部は、現在も封緘されたままです。</p></div><a href="archive.html">資料室を閲覧する <b>→</b></a></div></section>
+      </div>
+
+      <section class="portal-person-frame" aria-label="人物記録">
+        <section id="person-search" class="person-search-section" aria-label="人物記録検索">
 <div class="person-search-kicker">ARCHIVE SEARCH / PERSON RECORDS</div>
 <h2>人物記録検索</h2>
 <p class="person-search-intro">四季廳に登録された人物記録を検索できます。氏名を入力してください。</p>
 <div class="person-search-form"><input id="person-search-input" type="search" placeholder="例：花葉雛菊／花葉春月" autocomplete="off"><button type="button" id="person-search-button">検索</button></div>
 <div id="person-search-result" class="person-search-result" aria-live="polite"></div>
-</section><section id="news" class="section news-section"><div class="content-width"><div class="section-title"><span>01</span><div><p>四季廳官報 / PUBLIC INFORMATION</p><h2>官報・公告</h2></div></div><div class="news-list"><article id="news-record-2370902" data-investigation-target="news-record" tabindex="0" aria-label="帝國暦237年09月02日の官報記録を調査する"><time>帝國暦237.09.02</time><span>研究</span><a href="#duties">帝國大學農學部・理學部との共同研究「四時神性波動に於ける氣候影響調査」の開示について</a></article><article><time>帝國暦237.08.20</time><span>人事</span><a href="#departments">春局局長に京極馨氏（帝國高等學院首席卒）が正式就任致しました</a></article><article><time>帝國暦237.08.05</time><span>注意</span><a href="#contact">【注意喚起】現人神の神性を騙る不法占拠及び詐術行為への厳罰対処について</a></article><article><time>帝國暦237.07.15</time><span>祭祀</span><a href="#duties">附属神域・霊脈調整に伴ふ「夏祭」執り行ひの儀令開示</a></article></div></div></section>
-<section id="about" class="section about-section"><div class="content-width"><div class="section-title"><span>02</span><div><p>ABOUT SHIKI AGENCY</p><h2>四季廳とは</h2></div></div><div class="about-grid"><div class="document-copy"><p class="lead">四季廳は、日ノ本帝國における<strong>四季神祇行政・神祇災害對策・現人神の保護および警備</strong>を統括する中央官庁です。</p><p>帝國の「春・夏・秋・冬」を司る四柱の神々、すなわち四季の現人神を中心として組織され、各季節に対応する局を設置しています。</p><p>四季廳における職務は単なる行政に留まりません。現人神は帝國における神祇的象徴であり、その身辺警護を担う護衛官、四季廳全体を統括する長官、各季節の行政・警備を担う局長、そして局長を補佐する局長管理官によって、帝國の四季は維持されています。</p></div><aside class="mission-card"><span>基本使命</span><strong>四季を<br>絶やすこと勿れ。</strong><small>これが、四季廳の最も基本的な使命です。</small></aside></div></div></section>
-<section id="gods" class="section gods-section"><div class="content-width"><div class="section-title"><span>03</span><div><p>FOUR DIVINE SEASONS</p><h2>現人神と四時の理</h2></div></div><p class="section-intro">「現人神」とは、帝國においてそれぞれ「春」「夏」「秋」「冬」をその身に宿す神格的人間を指します。各現人神は自身の季節を象徴すると同時に、帝國における季節神祇の中心的存在でもあります。</p><div class="god-tabs" role="tablist"><button class="god-tab active spring" data-season="spring" role="tab">春　花葉 雛菊</button><button class="god-tab summer" data-season="summer" role="tab">夏　葉桜 瑠璃</button><button class="god-tab autumn" data-season="autumn" role="tab">秋　祝月 杏莉</button><button class="god-tab winter" data-season="winter" role="tab">冬　森林 太郎</button></div><div class="god-panel active" id="panel-spring"><div class="season-kanji">春</div><div><span>SPRING / 春</span><h3>花葉 雛菊</h3><p>春を司る現人神。帝國における「春」の神格を担い、四季の生命循環における芽吹きと生命の始まりを象徴します。</p><dl><dt>年齢</dt><dd>18歳</dd><dt>神性</dt><dd>春・生命促進</dd><dt>配偶者</dt><dd>花葉 春月／京極 馨</dd><dt>養女</dt><dd>祝月 杏莉</dd><dt>専属護衛官</dt><dd>花葉 さくら</dd><dt>管轄部局</dt><dd>保全課 春局　局長：京極 馨</dd></dl></div></div><div class="god-panel" id="panel-summer"><div class="season-kanji">夏</div><div><span>SUMMER / 夏</span><h3>葉桜 瑠璃</h3><p>夏を司る現人神。明朗快活で行動力に富み、感情をそのまま行動へ移すことのできる人物です。</p><dl><dt>年齢</dt><dd>18歳</dd><dt>神性</dt><dd>夏・生命使役</dd><dt>姉</dt><dd>葉桜 あやめ</dd><dt>婚姻</dt><dd>雪柳 残雪</dd><dt>専属護衛官</dt><dd>葉桜 あやめ</dd><dt>管轄部局</dt><dd>保全課 夏局　局長：九鬼 湊</dd></dl></div></div><div class="god-panel" id="panel-autumn"><div class="season-kanji">秋</div><div><span>AUTUMN / 秋</span><h3>祝月 杏莉</h3><p>秋を司る現人神。幼いながらも神格を宿し、秋の現人神として四季廳に迎えられています。無垢な性質から周囲に大切にされています。</p><dl><dt>年齢</dt><dd>7歳</dd><dt>神性</dt><dd>秋・生命腐敗</dd><dt>養父</dt><dd>花葉 春月</dd><dt>養母</dt><dd>花葉 雛菊</dd><dt>専属護衛官</dt><dd>阿佐美 竜胆</dd><dt>管轄部局</dt><dd>保全課 秋局　局長：日向 瑞穂</dd></dl></div></div><div class="god-panel" id="panel-winter"><div class="season-kanji">冬</div><div><span>WINTER / 冬</span><h3>森林 太郎／薄氷宮 幸仁</h3><p>冬を司る現人神。日ノ本帝國皇太子としての身分を持ちながら、医学者・小説家としても活動しています。文学作品を発表する際には「森鴎外」の筆名を用います。</p><dl><dt>年齢</dt><dd>32歳</dd><dt>皇族としての名</dt><dd>薄氷宮 幸仁</dd><dt>身分</dt><dd>日ノ本帝國 皇太子</dd><dt>神性</dt><dd>冬・生命凍結</dd><dt>専属護衛官</dt><dd>雪柳 残雪</dd><dt>管轄部局</dt><dd>保全課 冬局　局長：石田 雅向</dd></dl></div></div><p class="four-law">四つの力は互いに独立したものではなく、相互に補完し合ふことで、本邦の四時を成立させています。</p></div></section>
-<section id="guards" class="section guards-section"><div class="content-width"><div class="section-title"><span>04</span><div><p>IMPERIAL GUARDIANS</p><h2>現人神護衛官</h2></div></div><p class="section-intro">現人神護衛官は、その名の通り現人神の身辺警護を専門とする職です。現人神本人の安全確保のみならず、神祇災害、異常事案、襲撃等への対応を担います。</p><div class="department-grid"><article><b>春</b><span>春の現人神護衛官</span><h3>花葉 さくら</h3><p>春の現人神・花葉雛菊の護衛官。雛菊の姉。帝國大學にて東欧史を専門とする教授を務める。</p><small>専門：東欧史・ヴラド三世研究</small></article><article><b>夏</b><span>夏の現人神護衛官</span><h3>葉桜 あやめ</h3><p>夏の現人神・葉桜瑠璃の護衛官。瑠璃の姉。夏局と連携し、季節警備を担う。</p><small>専門：警備・神祇災害對策</small></article><article><b>秋</b><span>秋の現人神護衛官</span><h3>阿佐美 竜胆</h3><p>秋の現人神・祝月杏莉の護衛官。幼い現人神の生活と安全を第一に職務にあたる。</p><small>専門：護衛・保全</small></article><article><b>冬</b><span>冬の現人神護衛官</span><h3>雪柳 残雪</h3><p>冬の現人神・森林太郎／薄氷宮幸仁の護衛官。皇太子護衛も兼務する。</p><small>専門：皇族警護・冬局連携</small></article></div></div></section>
-<section id="departments" class="section departments-section"><div class="content-width"><div class="section-title"><span>05</span><div><p>ORGANIZATION / CONSERVATION</p><h2>組織・保全課</h2></div></div><div class="org-chart"><div class="org-node chief"><span>四季廳長官</span><strong>花葉 春月</strong></div><div class="org-line"></div><div class="org-grid"><article><span>保全課・春局</span><strong>京極 馨</strong><small>春季行政・警備</small></article><article><span>保全課・夏局</span><strong>九鬼 湊</strong><small>夏季行政・警備</small></article><article><span>保全課・秋局</span><strong>日向 瑞穂</strong><small>秋季行政・警備</small></article><article><span>保全課・冬局</span><strong>石田 雅向</strong><small>冬季行政・警備</small></article></div></div></div></section>
-<section id="duties" class="section duties-section"><div class="content-width"><div class="section-title"><span>06</span><div><p>ADMINISTRATIVE DUTIES</p><h2>業務案内</h2></div></div><div class="duty-grid"><article><b>01</b><h3>四季循環保全</h3><p>季節循環、氣候、霊脈および神性波動を監視し、異常発生時には必要な対策を講じます。</p></article><article><b>02</b><h3>現人神保護</h3><p>現人神の身辺警護、生活環境、医療、教育その他必要な支援を関係機関と連携して行います。</p></article><article><b>03</b><h3>神祇災害對策</h3><p>神性に起因する異常気象、霊脈障害その他の災害について、調査・警戒・復旧を行います。</p></article><article><b>04</b><h3>四季祭祀</h3><p>帝國各地における四季祭祀の統括および神域の保全を行います。</p></article></div></div></section>
-<section id="contact" class="section contact-section"><div class="content-width"><div class="section-title"><span>07</span><div><p>INQUIRY / CONSULTATION</p><h2>相談窓口</h2></div></div><div class="contact-box"><p>四季神祇、現人神の保護、神祇災害その他四季廳所管事項についてのご相談を受け付けています。</p><div><strong>四季廳 本廳舍・相談窓口</strong><span>帝都・四季廳本廳舍　平日 09:00–17:00</span></div></div></div></section>
+</section>
+      </section>
+
+      <div class="portal-file-tabs">
+        <div class="file-tab"><span>PUBLIC / 01</span><b>公開情報</b></div>
+        <div class="file-tab"><span>DIVINE / 02</span><b>神籍・制度</b></div>
+        <div class="file-tab"><span>GUARD / 03</span><b>護衛・保全</b></div>
+        <div class="file-tab"><span>ARCHIVE / 04</span><b>附属資料</b></div>
+      </div>
+
+      <section id="news" class="section news-section"><div class="content-width"><div class="section-title"><span>01</span><div><p>四季廳官報 / PUBLIC INFORMATION</p><h2>官報・公告</h2></div></div><div class="news-list"><article id="news-record-2370902" data-investigation-target="news-record" tabindex="0" aria-label="帝國暦237年09月02日の官報記録を調査する"><time>帝國暦237.09.02</time><span>研究</span><a href="#duties">帝國大學農學部・理學部との共同研究「四時神性波動に於ける氣候影響調査」の開示について</a></article><article><time>帝國暦237.08.20</time><span>人事</span><a href="#departments">春局局長に京極馨氏（帝國高等學院首席卒）が正式就任致しました</a></article><article><time>帝國暦237.08.05</time><span>注意</span><a href="#contact">【注意喚起】現人神の神性を騙る不法占拠及び詐術行為への厳罰対処について</a></article><article><time>帝國暦237.07.15</time><span>祭祀</span><a href="#duties">附属神域・霊脈調整に伴ふ「夏祭」執り行ひの儀令開示</a></article></div></div></section>
+      <section id="about" class="section about-section"><div class="content-width"><div class="section-title"><span>02</span><div><p>ABOUT SHIKI AGENCY</p><h2>四季廳とは</h2></div></div><div class="about-grid"><div class="document-copy"><p class="lead">四季廳は、日ノ本帝國における<strong>四季神祇行政・神祇災害對策・現人神の保護および警備</strong>を統括する中央官庁です。</p><p>帝國の「春・夏・秋・冬」を司る四柱の神々、すなわち四季の現人神を中心として組織され、各季節に対応する局を設置しています。</p><p>四季廳における職務は単なる行政に留まりません。現人神は帝國における神祇的象徴であり、その身辺警護を担う護衛官、四季廳全体を統括する長官、各季節の行政・警備を担う局長、そして局長を補佐する局長管理官によって、帝國の四季は維持されています。</p></div><aside class="mission-card"><span>基本使命</span><strong>四季を<br>絶やすこと勿れ。</strong><small>これが、四季廳の最も基本的な使命です。</small></aside></div></div></section>
+      <section id="gods" class="section gods-section"><div class="content-width"><div class="section-title"><span>03</span><div><p>FOUR DIVINE SEASONS</p><h2>現人神と四時の理</h2></div></div><p class="section-intro">「現人神」とは、帝國においてそれぞれ「春」「夏」「秋」「冬」をその身に宿す神格的人間を指します。各現人神は自身の季節を象徴すると同時に、帝國における季節神祇の中心的存在でもあります。</p><div class="god-tabs" role="tablist"><button class="god-tab active spring" data-season="spring" role="tab">春　花葉 雛菊</button><button class="god-tab summer" data-season="summer" role="tab">夏　葉桜 瑠璃</button><button class="god-tab autumn" data-season="autumn" role="tab">秋　祝月 杏莉</button><button class="god-tab winter" data-season="winter" role="tab">冬　森林 太郎</button></div><div class="god-panel active" id="panel-spring"><div class="season-kanji">春</div><div><span>SPRING / 春</span><h3>花葉 雛菊</h3><p>春を司る現人神。帝國における「春」の神格を担い、四季の生命循環における芽吹きと生命の始まりを象徴します。</p><dl><dt>年齢</dt><dd>18歳</dd><dt>神性</dt><dd>春・生命促進</dd><dt>配偶者</dt><dd>花葉 春月／京極 馨</dd><dt>養女</dt><dd>祝月 杏莉</dd><dt>専属護衛官</dt><dd>花葉 さくら</dd><dt>管轄部局</dt><dd>保全課 春局　局長：京極 馨</dd></dl></div></div><div class="god-panel" id="panel-summer"><div class="season-kanji">夏</div><div><span>SUMMER / 夏</span><h3>葉桜 瑠璃</h3><p>夏を司る現人神。明朗快活で行動力に富み、感情をそのまま行動へ移すことのできる人物です。</p><dl><dt>年齢</dt><dd>18歳</dd><dt>神性</dt><dd>夏・生命使役</dd><dt>姉</dt><dd>葉桜 あやめ</dd><dt>婚姻</dt><dd>雪柳 残雪</dd><dt>専属護衛官</dt><dd>葉桜 あやめ</dd><dt>管轄部局</dt><dd>保全課 夏局　局長：九鬼 湊</dd></dl></div></div><div class="god-panel" id="panel-autumn"><div class="season-kanji">秋</div><div><span>AUTUMN / 秋</span><h3>祝月 杏莉</h3><p>秋を司る現人神。幼いながらも神格を宿し、秋の現人神として四季廳に迎えられています。無垢な性質から周囲に大切にされています。</p><dl><dt>年齢</dt><dd>7歳</dd><dt>神性</dt><dd>秋・生命腐敗</dd><dt>養父</dt><dd>花葉 春月</dd><dt>養母</dt><dd>花葉 雛菊</dd><dt>専属護衛官</dt><dd>阿佐美 竜胆</dd><dt>管轄部局</dt><dd>保全課 秋局　局長：日向 瑞穂</dd></dl></div></div><div class="god-panel" id="panel-winter"><div class="season-kanji">冬</div><div><span>WINTER / 冬</span><h3>森林 太郎／薄氷宮 幸仁</h3><p>冬を司る現人神。日ノ本帝國皇太子としての身分を持ちながら、医学者・小説家としても活動しています。文学作品を発表する際には「森鴎外」の筆名を用います。</p><dl><dt>年齢</dt><dd>32歳</dd><dt>皇族としての名</dt><dd>薄氷宮 幸仁</dd><dt>身分</dt><dd>日ノ本帝國 皇太子</dd><dt>神性</dt><dd>冬・生命凍結</dd><dt>専属護衛官</dt><dd>雪柳 残雪</dd><dt>管轄部局</dt><dd>保全課 冬局　局長：石田 雅向</dd></dl></div></div><p class="four-law">四つの力は互いに独立したものではなく、相互に補完し合ふことで、本邦の四時を成立させています。</p></div></section>
+      <section id="guards" class="section guards-section"><div class="content-width"><div class="section-title"><span>04</span><div><p>IMPERIAL GUARDIANS</p><h2>現人神護衛官</h2></div></div><p class="section-intro">現人神護衛官は、その名の通り現人神の身辺警護を専門とする職です。現人神本人の安全確保のみならず、神祇災害、異常事案、襲撃等への対応を担います。</p><div class="department-grid"><article><b>春</b><span>春の現人神護衛官</span><h3>花葉 さくら</h3><p>春の現人神・花葉雛菊の護衛官。雛菊の姉。帝國大學にて東欧史を専門とする教授を務める。</p><small>専門：東欧史・ヴラド三世研究</small></article><article><b>夏</b><span>夏の現人神護衛官</span><h3>葉桜 あやめ</h3><p>夏の現人神・葉桜瑠璃の護衛官。瑠璃の姉。夏局と連携し、季節警備を担う。</p><small>専門：警備・神祇災害對策</small></article><article><b>秋</b><span>秋の現人神護衛官</span><h3>阿佐美 竜胆</h3><p>秋の現人神・祝月杏莉の護衛官。幼い現人神の生活と安全を第一に職務にあたる。</p><small>専門：護衛・保全</small></article><article><b>冬</b><span>冬の現人神護衛官</span><h3>雪柳 残雪</h3><p>冬の現人神・森林太郎／薄氷宮幸仁の護衛官。皇太子護衛も兼務する。</p><small>専門：皇族警護・冬局連携</small></article></div></div></section>
+      <section id="departments" class="section departments-section"><div class="content-width"><div class="section-title"><span>05</span><div><p>ORGANIZATION / CONSERVATION</p><h2>組織・保全課</h2></div></div><div class="org-chart"><div class="org-node chief"><span>四季廳長官</span><strong>花葉 春月</strong></div><div class="org-line"></div><div class="org-grid"><article><span>保全課・春局</span><strong>京極 馨</strong><small>春季行政・警備</small></article><article><span>保全課・夏局</span><strong>九鬼 湊</strong><small>夏季行政・警備</small></article><article><span>保全課・秋局</span><strong>日向 瑞穂</strong><small>秋季行政・警備</small></article><article><span>保全課・冬局</span><strong>石田 雅向</strong><small>冬季行政・警備</small></article></div></div></div></section>
+    </div>
+  </div>
 </main>
 <footer class="site-footer"><div class="content-width"><strong>四季廳</strong><span>日ノ本帝國　四季神祇行政機關</span><nav><a href="archive.html">附属資料室</a><a href="constitution.html">帝國法令</a><a href="miyauchi.html">宮内廳との連携</a></nav><small>四季を絶やすこと勿れ。</small></div></footer>
 
@@ -592,6 +722,12 @@ document.querySelectorAll('.god-tab').forEach(btn=>btn.addEventListener('click',
   }
 
   next.addEventListener('click', () => {
+    if(window.__shikiPortalReturn){
+      const s=window.__shikiPortalReturn;
+      if(s.index<s.lines.length-1){s.index++;text.textContent=s.lines[s.index];progress.textContent=(s.index+1)+' / '+s.lines.length;next.textContent=s.index===s.lines.length-1?'四季廳ポータルを開く':'次へ　›';}
+      else{window.__shikiPortalReturn=null;try{history.replaceState({},'',location.pathname)}catch(e){}closePanel();document.getElementById('news')?.scrollIntoView({behavior:'smooth',block:'start'});}
+      return;
+    }
     if(window.__shikiArchiveReturn){
       const s=window.__shikiArchiveReturn;
       if(s.index<s.lines.length-1){s.index++;text.textContent=s.lines[s.index];progress.textContent=(s.index+1)+' / '+s.lines.length;next.textContent=s.index===s.lines.length-1?'閉じる':'次へ　›';}
@@ -645,6 +781,28 @@ document.querySelectorAll('.god-tab').forEach(btn=>btn.addEventListener('click',
 
   const returnParam = new URLSearchParams(location.search).get('return');
   const manuscriptReturn = returnParam === 'author';
+  const portalReturn = returnParam === 'achievement40';
+  const portalReturnLines = [
+    '……おかえり、アンリちゃん。',
+    '帝國大學で見つけたものを、附属資料室でも話してきたんだね。',
+    '……うん。僕も、あの記録はちゃんと受け取ったよ。',
+    'マリアタのことも。雛菊ちゃんの五年間も。大窪晶与という名前のことも。',
+    'ここは四季廳のポータルだから、資料室みたいに全部を語ることはできない。',
+    'でも、もう君が知っていることまで「最初から」に戻す必要はないよね。',
+    'この場所に戻ってきた、ということ自体が次の記録になる。',
+    '……だから、このページだけは少し変えておこう。',
+    '四季廳ポータル。公開情報の表側。',
+    'その裏側に、君がここまで辿ってきた記録が残っている。',
+    '次にこのページを開いたときも、今日までのことは消えないよ。',
+    '……じゃあ、戻ろうか。いつもの四季廳へ。'
+  ];
+  function openPortalReturn(){
+    window.__shikiPortalReturn={index:0,lines:portalReturnLines};
+    panel.classList.add('is-visible');hint.classList.remove('is-visible');saveControls.hidden=true;
+    text.textContent=portalReturnLines[0];progress.textContent='1 / '+portalReturnLines.length;next.textContent='次へ　›';
+    try{localStorage.setItem('shikiAchievement40Complete','1');localStorage.setItem('shikiPortalReturnedAfterArchive','1')}catch(e){}
+  }
+
   const archiveReturn = returnParam === 'record15' || returnParam === 'archive16';
 
   const saveKeys = [
@@ -771,7 +929,9 @@ document.querySelectorAll('.god-tab').forEach(btn=>btn.addEventListener('click',
     }
   });
 
-  if(archiveReturn){
+  if(portalReturn){
+    openPortalReturn();
+  }else if(archiveReturn){
     openArchiveReturn(archiveReturn);
   }else if(manuscriptReturn){
     openAuthorReturn();
@@ -785,8 +945,13 @@ document.querySelectorAll('.god-tab').forEach(btn=>btn.addEventListener('click',
       next.textContent='閉じる';
     },300);
   }else{
-    window.setTimeout(()=>{
-      panel.classList.add('is-visible');
+    let achievement40Complete=false;
+    try{achievement40Complete=localStorage.getItem('shikiAchievement40Complete')==='1'}catch(e){}
+    if(achievement40Complete){
+      window.setTimeout(()=>{panel.classList.remove('is-visible');hint.classList.add('is-visible')},150);
+    }else{
+      window.setTimeout(()=>{
+        panel.classList.add('is-visible');
       hint.classList.remove('is-visible');
       render();
     },300);
