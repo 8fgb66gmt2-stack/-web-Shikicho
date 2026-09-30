@@ -157,6 +157,11 @@
     index=0; next.textContent='次へ　›'; openPanel();
   }
 
+  function showAchievement40Dialogue(){
+    lines=['……おかえり。','帝國大學で、ずいぶん遠くまで行ってきたんだね。','……あそこで、僕と話したでしょう。','「私」って言ってた僕も、見たんだよね。','……あれは、僕が追い詰められたときに出てくる、もう一人の僕だよ。','マリアタって呼んでる。','でも、僕がいなくなるわけじゃない。','僕が、あの人を呼ぶんだ。','だから最後に決めたのは、あの人じゃない。僕自身だよ。','……君が帝國大學で見つけたものも、ここで話したことも、全部僕の中にある。','だから、ここではいつもの僕として話そう。','……おかえり。'];
+    index=0; next.textContent='次へ　›'; openPanel();
+  }
+
   function showRecord17Final(){
     lines=['……これで、照合は終わり。','大窪晶与と花葉春月。','二つの名前が、同じ一人の人間を指している。','……資料だけなら、きっと疑問のままだった。','でも君は、自分でそこまで辿った。','それなら、僕から言うことはひとつだけだね。','……見つけてくれて、ありがとう。'];
     index=0; next.textContent='次へ　›'; openPanel();
@@ -181,6 +186,7 @@
     openPanel();
   }
   next.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();if(index<lines.length-1){index++;render()}else{
+    if(returnStage==='achievement40' && lines[0]==='……おかえり。'){ panel.classList.remove('is-visible'); hint.classList.add('is-visible'); return; }
     if(record17Read() && lines[0]==='……第十七號、読んだんだね。'){ showRecord17Answer(); return; }
     if(record17Read() && lines[0]==='……花葉春月。'){ showRecord17Final(); return; }
     if(record18Read() && lines[0]==='……第十八號、読んだんだね。'){ showRecord18Final(); return; }
@@ -196,7 +202,7 @@
   if(location.search.includes('return=archive17')) markRecord17Read();
   if(location.search.includes('return=record18')){try{localStorage.setItem('shikiRecord18Read','1');localStorage.setItem('shikiReturnStage','record18')}catch(e){}}
   if(location.search.includes('return=record19')){try{localStorage.setItem('shikiRecord19Read','1');localStorage.setItem('shikiReturnStage','record19')}catch(e){}}
-  document.getElementById('back-to-shiki')?.addEventListener('click',(e)=>{e.preventDefault();const stage=new URLSearchParams(location.search).get('return')||'';const target=stage==='archive17'?'archive17':(stage==='archive16'?'archive16':(stage==='record19'?'record19':(stage==='record18'?'record18':(stage==='record15'||solved()?'record15':''))));window.location.href=target?'index.html?return='+target:'index.html';});
+  document.getElementById('back-to-shiki')?.addEventListener('click',(e)=>{e.preventDefault();const stage=new URLSearchParams(location.search).get('return')||'';const target=stage==='archive17'?'archive17':(stage==='archive16'?'archive16':(stage==='record19'?'record19':(stage==='record18'?'record18':(stage==='achievement40'?'achievement40':(stage==='record15'||solved()?'record15':''))))));window.location.href=target?'index.html?return='+target:'index.html';});
   // 資料室では春月が常に待機。既読状態に関係なく、ページを開けば会話を表示する。
   setTimeout(start,350);
   showRecord17();
