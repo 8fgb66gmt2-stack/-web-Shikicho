@@ -174,6 +174,8 @@
       lines=['……第十五號の照合、済んだんだね。','じゃあ、次は第十六號だ。','目録には「資料未登録」とある。','でも、関連記録の存在だけは確認されている。','……変だよね。','僕たちがまだ中身を見ていない以上、今は推測しかできない。','だから、先にN.I.U. ARCHIVE 16を見てみようか。','そこに何が残されているのか――君と一緒に確かめたい。'];
     }else if(returnStage==='archive17' || record17Read()){
       showRecord17Dialogue(); return;
+    }else if(returnStage==='achievement40'){
+      showAchievement40Dialogue(); return;
     }else if(returnStage==='archive16' || archive16Visited()){
       lines=['……おかえり。','ちゃんと読んできたんだね。ARCHIVE 16。','……どうだった？','四季廳の資料室にある記録とは、ずいぶん違ったでしょう。','こっちは行政記録だからね。誰が、いつ、何をしたか。そういうことは残る。','でも――誰が誰を好きだったとか、誰に救われたとか、誰と決別したとか。','そういうものは、あまり記録されない。','……だから、あの頁が必要だったのかもしれないね。','僕自身の名前も、載っていたでしょう。','雛菊ちゃんのことも。','それから……僕たちの周りにいる人たちのことも。','あの頁を読んで、何か気づいた？','……そう。','じゃあ、少しだけ整理しようか。','四季廳の記録では、「春は正常に巡行している」。','でも、帝國大學の記録には――春をめぐって、もっとたくさんの人間の名前が残っていた。','つまり、四季の異常を調べるなら……四季そのものだけを見ていても、足りないんだ。','人と人との関係まで辿らないと、見えてこない。','……たぶん、ここからが本当の調査なんだと思う。','ARCHIVE 16の中で、気になった名前はあった？','だったら、その人の記録を探してみよう。','四季廳の資料室にも、まだ公開されていない記録があるかもしれないから.'];
     }else if(solved()){
@@ -201,7 +203,7 @@
   uni.addEventListener('click',()=>{try{localStorage.setItem('shikiArchive16Visited','1');localStorage.setItem('shikiReturnStage','archive16')}catch(e){};});
   if(location.search.includes('return=archive17')) markRecord17Read();
   if(location.search.includes('return=record18')){try{localStorage.setItem('shikiRecord18Read','1');localStorage.setItem('shikiReturnStage','record18')}catch(e){}}
-  if(location.search.includes('return=record19')){try{localStorage.setItem('shikiRecord19Read','1');localStorage.setItem('shikiReturnStage','record19')}catch(e){}}
+  if(location.search.includes('return=record19')){try{localStorage.setItem('shikiRecord19Read','1');localStorage.setItem('shikiReturnStage','record19')}catch(e){}}\n  if(location.search.includes('return=achievement40')){try{localStorage.setItem('shikiReturnStage','achievement40')}catch(e){}}
   document.getElementById('back-to-shiki')?.addEventListener('click',(e)=>{e.preventDefault();const stage=new URLSearchParams(location.search).get('return')||'';const target=stage==='archive17'?'archive17':(stage==='archive16'?'archive16':(stage==='record19'?'record19':(stage==='record18'?'record18':(stage==='achievement40'?'achievement40':(stage==='record15'||solved()?'record15':''))))));window.location.href=target?'index.html?return='+target:'index.html';});
   // 資料室では春月が常に待機。既読状態に関係なく、ページを開けば会話を表示する。
   setTimeout(start,350);
