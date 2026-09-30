@@ -22,3 +22,417 @@ a{transition:color .25s ease,background .25s ease,border-color .25s ease,transfo
 .contact-section{background:#f4f0e6}.contact-grid{border-top:1px solid #c9bead;border-bottom:1px solid #c9bead}.report-box{border:1px solid #b8a487!important;background:#faf7ef!important;box-shadow:0 12px 30px rgba(65,48,30,.05)}.report-box h3{font-family:'Shippori Mincho',serif;font-weight:500}.site-footer{background:#171716;border-top:1px solid #8d744b;position:relative}.site-footer:before{content:'玲瓏';position:absolute;right:30px;top:18px;font-family:'Shippori Mincho',serif;color:#c7a86e;opacity:.09;font-size:42px;writing-mode:vertical-rl}
 .archive-modal{backdrop-filter:blur(6px)}
 @media(max-width:680px){body:after{inset:7px}.header-inner{min-height:68px}.global-nav{top:68px;background:#faf8f2;border-color:#c9bead}.global-nav a{padding:12px 0}.hero{min-height:560px}.hero-inner{padding:90px 22px 95px}.hero h1{font-size:46px}.hero-watermark{font-size:120px!important;right:-3%}.hero:after{font-size:38px}.status-inner{display:block;padding:20px 22px}.status-light{border-left:0;border-top:1px solid #c6baa8;padding:15px 0;margin:15px 0}.section{padding-top:65px!important;padding-bottom:65px!important}.section:before{font-size:9px;top:25px}.section-title h2{font-size:26px}.section-title:after{display:none}.news-list article{grid-template-columns:80px 48px 1fr;font-size:10px;gap:8px;padding:12px 0}.about-grid{grid-template-columns:1fr}.department-grid,.sub-departments{grid-template-columns:1fr}.god-tabs{grid-template-columns:1fr 1fr}.god-tab{padding:14px 6px;font-size:11px}.god-panel{grid-template-columns:1fr;padding:32px 20px}.season-kanji{border-right:0;border-bottom:1px solid #c9bead;padding-bottom:15px;text-align:left;font-size:78px}.deity-detail-modal{padding:10px}.deity-detail-panel{padding:28px 20px;max-height:92vh}.deity-detail-panel:before{display:none}.deity-detail-grid{grid-template-columns:1fr}.deity-detail-name{font-size:34px}.shiki-credo{padding:80px 20px}.shiki-credo:before{font-size:210px}.shiki-credo-title{letter-spacing:.1em}}
+
+/* =========================================================
+   玲瓏浪漫・第三版
+   「官庁ポータル」ではなく「大正期の帝國行政誌」
+========================================================= */
+:root{
+  --rr-paper:#f6f0e3;
+  --rr-paper2:#ece2d0;
+  --rr-ink:#24211e;
+  --rr-muted:#746b60;
+  --rr-red:#741d28;
+  --rr-red2:#51131b;
+  --rr-gold:#a5854d;
+  --rr-line:#c7b89d;
+  --rr-navy:#202a2d;
+}
+
+/* ページ全体を古い官報・行政誌の紙面へ */
+body{
+  background:
+    linear-gradient(rgba(246,240,227,.96),rgba(246,240,227,.96)),
+    repeating-linear-gradient(0deg,transparent 0 31px,rgba(83,64,39,.028) 32px);
+  color:var(--rr-ink);
+}
+body:after{
+  inset:10px;
+  border:1px solid rgba(165,133,77,.22);
+}
+
+/* 最上段を「帝國政府横断情報帯」に */
+.imperial-header{
+  background:var(--rr-navy)!important;
+  border-bottom:3px double var(--rr-gold)!important;
+}
+.imperial-header-inner{
+  max-width:1280px;
+  min-height:38px;
+  padding:0 26px;
+  display:flex;
+  align-items:center;
+  gap:0;
+}
+.imperial-header-inner>*{
+  padding:0 16px;
+  border-left:1px solid rgba(218,195,146,.18);
+}
+.imperial-header-inner>*:last-child{
+  border-right:1px solid rgba(218,195,146,.18);
+}
+
+/* 本体ヘッダーを新聞社・官庁誌の題字欄に */
+.site-header{
+  background:var(--rr-paper)!important;
+  border-bottom:1px solid var(--rr-ink)!important;
+  box-shadow:none!important;
+}
+.header-inner{
+  max-width:1280px;
+  min-height:104px;
+  position:relative;
+}
+.brand{
+  align-self:stretch;
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+.brand-mark{
+  width:54px!important;
+  height:54px!important;
+  border:2px solid var(--rr-red)!important;
+  color:var(--rr-red)!important;
+  font-family:"Shippori Mincho",serif;
+  font-size:23px;
+}
+.brand-mark:before{
+  content:"勅";
+  position:absolute;
+  left:50%;
+  top:-15px;
+  transform:translateX(-50%);
+  background:var(--rr-paper);
+  padding:0 5px;
+  font-size:9px;
+  letter-spacing:.1em;
+}
+.brand strong{
+  font-size:30px!important;
+  color:var(--rr-red)!important;
+  letter-spacing:.28em!important;
+}
+.brand small{
+  display:block;
+  margin-top:3px;
+  font-size:8px;
+  letter-spacing:.35em;
+  color:var(--rr-muted);
+}
+
+/* ナビを「索引」らしく */
+#global-nav{
+  align-self:stretch;
+  display:flex;
+  align-items:stretch;
+}
+#global-nav a{
+  display:flex;
+  align-items:center;
+  padding:0 13px!important;
+  border-left:1px solid transparent;
+  border-right:1px solid transparent;
+  color:#49433b;
+  font-size:11px;
+  letter-spacing:.08em;
+}
+#global-nav a:hover{
+  background:var(--rr-paper2);
+  border-color:var(--rr-line);
+  color:var(--rr-red);
+}
+#global-nav a:first-child:before{
+  content:"目録";
+  position:absolute;
+  margin-top:-58px;
+  font-size:8px;
+  color:var(--rr-gold);
+  letter-spacing:.18em;
+}
+
+/* ヒーローを「表紙」に */
+.hero{
+  min-height:670px!important;
+  background:
+    linear-gradient(90deg,rgba(246,240,227,.97),rgba(246,240,227,.82)),
+    repeating-linear-gradient(90deg,transparent 0 79px,rgba(116,29,40,.025) 80px);
+  border-bottom:1px solid var(--rr-ink);
+}
+.hero:before{
+  opacity:.16!important;
+  border:0!important;
+  width:100%!important;
+  height:100%!important;
+  left:0!important;
+  top:0!important;
+  background:
+    linear-gradient(90deg,transparent 0 73%,rgba(116,29,40,.04) 73% 73.2%,transparent 73.2%);
+}
+.hero:after{
+  content:"SHIKI AGENCY / IMPERIAL GOVERNMENT"!important;
+  right:32px!important;
+  bottom:28px!important;
+  font-family:Georgia,serif;
+  font-size:10px!important;
+  letter-spacing:.25em!important;
+  color:var(--rr-red)!important;
+  opacity:.28!important;
+}
+.hero-inner{
+  max-width:1280px!important;
+  width:calc(100% - 80px)!important;
+  padding-top:150px!important;
+}
+.hero-watermark{
+  font-family:"Shippori Mincho",serif!important;
+  font-size:270px!important;
+  line-height:.8!important;
+  color:var(--rr-red)!important;
+  opacity:.055!important;
+}
+.hero .kicker{
+  font-family:Georgia,serif;
+  color:var(--rr-gold)!important;
+  font-size:10px;
+  letter-spacing:.32em!important;
+}
+.hero h1{
+  font-size:clamp(56px,8vw,104px)!important;
+  line-height:1.08!important;
+  color:var(--rr-ink)!important;
+  letter-spacing:.12em!important;
+}
+.hero h1 em{
+  color:var(--rr-red)!important;
+  font-style:normal;
+}
+.hero-lead{
+  margin-top:32px!important;
+  padding-left:20px;
+  border-left:2px solid var(--rr-red);
+  color:#514a41!important;
+  font-family:"Shippori Mincho",serif;
+  font-size:15px!important;
+  line-height:2.2!important;
+}
+.hero-rule{
+  margin-top:42px!important;
+  max-width:720px;
+  display:grid!important;
+  grid-template-columns:auto 1fr auto;
+  gap:18px;
+  align-items:center;
+  font-family:Georgia,serif;
+  font-size:9px;
+  letter-spacing:.18em;
+}
+.hero-rule i{
+  height:1px!important;
+  background:var(--rr-gold)!important;
+}
+
+/* 状況欄を官報の「現在事項」に */
+.season-status{
+  background:var(--rr-red2)!important;
+  color:#f4ead9!important;
+  border-bottom:5px double var(--rr-gold)!important;
+}
+.status-inner{
+  min-height:112px!important;
+}
+.season-status .eyebrow{
+  color:#d2b87d!important;
+  letter-spacing:.2em;
+}
+.season-status h2{
+  font-family:"Shippori Mincho",serif;
+  font-weight:500;
+  letter-spacing:.1em;
+}
+.status-light{
+  border-left:1px solid rgba(222,201,153,.45)!important;
+}
+.status-light b,.status-light small,#last-updated{
+  color:#eee4d4!important;
+}
+
+/* ARG告知を「機密資料の差込頁」に */
+.arg-teaser{
+  background:
+    linear-gradient(90deg,#211f1c,#2a2520)!important;
+  border-top:0!important;
+  border-bottom:4px double var(--rr-gold)!important;
+}
+.arg-teaser .content-width{
+  max-width:1280px;
+  min-height:130px;
+}
+.arg-teaser-mark{
+  border:1px solid var(--rr-gold)!important;
+  color:#d6bc82!important;
+  transform:rotate(45deg);
+}
+.arg-teaser-mark::first-letter{
+  transform:rotate(-45deg);
+}
+.arg-teaser h2{
+  font-family:"Shippori Mincho",serif;
+  font-size:20px;
+}
+.arg-teaser a{
+  border:1px solid var(--rr-gold)!important;
+  background:rgba(165,133,77,.05);
+}
+
+/* セクションを「誌面の章立て」に */
+.section{
+  padding:112px 0!important;
+  border-bottom:1px solid var(--rr-line);
+}
+.section-title{
+  margin-bottom:48px!important;
+  padding-bottom:18px;
+  border-bottom:3px double var(--rr-ink);
+  position:relative;
+}
+.section-title>span{
+  font-family:Georgia,serif;
+  font-size:12px!important;
+  color:var(--rr-red)!important;
+}
+.section-title p{
+  font-family:Georgia,serif;
+  font-size:9px!important;
+  letter-spacing:.3em!important;
+  color:var(--rr-gold)!important;
+}
+.section-title h2{
+  font-size:34px!important;
+  color:var(--rr-ink)!important;
+}
+.section-title:after{
+  content:"◆";
+  position:absolute;
+  left:50%;
+  bottom:-7px;
+  width:auto!important;
+  height:auto!important;
+  background:var(--rr-paper)!important;
+  color:var(--rr-red);
+  padding:0 8px;
+  transform:translateX(-50%);
+  font-size:8px;
+}
+
+/* 官報一覧 */
+.news-list{
+  border-top:2px solid var(--rr-ink)!important;
+}
+.news-list article{
+  min-height:82px;
+  border-bottom:1px solid var(--rr-line)!important;
+}
+.news-list article:hover{
+  background:#eee5d5!important;
+  padding-left:14px!important;
+}
+.news-list article time{
+  font-family:Georgia,serif;
+  color:var(--rr-gold);
+}
+.news-list article a{
+  color:var(--rr-ink);
+}
+.news-list article a:hover{
+  color:var(--rr-red);
+}
+
+/* 現人神パネル */
+.god-tabs{
+  border:1px solid var(--rr-ink)!important;
+  background:var(--rr-paper2)!important;
+}
+.god-tab{
+  min-height:58px;
+  font-family:"Shippori Mincho",serif;
+}
+.god-tab.active{
+  background:var(--rr-red)!important;
+  color:#fff7ea!important;
+}
+.god-panel{
+  border:1px solid var(--rr-line)!important;
+  background:#fbf7ed!important;
+  box-shadow:0 18px 45px rgba(70,45,25,.10)!important;
+}
+.season-kanji{
+  font-family:"Shippori Mincho",serif;
+  color:var(--rr-red)!important;
+  opacity:.16!important;
+}
+
+/* 組織図は黒い「官制図」 */
+.departments-section{
+  background:
+    linear-gradient(135deg,#171817,#26211e)!important;
+}
+.departments-section .section-title h2{
+  color:#f1e7d6!important;
+}
+.department-grid{
+  border:1px solid #806d50;
+  gap:0!important;
+}
+.department-grid article{
+  border-right:1px solid #514a40;
+  border-bottom:1px solid #514a40;
+}
+.department-grid article:hover{
+  transform:none!important;
+  background:#302a26!important;
+}
+.department-grid h3{
+  color:#eee4d4;
+}
+
+/* 業務カード */
+.duty-grid article{
+  border:1px solid var(--rr-line)!important;
+  border-top:4px solid var(--rr-red)!important;
+  background:#fbf7ed!important;
+  min-height:205px;
+}
+.duty-grid b{
+  font-family:Georgia,serif;
+  color:var(--rr-gold)!important;
+  font-size:12px;
+}
+
+/* フッターを帝國官報の奥付に */
+.site-footer{
+  background:#202629!important;
+  border-top:5px double var(--rr-gold)!important;
+  color:#ddd3c1;
+}
+.site-footer strong{
+  font-family:"Shippori Mincho",serif;
+  font-size:24px;
+  color:#f0e6d4;
+}
+.site-footer small{
+  color:#bda77b;
+}
+
+/* スマホ */
+@media(max-width:800px){
+  .header-inner{min-height:72px}
+  .brand strong{font-size:22px!important}
+  .brand-mark{width:44px!important;height:44px!important}
+  .hero{min-height:590px!important}
+  .hero-inner{width:calc(100% - 46px)!important;padding-top:110px!important}
+  .hero h1{font-size:49px!important}
+  .hero-lead{font-size:13px!important}
+  .section{padding:75px 0!important}
+  .section-title h2{font-size:27px!important}
+}
