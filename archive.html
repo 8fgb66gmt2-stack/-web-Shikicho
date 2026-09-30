@@ -85,7 +85,7 @@
 <div class="shiki-investigation" id="shiki-investigation" aria-live="polite">
   <div class="shiki-investigation-head"><span>SHIKI AGENCY / SITE INVESTIGATION</span><button type="button" id="investigation-close" aria-label="会話を閉じる">×</button></div>
   <div class="shiki-investigation-body"><span class="shiki-investigation-name">花葉 春月</span><p class="shiki-investigation-text" id="investigation-text"></p><button type="button" class="shiki-investigation-next" id="investigation-next">次へ　›</button><span class="shiki-investigation-progress" id="investigation-progress"></span><button type="button" id="archive-first-dialogue" style="display:none;margin-top:10px;border:1px solid rgba(117,43,45,.35);background:rgba(255,255,255,.82);color:#4b2527;padding:7px 12px;font:inherit;font-size:12px;cursor:pointer">最初の会話を見直す</button>
-      <button type="button" id="archive-solved-dialogue" style="display:none;margin-top:10px;border:1px solid rgba(117,43,45,.35);background:rgba(255,255,255,.82);color:#4b2527;padding:7px 12px;font:inherit;font-size:12px;cursor:pointer">第15号読了後の会話を見直す</button></div>
+      <button type="button" id="archive-solved-dialogue" style="display:none;margin-top:10px;border:1px solid rgba(117,43,45,.35);background:rgba(255,255,255,.82);color:#4b2527;padding:7px 12px;font:inherit;font-size:12px;cursor:pointer">第15号読了後の会話を見直す</button><a id="record19-university-link" class="record19-university-link" href="https://8fgb66gmt2-stack.github.io/https-8fgb66gmt2-stack.github.io-nippon-imperial-university-/achievement37.html"><span>N.I.U. ARCHIVE / SHIKI-037</span><strong>「四季廳　春の現人神極秘記録」</strong><em>五年間の記録を帝國大學で照合する →</em></a></div>
 </div>
 <script>
 (() => {
@@ -112,11 +112,13 @@
   function showRecord17Answer(){lines=['……花葉春月。','そう答えたんだね。','……正解。','『ヴラド・ドラクラ』を書いたのは、僕だよ。','大窪晶与という名前も、僕が使っていた名前だ。','どうしてそんな名前を使っていたのかは――まあ、今はまだ話さなくてもいいかな。','でも、君が資料を辿ってここまで来たことは、ちゃんと覚えておくよ。'];index=0;next.textContent='次へ　›';openPanel()}
   function showChapter2Intro(){lines=['……第十七號まで、辿り着いたんだね。','大窪晶与と花葉春月が同じ一人だと分かった。','でも、それだけで終わらせるには……第十五號の記録が妙だった。','「春は失われたのではない。ただ、帰る場所を失つた」っていう、あの一文。','あれは、春そのものの話じゃない。','たぶん……誰かが、春の帰る場所を失った時の記録なんだ。','だから第二章では、名前じゃなくて「欠落」を追ってみよう。','第十八號。もう一度、帝國暦二三六年の記録を見てみようか。'];index=0;next.textContent='次へ　›';openPanel()}
   function showRecord18Final(){lines=['……読んだ？','第十八號に残っていたのは、春の異常だけじゃない。','「欠落期間」が、わざと空白にされていた。','そして現人神記録には、花葉雛菊の名前がある。','……ここから先は、四季の資料だけでは辿れない。','春を守るために、誰が動いたのか。','誰が雛菊ちゃんを探したのか。','その記録が、別の資料に残っているはずだ。','……第十九號を探してみよう。','たぶん、次の頁は「春」ではなく、「人間」の側にある。'];index=0;next.textContent='次へ　›';openPanel()}
+  function showRecord19Final(){lines=['……第十九號まで、読んだんだね。','八歳で失踪して、五年間。','四季廳の行政記録では、その時間がほとんど残されていない。','でも、護衛官側の記録には……僕の名前が何度も出てくる。','……当然だよ。僕は、雛菊ちゃんを探してたから。五年間ずっと。','ただ、その五年間に僕が何をしていたのか。何を見つけて、何を見つけられなかったのか。','それは、この資料室には残してない。','残さなかった、というより……残せなかったんだと思う。行政記録にできることには、限界があるから。','だから、四季廳が残さなかった「五年間」を知りたいなら、別の記録を探すしかない。','……帝國大學。','あそこには、四季廳とは違う形で残された記録がある。','「護衛官記録・旧稿綴」。たぶん、君が探しているのはそこだよ。','……行っておいで。僕は、ここで待ってる。'];index=0;next.textContent='次へ　›';openPanel()}
   function showRecord17Final(){lines=['……これで、照合は終わり。','大窪晶与と花葉春月。','二つの名前が、同じ一人の人間を指している。','……資料だけなら、きっと疑問のままだった。','でも君は、自分でそこまで辿った。','それなら、僕から言うことはひとつだけだね。','……見つけてくれて、ありがとう。'];index=0;next.textContent='次へ　›';openPanel()}
   function start(){
     currentReturnStage=new URLSearchParams(location.search).get('return')||'';
     try{if(!currentReturnStage)currentReturnStage=localStorage.getItem('shikiReturnStage')||'';localStorage.removeItem('shikiReturnStage')}catch(e){}
     if(currentReturnStage==='achievement40'){showAchievement40Dialogue();return}
+    if(currentReturnStage==='record19'){showRecord19Final();return}
     if(currentReturnStage==='record15'){lines=['……第十五號の照合、済んだんだね。','じゃあ、次は第十六號だ。','目録には「資料未登録」とある。','でも、関連記録の存在だけは確認されている。','……変だよね。','僕たちがまだ中身を見ていない以上、今は推測しかできない。','だから、先にN.I.U. ARCHIVE 16を見てみようか。','そこに何が残されているのか――君と一緒に確かめたい。'];}
     else if(currentReturnStage==='archive17'||record17Read()){showRecord17Dialogue();return}
     else if(currentReturnStage==='archive16'||archive16Visited()){lines=['……おかえり。','ちゃんと読んできたんだね。ARCHIVE 16。','……どうだった？','四季廳の資料室にある記録とは、ずいぶん違ったでしょう。','こっちは行政記録だからね。誰が、いつ、何をしたか。そういうことは残る。','でも――誰が誰を好きだったとか、誰に救われたとか、誰と決別したとか。','そういうものは、あまり記録されない。','……だから、あの頁が必要だったのかもしれないね。','僕自身の名前も、載っていたでしょう。','雛菊ちゃんのことも。','それから……僕たちの周りにいる人たちのことも。','あの頁を読んで、何か気づいた？','……そう。','じゃあ、少しだけ整理しようか。','四季廳の記録では、「春は正常に巡行している」。','でも、帝國大學の記録には――春をめぐって、もっとたくさんの人間の名前が残っていた。','つまり、四季の異常を調べるなら……四季そのものだけを見ていても、足りないんだ。','人と人との関係まで辿らないと、見えてこない。','……たぶん、ここからが本当の調査なんだと思う。','ARCHIVE 16の中で、気になった名前はあった？','だったら、その人の記録を探してみよう。','四季廳の資料室にも、まだ公開されていない記録があるかもしれないから。'];}
@@ -129,6 +131,7 @@
     if(record17Read()&&lines[0]==='……第十七號、読んだんだね。'){showRecord17Answer();return}
     if(record17Read()&&lines[0]==='……花葉春月。'){showRecord17Final();return}
     if(record18Read()&&lines[0]==='……第十八號、読んだんだね。'){showRecord18Final();return}
+    if(currentReturnStage==='record19'){document.getElementById('record19-university-link')?.classList.add('is-visible');next.style.display='none';return}
     next.textContent='調査記録を閉じる';panel.classList.remove('is-visible');hint.classList.add('is-visible');
   }});
   close.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();panel.classList.remove('is-visible');hint.classList.add('is-visible')});
