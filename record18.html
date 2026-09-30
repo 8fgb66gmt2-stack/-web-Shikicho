@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>第十八號・春季巡行欠落記録｜四季廳</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="imperial.css">
+<style>
+body{margin:0;background:#0b0b0d;color:#ddd5c7;font-family:serif}.record{max-width:920px;margin:auto;padding:58px 24px 100px}.head{border-bottom:1px solid rgba(185,165,110,.4);padding-bottom:24px}.kicker{font:11px/1.5 Arial,sans-serif;letter-spacing:.22em;color:#b9a56e}h1{font-size:clamp(30px,5vw,56px);font-weight:400;letter-spacing:.12em;margin:16px 0 5px}.meta{color:#817a70;font-size:11px;letter-spacing:.12em}.paper{margin-top:38px;background:#e7e0d3;color:#252329;padding:clamp(28px,6vw,64px);box-shadow:0 12px 40px rgba(0,0,0,.35)}.paper h2{font-size:23px;font-weight:500;letter-spacing:.12em;margin:0 0 25px}.paper p{line-height:2.15;margin:12px 0}.stamp{border-left:2px solid #8b2029;padding:12px 18px;margin:28px 0;color:#514a43}.blank{padding:20px;border:1px dashed #9b9387;margin:25px 0}.choices{display:grid;gap:10px;margin-top:22px}.choices button{padding:13px 16px;border:1px solid #8b2029;background:#f0eadf;color:#4b2527;text-align:left;font:14px serif;cursor:pointer}.choices button:hover{background:#e6d9cf}.result{margin-top:18px;line-height:1.9;min-height:28px}.next{display:none;margin-top:18px;padding:11px 16px;border:1px solid #8b2029;background:#8b2029;color:#fff;text-decoration:none;font-size:13px}.back{display:inline-block;margin-top:35px;color:#b9a56e;text-decoration:none}
+</style></head>
+<body><main class="record">
+<header class="head"><p class="kicker">SHIKI AGENCY / RESTRICTED ARCHIVE / DOCUMENT 018</p><h1>第十八號・春季巡行欠落記録</h1><p class="meta">寄託元：日ノ本帝國國立帝國大學　｜　整理：四季廳附属資料室</p></header>
+<article class="paper">
+<h2>帝國暦二三六年・春季神性波動乖離</h2>
+<p>第十五號に記録された「春は失われたのではない。ただ、帰る場所を失つた」という記述について、追加照合を行った。</p>
+<p>当時の公開行政記録では、春季巡行は「正常」とされた。</p>
+<p>しかし寄託資料には、一定期間にわたる記録欠落が存在する。</p>
+<div class="stamp">欠落期間：帝國暦二三六年<br>現人神：花葉雛菊<br>備考：詳細記録は別冊へ移管</div>
+<p>別冊への移管理由は記載されていない。</p>
+<div class="blank"><strong>照合記録</strong><br>次の人物のうち、この欠落期間と直接結びつく記録を探せ。</div>
+<div class="choices" id="choices">
+<button data-answer="wrong">花葉春月　／　四季廳長官・護衛官</button>
+<button data-answer="correct">花葉雛菊　／　春の現人神</button>
+<button data-answer="wrong">雪柳残雪　／　冬の現人神護衛官</button>
+</div>
+<div class="result" id="result"></div>
+<a class="next" id="next" href="record19.html">第十九號　別冊記録を開く →</a>
+</article>
+<a class="back" href="archive.html?return=record18">← 資料室目録へ戻る</a>
+</main>
+<script>
+const result=document.getElementById('result'),next=document.getElementById('next');
+document.querySelectorAll('#choices button').forEach(b=>b.addEventListener('click',()=>{
+ if(b.dataset.answer==='correct'){result.innerHTML='照合一致。<br><br>……そう。探すべきだったのは「春を守った人」ではなく、「春そのものとして記録された人」だ。<br>花葉雛菊。彼女の記録が、この欠落期間の中心にある。<br><br>別冊資料への参照権限を付与します。';next.style.display='inline-block';try{localStorage.setItem('shikiRecord18Solved','1')}catch(e){}}
+ else{result.textContent='照合不一致。第十八號に記された「現人神」の欄をもう一度確認してください。'}
+}));
+</script></body></html>
