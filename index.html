@@ -821,7 +821,7 @@ document.querySelectorAll('.god-tab').forEach(btn=>btn.addEventListener('click',
   }
 
   function clearSavedProgress(){
-    try { saveKeys.forEach(key => localStorage.removeItem(key)); } catch(e) {}
+    try { saveKeys.forEach(key => localStorage.removeItem(key)); localStorage.removeItem('shikiAchievement40Complete'); localStorage.removeItem('shikiPortalReturnedAfterArchive'); } catch(e) {}
     try { sessionStorage.removeItem('shikiInvestigationStarted'); } catch(e) {}
   }
 
