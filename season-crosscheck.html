@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#142521">
+<title>四時照合室｜四季廳｜日ノ本帝國</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="imperial.css">
+<link rel="stylesheet" href="ryoryo.css">
+<style>
+body{margin:0;background:#f3ead9;color:#2a2420;font-family:"Shippori Mincho","Yu Mincho",serif}
+.cross-page{min-height:100vh;background:radial-gradient(circle at 50% 0,#fffaf0 0,#eee2ce 55%,#e5d7bf 100%)}
+.cross-top{background:#142521;color:#e8d4aa;padding:10px 22px;border-bottom:4px double #ad8a51;font:9px Georgia,serif;letter-spacing:.22em}
+.cross-wrap{max-width:980px;margin:auto;padding:72px 24px 110px}
+.cross-kicker{font:9px Georgia,serif;letter-spacing:.34em;color:#96733f}
+.cross-title{margin:9px 0 4px;font:500 clamp(35px,6vw,62px) "Shippori Mincho",serif;letter-spacing:.15em;color:#4e111a}
+.cross-sub{color:#72685c;font-size:12px;letter-spacing:.12em}
+.cross-panel{margin-top:46px;border:1px solid #bda987;background:rgba(255,250,241,.75);box-shadow:inset 0 0 0 6px rgba(173,138,81,.035),0 18px 45px rgba(55,40,23,.08);padding:34px}
+.cross-panel h2{margin:0 0 12px;color:#741d28;font-size:19px;font-weight:500}
+.cross-panel p{line-height:2;margin:8px 0;color:#534a42}
+.cross-note{margin-top:22px;padding:14px 16px;border-left:3px solid #741d28;background:#efe3d1;color:#5b4d40;font-size:11px;line-height:1.9}
+.cross-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:28px}
+.cross-card{border:1px solid #c4b18e;background:#fffaf1;padding:16px 10px;cursor:pointer;text-align:center;transition:.2s;position:relative}
+.cross-card:hover{transform:translateY(-2px);border-color:#9f7c43}
+.cross-card .mark{width:42px;height:42px;margin:0 auto 9px;border-radius:50%;border:1px solid currentColor;display:grid;place-items:center;font-size:21px}
+.cross-card strong{display:block;font-size:12px;font-weight:500}
+.cross-card small{display:block;margin-top:5px;font:8px Georgia,serif;letter-spacing:.12em;color:#8c7a62}
+.cross-card.selected{background:#efe2cd;border-color:#741d28;box-shadow:inset 0 0 0 2px rgba(116,29,40,.08)}
+.cross-card.locked{opacity:.55;cursor:default}
+.cross-order{margin-top:24px;padding:13px;border-top:1px solid #c8b99f;border-bottom:1px solid #c8b99f;color:#766854;font:10px Georgia,serif;letter-spacing:.14em;min-height:18px}
+.cross-result{margin-top:24px;padding:18px;background:#1d332e;color:#eee5d5;border:1px solid #ad8a51;display:none}
+.cross-result.open{display:block}
+.cross-result strong{color:#dcc084;font-weight:500}
+.cross-link{display:inline-block;margin-top:15px;padding:10px 15px;border:1px solid #c9aa70;color:#fff5df;text-decoration:none;font-size:11px;letter-spacing:.1em}
+.cross-link:hover{background:rgba(217,190,131,.08)}
+.cross-lock{margin-top:22px;padding:13px;border:1px dashed #b5a17d;color:#806f58;font-size:11px;text-align:center}
+.cross-footer{margin-top:52px;text-align:center;color:#8a7b68;font-size:10px;letter-spacing:.18em}
+@media(max-width:700px){.cross-wrap{padding:48px 17px 75px}.cross-panel{padding:23px 17px}.cross-cards{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body data-shiki-page="crosscheck">
+<div class="cross-page">
+<div class="cross-top">日ノ本帝國　四季廳　／　庁内照合網　／　閲覧区分：巡回調査</div>
+<main class="cross-wrap">
+<p class="cross-kicker">SHIKI AGENCY / FOUR-SEASON CROSSCHECK</p>
+<h1 class="cross-title">四時照合室</h1>
+<p class="cross-sub">四つの頁から拾われた照合印を、四季の巡行順に並べてください。</p>
+<section class="cross-panel">
+<h2>春月からの伝言</h2>
+<p>「……四つの場所を回ってくれたんだね。」</p>
+<p>「拾った言葉には、季節を示す小さな手掛かりが混じっている。<br>まだ答えは出さなくていいよ。順番だけ、僕と一緒に考えよう。」</p>
+<div class="cross-note">手掛かり：<b>芽</b>　<b>陽</b>　<b>実</b>　<b>雪</b><br>四季廳の正式な巡行順に、四つを選んでください。</div>
+<div class="cross-cards" id="cards">
+<button class="cross-card" data-season="秋" type="button"><span class="mark" style="color:#a27642">秋</span><strong>照合印 III</strong><small>実</small></button>
+<button class="cross-card" data-season="冬" type="button"><span class="mark" style="color:#526a78">冬</span><strong>照合印 IV</strong><small>雪</small></button>
+<button class="cross-card" data-season="春" type="button"><span class="mark" style="color:#b85b63">春</span><strong>照合印 I</strong><small>芽</small></button>
+<button class="cross-card" data-season="夏" type="button"><span class="mark" style="color:#557d68">夏</span><strong>照合印 II</strong><small>陽</small></button>
+</div>
+<div class="cross-order" id="order">選択順：＿　＿　＿　＿</div>
+<div class="cross-result" id="result"><strong>四時照合、成立。</strong><br>「……うん。これでいい。春から始まって、冬で終わる。だけど、冬の先にはまた春がある。」<br>「次は、四季そのものじゃなくて……四季廳が残した『記録の空白』を見よう。」<br><a class="cross-link" href="index.html?return=explore-crosscheck">本廳舎へ戻る　›</a></div>
+<div class="cross-lock" id="lock">照合結果を記録しています……</div>
+</section>
+<p class="cross-footer">SHIKI AGENCY / INTERNAL TRACE SYSTEM　｜　玲瓏二三七年</p>
+</main></div>
+<script>
+(()=>{const s=['春','夏','秋','冬'];const cards=[...document.querySelectorAll('.cross-card')];const order=document.getElementById('order'),result=document.getElementById('result'),lock=document.getElementById('lock');let pick=[];function render(){order.textContent='選択順：'+[0,1,2,3].map(i=>pick[i]||'＿').join('　');cards.forEach(c=>c.classList.toggle('selected',pick.includes(c.dataset.season)))}cards.forEach(c=>c.addEventListener('click',()=>{const v=c.dataset.season;if(pick.includes(v))return;pick.push(v);render();if(pick.length===4){const ok=pick.join('')===s.join('');if(ok){result.classList.add('open');lock.textContent='四時認証：成立　｜　照合済';try{localStorage.setItem('shikiExploreCrosscheck','1')}catch(e){}}else{lock.textContent='照合不一致。……順番を、もう一度考えてみよう。';setTimeout(()=>{pick=[];render()},900)}}}));try{const t=localStorage.getItem('shikiExploreTrace');if(!t||!Object.keys(JSON.parse(t)).length){lock.textContent='巡回記録が確認できません。先に四季廳の各頁を調査してください。';cards.forEach(c=>c.classList.add('locked'));cards.forEach(c=>c.disabled=true)}}catch(e){}})();
+</script>
+<script src="shiki-exploration.js"></script>
+</body>
+</html>
