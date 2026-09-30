@@ -80,6 +80,7 @@
       <a class="doc locked" id="record15" href="record15.html"><small>SHIKI / RESTRICTED / 015</small><strong>第十五號　封緘記録</strong><p>寄託元：日ノ本帝國國立帝國大學　／　公開状態：封緘</p></a>
       <div class="doc" id="record16" tabindex="0" role="button" aria-label="第十六號資料未登録を調査する"><small>SHIKI / RESTRICTED / 016</small><strong>第十六號　<span class="redact">資料未登録</span></strong><p>関連記録の存在のみ確認。公開目録への登録なし。</p><a class="arg-link is-visible" id="university-link" href="https://8fgb66gmt2-stack.github.io/https-8fgb66gmt2-stack.github.io-nippon-imperial-university-/archive16.html">N.I.U. ARCHIVE 16　――　人物相関図を閲覧する →</a></div>
       <a class="doc" id="record17" href="record17.html" style="display:none"><small>SHIKI / RESTRICTED / 017</small><strong>第十七號　著者名義照合記録</strong><p>『ヴラド・ドラクラ』をめぐる著者名義の不一致について、関連資料を照合した記録。</p></a>
+      <a class="doc" id="record18" href="record18.html" style="display:none"><small>SHIKI / RESTRICTED / 018</small><strong>第十八號　春季巡行欠落記録</strong><p>帝國暦二三六年、春季神性波動乖離と欠落期間についての追補記録。</p></a>
     </div>
   </section>
 
@@ -98,10 +99,12 @@
   const firstDialogue=document.getElementById('archive-first-dialogue'), solvedDialogue=document.getElementById('archive-solved-dialogue');
   const solved=()=>{try{return localStorage.getItem('shikiRecord15Solved')==='1'}catch(e){return false}};
   const record17=document.getElementById('record17');
+  const record18=document.getElementById('record18');
   const showRecord17=()=>{if(record17 && archive16Visited()) record17.style.display='block'};
   const archive16Visited=()=>{try{return localStorage.getItem('shikiArchive16Visited')==='1'}catch(e){return false}};
   const record17Read=()=>{try{return localStorage.getItem('shikiRecord17Read')==='1'}catch(e){return false}};
   const markRecord17Read=()=>{try{localStorage.setItem('shikiRecord17Read','1');localStorage.setItem('shikiReturnStage','archive17')}catch(e){}};
+  const record18Read=()=>{try{return localStorage.getItem('shikiRecord18Read')==='1'}catch(e){return false}};
   let lines=[],index=0;
   function render(){
     if(!lines.length)return;
@@ -140,6 +143,16 @@
     index=0; next.textContent='次へ　›'; openPanel();
   }
 
+  function showChapter2Intro(){
+    lines=['……第十七號まで、辿り着いたんだね。','大窪晶与と花葉春月が同じ一人だと分かった。','でも、それだけで終わらせるには……第十五號の記録が妙だった。','「春は失われたのではない。ただ、帰る場所を失つた」っていう、あの一文。','あれは、春そのものの話じゃない。','たぶん……誰かが、春の帰る場所を失った時の記録なんだ。','だから第二章では、名前じゃなくて「欠落」を追ってみよう。','第十八號。もう一度、帝國暦二三六年の記録を見てみようか。'];
+    index=0; next.textContent='次へ　›'; openPanel();
+  }
+
+  function showRecord18Final(){
+    lines=['……読んだ？','第十八號に残っていたのは、春の異常だけじゃない。','「欠落期間」が、わざと空白にされていた。','そして現人神記録には、花葉雛菊の名前がある。','……ここから先は、四季の資料だけでは辿れない。','春を守るために、誰が動いたのか。','誰が雛菊ちゃんを探したのか。','その記録が、別の資料に残っているはずだ。','……第十九號を探してみよう。','たぶん、次の頁は「春」ではなく、「人間」の側にある。'];
+    index=0; next.textContent='次へ　›'; openPanel();
+  }
+
   function showRecord17Final(){
     lines=['……これで、照合は終わり。','大窪晶与と花葉春月。','二つの名前が、同じ一人の人間を指している。','……資料だけなら、きっと疑問のままだった。','でも君は、自分でそこまで辿った。','それなら、僕から言うことはひとつだけだね。','……見つけてくれて、ありがとう。'];
     index=0; next.textContent='次へ　›'; openPanel();
@@ -166,6 +179,7 @@
   next.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();if(index<lines.length-1){index++;render()}else{
     if(record17Read() && lines[0]==='……第十七號、読んだんだね。'){ showRecord17Answer(); return; }
     if(record17Read() && lines[0]==='……花葉春月。'){ showRecord17Final(); return; }
+    if(record18Read() && lines[0]==='……第十八號、読んだんだね。'){ showRecord18Final(); return; }
     next.textContent='調査記録を閉じる';panel.classList.remove('is-visible');hint.classList.add('is-visible');
   }});
   close.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();panel.classList.remove('is-visible');hint.classList.add('is-visible');});
@@ -176,12 +190,15 @@
   record16.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();record16.click();}});
   uni.addEventListener('click',()=>{try{localStorage.setItem('shikiArchive16Visited','1');localStorage.setItem('shikiReturnStage','archive16')}catch(e){};});
   if(location.search.includes('return=archive17')) markRecord17Read();
+  if(location.search.includes('return=record18')){try{localStorage.setItem('shikiRecord18Read','1');localStorage.setItem('shikiReturnStage','record18')}catch(e){}}
   document.getElementById('back-to-shiki')?.addEventListener('click',(e)=>{e.preventDefault();const stage=new URLSearchParams(location.search).get('return')||'';const target=stage==='archive17'?'archive17':(stage==='archive16'?'archive16':(stage==='record15'||solved()?'record15':''));window.location.href=target?'index.html?return='+target:'index.html';});
   // 資料室では春月が常に待機。既読状態に関係なく、ページを開けば会話を表示する。
   setTimeout(start,350);
   showRecord17();
+  if(record18 && (record17Read() || record18Read())) record18.style.display='block';
   if(firstDialogue && (solved() || archive16Visited())) firstDialogue.style.display='inline-block';
   if(solvedDialogue && !archive16Visited() && solved()) solvedDialogue.style.display='inline-block';
+  if(record18) record18.addEventListener('click',()=>{try{localStorage.setItem('shikiRecord18Read','1');localStorage.setItem('shikiReturnStage','record18')}catch(e){}});
 })();
 </script>
 </body>
