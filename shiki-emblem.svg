@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="title desc">
+<title id="title">四季廳紋章</title>
+<desc id="desc">臙脂の円環の中に桜、太陽、紅葉、雪を配し、四季を一つの花として結ぶ四季廳の公式紋章。</desc>
+<defs>
+  <radialGradient id="bg" cx="50%" cy="42%" r="70%">
+    <stop offset="0" stop-color="#5a1927"/><stop offset="1" stop-color="#3f0d18"/>
+  </radialGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#e0bd72"/><stop offset=".5" stop-color="#a77a36"/><stop offset="1" stop-color="#d5b26a"/>
+  </linearGradient>
+  <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="1.2"/></filter>
+</defs>
+
+<circle cx="100" cy="100" r="96" fill="#4b101b"/>
+<circle cx="100" cy="100" r="88" fill="url(#bg)" stroke="#a9854d" stroke-width="5"/>
+<circle cx="100" cy="100" r="77" fill="none" stroke="#e0bd72" stroke-width="2" opacity=".85"/>
+
+<!-- 四方を結ぶ花弁 -->
+<path d="M100 101
+         C83 93 78 77 82 64
+         C86 52 96 42 100 37
+         C104 42 114 52 118 64
+         C122 77 117 93 100 101Z"
+      fill="#eadfd0" stroke="#aa916f" stroke-width="2.5"/>
+<path d="M100 101
+         C117 93 122 77 118 64
+         C114 52 104 42 100 37"
+      fill="none" stroke="#fff8e9" stroke-width="1" opacity=".55"/>
+
+<!-- 春：桜 -->
+<g transform="translate(100 60)">
+  <path d="M0-16 C-7-8-7-1 0 0 C7-1 7-8 0-16Z" fill="#f2a6b8"/>
+  <path d="M0-16 C7-8 7-1 0 0 C-7-1-7-8 0-16Z" fill="#e58ea8" transform="rotate(72)"/>
+  <path d="M0-16 C-7-8-7-1 0 0 C7-1 7-8 0-16Z" fill="#f2a6b8" transform="rotate(144)"/>
+  <path d="M0-16 C7-8 7-1 0 0 C-7-1-7-8 0-16Z" fill="#e58ea8" transform="rotate(216)"/>
+  <path d="M0-16 C-7-8-7-1 0 0 C7-1 7-8 0-16Z" fill="#f2a6b8" transform="rotate(288)"/>
+  <circle r="4.5" fill="#f6df91"/>
+  <circle r="1.8" fill="#9d6a58"/>
+</g>
+
+<!-- 夏：太陽 -->
+<g transform="translate(142 100)" fill="#e2b04f" stroke="#d1a040" stroke-width="1">
+  <circle r="11"/>
+  <g>
+    <path d="M0-19 L3-12 L-3-12Z"/><path d="M0 19 L3 12 L-3 12Z"/>
+    <path d="M-19 0 L-12 3 L-12-3Z"/><path d="M19 0 L12 3 L12-3Z"/>
+    <path d="M-13.5-13.5 L-8-9 L-11-5Z"/><path d="M13.5 13.5 L8 9 L11 5Z"/>
+    <path d="M13.5-13.5 L9-8 L5-11Z"/><path d="M-13.5 13.5 L-9 8 L-5 11Z"/>
+  </g>
+</g>
+
+<!-- 秋：紅葉 -->
+<g transform="translate(58 100)">
+  <path d="M0-20 L5-10 L13-13 L10-5 L19 0 L10 4 L12 13 L4 9 L0 20 L-4 9 L-12 13 L-10 4 L-19 0 L-10-5 L-13-13 L-5-10Z"
+        fill="#9d2d3b" stroke="#7e1d29" stroke-width="1.8"/>
+  <path d="M0-15 L0 14 M0-6 L-8-12 M0-3 L8-10 M0 2 L-7 8 M0 3 L7 8"
+        fill="none" stroke="#d87978" stroke-width="1.2" opacity=".75"/>
+</g>
+
+<!-- 冬：雪 -->
+<g transform="translate(100 143)" stroke="#b9cede" stroke-width="3" stroke-linecap="round">
+  <path d="M0-17 V17 M-15-9 L15 9 M-15 9 L15-9"/>
+  <path d="M0-17 l-4 5 M0-17 l4 5 M0 17 l-4-5 M0 17 l4-5"/>
+  <path d="M-15-9 l1 6 M-15-9 l6 1 M15 9 l-1-6 M15 9 l-6-1"/>
+  <path d="M-15 9 l6-1 M-15 9 l1-6 M15-9 l-6 1 M15-9 l-1 6"/>
+</g>
+
+<!-- 四季の結節 -->
+<g>
+  <circle cx="100" cy="100" r="17" fill="#5e1a25" stroke="url(#gold)" stroke-width="3"/>
+  <circle cx="100" cy="100" r="8" fill="none" stroke="#e0bd72" stroke-width="2"/>
+  <path d="M100 84 V116 M84 100 H116" stroke="#f1d898" stroke-width="1.3" opacity=".85"/>
+</g>
+
+<!-- 四隅の小さな結び目 -->
+<g fill="none" stroke="#d8b875" stroke-width="2">
+  <path d="M100 22 l4 6 l-4 6 l-4-6Z"/>
+  <path d="M178 100 l-6 4 l-6-4 l6-4Z"/>
+  <path d="M100 178 l4-6 l-4-6 l-4 6Z"/>
+  <path d="M22 100 l6-4 l6 4 l-6 4Z"/>
+</g>
+
+<circle cx="100" cy="100" r="91" fill="none" stroke="#2b0910" stroke-width="2" opacity=".8"/>
+</svg>
