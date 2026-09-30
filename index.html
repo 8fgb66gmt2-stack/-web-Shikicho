@@ -512,6 +512,8 @@ body:has(#shiki-investigation.is-visible) .portal-registry{box-shadow:inset 0 -2
       <section id="departments" class="section departments-section"><div class="content-width"><div class="section-title"><span>05</span><div><p>ORGANIZATION / CONSERVATION</p><h2>組織・保全課</h2></div></div><div class="org-chart"><div class="org-node chief"><span>四季廳長官</span><strong>花葉 春月</strong></div><div class="org-line"></div><div class="org-grid"><article><span>保全課・春局</span><strong>京極 馨</strong><small>春季行政・警備</small></article><article><span>保全課・夏局</span><strong>九鬼 湊</strong><small>夏季行政・警備</small></article><article><span>保全課・秋局</span><strong>日向 瑞穂</strong><small>秋季行政・警備</small></article><article><span>保全課・冬局</span><strong>石田 雅向</strong><small>冬季行政・警備</small></article></div></div></div></section>
     </div>
   </div>
+<section id="duties" class="section duties-section"><div class="content-width"><div class="section-title"><span>06</span><div><p>ADMINISTRATIVE DUTIES</p><h2>業務案内</h2></div></div><div class="duty-grid"><article><b>01</b><h3>四季循環保全</h3><p>季節循環、氣候、霊脈および神性波動を監視し、異常発生時には必要な対策を講じます。</p></article><article><b>02</b><h3>現人神保護</h3><p>現人神の身辺警護、生活環境、医療、教育その他必要な支援を関係機関と連携して行います。</p></article><article><b>03</b><h3>神祇災害對策</h3><p>神性に起因する異常気象、霊脈障害その他の災害について、調査・警戒・復旧を行います。</p></article><article><b>04</b><h3>四季祭祀</h3><p>帝國各地における四季祭祀の統括および神域の保全を行います。</p></article></div></div></section>
+<section id="contact" class="section contact-section"><div class="content-width"><div class="section-title"><span>07</span><div><p>INQUIRY / CONSULTATION</p><h2>相談窓口</h2></div></div><div class="contact-box"><p>四季神祇、現人神の保護、神祇災害その他四季廳所管事項についてのご相談を受け付けています。</p><div><strong>四季廳 本廳舍・相談窓口</strong><span>帝都・四季廳本廳舍　平日 09:00–17:00</span></div></div></div></section>
 </main>
 <footer class="site-footer"><div class="content-width"><strong>四季廳</strong><span>日ノ本帝國　四季神祇行政機關</span><nav><a href="archive.html">附属資料室</a><a href="constitution.html">帝國法令</a><a href="miyauchi.html">宮内廳との連携</a></nav><small>四季を絶やすこと勿れ。</small></div></footer>
 
@@ -898,98 +900,3 @@ document.querySelectorAll('.god-tab').forEach(btn=>btn.addEventListener('click',
     if(hasManuscript){ openAuthorReturn(); return; }
     if(hasArchive || hasRecord || hasNews){
       window.location.href='archive.html';
-      return;
-    }
-    panel.classList.add('is-visible');
-    hint.classList.remove('is-visible');
-    text.textContent='……前回の調査記録が残っているよ。';
-    progress.textContent='調査記録：途中';
-    next.textContent='閉じる';
-  }
-
-  continueButton?.addEventListener('click', openResume);
-
-  newGameButton?.addEventListener('click', () => {
-    clearSavedProgress();
-    window.__shikiAuthorReturn=null;
-    window.__shikiAuthorInvestigation=null;
-    index=0;
-    investigationMode=false;
-    newsInvestigationMode=false;
-    saveControls.hidden=true;
-    panel.classList.add('is-visible');
-    hint.classList.remove('is-visible');
-    render();
-  });
-
-  next.addEventListener('click',()=>{
-    if(!saveControls.hidden && next.textContent==='閉じる'){
-      closePanel();
-      return;
-    }
-  });
-
-  if(portalReturn){
-    openPortalReturn();
-  }else if(archiveReturn){
-    openArchiveReturn(archiveReturn);
-  }else if(manuscriptReturn){
-    openAuthorReturn();
-  }else if(hasSavedProgress()){
-    window.setTimeout(()=>{
-      panel.classList.add('is-visible');
-      hint.classList.remove('is-visible');
-      saveControls.hidden=false;
-      text.textContent='……前回の調査記録が残っているよ。';
-      progress.textContent='自動保存済み';
-      next.textContent='閉じる';
-    },300);
-  }else{
-    let achievement40Complete=false;
-    try{achievement40Complete=localStorage.getItem('shikiAchievement40Complete')==='1'}catch(e){}
-    if(achievement40Complete){
-      window.setTimeout(()=>{panel.classList.remove('is-visible');hint.classList.add('is-visible')},150);
-    }else{
-      window.setTimeout(()=>{
-        panel.classList.add('is-visible');
-      hint.classList.remove('is-visible');
-      render();
-    },300);
-  }
-
-})();
-</script>
-<script>
-(()=>{const i=document.getElementById('person-search-input'),b=document.getElementById('person-search-button'),o=document.getElementById('person-search-result');if(!i||!b||!o)return;
-function startAuthorInvestigation(){
-  const visited=(()=>{try{return localStorage.getItem('shikiManuscriptVisited')==='1'}catch(e){return false}})();
-  window.__shikiAuthorInvestigation={index:0,lines:visited?[
-    '……戻ってきたんだね。','旧稿、読んできたんだ。','……うん。僕も、あの名前が気になってる。',
-    '四季廳の人物記録では、僕は花葉春月。漫画家として『ヴラド・ドラクラ』を書いたことになっている。',
-    'でも、帝國大學の旧稿には「大窪晶与」と残っていた。','同じ作品。同じ物語。それなのに、作者名義だけが違う。',
-    '……君は、どう思う？','僕はね、急いで答えを出さなくてもいいと思う。',
-    'まずは、この二つの記録が同じものを指しているか。そこから確かめよう。',
-    '四季廳の記録と、帝國大學の記録。','二つを並べて読むと……ひとつの人物像が浮かんでくる。',
-    '……「大窪晶与」という名前について、もう少し調べてみる？'
-  ]:[
-    '……ああ。見つけたんだ。','僕の著作記録だね。','『ヴラド・ドラクラ』。僕が書いた歴史漫画。',
-    'ただ……その先に、帝國大學へ寄託された旧稿がある。','僕も、そこは少し気になってるんだ。',
-    'よかったら、一緒に見てみようか。','作品そのものじゃなくて――作者名義のほうを。'
-  ]};
-  panel.classList.add('is-visible');hint.classList.remove('is-visible');renderAuthor();
-}
-function renderAuthor(){const s=window.__shikiAuthorInvestigation;text.textContent=s.lines[s.index];progress.textContent=(s.index+1)+' / '+s.lines.length;next.textContent=s.index===s.lines.length-1?'次の記録へ　›':'次へ　›';}
-const records={'花葉雛菊':{code:'PERSON / HN-01',title:'花葉 雛菊',meta:'春の現人神',body:'四季廳における春季現人神。現在の春季巡行を担う。花葉春月の配偶者。',extra:'公開記録上、現在の任務および婚姻関係は確認されています。',warning:'関連する過去記録の一部について、照合が必要です。'},'花葉春月':{code:'PERSON / HG-01',title:'花葉 春月',meta:'四季廳長官',body:'四季廳長官。春季現人神・花葉雛菊の配偶者。四季神祇行政および各局の統括を担当。',extra:'公開記録上、現職および婚姻関係は確認されています。',warning:'長官就任以前の記録に、一部照合待ちの資料があります。',work:'work-record.html'}};
-function s(){const q=i.value.trim(),r=records[q];if(!q){o.innerHTML='<p class="person-record"><span class="warning">検索語を入力してください。</span></p>';return}if(!r){o.innerHTML='<p class="person-record"><span class="warning">該当する公開人物記録はありません。</span><br>氏名を正確に入力してください。</p>';return}o.innerHTML='<article class="person-record"><small>'+r.code+'</small><h3>'+r.title+'</h3><p><strong>'+r.meta+'</strong></p><p>'+r.body+'</p><p>'+r.extra+'</p><p class="warning">'+r.warning+'</p>'+(r.work?'<button type="button" class="person-clue" id="person-clue">……ねえ。著作記録も、一緒に見てみる？</button>':'')+'</article>';try{localStorage.setItem('shikiPersonSearch:'+q,'1')}catch(e){} if(r.work){
-  const clue=document.getElementById('person-clue');
-  if(clue){
-    clue.addEventListener('click',function(event){
-      event.preventDefault();
-      event.stopPropagation();
-      window.location.href='work-record.html';
-    });
-  }
-}}
-b.addEventListener('click',s);i.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();s()}})})();
-</script></body>
-</html>
