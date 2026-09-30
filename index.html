@@ -1263,6 +1263,303 @@ body>#contact{
 }
 </style>
 
+
+<style id="shiki-four-seasons-identity">
+/* =========================================================
+   四季廳CI・四時神祇意匠
+   「四季廳であること」が一目で分かる視覚言語
+========================================================= */
+
+/* 四季廳の象徴色を情報分類へ接続 */
+:root{
+  --shiki-spring:#b85b63;
+  --shiki-summer:#557d68;
+  --shiki-autumn:#a27642;
+  --shiki-winter:#526a78;
+  --shiki-season-line:rgba(119,30,42,.18);
+}
+
+/* 本廳舎の上部に「四時」を刻印 */
+.site-header{
+  background:
+    linear-gradient(90deg,
+      rgba(184,91,99,.055) 0%,
+      rgba(184,91,99,.055) 24.9%,
+      rgba(85,125,104,.055) 25%,
+      rgba(85,125,104,.055) 49.9%,
+      rgba(162,118,66,.055) 50%,
+      rgba(162,118,66,.055) 74.9%,
+      rgba(82,106,120,.055) 75%,
+      rgba(82,106,120,.055) 100%
+    )!important;
+  box-shadow:inset 0 -3px 0 rgba(119,30,42,.035),0 6px 0 rgba(173,138,81,.03)!important;
+}
+
+/* ロゴを「四時を抱く官印」に */
+.brand-mark{
+  background:
+    conic-gradient(from -45deg,
+      rgba(184,91,99,.16) 0 25%,
+      rgba(85,125,104,.16) 25% 50%,
+      rgba(162,118,66,.16) 50% 75%,
+      rgba(82,106,120,.16) 75% 100%
+    ),
+    var(--official-paper-hi)!important;
+}
+.brand-mark:after{
+  border:1px solid rgba(173,138,81,.9)!important;
+  box-shadow:inset 0 0 0 8px rgba(119,30,42,.028);
+}
+
+/* HEROの奥に「四時輪」 */
+.hero{
+  background:
+    radial-gradient(circle at 79% 51%,rgba(184,91,99,.10) 0 6%,transparent 7% 22%),
+    radial-gradient(circle at 79% 51%,rgba(85,125,104,.065) 0 28%,transparent 29%),
+    radial-gradient(circle at 79% 51%,rgba(162,118,66,.045) 0 39%,transparent 40%),
+    linear-gradient(90deg,rgba(248,241,228,.985) 0%,rgba(248,241,228,.95) 55%,rgba(248,241,228,.68) 100%)!important;
+}
+.hero:before{
+  border:1px solid rgba(173,138,81,.38)!important;
+  box-shadow:
+    inset 0 0 0 12px rgba(173,138,81,.022),
+    inset 0 0 0 13px rgba(119,30,42,.012);
+}
+
+/* 四季の象徴輪 */
+.four-season-wheel{
+  position:absolute;
+  right:8.5%;
+  top:50%;
+  width:390px;
+  height:390px;
+  transform:translateY(-45%);
+  border:1px solid rgba(173,138,81,.35);
+  border-radius:50%;
+  z-index:-1;
+  opacity:.95;
+  pointer-events:none;
+}
+.four-season-wheel:before,
+.four-season-wheel:after{
+  content:"";
+  position:absolute;
+  inset:18px;
+  border:1px solid rgba(173,138,81,.18);
+  border-radius:50%;
+}
+.four-season-wheel:after{
+  inset:72px;
+  border-color:rgba(119,30,42,.11);
+}
+.season-wheel-center{
+  position:absolute;
+  inset:50%;
+  width:92px;
+  height:92px;
+  transform:translate(-50%,-50%);
+  display:grid;
+  place-items:center;
+  align-content:center;
+  border:1px solid rgba(173,138,81,.72);
+  outline:1px solid rgba(173,138,81,.24);
+  outline-offset:6px;
+  border-radius:50%;
+  background:rgba(248,241,228,.72);
+  color:var(--official-red-deep);
+}
+.season-wheel-center span{
+  font:26px "Shippori Mincho",serif;
+  letter-spacing:.12em;
+}
+.season-wheel-center small{
+  margin-top:-3px;
+  font:7px Georgia,serif;
+  letter-spacing:.28em;
+  color:var(--official-gold);
+}
+.season-wheel-item{
+  position:absolute;
+  display:grid;
+  justify-items:center;
+  gap:3px;
+  min-width:62px;
+}
+.season-wheel-item b{
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  border:1px solid currentColor;
+  border-radius:50%;
+  background:rgba(248,241,228,.78);
+  font:22px "Shippori Mincho",serif;
+}
+.season-wheel-item small{
+  font:7px Georgia,serif;
+  letter-spacing:.18em;
+}
+.season-wheel-item.spring{left:50%;top:-2px;transform:translateX(-50%);color:var(--shiki-spring)}
+.season-wheel-item.summer{right:-2px;top:50%;transform:translateY(-50%);color:var(--shiki-summer)}
+.season-wheel-item.autumn{left:50%;bottom:-2px;transform:translateX(-50%);color:var(--shiki-autumn)}
+.season-wheel-item.winter{left:-2px;top:50%;transform:translateY(-50%);color:var(--shiki-winter)}
+
+.four-season-wheel:global{display:block}
+.hero .four-season-wheel + *{}
+
+/* Hero内の季節巡行印 */
+.hero-rule:before{
+  content:"春　夏　秋　冬";
+  color:var(--official-red)!important;
+  opacity:.7;
+  letter-spacing:.58em;
+  margin-right:6px;
+}
+.hero-rule:after{
+  content:"SEASONAL CYCLE";
+  color:var(--official-gold);
+  letter-spacing:.24em;
+  opacity:.7;
+  font:8px Georgia,serif;
+}
+
+/* 現在事項を「四時巡行票」に */
+.season-canon-band{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  background:#fffaf1;
+  border-top:1px solid var(--official-line);
+  border-bottom:1px solid var(--official-line);
+}
+.season-canon-band span{
+  min-height:76px;
+  display:grid;
+  place-items:center;
+  align-content:center;
+  gap:2px;
+  position:relative;
+  border-right:1px solid rgba(188,167,136,.65);
+  font-family:"Shippori Mincho",serif;
+}
+.season-canon-band span:last-child{border-right:0}
+.season-canon-band span:before{
+  content:"";
+  position:absolute;
+  left:12px;
+  right:12px;
+  top:7px;
+  height:2px;
+  background:currentColor;
+  opacity:.45;
+}
+.season-canon-band b{font-size:21px;font-weight:500}
+.season-canon-band i{font:8px Georgia,serif;letter-spacing:.15em;font-style:normal;opacity:.72}
+.season-canon-band span:nth-child(1){color:var(--shiki-spring)}
+.season-canon-band span:nth-child(2){color:var(--shiki-summer)}
+.season-canon-band span:nth-child(3){color:var(--shiki-autumn)}
+.season-canon-band span:nth-child(4){color:var(--shiki-winter)}
+
+/* 四季の章に専用の見出し記号 */
+#gods .section-title>span:after{
+  content:"　春・夏・秋・冬";
+  color:var(--official-gold);
+  letter-spacing:.2em;
+}
+#gods .section-title h2:after{
+  content:"季節神祇・四時御神籍";
+  display:block;
+  margin-top:8px;
+  color:#8a6a3c;
+  font:8px Georgia,serif;
+  letter-spacing:.34em;
+}
+
+/* 四つのタブを四季の色相で区別 */
+.god-tab.spring{box-shadow:inset 0 3px 0 var(--shiki-spring)}
+.god-tab.summer{box-shadow:inset 0 3px 0 var(--shiki-summer)}
+.god-tab.autumn{box-shadow:inset 0 3px 0 var(--shiki-autumn)}
+.god-tab.winter{box-shadow:inset 0 3px 0 var(--shiki-winter)}
+.god-tab.active.spring{background:var(--official-red)!important}
+.god-tab.active.summer{background:#315449!important}
+.god-tab.active.autumn{background:#73542e!important}
+.god-tab.active.winter{background:#405867!important}
+
+/* 御神籍パネルに季節の「印」をうっすら置く */
+#panel-spring{background:linear-gradient(135deg,#fffaf1 0 72%,rgba(184,91,99,.055) 100%)!important}
+#panel-summer{background:linear-gradient(135deg,#fffaf1 0 72%,rgba(85,125,104,.055) 100%)!important}
+#panel-autumn{background:linear-gradient(135deg,#fffaf1 0 72%,rgba(162,118,66,.055) 100%)!important}
+#panel-winter{background:linear-gradient(135deg,#fffaf1 0 72%,rgba(82,106,120,.055) 100%)!important}
+
+/* 護衛官の4分類をちゃんと四季廳仕様に */
+#guards .department-grid article:nth-child(1){border-top:4px solid var(--shiki-spring)!important}
+#guards .department-grid article:nth-child(2){border-top:4px solid var(--shiki-summer)!important}
+#guards .department-grid article:nth-child(3){border-top:4px solid var(--shiki-autumn)!important}
+#guards .department-grid article:nth-child(4){border-top:4px solid var(--shiki-winter)!important}
+
+/* 組織図の局名も四季で識別 */
+.org-grid article:nth-child(1){border-top:3px solid var(--shiki-spring)!important}
+.org-grid article:nth-child(2){border-top:3px solid var(--shiki-summer)!important}
+.org-grid article:nth-child(3){border-top:3px solid var(--shiki-autumn)!important}
+.org-grid article:nth-child(4){border-top:3px solid var(--shiki-winter)!important}
+
+/* 本文に季節記号を薄く連続配置 */
+.portal-body>.section:nth-of-type(1):before{content:"一　春　SPRING"}
+.portal-body>.section:nth-of-type(2):before{content:"二　夏　SUMMER"}
+.portal-body>.section:nth-of-type(3):before{content:"三　秋　AUTUMN"}
+.portal-body>.section:nth-of-type(4):before{content:"四　冬　WINTER"}
+
+/* 四季廳らしさを出す縦罫線 */
+.portal-body>.gods-section{
+  background:
+    linear-gradient(90deg,rgba(184,91,99,.035) 0 25%,transparent 25% 50%,rgba(162,118,66,.025) 50% 75%,transparent 75%),
+    #f0e5d1!important;
+}
+
+/* フッターを四季庁の理念掲示板に */
+.site-footer{
+  background:
+    linear-gradient(90deg,
+      rgba(184,91,99,.05),
+      rgba(85,125,104,.05),
+      rgba(162,118,66,.05),
+      rgba(82,106,120,.05)
+    ),
+    linear-gradient(180deg,#162823,#12211d)!important;
+}
+.site-footer small:before{
+  content:"春　夏　秋　冬　｜　";
+  color:var(--official-gold-hi);
+  opacity:.8;
+}
+
+/* モバイルでは輪を小さく、情報を主役に */
+@media(max-width:980px){
+  .four-season-wheel{
+    width:290px;height:290px;
+    right:3%;
+    top:54%;
+    opacity:.45;
+  }
+  .season-wheel-center{width:72px;height:72px}
+  .season-wheel-center span{font-size:21px}
+}
+@media(max-width:700px){
+  .four-season-wheel{
+    width:215px;height:215px;
+    right:50%;
+    top:70%;
+    transform:translate(50%,-50%);
+    opacity:.28;
+  }
+  .season-wheel-item b{width:32px;height:32px;font-size:17px}
+  .season-wheel-center{width:58px;height:58px}
+  .season-wheel-center span{font-size:17px}
+  .season-wheel-center small{font-size:6px}
+  .season-canon-band{grid-template-columns:repeat(2,1fr)}
+  .season-canon-band span:nth-child(2){border-right:0}
+  .season-canon-band span:nth-child(-n+2){border-bottom:1px solid rgba(188,167,136,.65)}
+}
+</style>
 </head>
 <body>
 <div class="imperial-header">
@@ -1342,12 +1639,25 @@ body>#contact{
   <div class="hero-inner">
     <p class="kicker">NIPPON IMPERIAL GOVERNMENT / SHIKI AGENCY</p>
     <h1>四季を<br><em>絶やすこと勿れ。</em></h1>
+    <div class="four-season-wheel" aria-label="春夏秋冬・四季廳四季象徴">
+      <div class="season-wheel-center"><span>四季</span><small>SHIKI</small></div>
+      <span class="season-wheel-item spring"><b>春</b><small>SPRING</small></span>
+      <span class="season-wheel-item summer"><b>夏</b><small>SUMMER</small></span>
+      <span class="season-wheel-item autumn"><b>秋</b><small>AUTUMN</small></span>
+      <span class="season-wheel-item winter"><b>冬</b><small>WINTER</small></span>
+    </div>
     <p class="hero-lead">本邦における春・夏・秋・冬の循環を永久に保全し、<br>現人神の御身と神性を護持する勅命行政機關。</p>
     <div class="hero-rule"><span>玲瓏二三七年</span><i></i><span>帝都・四季廳本廳舍</span></div>
   </div>
 </section>
 
-      <div class="portal-current-grid">
+      <div class="season-canon-band" aria-hidden="true">
+  <span><b>春</b><i>芽吹</i></span>
+  <span><b>夏</b><i>繁栄</i></span>
+  <span><b>秋</b><i>実り</i></span>
+  <span><b>冬</b><i>鎮護</i></span>
+</div>
+<div class="portal-current-grid">
         <section class="season-status" id="season-status" data-investigation-target="season-status" tabindex="0" aria-label="四時巡行状況を調査する"><div class="content-width status-inner"><div><span class="eyebrow">四時巡行狀況 / SEASONAL STATUS</span><h2>現在、四季は正常に巡行しています</h2></div><div class="status-light"><span></span><b>正常</b><small>四現人神・各護衛官とも通常任務</small></div><time id="last-updated">最終更新：帝國暦 237.09.08</time></div></section>
         <section class="arg-teaser" aria-label="附属資料室への案内"><div class="content-width"><div class="arg-teaser-mark">秘</div><div><span class="arg-eyebrow">RESTRICTED ARCHIVE / 附属資料室</span><h2>公開目録に登録されていない資料があります。</h2><p>帝國大學文科附属資料室より寄託された記録の一部は、現在も封緘されたままです。</p></div><a href="archive.html">資料室を閲覧する <b>→</b></a></div></section>
       </div>
