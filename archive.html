@@ -79,6 +79,7 @@
     <div class="doc-grid">
       <a class="doc locked" id="record15" href="record15.html"><small>SHIKI / RESTRICTED / 015</small><strong>第十五號　封緘記録</strong><p>寄託元：日ノ本帝國國立帝國大學　／　公開状態：封緘</p></a>
       <div class="doc" id="record16" tabindex="0" role="button" aria-label="第十六號資料未登録を調査する"><small>SHIKI / RESTRICTED / 016</small><strong>第十六號　<span class="redact">資料未登録</span></strong><p>関連記録の存在のみ確認。公開目録への登録なし。</p><a class="arg-link is-visible" id="university-link" href="https://8fgb66gmt2-stack.github.io/https-8fgb66gmt2-stack.github.io-nippon-imperial-university-/archive16.html">N.I.U. ARCHIVE 16　――　人物相関図を閲覧する →</a></div>
+      <a class="doc" id="record17" href="record17.html" style="display:none"><small>SHIKI / RESTRICTED / 017</small><strong>第十七號　著者名義照合記録</strong><p>『ヴラド・ドラクラ』をめぐる著者名義の不一致について、関連資料を照合した記録。</p></a>
     </div>
   </section>
 
@@ -96,6 +97,8 @@
   const panel=document.getElementById('shiki-investigation'), hint=document.getElementById('investigation-hint'), text=document.getElementById('investigation-text'), next=document.getElementById('investigation-next'), close=document.getElementById('investigation-close'), progress=document.getElementById('investigation-progress'), record16=document.getElementById('record16'), uni=document.getElementById('university-link');
   const firstDialogue=document.getElementById('archive-first-dialogue'), solvedDialogue=document.getElementById('archive-solved-dialogue');
   const solved=()=>{try{return localStorage.getItem('shikiRecord15Solved')==='1'}catch(e){return false}};
+  const record17=document.getElementById('record17');
+  const showRecord17=()=>{if(record17 && archive16Visited()) record17.style.display='block'};
   const archive16Visited=()=>{try{return localStorage.getItem('shikiArchive16Visited')==='1'}catch(e){return false}};
   let lines=[],index=0;
   function render(){
@@ -148,10 +151,11 @@
   solvedDialogue?.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();showSolvedDialogue();});
   record16.addEventListener('click',(e)=>{if(e.target.closest('a'))return;if(solved()){lines=['……やっぱり、ここだ。','第十六號そのものは登録されていない。','でも、さっきの第十五號には「ARCHIVE 16」と残っていた。','つまり……この資料室にない記録を、別の場所では参照している。','僕、ひとつ心当たりがある。','日ノ本帝國國立帝國大學のARCHIVE 16。','ただし、そこにあるのは行政資料じゃない。','……人物相関図なんだ。','四季廳の記録では見えなかった「人と人との繋がり」を、そっちから見てみようか。'];index=0;openPanel();uni.classList.add('is-visible');}else{lines=['……ここは、まだ開かないね。','先に第十五號を読んで、封緘を解除してみよう。'];index=0;openPanel();}});
   record16.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();record16.click();}});
-  uni.addEventListener('click',()=>{try{localStorage.setItem('shikiArchive16Visited','1');localStorage.setItem('shikiReturnStage','archive16')}catch(e){}});
+  uni.addEventListener('click',()=>{try{localStorage.setItem('shikiArchive16Visited','1');localStorage.setItem('shikiReturnStage','archive16')}catch(e){};});
   document.getElementById('back-to-shiki')?.addEventListener('click',(e)=>{e.preventDefault();const stage=new URLSearchParams(location.search).get('return')||'';const target=stage==='archive16'?'archive16':(stage==='record15'||solved()?'record15':'');window.location.href=target?'index.html?return='+target:'index.html';});
   // 資料室では春月が常に待機。既読状態に関係なく、ページを開けば会話を表示する。
   setTimeout(start,350);
+  showRecord17();
   if(firstDialogue && (solved() || archive16Visited())) firstDialogue.style.display='inline-block';
   if(solvedDialogue && !archive16Visited() && solved()) solvedDialogue.style.display='inline-block';
 })();
