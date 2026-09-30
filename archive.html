@@ -100,6 +100,8 @@
   const record17=document.getElementById('record17');
   const showRecord17=()=>{if(record17 && archive16Visited()) record17.style.display='block'};
   const archive16Visited=()=>{try{return localStorage.getItem('shikiArchive16Visited')==='1'}catch(e){return false}};
+  const record17Read=()=>{try{return localStorage.getItem('shikiRecord17Read')==='1'}catch(e){return false}};
+  const markRecord17Read=()=>{try{localStorage.setItem('shikiRecord17Read','1');localStorage.setItem('shikiReturnStage','archive17')}catch(e){}};
   let lines=[],index=0;
   function render(){
     if(!lines.length)return;
@@ -128,11 +130,28 @@
     openPanel();
   }
 
+  function showRecord17Dialogue(){
+    lines=['……第十七號、読んだんだね。','「大窪晶与」という名前が出てきたでしょう。','……うん。そういう記録が残っていることは、僕も知っていたよ。','ただ、資料だけで決めつけるのは少し早い。','だから――僕から、ひとつだけ聞いてほしい。','『ヴラド・ドラクラ』を書いたのは、誰だったと思う？'];
+    index=0; next.textContent='次へ　›'; openPanel();
+  }
+
+  function showRecord17Answer(){
+    lines=['……花葉春月。','そう答えたんだね。','……正解。','『ヴラド・ドラクラ』を書いたのは、僕だよ。','大窪晶与という名前も、僕が使っていた名前だ。','どうしてそんな名前を使っていたのかは――まあ、今はまだ話さなくてもいいかな。','でも、君が資料を辿ってここまで来たことは、ちゃんと覚えておくよ。'];
+    index=0; next.textContent='次へ　›'; openPanel();
+  }
+
+  function showRecord17Final(){
+    lines=['……これで、照合は終わり。','大窪晶与と花葉春月。','二つの名前が、同じ一人の人間を指している。','……資料だけなら、きっと疑問のままだった。','でも君は、自分でそこまで辿った。','それなら、僕から言うことはひとつだけだね。','……見つけてくれて、ありがとう。'];
+    index=0; next.textContent='次へ　›'; openPanel();
+  }
+
   function start(){
     let returnStage=new URLSearchParams(location.search).get('return')||'';
     try{if(!returnStage)returnStage=localStorage.getItem('shikiReturnStage')||''; localStorage.removeItem('shikiReturnStage')}catch(e){}
     if(returnStage==='record15'){
       lines=['……第十五號の照合、済んだんだね。','じゃあ、次は第十六號だ。','目録には「資料未登録」とある。','でも、関連記録の存在だけは確認されている。','……変だよね。','僕たちがまだ中身を見ていない以上、今は推測しかできない。','だから、先にN.I.U. ARCHIVE 16を見てみようか。','そこに何が残されているのか――君と一緒に確かめたい。'];
+    }else if(returnStage==='archive17' || record17Read()){
+      showRecord17Dialogue(); return;
     }else if(returnStage==='archive16' || archive16Visited()){
       lines=['……おかえり。','ちゃんと読んできたんだね。ARCHIVE 16。','……どうだった？','四季廳の資料室にある記録とは、ずいぶん違ったでしょう。','こっちは行政記録だからね。誰が、いつ、何をしたか。そういうことは残る。','でも――誰が誰を好きだったとか、誰に救われたとか、誰と決別したとか。','そういうものは、あまり記録されない。','……だから、あの頁が必要だったのかもしれないね。','僕自身の名前も、載っていたでしょう。','雛菊ちゃんのことも。','それから……僕たちの周りにいる人たちのことも。','あの頁を読んで、何か気づいた？','……そう。','じゃあ、少しだけ整理しようか。','四季廳の記録では、「春は正常に巡行している」。','でも、帝國大學の記録には――春をめぐって、もっとたくさんの人間の名前が残っていた。','つまり、四季の異常を調べるなら……四季そのものだけを見ていても、足りないんだ。','人と人との関係まで辿らないと、見えてこない。','……たぶん、ここからが本当の調査なんだと思う。','ARCHIVE 16の中で、気になった名前はあった？','だったら、その人の記録を探してみよう。','四季廳の資料室にも、まだ公開されていない記録があるかもしれないから.'];
     }else if(solved()){
@@ -144,7 +163,11 @@
     next.textContent='次へ　›';
     openPanel();
   }
-  next.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();if(index<lines.length-1){index++;render()}else{next.textContent='調査記録を閉じる';panel.classList.remove('is-visible');hint.classList.add('is-visible');}});
+  next.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();if(index<lines.length-1){index++;render()}else{
+    if(record17Read() && lines[0]==='……第十七號、読んだんだね。'){ showRecord17Answer(); return; }
+    if(record17Read() && lines[0]==='……花葉春月。'){ showRecord17Final(); return; }
+    next.textContent='調査記録を閉じる';panel.classList.remove('is-visible');hint.classList.add('is-visible');
+  }});
   close.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();panel.classList.remove('is-visible');hint.classList.add('is-visible');});
   hint.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();if(!lines.length){start();}else{openPanel();}});
   firstDialogue?.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();showFirstDialogue();});
@@ -152,7 +175,8 @@
   record16.addEventListener('click',(e)=>{if(e.target.closest('a'))return;if(solved()){lines=['……やっぱり、ここだ。','第十六號そのものは登録されていない。','でも、さっきの第十五號には「ARCHIVE 16」と残っていた。','つまり……この資料室にない記録を、別の場所では参照している。','僕、ひとつ心当たりがある。','日ノ本帝國國立帝國大學のARCHIVE 16。','ただし、そこにあるのは行政資料じゃない。','……人物相関図なんだ。','四季廳の記録では見えなかった「人と人との繋がり」を、そっちから見てみようか。'];index=0;openPanel();uni.classList.add('is-visible');}else{lines=['……ここは、まだ開かないね。','先に第十五號を読んで、封緘を解除してみよう。'];index=0;openPanel();}});
   record16.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();record16.click();}});
   uni.addEventListener('click',()=>{try{localStorage.setItem('shikiArchive16Visited','1');localStorage.setItem('shikiReturnStage','archive16')}catch(e){};});
-  document.getElementById('back-to-shiki')?.addEventListener('click',(e)=>{e.preventDefault();const stage=new URLSearchParams(location.search).get('return')||'';const target=stage==='archive16'?'archive16':(stage==='record15'||solved()?'record15':'');window.location.href=target?'index.html?return='+target:'index.html';});
+  if(location.search.includes('return=archive17')) markRecord17Read();
+  document.getElementById('back-to-shiki')?.addEventListener('click',(e)=>{e.preventDefault();const stage=new URLSearchParams(location.search).get('return')||'';const target=stage==='archive17'?'archive17':(stage==='archive16'?'archive16':(stage==='record15'||solved()?'record15':''));window.location.href=target?'index.html?return='+target:'index.html';});
   // 資料室では春月が常に待機。既読状態に関係なく、ページを開けば会話を表示する。
   setTimeout(start,350);
   showRecord17();
