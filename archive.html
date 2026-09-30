@@ -145,7 +145,7 @@
   if(location.search.includes('return=record18')){try{localStorage.setItem('shikiRecord18Read','1');localStorage.setItem('shikiReturnStage','record18')}catch(e){}}
   if(location.search.includes('return=record19')){try{localStorage.setItem('shikiRecord19Read','1');localStorage.setItem('shikiReturnStage','record19')}catch(e){}}
   if(location.search.includes('return=achievement40')){try{localStorage.setItem('shikiReturnStage','achievement40')}catch(e){}}
-  document.getElementById('back-to-shiki')?.addEventListener('click',(e)=>{e.preventDefault();const stage=new URLSearchParams(location.search).get('return')||'';const targetMap={archive17:'archive17',archive16:'archive16',record19:'record19',record18:'record18',achievement40:'achievement40',record15:'record15'};const target=targetMap[stage]||(solved()?'record15':'');window.location.href=target?'index.html?return='+target:'index.html'});
+  document.getElementById('back-to-shiki')?.addEventListener('click',(e)=>{e.preventDefault();const stage=new URLSearchParams(location.search).get('return')||'';const targetMap={archive17:'archive17',archive16:'archive16',record19:'record19',record18:'record18',achievement40:'achievement40',record15:'record15'};const target=targetMap[stage]||(solved()?'record15':'');if(stage==='achievement40'){try{localStorage.setItem('shikiAchievement40Complete','1');localStorage.setItem('shikiPortalReturnPending','1')}catch(e){}}window.location.href=target?'index.html?return='+target:'index.html'});
   setTimeout(start,350);
   showRecord17();
   if(record18&&(record17Read()||record18Read()))record18.style.display='block';
