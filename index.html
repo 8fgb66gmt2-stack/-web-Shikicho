@@ -1641,6 +1641,25 @@ body>#contact{
 }
 </style>
 <style id="shiki-emblem-dialog-fallback">#shiki-investigation:target{opacity:1!important;transform:none!important;pointer-events:auto!important;visibility:visible!important}.brand-mark{cursor:pointer!important}.brand-mark:hover{filter:drop-shadow(0 0 8px rgba(217,190,131,.5))!important}</style><link rel="stylesheet" href="ryoryo-official-v2.css?v=20261008-1">
+<style id="hinomoto-history-portal">
+.national-context{background:#efe3cf;border-top:6px double #a9854d;border-bottom:1px solid #8f7955;color:#29231f}
+.national-context-inner{max-width:1120px;margin:0 auto;padding:54px 34px 46px}
+.national-context-heading{display:grid;grid-template-columns:1fr 1.7fr;gap:18px 44px;align-items:end;border-bottom:2px solid #29231f;padding-bottom:20px}
+.national-context-heading>span{font:8px Georgia,serif;letter-spacing:.25em;color:#8a6b3d}
+.national-context-heading h2{margin:0;font:500 31px "Shippori Mincho","Yu Mincho",serif;letter-spacing:.18em;color:#4e111a}
+.national-context-heading p{grid-column:2;margin:0;font:12px/2 "Shippori Mincho",serif;color:#665b50}
+.national-timeline{display:grid;grid-template-columns:repeat(3,1fr);margin:28px 0 0;padding:0;list-style:none;border-top:1px solid #bca98b;border-left:1px solid #bca98b}
+.national-timeline li{min-height:72px;padding:13px 15px;border-right:1px solid #bca98b;border-bottom:1px solid #bca98b;background:#f8f0e2;display:flex;flex-direction:column;justify-content:center}
+.national-timeline li.current{background:#1d332e;color:#f7ead5;border-color:#a9854d}
+.national-timeline b{font:500 13px "Shippori Mincho",serif;letter-spacing:.1em;color:#771e2a}
+.national-timeline li.current b{color:#dfc58b}
+.national-timeline span{margin-top:5px;font:10px/1.7 "Shippori Mincho",serif;color:#62584e}
+.national-timeline li.current span{color:#e3d8c7}
+.national-history-link{display:inline-block;margin-top:22px;padding:9px 15px;border:1px solid #771e2a;color:#771e2a;text-decoration:none;font:11px "Shippori Mincho",serif;letter-spacing:.08em;background:#fffaf1}
+.national-history-link:hover{background:#771e2a;color:#fffaf1}
+@media(max-width:760px){.national-context-inner{padding:38px 18px}.national-context-heading{grid-template-columns:1fr;gap:10px}.national-context-heading p{grid-column:1}.national-timeline{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.national-timeline{grid-template-columns:1fr}.national-context-heading h2{font-size:25px}}
+</style>
 </head>
 <body data-shiki-page="index">
 <div class="imperial-header">
@@ -1672,9 +1691,9 @@ body>#contact{
   <div class="portal-registry">
     <div class="portal-registry-inner">
       <span class="registry-code">SHIKI AGENCY / IMPERIAL GOVERNMENT</span>
-      <span>本廳舍　｜　帝都統括</span>
+      <span>本廳舍　｜　中央官廳・四季神祇行政</span>
       <span>帝國暦 237</span>
-      <span class="registry-status">PUBLIC PORTAL</span>
+      <span class="registry-status">玲瓏時代 / OFFICIAL GOVERNMENT PORTAL</span>
     </div>
   </div>
 
@@ -1714,12 +1733,35 @@ body>#contact{
         </dl>
       </section>
 
-      <section class="hero">
+      
+<section class="national-context" aria-labelledby="national-context-title">
+  <div class="national-context-inner">
+    <div class="national-context-heading">
+      <span>HINOMOTO IMPERIAL HISTORY / 国家沿革</span>
+      <h2 id="national-context-title">神世から玲瓏へ</h2>
+      <p>四季神祇と王権の歴史を基礎として、日ノ本は近代国家へ再編された。現在の四季廳も、その長い制度史の上に置かれている。</p>
+    </div>
+    <ol class="national-timeline">
+      <li><b>神世</b><span>天煌咲耶比売命・四季神の成立</span></li>
+      <li><b>王権</b><span>天璃彦命と天都、祭祀秩序の形成</span></li>
+      <li><b>王朝・武家</b><span>四季祭祀の継承と地方制度の発達</span></li>
+      <li><b>統一・泰平</b><span>九条院景臣による再統一、都市文化の成熟</span></li>
+      <li><b>帝國成立</b><span>帝國暦の制定、近代行政機構への再編</span></li>
+      <li><b>瑞明・芳辰</b><span>憲法・議会・大学・近代文化の整備</span></li>
+      <li><b>紫苑・宵華</b><span>戦時を経て復興、大衆文化と社会制度の再編</span></li>
+      <li><b>清雅</b><span>高度文明と伝統文化保存の両立</span></li>
+      <li class="current"><b>玲瓏</b><span>情報通信・人工知能と四季神祇行政の共存</span></li>
+    </ol>
+    <a class="national-history-link" href="#departments">四季廳の組織と所管事務を見る　→</a>
+  </div>
+</section>
+
+<section class="hero">
   <div class="hero-watermark">四<br>季<br>廳</div>
   <div class="vertical-label">日ノ本帝國　勅命行政機關</div>
   <div class="hero-inner">
-    <p class="kicker">NIPPON IMPERIAL GOVERNMENT / SHIKI AGENCY</p>
-    <h1>四季を<br><em>絶やすこと勿れ。</em></h1>
+    <p class="kicker">NIPPON IMPERIAL GOVERNMENT / MINISTRY OF THE FOUR SEASONS</p>
+    <h1>四季神祇<br><em>行政を司る。</em></h1>
     <div class="four-season-wheel" aria-label="春夏秋冬・四季廳四季象徴">
       <div class="season-wheel-center"><span>四季</span><small>SHIKI</small></div>
       <span class="season-wheel-item spring"><b>春</b><small>SPRING</small></span>
@@ -1727,7 +1769,7 @@ body>#contact{
       <span class="season-wheel-item autumn"><b>秋</b><small>AUTUMN</small></span>
       <span class="season-wheel-item winter"><b>冬</b><small>WINTER</small></span>
     </div>
-    <p class="hero-lead">本邦における春・夏・秋・冬の循環を永久に保全し、<br>現人神の御身と神性を護持する勅命行政機關。</p>
+    <p class="hero-lead">神世より続く四季の祭祀と、現代の国家行政をつなぐ。<br>四季を絶やさず、現人神を護り、次代へ制度と文化を渡す。</p>
     <div class="hero-rule"><span>玲瓏二三七年</span><i></i><span>帝都・四季廳本廳舍</span></div>
   </div>
 </section>
