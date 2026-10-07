@@ -502,3 +502,148 @@ body:has(.badge) footer{
  body:has(.badge) .card,body:has(.badge) .duty{min-height:auto!important}
  body:has(.badge) h2{font-size:21px!important;padding-left:31px!important}
 }
+
+
+/* =========================================================
+   玲瓏時代・日ノ本帝國 官公廳公式情報網 統一最終層
+   「大正風」ではなく「玲瓏帝國の政府サイト」として設計
+   ========================================================= */
+:root{
+ --ry-paper:#f7f0e1;--ry-paper2:#eee2cd;--ry-white:#fffaf1;
+ --ry-ink:#29231f;--ry-muted:#665b50;--ry-red:#7b1f2a;
+ --ry-green:#233a34;--ry-gold:#a68149;--ry-line:#b9a47d;
+ --ry-spring:#d68f9e;--ry-summer:#d5a82e;--ry-autumn:#80533d;--ry-winter:#9dc6d5;
+}
+html,body{background:var(--ry-paper)!important;color:var(--ry-ink)!important}
+body{
+ font-family:"Yu Mincho","Hiragino Mincho ProN","Noto Serif JP",serif!important;
+ background-image:linear-gradient(rgba(100,70,40,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(100,70,40,.018) 1px,transparent 1px)!important;
+ background-size:32px 32px,32px 32px!important;
+}
+body:after{display:none!important}
+
+/* 帝國政府共通上段 */
+.imperial-header{background:var(--ry-green)!important;border-bottom:4px double var(--ry-gold)!important}
+.imperial-header-inner{max-width:1240px!important;min-height:38px!important}
+.site-header{background:var(--ry-white)!important;border-bottom:1px solid #6d5b43!important;box-shadow:none!important}
+.header-inner{max-width:1240px!important;min-height:94px!important}
+.brand{gap:16px!important}
+.brand-mark{width:55px!important;height:55px!important;border:1px solid var(--ry-red)!important;box-shadow:inset 0 0 0 4px rgba(166,129,73,.08)!important;background:#fffaf1!important}
+.brand strong{font-family:"Yu Mincho","Hiragino Mincho ProN",serif!important;color:var(--ry-red)!important;font-size:29px!important;font-weight:600!important;letter-spacing:.22em!important}
+.brand small{font-family:Georgia,serif!important;color:#786a57!important;letter-spacing:.2em!important}
+#global-nav{border-top:1px solid #d2c2a7!important;align-self:stretch!important}
+#global-nav a{
+ font-family:"Yu Mincho","Hiragino Mincho ProN",serif!important;color:#3e352e!important;
+ font-size:12px!important;letter-spacing:.08em!important;border-left:1px solid #d8cab2!important;
+ padding:0 12px!important
+}
+#global-nav a:hover{background:#eee2cd!important;color:var(--ry-red)!important}
+
+/* 法令・告示帯 */
+.law-banner{background:var(--ry-paper2)!important;border-bottom:1px solid var(--ry-line)!important;box-shadow:none!important}
+.law-banner-inner{max-width:1240px!important;padding:10px 24px!important}
+.law-banner-label .mark{border-color:var(--ry-gold)!important;color:var(--ry-red)!important}
+.law-banner-label span{color:#75654f!important}
+.law-banner-label strong{font-family:"Yu Mincho",serif!important;color:var(--ry-red)!important}
+.law-banner a{background:var(--ry-white)!important;color:var(--ry-red)!important;border-color:var(--ry-red)!important}
+
+/* 本文：官報・庁舎資料の組版 */
+.portal-shell{max-width:1240px!important}
+.hero{
+ min-height:540px!important;
+ background:var(--ry-paper)!important;
+ border-bottom:1px solid #8d7653!important
+}
+.hero:before{
+ content:"";position:absolute!important;inset:24px!important;width:auto!important;height:auto!important;
+ border:1px solid rgba(166,129,73,.28)!important;background:none!important;opacity:1!important
+}
+.hero-inner{max-width:1240px!important;width:calc(100% - 90px)!important;padding-top:125px!important}
+.hero-watermark{font-size:250px!important;color:var(--ry-red)!important;opacity:.045!important}
+.hero h1{
+ font-family:"Yu Mincho","Hiragino Mincho ProN",serif!important;color:var(--ry-ink)!important;
+ font-size:clamp(54px,7vw,92px)!important;letter-spacing:.14em!important;font-weight:500!important
+}
+.hero h1 em{color:var(--ry-red)!important}
+.hero-lead{
+ font-family:"Yu Mincho","Hiragino Mincho ProN",serif!important;
+ border-left:4px solid var(--ry-red)!important;color:var(--ry-muted)!important;
+ font-size:14px!important;line-height:2.1!important
+}
+.hero-rule i{background:var(--ry-gold)!important}
+.hero-rule{color:#725e3d!important}
+
+/* 現在の四季＝行政情報として表示 */
+.season-status{
+ background:var(--ry-paper2)!important;color:var(--ry-ink)!important;
+ border-bottom:1px solid var(--ry-line)!important;box-shadow:none!important
+}
+.season-status:before{
+ content:"";position:absolute!important;left:0;right:0;top:0;height:6px!important;
+ background:linear-gradient(90deg,var(--ry-spring) 0 25%,var(--ry-summer) 25% 50%,var(--ry-autumn) 50% 75%,var(--ry-winter) 75%)!important
+}
+.season-status h2{color:var(--ry-red)!important;font-family:"Yu Mincho",serif!important}
+.status-light{border-left:1px solid var(--ry-line)!important}
+.status-light b,.status-light small,#last-updated{color:var(--ry-ink)!important}
+
+/* セクションは「作品サイト」ではなく行政情報 */
+.section{background:var(--ry-white)!important;border-bottom:1px solid var(--ry-line)!important;padding:70px 0!important}
+.section:nth-of-type(even){background:var(--ry-paper)!important}
+.section-title{border-bottom:2px solid #65533b!important;padding-bottom:11px!important}
+.section-title h2{font-family:"Yu Mincho",serif!important;color:var(--ry-ink)!important;font-size:28px!important;letter-spacing:.13em!important}
+.section-title p{font-family:Georgia,serif!important;color:var(--ry-red)!important;letter-spacing:.16em!important}
+
+/* 各局・各課：行政機構の中核 */
+.departments-section{background:#f1e7d4!important;border-top:6px double var(--ry-gold)!important}
+.department-grid{border:1px solid var(--ry-line)!important;background:var(--ry-line)!important;box-shadow:none!important}
+.department-grid article{
+ border:0!important;border-right:1px solid var(--ry-line)!important;border-bottom:1px solid var(--ry-line)!important;
+ border-top:5px solid transparent!important;min-height:165px!important;
+ background:var(--ry-white)!important;border-radius:0!important;box-shadow:none!important
+}
+.department-grid article:nth-child(4n+1){border-top-color:var(--ry-spring)!important;background:#fff7f7!important}
+.department-grid article:nth-child(4n+2){border-top-color:var(--ry-summer)!important;background:#fffaf0!important}
+.department-grid article:nth-child(4n+3){border-top-color:var(--ry-autumn)!important;background:#fbf4ed!important}
+.department-grid article:nth-child(4n){border-top-color:var(--ry-winter)!important;background:#f4fbfd!important}
+.department-grid article:hover{transform:none!important;background:#fffaf1!important}
+.department-grid h3{font-family:"Yu Mincho",serif!important;color:var(--ry-red)!important}
+.department-grid p,.department-grid small{color:var(--ry-muted)!important}
+
+/* 御神籍：四季を行政区分として見せる */
+.gods-section{background:#faf4e8!important}
+.god-tabs{border:1px solid var(--ry-line)!important;background:var(--ry-paper2)!important;box-shadow:none!important}
+.god-tab{font-family:"Yu Mincho",serif!important;border-radius:0!important}
+.god-tab:nth-child(1){border-top:5px solid var(--ry-spring)!important}
+.god-tab:nth-child(2){border-top:5px solid var(--ry-summer)!important}
+.god-tab:nth-child(3){border-top:5px solid var(--ry-autumn)!important}
+.god-tab:nth-child(4){border-top:5px solid var(--ry-winter)!important}
+.god-panel{border:1px solid var(--ry-line)!important;border-radius:0!important;box-shadow:none!important;background:var(--ry-white)!important}
+
+/* ニュース＝官報掲示板 */
+.news-section{border-top:5px solid var(--ry-spring)!important}
+.news-list{border-top:2px solid #67543b!important}
+.news-list article{border-bottom:1px solid var(--ry-line)!important}
+.news-list article span{color:var(--ry-red)!important}
+.news-list article:hover{background:#f1e7d4!important}
+
+/* 政策・業務 */
+.duties-section{border-top:5px solid var(--ry-autumn)!important}
+.contact-section{border-top:5px solid var(--ry-winter)!important}
+
+/* 官公廳らしいファイル・記録 */
+.portal-file-tabs{border:1px solid var(--ry-line)!important;background:var(--ry-paper2)!important;border-radius:0!important}
+.file-tab{border-right:1px solid var(--ry-line)!important;border-radius:0!important;background:var(--ry-white)!important}
+.file-tab b{color:var(--ry-red)!important}
+.person-search-section{border:1px solid var(--ry-line)!important;background:#eee2cf!important;box-shadow:none!important;border-radius:0!important}
+
+/* ARG部分は「謎サイト」ではなく庁内秘資料の入口 */
+.arg-teaser{background:var(--ry-green)!important;border-top:1px solid var(--ry-gold)!important;border-bottom:5px double var(--ry-gold)!important}
+.arg-teaser h2{font-family:"Yu Mincho",serif!important}
+.arg-teaser-mark{border-radius:0!important;transform:none!important}
+
+/* フッター：帝國政府の庁舎情報 */
+.site-footer{background:#263832!important;border-top:5px double var(--ry-gold)!important}
+.site-footer a{color:#e5d7bb!important}
+
+/* 現代的な浮遊感を削る */
+.section,.department-grid article,.god-panel,.portal-file-tabs,.person-search-section{border-radius:0!important}
