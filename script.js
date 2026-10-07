@@ -112,6 +112,54 @@ document.addEventListener('DOMContentLoaded',()=>{
  `;
  document.head.appendChild(governmentOfficialStyle);
 
+ /* 行政機關ポータル：実務導線を前面化 */
+ const adminNav=document.querySelector('#global-nav');
+ if(adminNav){
+   adminNav.innerHTML='<a href="#news">新着情報</a><a href="#about">四季廳について</a><a href="#gods">政策・施策</a><a href="#departments">組織情報</a><a href="#procurement">調達・採用</a><a href="#contact">手続・相談</a>';
+ }
+ const adminIndex=document.createElement('section');
+ adminIndex.id='administrative-index';
+ adminIndex.className='administrative-index';
+ adminIndex.innerHTML=`<div class="admin-index-inner">
+   <div class="admin-index-heading">
+     <div><span>ADMINISTRATIVE PORTAL</span><h2>行政情報</h2></div>
+     <p>四季廳の政策、組織、各種手続および公表資料を御案内します。</p>
+   </div>
+   <div class="admin-index-grid">
+     <a href="#news"><b>新着情報</b><small>報道・公告、重要なお知らせ</small><i>›</i></a>
+     <a href="#about"><b>四季廳について</b><small>所掌事務、基本方針、沿革</small><i>›</i></a>
+     <a href="#gods"><b>政策・施策</b><small>四季行政・現人神に関する施策</small><i>›</i></a>
+     <a href="#departments"><b>組織情報</b><small>局・課、所管事務、関係部署</small><i>›</i></a>
+     <a href="#duties"><b>行政資料</b><small>業務・祭祀・保全に関する資料</small><i>›</i></a>
+     <a href="#procurement"><b>調達・採用</b><small>入札、契約、公募、人事情報</small><i>›</i></a>
+     <a href="#contact"><b>手続・相談</b><small>相談窓口、通報、各種お問い合わせ</small><i>›</i></a>
+     <a href="#related-agencies"><b>関係機関</b><small>帝國大學その他の関連機関</small><i>›</i></a>
+   </div>
+   <div class="admin-index-meta"><span>ページ情報</span><span>最終更新：帝國暦 237年</span><span>所管：四季廳 総務部</span><span>サイト内検索をご利用いただけます</span></div>
+ </div>`;
+ const hero=document.querySelector('.hero');
+ if(hero) hero.parentNode.insertBefore(adminIndex,hero);
+ const govPortalStyle=document.createElement('style');
+ govPortalStyle.textContent=`
+ .administrative-index{background:#f5f3ee;border-top:1px solid #b6aa97;border-bottom:1px solid #a99a84;font-family:"Noto Sans JP","Yu Gothic",sans-serif}
+ .admin-index-inner{max-width:1440px;margin:auto;padding:34px 42px 28px}
+ .admin-index-heading{display:flex;align-items:end;justify-content:space-between;gap:30px;padding-bottom:16px;border-bottom:2px solid #354c45}
+ .admin-index-heading span{font:9px Arial,sans-serif;letter-spacing:.14em;color:#78694f}
+ .admin-index-heading h2{margin:4px 0 0;padding:0;border:0;color:#292622;font:500 22px "Noto Sans JP","Yu Gothic",sans-serif;letter-spacing:.08em}
+ .admin-index-heading p{margin:0;color:#625c54;font-size:11px;line-height:1.8}
+ .admin-index-grid{display:grid;grid-template-columns:repeat(4,1fr);border-left:1px solid #c7bdad;border-top:1px solid #c7bdad;margin-top:18px}
+ .admin-index-grid a{position:relative;min-height:92px;padding:17px 34px 14px 16px;background:#fffefa;border-right:1px solid #c7bdad;border-bottom:1px solid #c7bdad;color:#302c27;text-decoration:none}
+ .admin-index-grid a:hover{background:#eee9df;color:#70242c}
+ .admin-index-grid b{display:block;font-size:13px;font-weight:500;letter-spacing:.05em}
+ .admin-index-grid small{display:block;margin-top:7px;color:#766e65;font-size:10px;line-height:1.7}
+ .admin-index-grid i{position:absolute;right:13px;top:50%;transform:translateY(-50%);font:22px Georgia,serif;color:#987b48;font-style:normal}
+ .admin-index-meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:14px;color:#776f66;font-size:9px}
+ .admin-index-meta span+span{border-left:1px solid #c7bdad;padding-left:22px}
+ @media(max-width:900px){.admin-index-grid{grid-template-columns:repeat(2,1fr)}}
+ @media(max-width:650px){.admin-index-inner{padding:25px 14px 20px}.admin-index-heading{display:block}.admin-index-heading p{margin-top:10px}.admin-index-grid{grid-template-columns:1fr}.admin-index-grid a{min-height:74px}.admin-index-meta{display:block;line-height:2}.admin-index-meta span{display:inline-block;margin-right:12px}.admin-index-meta span+span{border-left:0;padding-left:0}}
+ `;
+ document.head.appendChild(govPortalStyle);
+
  /* 行政サイト共通部品：利用者向け導線を追加 */
  const govChrome=document.createElement('div');
  govChrome.className='gov-chrome';
