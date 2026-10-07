@@ -51,4 +51,65 @@ document.addEventListener('DOMContentLoaded',()=>{
  const gazetteClose=document.querySelector('#gazette-close');const closeGazette=()=>{gazetteModal.classList.remove('open');gazetteModal.setAttribute('aria-hidden','true')};if(gazetteClose)gazetteClose.addEventListener('click',closeGazette);gazetteModal.addEventListener('click',e=>{if(e.target===gazetteModal)closeGazette()});
  document.querySelectorAll('.news-list article a').forEach((link,i)=>{const d=gazetteData[i];if(!d)return;link.removeAttribute('href');link.setAttribute('role','button');link.addEventListener('click',()=>{document.querySelector('#gazette-date').textContent=d.date;document.querySelector('#gazette-type').textContent=d.type;document.querySelector('#gazette-number').textContent=`官報番号 ${d.number}`;document.querySelector('#gazette-title').textContent=d.title;document.querySelector('#gazette-office').textContent=`所管：${d.office}`;document.querySelector('#gazette-body').textContent=d.body;gazetteModal.classList.add('open');gazetteModal.setAttribute('aria-hidden','false')})});
  document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(gazetteModal.classList.contains('open'))closeGazette();else if(reportModal.classList.contains('open'))closeReport();else if(modal.classList.contains('open'))hide();else if(deityModal.classList.contains('open'))closeDeity()}});
+ /* 公式官廳仕上げ：装飾より行政情報の可読性を優先 */
+ const governmentOfficialStyle=document.createElement('style');
+ governmentOfficialStyle.id='government-official-final';
+ governmentOfficialStyle.textContent=`
+ /* 余白・罫線・情報密度を官公廳サイトへ */
+ body{font-family:"Noto Sans JP","Yu Gothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif!important}
+ body:after{display:none!important}
+ .portal-shell{max-width:1440px!important;box-shadow:none!important}
+ .portal-rail{border-right:1px solid #b8aa91!important;box-shadow:none!important;padding:26px 18px!important}
+ .rail-seal{width:54px!important;height:54px!important;margin-bottom:14px!important}
+ .rail-title{font-size:14px!important;letter-spacing:.16em!important}
+ .rail-rule{margin:16px 0!important}
+ .rail-nav a{font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;font-size:10px!important;letter-spacing:.04em!important;padding:9px 2px!important}
+ .portal-document-head{padding:24px 42px 22px!important;background:#fffdf8!important;border-bottom:1px solid #51483e!important}
+ .portal-document-head h1{font-size:25px!important;letter-spacing:.1em!important}
+ .portal-document-head p{font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;font-size:10px!important}
+ .document-meta dd{font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;font-size:10px!important}
+ .official-identity{background:#fff!important;border-top:0!important;border-bottom:1px solid #8d8170!important;padding:18px clamp(22px,5vw,64px)!important}
+ .official-seal{border-radius:2px!important;box-shadow:inset 0 0 0 4px #fff,inset 0 0 0 5px rgba(170,141,85,.65)!important}
+ .official-title{font-family:"Yu Mincho","Noto Serif JP",serif!important}
+ .official-meta-grid strong{font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;font-weight:500!important}
+ .official-status-dot{width:7px!important;height:7px!important}
+ .official-building{padding:22px clamp(22px,5vw,64px)!important;background:#f1eee8!important}
+ .official-building-inner{border:1px solid #bdb4a5!important}
+ .hero{min-height:540px!important;background:#fff!important;border-bottom:1px solid #8d8170!important}
+ .hero:before{inset:16px!important;border:1px solid rgba(166,132,77,.2)!important}
+ .hero-inner{padding-top:92px!important}
+ .hero h1{font-size:clamp(52px,7vw,92px)!important;letter-spacing:.1em!important}
+ .hero-lead{font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;font-size:13px!important;line-height:2!important}
+ .hero-rule{font-family:"Noto Sans JP","Yu Gothic",sans-serif!important}
+ .season-status{border-bottom:1px solid #a6844d!important}
+ .season-status h2{font-size:17px!important}
+ .section{padding:62px 0!important}
+ .section-title{margin-bottom:24px!important}
+ .section-title h2{font-size:28px!important;letter-spacing:.08em!important}
+ .section-title p{font-family:"Noto Sans JP","Yu Gothic",sans-serif!important}
+ .section-intro{font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;font-size:13px!important;line-height:1.9!important}
+ .news-list{border-top:2px solid #263b35!important}
+ .news-list article{font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;min-height:52px!important;padding:9px 12px!important}
+ .news-list article a{font-size:12px!important;font-weight:400!important}
+ .news-list article time{font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;font-size:10px!important}
+ .admin-index a,.duty-grid article,.department-grid article{font-family:"Noto Sans JP","Yu Gothic",sans-serif!important}
+ .god-tab{font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;font-size:12px!important}
+ .god-panel p,.god-panel dd,.department-grid p,.duty-grid p{font-family:"Noto Sans JP","Yu Gothic",sans-serif!important}
+ .departments-section{border-top:1px solid #a6844d!important;border-bottom:1px solid #a6844d!important}
+ .department-grid article:hover{transform:none!important}
+ .arg-teaser{border-top:1px solid #a6844d!important;border-bottom:1px solid #a6844d!important}
+ .arg-teaser:before{content:"附属資料室 / PUBLIC RECORDS"!important;font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;font-size:8px!important}
+ .person-search-section{font-family:"Noto Sans JP","Yu Gothic",sans-serif!important}
+ .site-footer{border-top:1px solid #a6844d!important}
+ /* 官公廳らしい「更新情報」の視認性 */
+ .news-list article span{font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;letter-spacing:.03em!important}
+ @media(max-width:800px){
+   .hero{min-height:480px!important}
+   .hero-inner{padding-top:72px!important}
+   .portal-document-head{padding:20px 20px 18px!important}
+   .section{padding:48px 0!important}
+ }
+ `;
+ document.head.appendChild(governmentOfficialStyle);
+
 });
