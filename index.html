@@ -2062,6 +2062,440 @@ button{border-radius:0!important}
 }
 </style>
 
+
+<style id="retro-modern-major-v8">
+/* =========================================================
+   四季廳 UI 大改修 / RETRO-MODERN GOVERNMENT SYSTEM
+   「古いWeb」ではなく「古い國家の新しい公式情報網」
+   ========================================================= */
+:root{
+  --rm-ink:#20201d;
+  --rm-ink2:#4b4943;
+  --rm-paper:#f4f0e7;
+  --rm-paper2:#e8e2d4;
+  --rm-white:#fbfaf6;
+  --rm-red:#8b2630;
+  --rm-red2:#641b23;
+  --rm-green:#183b35;
+  --rm-green2:#102c28;
+  --rm-gold:#9a7a3f;
+  --rm-line:#a99c83;
+  --rm-blue:#344b58;
+}
+html,body{background:var(--rm-paper)!important;color:var(--rm-ink)!important}
+body{
+  font-family:"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif!important;
+  letter-spacing:.025em!important;
+  overflow-x:hidden!important;
+}
+body:after{
+  inset:0!important;
+  border:0!important;
+  box-shadow:inset 0 0 0 8px rgba(16,44,40,.10),inset 0 0 0 10px rgba(154,122,63,.20)!important;
+  pointer-events:none!important;
+  z-index:9999!important;
+}
+body:before{
+  opacity:.045!important;
+  background-image:
+    linear-gradient(90deg,rgba(30,30,25,.18) 1px,transparent 1px),
+    linear-gradient(rgba(30,30,25,.12) 1px,transparent 1px)!important;
+  background-size:48px 48px!important;
+}
+
+/* 上部官報帯 */
+.imperial-header{
+  background:var(--rm-green2)!important;
+  border-bottom:3px solid var(--rm-gold)!important;
+  box-shadow:0 3px 0 rgba(16,44,40,.16)!important;
+}
+.imperial-header-inner{
+  max-width:1500px!important;
+  min-height:36px!important;
+  padding:0 34px!important;
+}
+.imperial-header a{
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-size:10px!important;
+  letter-spacing:.16em!important;
+}
+
+/* 主ヘッダーを「省廳ポータル」の銘板へ */
+.site-header{
+  background:var(--rm-white)!important;
+  border-bottom:1px solid var(--rm-ink)!important;
+  box-shadow:none!important;
+}
+.header-inner{
+  max-width:1500px!important;
+  min-height:92px!important;
+  padding:0 42px!important;
+}
+.brand{gap:17px!important}
+.brand-mark{
+  width:54px!important;height:54px!important;
+  border:1px solid var(--rm-red)!important;
+  box-shadow:inset 0 0 0 4px rgba(154,122,63,.14)!important;
+  background:var(--rm-paper)!important;
+}
+.brand strong{
+  font-size:28px!important;
+  letter-spacing:.28em!important;
+  color:var(--rm-ink)!important;
+}
+.brand small{
+  font-size:9px!important;
+  letter-spacing:.27em!important;
+  color:#777267!important;
+}
+#global-nav a{
+  border-left:1px solid #cbc3b3!important;
+  color:var(--rm-ink)!important;
+  font-size:11px!important;
+  letter-spacing:.13em!important;
+  padding:0 16px!important;
+}
+#global-nav a:last-child{border-right:1px solid #cbc3b3!important}
+#global-nav a:hover{
+  background:var(--rm-green)!important;
+  color:#f7f2e8!important;
+}
+
+/* 法令帯を「行政告知」に */
+.law-banner{
+  background:var(--rm-paper2)!important;
+  border-bottom:1px solid var(--rm-line)!important;
+  box-shadow:none!important;
+}
+.law-banner-inner{max-width:1500px!important;padding:9px 42px!important}
+.law-banner-label .mark{
+  width:25px!important;height:25px!important;
+  border:1px solid var(--rm-red)!important;
+  color:var(--rm-red)!important;
+}
+.law-banner-label span{font-size:9px!important;letter-spacing:.16em!important}
+.law-banner-label strong{font-size:12px!important;color:var(--rm-ink)!important}
+.law-banner a{
+  padding:7px 12px!important;
+  background:transparent!important;
+  border:1px solid var(--rm-green)!important;
+  color:var(--rm-green)!important;
+  font-size:10px!important;
+}
+
+/* HEROを「政府ポータルの新聞一面」に再構成 */
+.hero{
+  min-height:620px!important;
+  background:
+    linear-gradient(90deg,rgba(251,250,246,.99) 0%,rgba(251,250,246,.97) 58%,rgba(232,226,212,.72) 100%)!important;
+  border-bottom:3px double var(--rm-ink)!important;
+}
+.hero:before{
+  inset:18px!important;
+  border:1px solid rgba(32,32,29,.22)!important;
+  box-shadow:inset 0 0 0 7px rgba(154,122,63,.06)!important;
+}
+.hero:after{
+  right:36px!important;
+  bottom:25px!important;
+  content:"日ノ本帝國政府情報網　／　SHIKI-CHO"!important;
+  color:var(--rm-green)!important;
+  font-size:8px!important;
+  letter-spacing:.18em!important;
+}
+.hero-inner{
+  max-width:1500px!important;
+  width:calc(100% - 84px)!important;
+  padding-top:112px!important;
+}
+.hero-watermark{
+  font-size:300px!important;
+  right:5%!important;
+  color:var(--rm-green)!important;
+  opacity:.045!important;
+}
+.hero .kicker{
+  display:inline-block!important;
+  padding:6px 10px!important;
+  border:1px solid var(--rm-red)!important;
+  color:var(--rm-red)!important;
+  background:rgba(139,38,48,.035)!important;
+  font-family:Georgia,serif!important;
+  font-size:9px!important;
+  letter-spacing:.25em!important;
+}
+.hero h1{
+  font-size:clamp(58px,8vw,108px)!important;
+  letter-spacing:.08em!important;
+  line-height:1.05!important;
+  margin:17px 0 20px!important;
+}
+.hero h1 em{
+  color:var(--rm-red)!important;
+  text-decoration:underline!important;
+  text-decoration-thickness:1px!important;
+  text-underline-offset:10px!important;
+}
+.hero-lead{
+  max-width:720px!important;
+  border-left:2px solid var(--rm-red)!important;
+  padding-left:18px!important;
+  font-size:14px!important;
+  line-height:2.1!important;
+}
+.hero-rule{
+  max-width:760px!important;
+  margin-top:28px!important;
+}
+.hero-rule i{background:var(--rm-ink)!important;opacity:.45!important}
+
+/* 「現在事項」ではなく政府掲示板 */
+.season-status{
+  background:var(--rm-green2)!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+.status-inner{
+  max-width:1500px!important;
+  min-height:94px!important;
+  padding:0 42px!important;
+}
+.season-status h2{
+  font-size:17px!important;
+  letter-spacing:.15em!important;
+}
+.season-status .eyebrow{
+  font-family:Georgia,serif!important;
+  font-size:8px!important;
+  letter-spacing:.2em!important;
+}
+.status-light{
+  border-left:1px solid rgba(220,205,169,.35)!important;
+  padding-left:28px!important;
+}
+
+/* ARGは「秘密」ではなく、行政資料に紛れた異常文書 */
+.arg-teaser{
+  background:var(--rm-red2)!important;
+  border:0!important;
+}
+.arg-teaser .content-width{
+  max-width:1500px!important;
+  min-height:108px!important;
+  padding:20px 42px!important;
+  grid-template-columns:42px 1fr auto!important;
+}
+.arg-teaser-mark{
+  width:38px!important;height:38px!important;
+  transform:none!important;
+  border:1px solid #d8c18d!important;
+  color:#d8c18d!important;
+}
+.arg-teaser h2{font-size:17px!important;letter-spacing:.1em!important}
+.arg-teaser p{font-size:10px!important;letter-spacing:.06em!important}
+.arg-teaser a{
+  border:1px solid #d8c18d!important;
+  padding:10px 15px!important;
+  font-size:10px!important;
+}
+
+/* 全セクションを「冊子」から「行政情報網」に */
+.section{
+  padding:86px 0!important;
+  border-bottom:1px solid var(--rm-line)!important;
+  background:var(--rm-white)!important;
+}
+.section:nth-of-type(even){background:var(--rm-paper2)!important}
+.section-inner{
+  max-width:1320px!important;
+  padding:0 42px!important;
+}
+.section-heading{
+  display:grid!important;
+  grid-template-columns:minmax(150px,220px) 1fr!important;
+  column-gap:35px!important;
+  align-items:end!important;
+  border-top:3px solid var(--rm-green)!important;
+  padding-top:18px!important;
+  margin-bottom:38px!important;
+}
+.section-heading .section-kicker{
+  grid-column:1!important;
+  grid-row:1 / span 2!important;
+  align-self:start!important;
+  padding-top:5px!important;
+  color:var(--rm-green)!important;
+  font-size:9px!important;
+  letter-spacing:.13em!important;
+}
+.section-heading h2{
+  grid-column:2!important;
+  margin:0!important;
+  font-size:31px!important;
+  letter-spacing:.12em!important;
+  font-weight:500!important;
+  border-bottom:1px solid var(--rm-ink)!important;
+  padding-bottom:11px!important;
+}
+.section-heading p{
+  grid-column:2!important;
+  margin:10px 0 0!important;
+  color:var(--rm-ink2)!important;
+  font-size:11px!important;
+}
+
+/* 情報カードを角丸ゼロ、罫線中心へ */
+.section .card,
+.section .panel,
+.section article,
+.section .info-card{
+  border-radius:0!important;
+  box-shadow:none!important;
+}
+button,input,a{border-radius:0!important}
+
+/* 人物検索を「人物原簿検索窓口」に */
+.person-search-section{
+  max-width:1320px!important;
+  margin:0 auto 55px!important;
+  padding:0!important;
+  border:0!important;
+  border-top:3px solid var(--rm-red)!important;
+  border-bottom:1px solid var(--rm-line)!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+.person-search-kicker{
+  display:block!important;
+  padding-top:12px!important;
+  color:var(--rm-red)!important;
+  font-size:9px!important;
+}
+.person-search-section h2{
+  margin:8px 0!important;
+  font-size:27px!important;
+  color:var(--rm-ink)!important;
+}
+.person-search-intro{font-size:11px!important}
+.person-search-form{
+  max-width:760px!important;
+  border:1px solid #8e877a!important;
+  background:var(--rm-white)!important;
+  padding:4px!important;
+}
+#person-search-input{
+  border:0!important;
+  background:transparent!important;
+  padding:12px!important;
+}
+#person-search-button{
+  background:var(--rm-green)!important;
+  border:0!important;
+  min-width:130px!important;
+}
+.person-record{
+  border-top:1px solid var(--rm-line)!important;
+  padding-top:18px!important;
+}
+.person-record small{color:var(--rm-red)!important}
+
+/* 関係機關を本物の行政機關一覧表へ */
+.related-agencies-section{background:var(--rm-paper2)!important}
+.related-agencies-grid{
+  grid-template-columns:repeat(2,1fr)!important;
+  border-left:1px solid var(--rm-line)!important;
+  border-top:1px solid var(--rm-line)!important;
+  margin-top:0!important;
+}
+.related-agency{
+  min-height:145px!important;
+  padding:22px 24px!important;
+  background:var(--rm-white)!important;
+  border-right:1px solid var(--rm-line)!important;
+  border-bottom:1px solid var(--rm-line)!important;
+}
+.related-agency:hover{
+  background:var(--rm-green)!important;
+  color:#f7f2e8!important;
+}
+.related-agency:hover small,
+.related-agency:hover .agency-code,
+.related-agency:hover b{color:#e7ddca!important}
+.related-agency strong{font-size:19px!important}
+.related-agency .agency-code{font-size:8px!important}
+.related-agency b{font-size:9px!important}
+.related-agency-pending{border-top:0!important;background:#e4ded2!important}
+
+/* フッターを官報の奥付に */
+.shiki-v4-footer{
+  background:var(--rm-green2)!important;
+  border-top:5px double var(--rm-gold)!important;
+  padding:58px 0!important;
+}
+.shiki-v4-footer .inner{
+  max-width:1320px!important;
+  padding:0 42px!important;
+}
+.shiki-v4-footer .motto{
+  color:#d5bf8a!important;
+  font-family:Georgia,serif!important;
+  font-size:10px!important;
+  letter-spacing:.28em!important;
+}
+.shiki-v4-footer strong{
+  display:block!important;
+  color:#f5f0e6!important;
+  font-size:23px!important;
+  font-weight:500!important;
+  letter-spacing:.15em!important;
+  margin:12px 0 18px!important;
+}
+.shiki-v4-footer p{
+  color:#c4c0b7!important;
+  font-size:9px!important;
+  line-height:2!important;
+}
+
+/* 小さな行政標識 */
+.related-agencies-note,
+.agency-footnote{
+  border-radius:0!important;
+}
+.related-agencies-note{
+  border-top:1px solid var(--rm-line)!important;
+  border-bottom:1px solid var(--rm-line)!important;
+  background:rgba(251,250,246,.5)!important;
+}
+.agency-footnote{
+  background:var(--rm-white)!important;
+  border-left:3px solid var(--rm-green)!important;
+}
+
+/* モバイルも「縮める」だけにせず行政帳票として再構成 */
+@media(max-width:760px){
+  body:after{inset:0!important}
+  .header-inner{padding:0 20px!important;min-height:78px!important}
+  .brand strong{font-size:22px!important;letter-spacing:.18em!important}
+  .brand-mark{width:44px!important;height:44px!important}
+  #global-nav a{padding:0 8px!important;font-size:9px!important}
+  .law-banner-inner{padding:8px 20px!important}
+  .hero{min-height:510px!important}
+  .hero-inner{width:calc(100% - 40px)!important;padding-top:85px!important}
+  .hero h1{font-size:52px!important}
+  .hero-lead{font-size:12px!important}
+  .status-inner{padding:0 20px!important}
+  .arg-teaser .content-width{padding:18px 20px!important;grid-template-columns:38px 1fr!important}
+  .arg-teaser a{grid-column:2!important;justify-self:start!important}
+  .section{padding:62px 0!important}
+  .section-inner{padding:0 20px!important}
+  .section-heading{display:block!important}
+  .section-heading .section-kicker{margin-bottom:10px!important}
+  .section-heading h2{font-size:25px!important}
+  .related-agencies-grid{grid-template-columns:1fr!important}
+  .shiki-v4-footer .inner{padding:0 20px!important}
+}
+</style>
+
 </head>
 <body data-shiki-page="index">
 <div class="imperial-header">
