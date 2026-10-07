@@ -1,0 +1,199 @@
+/* 四季廳公式Web体系・第四次全体改築
+   日ノ本帝國國立帝國大學公式サイトと共通する「帝國機關Web標準」を四季廳向けに再構成。
+*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700;900&family=Shippori+Mincho:wght@400;500;600;700&display=swap');
+
+:root{
+  --shiki-paper:#f2ecdf;
+  --shiki-paper-2:#e8decb;
+  --shiki-ivory:#fbf7ee;
+  --shiki-ink:#27231e;
+  --shiki-brown:#514235;
+  --shiki-red:#7c202b;
+  --shiki-red-dark:#54131c;
+  --shiki-gold:#a57c3d;
+  --shiki-line:#b8a98c;
+  --shiki-green:#263b34;
+  --shiki-blue:#41566b;
+}
+html,body{background:var(--shiki-paper)!important;color:var(--shiki-ink)!important}
+body{
+  font-family:"Noto Serif JP","Shippori Mincho",serif!important;
+  line-height:1.95;
+  background:
+    linear-gradient(rgba(81,66,53,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(81,66,53,.018) 1px,transparent 1px),
+    var(--shiki-paper)!important;
+  background-size:28px 28px,28px 28px,auto!important;
+}
+*{box-sizing:border-box}
+a{color:var(--shiki-red)}
+.imperial-header{
+  background:var(--shiki-ink)!important;
+  color:#eee5d5!important;
+  border-bottom:3px double var(--shiki-gold)!important;
+  font-family:"Noto Serif JP",serif!important;
+}
+.imperial-header-inner{max-width:1380px!important}
+.imperial-header a{color:#eee5d5!important}
+
+.shiki-v4-masthead{
+  background:var(--shiki-ivory);
+  border-bottom:1px solid var(--shiki-line);
+  box-shadow:0 3px 18px rgba(54,39,25,.08);
+}
+.shiki-v4-masthead .inner{
+  max-width:1380px;margin:auto;padding:30px 34px 22px;
+  display:grid;grid-template-columns:1fr auto;gap:20px;align-items:end;
+}
+.shiki-v4-kicker{font-size:10px;letter-spacing:.28em;color:#76664f}
+.shiki-v4-title{
+  margin:4px 0 0;font-family:"Shippori Mincho","Noto Serif JP",serif;
+  font-size:clamp(32px,5vw,58px);font-weight:600;letter-spacing:.15em;
+}
+.shiki-v4-title span{color:var(--shiki-red)}
+.shiki-v4-sub{margin:4px 0 0;font-size:12px;letter-spacing:.16em;color:#66594b}
+.shiki-v4-date{text-align:right;font-size:11px;line-height:2;color:#675a4c}
+.shiki-v4-date strong{display:block;color:var(--shiki-red);font-size:14px;letter-spacing:.12em}
+
+.shiki-v4-nav{
+  border-top:1px solid #d2c5ae;border-bottom:1px solid #b9aa8f;
+  background:#eee5d5;
+}
+.shiki-v4-nav .inner{
+  max-width:1380px;margin:auto;display:grid;grid-template-columns:repeat(8,1fr);
+}
+.shiki-v4-nav a{
+  color:var(--shiki-brown)!important;text-decoration:none;
+  padding:14px 10px;text-align:center;border-left:1px solid #d2c5ae;
+  font-size:12px;letter-spacing:.08em;transition:.18s ease;
+}
+.shiki-v4-nav a:last-child{border-right:1px solid #d2c5ae}
+.shiki-v4-nav a:hover{background:#e1d5c1;color:var(--shiki-red)!important}
+.shiki-v4-nav small{display:block;color:#8b7c68;font-size:8px;margin-top:3px;letter-spacing:.1em}
+
+.shiki-v4-motto{
+  max-width:1380px;margin:24px auto 0;padding:0 34px;
+}
+.shiki-v4-motto .paper{
+  border:1px solid var(--shiki-line);border-top:4px double var(--shiki-red);
+  background:rgba(251,247,238,.88);padding:28px 34px;
+  display:grid;grid-template-columns:minmax(0,1.5fr) minmax(260px,.8fr);gap:30px;
+}
+.shiki-v4-motto .label{font-size:9px;letter-spacing:.25em;color:var(--shiki-gold)}
+.shiki-v4-motto h2{margin:8px 0 8px;font-size:clamp(25px,4vw,42px);font-weight:500;letter-spacing:.16em}
+.shiki-v4-motto h2 em{font-style:normal;color:var(--shiki-red)}
+.shiki-v4-motto p{margin:0;font-size:13px;line-height:2.1}
+.shiki-v4-motto .principle{
+  border-left:1px solid var(--shiki-line);padding-left:24px;
+}
+.shiki-v4-motto .principle b{display:block;color:var(--shiki-red);font-size:15px;margin-bottom:7px}
+.shiki-v4-motto .principle ul{margin:0;padding-left:1.2em;font-size:11px;line-height:2.1}
+
+.site-header{position:sticky!important;top:0;z-index:50!important;background:rgba(251,247,238,.97)!important;border-bottom:1px solid var(--shiki-line)!important}
+.site-header .header-inner{max-width:1380px!important}
+.site-header .brand strong,.site-header .brand small{color:var(--shiki-brown)!important}
+#global-nav a{color:var(--shiki-brown)!important;border-left-color:#d2c5ae!important;font-family:"Noto Serif JP",serif!important}
+#global-nav a:hover{background:#e6dbc9!important;color:var(--shiki-red)!important}
+
+.hero{
+  min-height:640px!important;
+  background:
+    linear-gradient(90deg,rgba(242,236,223,.98) 0%,rgba(242,236,223,.94) 48%,rgba(242,236,223,.55) 100%),
+    var(--shiki-paper)!important;
+  border-bottom:3px double var(--shiki-line)!important;
+}
+.hero:before{inset:18px!important;border:1px solid rgba(165,124,61,.32)!important}
+.hero-inner{max-width:1380px!important;width:calc(100% - 90px)!important;padding-top:145px!important}
+.hero .kicker{color:#79613d!important;letter-spacing:.28em!important}
+.hero h1{
+  color:var(--shiki-ink)!important;font-family:"Shippori Mincho",serif!important;
+  font-size:clamp(58px,8vw,108px)!important;font-weight:500!important;
+}
+.hero h1 em{color:var(--shiki-red)!important}
+.hero-lead{border-left-color:var(--shiki-red)!important;color:#55483b!important}
+.hero-rule i{background:var(--shiki-gold)!important}
+
+.portal-registry{
+  background:#e4d8c3!important;border-top:1px solid var(--shiki-line)!important;
+  border-bottom:1px solid var(--shiki-line)!important;
+}
+.portal-registry-inner{font-family:"Noto Serif JP",serif!important}
+.portal-shell{max-width:1380px!important}
+
+.section{border-bottom:1px solid rgba(81,66,53,.18)!important}
+.section-title{border-bottom:1px solid var(--shiki-line)!important}
+.section-title>span{color:var(--shiki-red)!important}
+.section-title h2{font-family:"Shippori Mincho",serif!important;font-weight:600!important;color:var(--shiki-ink)!important}
+.section-title p{color:#806c4e!important;letter-spacing:.16em!important}
+
+.news-section,.about-section,.gods-section,.guards-section,.duties-section,.contact-section{background:var(--shiki-paper)!important}
+.news-list article{
+  background:rgba(251,247,238,.8)!important;border-color:#c8baa2!important;
+}
+.news-list article a{color:var(--shiki-ink)!important}
+.news-list article a:hover{color:var(--shiki-red)!important}
+.news-list article span{color:var(--shiki-red)!important;border-color:#c7a98a!important}
+
+.mission-card,.document-copy,.god-panel,.duty-grid article,.report-box{
+  background:var(--shiki-ivory)!important;border:1px solid #c2b49b!important;
+  box-shadow:0 8px 24px rgba(66,48,31,.06)!important;
+}
+.mission-card strong{color:var(--shiki-red)!important;font-family:"Shippori Mincho",serif!important}
+.god-tabs{border:2px solid var(--shiki-ink)!important;background:#e4d8c3!important}
+.god-tab{color:var(--shiki-ink)!important}
+.god-tab.active{background:var(--shiki-red)!important;color:#fffaf0!important}
+.god-panel h3{font-family:"Shippori Mincho",serif!important;color:var(--shiki-red)!important}
+
+.departments-section{
+  background:var(--shiki-green)!important;
+  color:#f3eadc!important;border-top:4px double var(--shiki-gold)!important;
+}
+.departments-section .section-title h2{color:#fff7e9!important}
+.departments-section .section-title p{color:#d8bc82!important}
+.departments-section .org-chart{border-color:#a58a59!important}
+.department-grid article{
+  background:#30483f!important;border-color:#64766d!important;
+}
+.department-grid article:hover{background:#3b574c!important}
+.department-grid h3{font-family:"Shippori Mincho",serif!important;color:#fff5e5!important}
+.department-grid p,.department-grid small{color:#ddd4c5!important}
+.department-grid span{color:#d8bc82!important}
+
+.shiki-department-registry{
+  margin-top:28px;border:1px solid #a58a59;background:#20362f;
+  display:grid;grid-template-columns:repeat(3,1fr);
+}
+.shiki-department-registry article{padding:20px;border-right:1px solid #5e7168}
+.shiki-department-registry article:last-child{border-right:0}
+.shiki-department-registry b{display:block;color:#d8bc82;font-size:10px;letter-spacing:.18em}
+.shiki-department-registry strong{display:block;margin:6px 0;color:#fff4df;font-family:"Shippori Mincho",serif;font-size:18px}
+.shiki-department-registry span{font-size:11px;color:#d6cdc0}
+
+.shiki-v4-footer{
+  background:#25211d;color:#e8dfd1;border-top:5px double var(--shiki-gold);
+  padding:42px 28px 55px;
+}
+.shiki-v4-footer .inner{max-width:1380px;margin:auto}
+.shiki-v4-footer strong{font-family:"Shippori Mincho",serif;font-size:18px}
+.shiki-v4-footer p{font-size:11px;color:#c8bca9;margin:7px 0}
+.shiki-v4-footer .motto{color:#d6b77b;letter-spacing:.2em}
+
+@media(max-width:900px){
+  .shiki-v4-masthead .inner{grid-template-columns:1fr}
+  .shiki-v4-date{text-align:left}
+  .shiki-v4-nav .inner{grid-template-columns:repeat(4,1fr)}
+  .shiki-v4-motto .paper{grid-template-columns:1fr}
+  .shiki-v4-motto .principle{border-left:0;border-top:1px solid var(--shiki-line);padding:20px 0 0}
+  .shiki-department-registry{grid-template-columns:1fr}
+  .shiki-department-registry article{border-right:0;border-bottom:1px solid #5e7168}
+  .shiki-department-registry article:last-child{border-bottom:0}
+}
+@media(max-width:600px){
+  .shiki-v4-masthead .inner{padding:22px 18px 17px}
+  .shiki-v4-nav .inner{grid-template-columns:repeat(2,1fr)}
+  .shiki-v4-nav a{padding:12px 6px;font-size:11px}
+  .shiki-v4-motto{padding:0 14px}
+  .shiki-v4-motto .paper{padding:22px 20px}
+  .hero-inner{width:calc(100% - 40px)!important;padding-top:105px!important}
+}
