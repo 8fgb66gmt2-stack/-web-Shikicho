@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Shippori+Mincho:wght@400;500;600;700&display=swap');
+
+/* =========================================================
+   四季廳・玲瓏浪漫 官公廳 Web Standard / v6
+   「華美」ではなく、帝國官報・省廳年報・大學公式網の延長線。
+   ========================================================= */
+:root{
+  --r6-paper:#f5f0e6;
+  --r6-paper-hi:#fbf8f1;
+  --r6-paper-dk:#e8dfcf;
+  --r6-ink:#292722;
+  --r6-muted:#71685d;
+  --r6-red:#77232d;
+  --r6-red-dk:#511821;
+  --r6-gold:#a6844d;
+  --r6-gold-pale:#cdb987;
+  --r6-green:#263b35;
+  --r6-green-dk:#172923;
+  --r6-line:#c8b99d;
+  --r6-line-dark:#8d7b5e;
+  --r6-shadow:rgba(48,35,22,.10);
+}
+
+html{background:var(--r6-paper)!important;scroll-behavior:smooth}
+body{
+  background:
+    radial-gradient(circle at 50% -10%,rgba(255,255,255,.75),transparent 36%),
+    repeating-linear-gradient(0deg,rgba(71,53,35,.018) 0,rgba(71,53,35,.018) 1px,transparent 1px,transparent 5px),
+    var(--r6-paper)!important;
+  color:var(--r6-ink)!important;
+  font-family:"Noto Serif JP","Yu Mincho",serif!important;
+}
+body:before{opacity:.018!important}
+body:after{inset:10px!important;border:1px solid rgba(166,132,77,.34)!important;box-shadow:inset 0 0 0 4px rgba(166,132,77,.025)!important;pointer-events:none!important}
+a{color:var(--r6-red)}
+
+.imperial-header{
+  background:var(--r6-green-dk)!important;
+  border-bottom:3px double var(--r6-gold)!important;
+  min-height:34px!important;
+}
+.imperial-header-inner{max-width:1240px!important;min-height:34px!important}
+.imperial-header a{color:#e8ddc7!important;font-size:10px!important;letter-spacing:.18em!important}
+.imperial-header .current{color:#fff8e9!important;border-bottom:1px solid var(--r6-gold-pale)!important}
+
+/* 本省庁名板 */
+.shiki-v4-masthead{
+  background:var(--r6-paper-hi)!important;
+  border-bottom:1px solid var(--r6-line)!important;
+  box-shadow:none!important;
+}
+.shiki-v4-masthead .inner{
+  max-width:1240px!important;
+  padding:34px 28px 24px!important;
+}
+.shiki-v4-kicker{
+  color:var(--r6-gold)!important;
+  font-size:9px!important;
+  letter-spacing:.38em!important;
+}
+.shiki-v4-title{
+  font-family:"Shippori Mincho","Yu Mincho",serif!important;
+  color:var(--r6-ink)!important;
+  font-weight:500!important;
+  font-size:clamp(36px,5.2vw,62px)!important;
+  letter-spacing:.24em!important;
+  line-height:1.15!important;
+}
+.shiki-v4-title span{color:var(--r6-red)!important}
+.shiki-v4-sub{color:var(--r6-muted)!important;font-size:11px!important;letter-spacing:.19em!important}
+.shiki-v4-date{color:var(--r6-muted)!important;font-family:"Noto Serif JP",serif!important}
+.shiki-v4-date strong{color:var(--r6-red)!important;font-family:"Shippori Mincho",serif!important}
+
+/* 省庁ナビ：罫線主体 */
+.shiki-v4-nav{
+  background:var(--r6-paper-dk)!important;
+  border-top:1px solid var(--r6-line-dark)!important;
+  border-bottom:1px solid var(--r6-line-dark)!important;
+}
+.shiki-v4-nav .inner{max-width:1240px!important}
+.shiki-v4-nav a{
+  color:var(--r6-ink)!important;
+  padding:12px 7px!important;
+  font-size:11px!important;
+  letter-spacing:.10em!important;
+  border-left:1px solid rgba(141,123,94,.42)!important;
+}
+.shiki-v4-nav a:last-child{border-right:1px solid rgba(141,123,94,.42)!important}
+.shiki-v4-nav a:hover{background:#ddd1bd!important;color:var(--r6-red)!important}
+.shiki-v4-nav small{color:#8b7b68!important;font-size:7px!important}
+
+/* 理念板：官報の「本省概要」らしく */
+.shiki-v4-motto{max-width:1240px!important;padding:0 28px!important;margin:28px auto 0!important}
+.shiki-v4-motto .paper{
+  background:rgba(251,248,241,.92)!important;
+  border:1px solid var(--r6-line)!important;
+  border-top:3px double var(--r6-red)!important;
+  box-shadow:0 9px 28px var(--r6-shadow)!important;
+  padding:27px 30px!important;
+}
+.shiki-v4-motto .label{color:var(--r6-gold)!important}
+.shiki-v4-motto h2{
+  font-family:"Shippori Mincho",serif!important;
+  color:var(--r6-ink)!important;
+  font-size:clamp(25px,3.2vw,39px)!important;
+  letter-spacing:.18em!important;
+}
+.shiki-v4-motto h2 em{color:var(--r6-red)!important}
+.shiki-v4-motto p{color:#554c42!important;font-size:12px!important}
+.shiki-v4-motto .principle{border-left:1px solid var(--r6-line)!important}
+.shiki-v4-motto .principle b{color:var(--r6-red)!important}
+
+/* sticky header を「現代サイト感」から外す */
+.site-header{position:relative!important;top:auto!important;background:rgba(251,248,241,.98)!important;border-bottom:1px solid var(--r6-line)!important;box-shadow:none!important}
+.site-header .header-inner{max-width:1240px!important}
+.site-header .brand strong{font-family:"Shippori Mincho",serif!important;color:var(--r6-red)!important}
+.site-header .brand small{color:var(--r6-muted)!important}
+#global-nav a{
+  color:var(--r6-ink)!important;
+  font-family:"Noto Serif JP",serif!important;
+  border-left-color:rgba(141,123,94,.28)!important;
+}
+#global-nav a:hover{background:#eee6d8!important;color:var(--r6-red)!important}
+
+/* HERO：ポスターではなく「官報表紙」 */
+.hero{
+  min-height:575px!important;
+  background:
+    linear-gradient(90deg,rgba(245,240,230,.99) 0%,rgba(245,240,230,.96) 55%,rgba(245,240,230,.72) 100%),
+    var(--r6-paper)!important;
+  border-bottom:3px double var(--r6-line-dark)!important;
+}
+.hero:before{
+  inset:20px!important;
+  border:1px solid rgba(166,132,77,.30)!important;
+  background:
+    linear-gradient(90deg,transparent 0 49.8%,rgba(119,35,45,.08) 49.9%,transparent 50.1%)!important;
+}
+.hero-inner{
+  max-width:1240px!important;
+  width:calc(100% - 76px)!important;
+  padding-top:120px!important;
+}
+.hero-watermark{
+  color:var(--r6-red)!important;
+  opacity:.035!important;
+  font-size:290px!important;
+  right:1%!important;
+}
+.hero .kicker{color:var(--r6-gold)!important;letter-spacing:.42em!important;font-size:9px!important}
+.hero h1{
+  font-family:"Shippori Mincho","Yu Mincho",serif!important;
+  color:var(--r6-ink)!important;
+  font-size:clamp(62px,8.4vw,112px)!important;
+  font-weight:500!important;
+  letter-spacing:.17em!important;
+  line-height:1.02!important;
+}
+.hero h1 em{color:var(--r6-red)!important}
+.hero-lead{
+  color:#554c42!important;
+  border-left:3px solid var(--r6-red)!important;
+  padding-left:19px!important;
+  font-size:14px!important;
+  line-height:2.05!important;
+}
+.hero-rule{color:var(--r6-muted)!important}
+.hero-rule i{background:var(--r6-gold)!important}
+
+/* 現在事項：赤帯を「官庁の重要告示」に格上げ */
+.season-status{
+  background:var(--r6-red-dk)!important;
+  border-bottom:3px double var(--r6-gold-pale)!important;
+  box-shadow:none!important;
+}
+.status-inner{max-width:1240px!important;min-height:100px!important}
+.season-status .eyebrow{color:var(--r6-gold-pale)!important}
+.season-status h2{font-family:"Shippori Mincho",serif!important;font-size:19px!important}
+.status-light{border-left:1px solid rgba(205,185,135,.35)!important}
+
+/* 各セクション：余白と罫線を主役に */
+.section{
+  padding:86px 0!important;
+  background:var(--r6-paper-hi)!important;
+  border-bottom:1px solid var(--r6-line)!important;
+}
+.section:nth-of-type(even){background:#eee6d8!important}
+.content-width{max-width:1240px!important}
+.section-title{
+  border-bottom:1px solid var(--r6-line)!important;
+  padding-bottom:17px!important;
+  margin-bottom:30px!important;
+}
+.section-title>span{color:var(--r6-red)!important;font-family:Georgia,serif!important;letter-spacing:.12em!important}
+.section-title h2{
+  font-family:"Shippori Mincho",serif!important;
+  color:var(--r6-ink)!important;
+  font-size:30px!important;
+  font-weight:500!important;
+  letter-spacing:.18em!important;
+}
+.section-title p{color:var(--r6-gold)!important;font-size:9px!important;letter-spacing:.24em!important}
+
+/* ニュース／公示 */
+.news-list article{
+  background:rgba(251,248,241,.78)!important;
+  border-color:rgba(141,123,94,.34)!important;
+  padding:17px 18px!important;
+}
+.news-list article:hover{background:#fffdf8!important}
+.news-list article time{color:#817567!important;font-family:Georgia,serif!important}
+.news-list article span{
+  color:var(--r6-red)!important;
+  border-color:rgba(119,35,45,.35)!important;
+}
+.news-list article a{color:var(--r6-ink)!important}
+.news-list article a:hover{color:var(--r6-red)!important}
+
+/* 組織：ここだけ深緑。省庁の「組織図・局課一覧」らしさ */
+.departments-section{
+  background:var(--r6-green-dk)!important;
+  border-top:3px double var(--r6-gold)!important;
+  border-bottom:3px double var(--r6-gold)!important;
+}
+.departments-section .section-title{border-color:rgba(205,185,135,.35)!important}
+.departments-section .section-title h2{color:#f5ecdc!important}
+.departments-section .section-title p{color:var(--r6-gold-pale)!important}
+.department-grid article{
+  background:#21372f!important;
+  border-color:rgba(205,185,135,.34)!important;
+  box-shadow:none!important;
+}
+.department-grid article:hover{background:#29443a!important}
+.department-grid h3{font-family:"Shippori Mincho",serif!important;color:#f8efdf!important}
+.department-grid p,.department-grid small{color:#d4cdbf!important}
+.department-grid span{color:var(--r6-gold-pale)!important}
+.shiki-department-registry{
+  background:#172923!important;
+  border-color:rgba(205,185,135,.45)!important;
+}
+.shiki-department-registry article{border-color:rgba(205,185,135,.25)!important}
+.shiki-department-registry b{color:var(--r6-gold-pale)!important}
+.shiki-department-registry strong{font-family:"Shippori Mincho",serif!important;color:#fff4e4!important}
+.shiki-department-registry span{color:#d2cabe!important}
+
+/* カード類：角丸・浮遊感を極力排除 */
+.mission-card,.document-copy,.god-panel,.duty-grid article,.report-box{
+  background:var(--r6-paper-hi)!important;
+  border:1px solid var(--r6-line)!important;
+  border-radius:0!important;
+  box-shadow:0 5px 18px rgba(48,35,22,.045)!important;
+}
+.mission-card strong{font-family:"Shippori Mincho",serif!important;color:var(--r6-red)!important}
+.god-tabs{border:1px solid var(--r6-line-dark)!important;border-radius:0!important;background:var(--r6-paper-dk)!important}
+.god-tab{border-radius:0!important;color:var(--r6-ink)!important}
+.god-tab.active{background:var(--r6-red)!important;color:#fffaf2!important}
+.god-panel h3{font-family:"Shippori Mincho",serif!important;color:var(--r6-red)!important}
+
+/* 調達・相談 */
+.procurement-section,.contact-section{background:#eee6d8!important}
+.contact-box{border:1px solid var(--r6-line)!important;background:var(--r6-paper-hi)!important}
+
+/* ARG：秘密結社っぽい赤黒パネルを「附属資料・特別調査」に */
+.arg-teaser{
+  background:var(--r6-green-dk)!important;
+  border-top:1px solid rgba(205,185,135,.35)!important;
+  border-bottom:3px double var(--r6-gold)!important;
+}
+.arg-teaser .content-width{max-width:1240px!important}
+.arg-teaser-mark{border-color:var(--r6-gold-pale)!important;color:var(--r6-gold-pale)!important}
+.arg-teaser h2{font-family:"Shippori Mincho",serif!important;color:#fff5e7!important}
+.arg-teaser p{color:#d3cbc0!important}
+.arg-teaser a{border-color:rgba(205,185,135,.65)!important;color:#fff5e7!important}
+.arg-teaser a:hover{background:rgba(205,185,135,.08)!important}
+
+/* 人物検索：検索機能そのものは残すが「人物録」へ */
+.person-search-section{
+  background:#eee6d8!important;
+  border:1px solid var(--r6-line)!important;
+  border-radius:0!important;
+  box-shadow:inset 0 0 0 4px rgba(166,132,77,.035)!important;
+}
+.person-search-kicker,.person-search-section h2{color:var(--r6-red)!important}
+#person-search-input{background:#fffdf8!important;border-color:var(--r6-line-dark)!important;border-radius:0!important}
+#person-search-button{background:var(--r6-red)!important;border-color:var(--r6-red)!important;border-radius:0!important}
+
+/* フッター */
+.shiki-v4-footer{
+  background:var(--r6-green-dk)!important;
+  border-top:3px double var(--r6-gold)!important;
+  padding:38px 28px 48px!important;
+}
+.shiki-v4-footer .motto{color:var(--r6-gold-pale)!important;font-family:"Shippori Mincho",serif!important}
+.shiki-v4-footer strong{font-family:"Shippori Mincho",serif!important;color:#fff4e5!important}
+.shiki-v4-footer p{color:#c9c1b5!important}
+
+/* 重要：春月調査窓口は「非表示」が初期状態。is-visible の時だけ開く。 */
+.shiki-investigation{
+  display:block!important;
+  opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+  transform:translateY(14px)!important;
+  right:24px!important;
+  bottom:24px!important;
+  width:min(440px,calc(100vw - 32px))!important;
+  border:1px solid rgba(141,123,94,.52)!important;
+  border-top:3px double var(--r6-red)!important;
+  border-radius:0!important;
+  background:rgba(251,248,241,.985)!important;
+  box-shadow:0 18px 50px rgba(48,35,22,.18)!important;
+}
+.shiki-investigation.is-visible{
+  opacity:1!important;
+  visibility:visible!important;
+  pointer-events:auto!important;
+  transform:none!important;
+}
+.shiki-investigation-head{
+  background:var(--r6-paper-dk)!important;
+  border-bottom:1px solid var(--r6-line)!important;
+}
+.shiki-investigation-name{color:var(--r6-red)!important}
+.shiki-investigation-next{border-color:var(--r6-red)!important;color:var(--r6-red-dk)!important;border-radius:0!important}
+.shiki-investigation-hint{
+  border:1px solid var(--r6-line-dark)!important;
+  border-radius:0!important;
+  background:var(--r6-paper-hi)!important;
+  color:var(--r6-red)!important;
+}
+.shiki-investigation-hint.is-visible{display:block!important}
+
+/* 旧版の装飾的な角丸を一掃 */
+button,input{border-radius:0!important}
+@media(max-width:900px){
+  .hero{min-height:510px!important}
+  .hero-inner{width:calc(100% - 48px)!important;padding-top:100px!important}
+}
+@media(max-width:600px){
+  body:after{inset:5px!important}
+  .shiki-v4-masthead .inner{padding:24px 18px 18px!important}
+  .shiki-v4-title{font-size:35px!important;letter-spacing:.18em!important}
+  .shiki-v4-nav .inner{grid-template-columns:repeat(2,1fr)!important}
+  .shiki-v4-motto{padding:0 14px!important}
+  .hero-inner{width:calc(100% - 34px)!important;padding-top:82px!important}
+  .hero h1{font-size:58px!important}
+  .section{padding:66px 0!important}
+  .section-title h2{font-size:25px!important}
+  .shiki-investigation{right:12px!important;bottom:12px!important;width:calc(100vw - 24px)!important}
+}
