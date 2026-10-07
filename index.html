@@ -1773,6 +1773,35 @@ body>#contact{
 
 <link rel="stylesheet" href="ryoryo-government-v3.css?v=20261008-1">
 <link rel="stylesheet" href="shiki-imperial-v4.css?v=20261008-1">
+
+<!-- 玲瓏浪漫 官公廳デザイン規範：v7 -->
+<style id="ryoryo-official-v7">
+:root{
+ --r7-ivory:#f5f0e5;--r7-paper:#fbf8f0;--r7-ink:#292824;--r7-muted:#70685e;
+ --r7-red:#772c32;--r7-gold:#a88a52;--r7-green:#35483f;--r7-line:#cfc4b1;
+}
+html{background:#e9e2d4}
+body{background:var(--r7-ivory);color:var(--r7-ink);font-family:"Noto Serif JP","Shippori Mincho","Yu Mincho",serif}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9990;opacity:.22;background-image:radial-gradient(rgba(60,45,30,.14) .55px,transparent .55px);background-size:4px 4px}
+.site-header,.site-footer,.hero,.section,.official-panel,.news-panel,.department-panel{border-radius:0!important}
+.site-header{background:linear-gradient(#fbf8f0,#eee7d8)!important;border-bottom:3px double var(--r7-green)!important;box-shadow:0 3px 0 rgba(168,138,82,.45)!important}
+.site-header:after{background:var(--r7-red)!important}
+.hero{background:linear-gradient(135deg,#f9f5ec,#e9e1d1)!important;border:1px solid var(--r7-line)!important;border-left:5px solid var(--r7-red)!important;box-shadow:none!important}
+.hero h1,.hero-title{letter-spacing:.18em!important;text-shadow:none!important}
+.section-title{font-weight:600!important;letter-spacing:.16em!important;color:var(--r7-green)!important;border-bottom:3px double var(--r7-gold)!important}
+.section-title:before{background:var(--r7-red)!important}
+button,.btn,.nav a{border-radius:0!important}
+.nav a{letter-spacing:.08em!important}
+.department-grid{gap:0!important;border-top:1px solid var(--r7-line)!important;border-left:1px solid var(--r7-line)!important}
+.department-grid>*{border-right:1px solid var(--r7-line)!important;border-bottom:1px solid var(--r7-line)!important;background:rgba(251,248,240,.72)!important}
+.department-grid>*:hover{background:#efe8da!important}
+.official-red,.status-red{color:var(--r7-red)!important}
+.official-green{color:var(--r7-green)!important}
+.official-gold{color:var(--r7-gold)!important}
+.site-footer{background:#30352f!important;color:#e8e0d2!important;border-top:4px double var(--r7-gold)!important}
+.site-footer a{color:#ead9af!important}
+@media(max-width:760px){.hero{border-left-width:3px!important}.section-title{letter-spacing:.1em!important}}
+</style>
 </head>
 <body data-shiki-page="index">
 <div class="imperial-header">
