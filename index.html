@@ -1802,6 +1802,61 @@ button,.btn,.nav a{border-radius:0!important}
 .site-footer a{color:#ead9af!important}
 @media(max-width:760px){.hero{border-left-width:3px!important}.section-title{letter-spacing:.1em!important}}
 </style>
+
+<style id="menu-mobile-fix">
+/* mobile menu: red panel is only a compact drawer, never a full-page overlay */
+@media (max-width:700px){
+  #global-nav{
+    position:absolute!important;
+    top:100%!important;
+    left:14px!important;
+    right:14px!important;
+    width:auto!important;
+    z-index:70!important;
+    display:none!important;
+    flex-direction:column!important;
+    align-items:stretch!important;
+    max-height:calc(100vh - 90px)!important;
+    overflow-y:auto!important;
+    background:#fbf8f0!important;
+    color:#302b27!important;
+    border:1px solid #bcae97!important;
+    border-top:3px solid #772c32!important;
+    box-shadow:0 12px 28px rgba(45,31,24,.18)!important;
+  }
+  #global-nav.open{
+    display:flex!important;
+  }
+  #global-nav a{
+    min-height:44px!important;
+    padding:11px 14px!important;
+    background:#fbf8f0!important;
+    color:#40372f!important;
+    border-left:0!important;
+    border-bottom:1px solid #ddd2c0!important;
+    font-size:.72rem!important;
+    justify-content:flex-start!important;
+  }
+  #global-nav a:hover{
+    background:#eee5d7!important;
+    color:#772c32!important;
+  }
+  .menu-toggle{
+    position:relative!important;
+    z-index:80!important;
+    display:block!important;
+    margin-left:auto!important;
+    background:#772c32!important;
+    color:#fffaf2!important;
+    border:1px solid #9b6d4f!important;
+    border-radius:0!important;
+    padding:8px 12px!important;
+  }
+}
+@media (min-width:701px){
+  #global-nav{display:flex!important;position:relative!important}
+}
+</style>
 </head>
 <body data-shiki-page="index">
 <div class="imperial-header">
