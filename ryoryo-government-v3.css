@@ -1,0 +1,121 @@
+/* 四季廳 公式情報網 / 玲瓏期官公廳標準 V3 */
+:root{--ink:#202b2a;--navy:#17312f;--red:#8a2630;--red2:#681b24;--gold:#9b7a43;--paper:#fbfaf6;--gray:#f1f0eb;--line:#c9c6bd;--muted:#68716c;--spring:#b86d79;--summer:#b08a38;--autumn:#9a6848;--winter:#658396}
+html,body{margin:0!important;background:var(--paper)!important;color:var(--ink)!important;font-family:"Yu Gothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif!important;font-size:16px!important;line-height:1.8!important}
+body:before,body:after,.hero-watermark,.four-season-wheel,.vertical-label{display:none!important}
+*,*:before,*:after{box-sizing:border-box}
+a{color:#164f67!important;text-decoration:underline!important;text-underline-offset:3px}
+.content-width{width:min(1180px,calc(100% - 48px))!important;margin-inline:auto!important}
+.site-header,.hero,.section,.season-status,.arg-teaser,.site-footer,.law-banner,.government-utility{border-radius:0!important;box-shadow:none!important;background-image:none!important}
+
+/* 政府共通帯・機関名 */
+.imperial-header{display:block!important;background:#f1f0eb!important;border:0!important;border-bottom:1px solid var(--line)!important}
+.imperial-header-inner{width:min(1180px,calc(100% - 48px))!important;min-height:34px!important;margin:auto!important;display:flex!important;justify-content:flex-end!important;align-items:center!important}
+.imperial-header a{color:#4c5652!important;font-size:12px!important;text-decoration:none!important}
+.site-header{background:#fff!important;border:0!important;border-bottom:4px solid var(--navy)!important}
+.site-header:before,.site-header:after{display:none!important}
+.header-inner{width:min(1180px,calc(100% - 48px))!important;min-height:92px!important;margin:auto!important;display:grid!important;grid-template-columns:minmax(330px,1fr) auto!important;align-items:center!important;gap:30px!important}
+.brand{gap:16px!important}.brand:after{display:none!important}
+.brand-mark{width:54px!important;height:54px!important;border:1px solid var(--navy)!important;border-radius:0!important;background:#fff!important;color:var(--navy)!important;box-shadow:none!important;font-family:"Yu Mincho",serif!important;font-size:22px!important}
+.brand-mark:after{display:none!important}
+.brand strong{color:var(--navy)!important;font-family:"Yu Mincho",serif!important;font-size:25px!important;font-weight:600!important;letter-spacing:.12em!important}
+.brand small{color:#59625f!important;font-size:11px!important;letter-spacing:.05em!important}
+#global-nav{display:flex!important;align-items:stretch!important;height:100%!important}
+#global-nav a{display:flex!important;align-items:center!important;padding:0 13px!important;color:#303936!important;border-left:1px solid var(--line)!important;font-size:13px!important;letter-spacing:0!important;text-decoration:none!important}
+#global-nav a:last-child{border-right:1px solid var(--line)!important}
+#global-nav a:hover{background:var(--gray)!important;color:var(--red)!important}
+
+/* 法令帯 */
+.law-banner{background:var(--navy)!important;border:0!important;color:#fff!important}
+.law-banner-inner{width:min(1180px,calc(100% - 48px))!important;min-height:58px!important;padding:9px 0!important;margin:auto!important}
+.law-banner-label .mark{width:30px!important;height:30px!important;border:1px solid #cdb67f!important;color:#fff!important}
+.law-banner-label span{color:#d6ddd9!important;font-size:10px!important}.law-banner-label strong{color:#fff!important;font-size:14px!important}
+.law-banner a{background:transparent!important;border:1px solid #aab8b4!important;color:#fff!important;text-decoration:none!important;font-size:12px!important}
+
+/* 行政情報の入口 */
+.government-utility{background:#fff!important;border-top:1px solid var(--line)!important;border-bottom:1px solid #7d8079!important}
+.government-utility-inner{width:min(1180px,calc(100% - 48px))!important;margin:auto!important;display:grid!important;grid-template-columns:220px 1fr!important}
+.utility-heading{padding:15px 18px!important;background:var(--gray)!important;border-right:1px solid var(--line)!important}
+.utility-heading span{font-size:10px!important;color:#626965!important}.utility-heading strong{color:var(--navy)!important;font-family:"Yu Mincho",serif!important;font-size:17px!important;letter-spacing:.08em!important}
+.government-utility nav{display:grid!important;grid-template-columns:repeat(6,1fr)!important}
+.government-utility nav a{min-height:72px!important;padding:10px 12px!important;background:#fff!important;border:0!important;border-right:1px solid var(--line)!important;display:grid!important;grid-template-columns:26px 1fr!important;align-content:center!important;text-decoration:none!important}
+.government-utility nav a:nth-child(n){border-top:0!important}.government-utility nav a b{color:var(--gold)!important;font-size:10px!important}
+.government-utility nav a span{color:#253532!important;font-size:12px!important}.government-utility nav a small{grid-column:2!important;color:#747b77!important;font-size:9px!important}
+
+/* トップを「省庁トップ」に */
+.hero{min-height:0!important;background:#fff!important;border-bottom:1px solid var(--line)!important}
+.hero:before,.hero:after{display:none!important}
+.hero-inner{width:min(1180px,calc(100% - 48px))!important;margin:auto!important;padding:66px 0 58px!important;display:grid!important;grid-template-columns:minmax(0,1fr) 300px!important;gap:70px!important}
+.hero .kicker{color:var(--red)!important;font-size:11px!important;font-weight:700!important;letter-spacing:.14em!important}
+.hero h1{margin:14px 0 18px!important;color:var(--navy)!important;font-family:"Yu Mincho",serif!important;font-size:clamp(44px,6vw,72px)!important;font-weight:500!important;letter-spacing:.06em!important;line-height:1.2!important}
+.hero h1 em{color:var(--red)!important}.hero-lead{max-width:680px!important;border-left:4px solid var(--red)!important;padding:3px 0 3px 18px!important;color:#414946!important;font-size:15px!important;line-height:2!important}
+.hero-rule{display:flex!important;align-items:center!important;gap:12px!important;margin-top:24px!important;color:#707672!important;font-size:10px!important}.hero-rule i{height:1px!important;background:var(--line)!important;flex:1!important}
+.hero-inner:after{content:"四季廳本廳舎  /  SHIKI AGENCY"!important;position:static!important;color:#6c746f!important;font-size:11px!important;letter-spacing:.08em!important;align-self:end!important;padding:22px!important;border:1px solid var(--line)!important;border-left:4px solid var(--navy)!important;background:#f6f5f1!important;opacity:1!important}
+
+/* 現在事項 */
+.season-status{background:var(--red2)!important;border:0!important;color:#fff!important}.season-status:before{display:none!important}
+.status-inner{width:min(1180px,calc(100% - 48px))!important;min-height:92px!important;margin:auto!important}
+.season-status h2{color:#fff!important;font-family:"Yu Mincho",serif!important;font-size:19px!important}.season-status .eyebrow{color:#e4c9cb!important}
+.status-light{border-left:1px solid rgba(255,255,255,.25)!important}.status-light b,.status-light small,#last-updated{color:#fff!important}
+
+/* 各章 */
+.section{padding:66px 0!important;background:#fff!important;border-bottom:1px solid var(--line)!important}.section:nth-of-type(even){background:#f5f4f0!important}
+.section:before,.section>.content-width:before,.section>.content-width:after{display:none!important}
+.section-title{display:flex!important;align-items:flex-start!important;gap:18px!important;margin-bottom:28px!important}
+.section-title>span{min-width:35px!important;padding-top:5px!important;color:var(--gold)!important;font:12px Georgia,serif!important}
+.section-title p{margin:0 0 4px!important;color:#6a716e!important;font-size:10px!important;letter-spacing:.1em!important}
+.section-title h2{margin:0!important;color:var(--navy)!important;font-family:"Yu Mincho",serif!important;font-size:30px!important;font-weight:600!important;letter-spacing:.04em!important}
+.section-title h2:before,.section-title:before{display:none!important}.section-intro{max-width:880px!important;color:#4f5753!important;font-size:14px!important}
+
+/* 重要なお知らせ・官報 */
+.admin-index{border:1px solid var(--line)!important;background:#fff!important}.admin-index-grid{display:grid!important;grid-template-columns:repeat(4,1fr)!important}
+.admin-index a{min-height:94px!important;padding:16px 18px!important;border-right:1px solid var(--line)!important;text-decoration:none!important;color:#243936!important;font-size:13px!important}
+.admin-index a:last-child{border-right:0!important}.admin-index a:hover{background:#f4f4f1!important}.admin-index a::before{content:"›"!important;color:var(--red)!important;margin-right:7px!important}
+.admin-index small{color:#737a76!important;font-size:10px!important}
+.news-list{border-top:2px solid var(--navy)!important}.news-list article{min-height:58px!important;display:grid!important;grid-template-columns:125px 62px 1fr!important;align-items:center!important;gap:12px!important;padding:8px 12px!important;border-bottom:1px solid var(--line)!important}
+.news-list article:before{display:none!important}.news-list article time{color:#606965!important;font:11px Georgia,serif!important}
+.news-list article span{width:max-content!important;padding:2px 8px!important;color:var(--red)!important;border:1px solid #c69ca1!important;font-size:10px!important}
+.news-list article a{color:#253f4b!important;font-family:inherit!important;font-size:13px!important;font-weight:500!important;text-decoration:none!important}
+
+/* 四季神祇＝行政上の四区分 */
+.god-tabs{display:grid!important;grid-template-columns:repeat(4,1fr)!important;border:1px solid var(--line)!important;background:#fff!important;box-shadow:none!important}
+.god-tab{min-height:62px!important;background:#fff!important;border:0!important;border-right:1px solid var(--line)!important;color:#303a37!important;font-size:13px!important}
+.god-tab.active{background:var(--navy)!important;color:#fff!important}.god-tab.spring{border-top:5px solid var(--spring)!important}.god-tab.summer{border-top:5px solid var(--summer)!important}.god-tab.autumn{border-top:5px solid var(--autumn)!important}.god-tab.winter{border-top:5px solid var(--winter)!important}
+.god-panel{margin-top:0!important;display:none!important;background:#fff!important;border:1px solid var(--line)!important;border-top:0!important;box-shadow:none!important}.god-panel.active{display:grid!important}
+.season-kanji{color:var(--navy)!important;border-right:1px solid var(--line)!important;opacity:1!important;font-family:"Yu Mincho",serif!important}.god-panel h3{color:var(--navy)!important;font-family:"Yu Mincho",serif!important;font-weight:600!important}.god-panel p,.god-panel dd{color:#4f5753!important}.god-panel dt{color:#68716c!important}
+
+/* 護衛官 */
+.guards-section{background:#f5f4f0!important}.department-grid{display:grid!important;grid-template-columns:repeat(4,1fr)!important;border:1px solid var(--line)!important;gap:0!important;box-shadow:none!important}
+.department-grid article{min-height:260px!important;padding:22px!important;background:#fff!important;border:0!important;border-right:1px solid var(--line)!important;position:relative!important}
+.department-grid article:last-child{border-right:0!important}.department-grid article:before{display:none!important}.department-grid article:hover{background:#fafaf8!important;transform:none!important}
+.department-grid article b{display:inline-block!important;color:var(--gold)!important;font-size:13px!important}.department-grid article span{display:block!important;color:#6a716e!important;font-size:10px!important;margin-top:7px!important}
+.department-grid h3{color:var(--navy)!important;font-family:"Yu Mincho",serif!important;font-size:21px!important;font-weight:600!important}.department-grid p{color:#505954!important;font-size:12px!important}.department-grid small{color:#777e79!important}
+
+/* 各局・各課 */
+.departments-section{background:#fff!important;color:var(--ink)!important}.departments-section .section-title h2{color:var(--navy)!important}.departments-section .section-title p{color:#68716c!important}
+.org-chart{border:1px solid var(--line)!important;background:#f7f6f2!important;padding:28px!important}.org-node.chief{max-width:360px!important;margin:auto!important;background:var(--navy)!important;color:#fff!important;padding:17px!important;text-align:center!important}
+.org-node.chief span{display:block!important;font-size:10px!important;color:#d9e0dd!important}.org-node.chief strong{display:block!important;font-family:"Yu Mincho",serif!important;font-size:20px!important;font-weight:500!important}
+.org-line{width:1px!important;height:34px!important;background:#7d8079!important;margin:auto!important}.org-grid{display:grid!important;grid-template-columns:repeat(4,1fr)!important;border:1px solid var(--line)!important;background:#fff!important}
+.org-grid article{min-height:115px!important;padding:18px!important;border-right:1px solid var(--line)!important}.org-grid article:last-child{border-right:0!important}.org-grid span{display:block!important;color:#6a716e!important;font-size:11px!important}.org-grid strong{display:block!important;color:var(--navy)!important;font-family:"Yu Mincho",serif!important;font-size:18px!important;margin:5px 0!important}.org-grid small{color:#747b76!important}
+.security-teaser{margin-top:18px!important;padding:18px 20px!important;border-left:5px solid var(--red)!important;border-top:1px solid var(--line)!important;border-right:1px solid var(--line)!important;border-bottom:1px solid var(--line)!important;background:#fff!important}.security-teaser span{color:#737a76!important;font-size:9px!important}.security-teaser strong{display:block!important;color:var(--red)!important;font-family:"Yu Mincho",serif!important;font-size:20px!important}.security-teaser p{font-size:12px!important;color:#505954!important}
+
+/* 業務・調達・相談 */
+.duties-section{background:#f5f4f0!important}.duty-grid{display:grid!important;grid-template-columns:repeat(4,1fr)!important;border-top:2px solid var(--navy)!important}.duty-grid article{padding:23px!important;background:#fff!important;border:0!important;border-right:1px solid var(--line)!important;border-bottom:1px solid var(--line)!important;box-shadow:none!important}.duty-grid article:hover{transform:none!important}.duty-grid b{color:var(--gold)!important;font:12px Georgia,serif!important}.duty-grid h3{color:var(--navy)!important;font-family:"Yu Mincho",serif!important;font-size:18px!important}.duty-grid p{color:#535b57!important;font-size:12px!important}
+.contact-section{background:#f5f4f0!important}.contact-box{border:1px solid var(--line)!important;background:#fff!important;padding:25px!important}.contact-box p{color:#4f5753!important;font-size:13px!important}.contact-box strong{display:block!important;color:var(--navy)!important;font-family:"Yu Mincho",serif!important}.contact-box span{display:block!important;color:#6f7772!important;font-size:12px!important}
+
+/* 庁内資料室 */
+.arg-teaser{background:#263d39!important;border:0!important;border-top:4px solid var(--gold)!important}.arg-teaser .content-width{min-height:120px!important;padding:22px 0!important}.arg-teaser-mark{transform:none!important;border:1px solid #cbb47e!important;width:46px!important;height:46px!important}.arg-teaser h2{font-family:"Yu Mincho",serif!important;color:#fff!important;font-size:18px!important}.arg-teaser p{color:#d5dcd8!important;font-size:11px!important}.arg-teaser a{color:#fff!important;border:1px solid #b8c4c0!important;text-decoration:none!important}
+
+/* 人物検索・フッター */
+.person-search-section{max-width:1180px!important;margin:42px auto!important;padding:24px!important;background:#fff!important;border:1px solid var(--line)!important;box-shadow:none!important}.person-search-kicker{color:var(--red)!important}.person-search-section h2{color:var(--navy)!important;font-family:"Yu Mincho",serif!important}#person-search-input{border:1px solid #9ea49f!important;background:#fff!important;border-radius:0!important}#person-search-button{background:var(--navy)!important;border:1px solid var(--navy)!important;border-radius:0!important}
+.site-footer{background:#eef0ed!important;border-top:4px solid var(--navy)!important;color:#39413e!important}.site-footer strong{color:var(--navy)!important;font-family:"Yu Mincho",serif!important}.site-footer small{color:#626a65!important}.footer-policy{display:flex!important;flex-wrap:wrap!important;gap:0!important;margin-top:16px!important;border-top:1px solid var(--line)!important}.footer-policy a{padding:8px 14px!important;border-right:1px solid var(--line)!important;color:#4c5954!important;font-size:11px!important;text-decoration:none!important}
+
+/* レスポンシブ */
+@media(max-width:1000px){
+.header-inner{grid-template-columns:1fr!important}#global-nav{min-height:45px!important;overflow-x:auto!important}#global-nav a{min-height:45px!important;white-space:nowrap!important}
+.government-utility-inner{grid-template-columns:1fr!important}.utility-heading{border-right:0!important;border-bottom:1px solid var(--line)!important}.government-utility nav{grid-template-columns:repeat(3,1fr)!important}
+.hero-inner{grid-template-columns:1fr!important;gap:25px!important}.department-grid,.duty-grid{grid-template-columns:repeat(2,1fr)!important}.department-grid article:nth-child(2){border-right:0!important}.org-grid{grid-template-columns:repeat(2,1fr)!important}.org-grid article:nth-child(2){border-right:0!important}.org-grid article:nth-child(-n+2){border-bottom:1px solid var(--line)!important}.admin-index-grid{grid-template-columns:repeat(2,1fr)!important}.admin-index a:nth-child(2){border-right:0!important}
+}
+@media(max-width:680px){
+.content-width,.header-inner,.imperial-header-inner,.law-banner-inner,.government-utility-inner{width:calc(100% - 28px)!important}.brand strong{font-size:20px!important}#global-nav{margin-inline:-14px!important}#global-nav a{font-size:11px!important;padding:0 10px!important}.government-utility nav{grid-template-columns:repeat(2,1fr)!important}
+.hero-inner{padding:42px 0 38px!important}.hero h1{font-size:42px!important}.hero-lead{font-size:13px!important}.section{padding:48px 0!important}.section-title h2{font-size:25px!important}.god-tabs{grid-template-columns:repeat(2,1fr)!important}.god-panel.active{grid-template-columns:62px 1fr!important}.department-grid,.duty-grid,.org-grid{grid-template-columns:1fr!important}.department-grid article,.org-grid article{border-right:0!important}.news-list article{grid-template-columns:95px 52px 1fr!important;gap:7px!important}.news-list article a{font-size:12px!important}.admin-index-grid{grid-template-columns:1fr!important}.admin-index a{border-right:0!important;border-bottom:1px solid var(--line)!important}.admin-index a:last-child{border-bottom:0!important}
+}
