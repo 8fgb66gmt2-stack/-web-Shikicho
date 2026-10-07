@@ -2609,7 +2609,82 @@ function s(){const q=i.value.trim(),r=records[q];if(!q){o.innerHTML='<p class="p
   }
 }}
 b.addEventListener('click',s);i.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();s()}})})();
-</script><footer class="shiki-v4-footer">
+</script><section class="section related-agencies-section" id="related-agencies">
+  <div class="section-inner">
+    <div class="section-heading">
+      <span class="section-kicker">関係行政機關　｜　IMPERIAL GOVERNMENT NETWORK</span>
+      <h2>帝國政府・關係機關</h2>
+      <p>四季神祇行政その他の事務に関係する主要行政機關を案内します。</p>
+    </div>
+    <div class="related-agencies-note">
+      <span>行政機關案内</span>
+      <strong>各機關は、それぞれ所管する行政事務に基づき独立して事務を執行します。</strong>
+      <small>※ 四季廳は必要に応じ、関係機關との合同事務・情報交換・警備協議を実施します。</small>
+    </div>
+    <div class="related-agencies-grid">
+      <a class="related-agency" href="#" aria-label="宮内廳">
+        <span class="agency-code">IMPERIAL HOUSEHOLD</span><strong>宮内廳</strong>
+        <small>皇室に關する國務および宮廷事務を所管</small><b>機關情報　→</b>
+      </a>
+      <a class="related-agency related-agency-open" href="https://8fgb66gmt2-stack.github.io/https-8fgb66gmt2-stack.github.io-nippon-imperial-university/" target="_blank" rel="noopener">
+        <span class="agency-code">N.I.U.</span><strong>日ノ本帝國國立帝國大學</strong>
+        <small>學問・文化・帝國の知を担う國立高等教育機關</small><b>公式情報網　→</b>
+      </a>
+      <a class="related-agency related-agency-pending" href="#" data-pending-agency="national-security">
+        <span class="agency-code">NATIONAL SECURITY ORGANIZATION</span><strong>國家治安機構</strong>
+        <small>帝國全域の治安維持・重大事案対策を担う国家機關</small><b>現在、情報網整備中</b>
+      </a>
+      <a class="related-agency" href="#" aria-label="帝國政府官報">
+        <span class="agency-code">IMPERIAL GAZETTE</span><strong>帝國政府官報</strong>
+        <small>法令・告示・人事その他政府公示事項を掲載</small><b>官報情報　→</b>
+      </a>
+      <a class="related-agency" href="#" aria-label="帝國気象観測院">
+        <span class="agency-code">IMPERIAL METEOROLOGICAL OBSERVATORY</span><strong>帝國気象観測院</strong>
+        <small>天候・季節推移その他氣象觀測に關する事務を所管</small><b>機關情報　→</b>
+      </a>
+      <a class="related-agency" href="#" aria-label="帝國神祇研究所">
+        <span class="agency-code">IMPERIAL INSTITUTE OF SHINTO STUDIES</span><strong>帝國神祇研究所</strong>
+        <small>神祇・現人神・神域その他神性に關する研究機關</small><b>機關情報　→</b>
+      </a>
+    </div>
+    <div class="agency-footnote">
+      <span>庁際連絡事項</span>
+      <p>國家治安機構との合同警備については、護衛警備局が窓口となります。</p>
+      <p>なお、同機構の公式情報網については現在整備中です。公開時期は未定です。</p>
+    </div>
+  </div>
+</section>
+<style id="related-agencies-style">
+.related-agencies-section{background:#f1e8d7!important}
+.related-agencies-section .section-heading{margin-bottom:28px}
+.section-kicker{display:block;font:10px Georgia,serif;letter-spacing:.18em;color:#8a7650;margin-bottom:8px}
+.related-agencies-note{border-top:1px solid #b8a17a;border-bottom:1px solid #b8a17a;padding:16px 0;margin-bottom:0;display:flex;gap:18px;align-items:baseline;flex-wrap:wrap}
+.related-agencies-note span,.agency-footnote span{color:#8a202d;font:10px Georgia,serif;letter-spacing:.14em}
+.related-agencies-note strong{font-family:"Shippori Mincho","Yu Mincho",serif;font-weight:500;letter-spacing:.06em}
+.related-agencies-note small{color:#756a5c}
+.related-agencies-grid{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid #b8a17a;border-top:1px solid #b8a17a;margin-top:28px}
+.related-agency{display:flex;flex-direction:column;gap:8px;min-height:175px;padding:24px 22px;border-right:1px solid #b8a17a;border-bottom:1px solid #b8a17a;background:#fbf6eb;color:#29231f;text-decoration:none;position:relative;transition:.2s ease}
+.related-agency:hover{background:#e9dbc2;color:#8a202d}
+.related-agency .agency-code{font:9px Georgia,serif;letter-spacing:.13em;color:#9a8057}
+.related-agency strong{font-family:"Shippori Mincho","Yu Mincho",serif;font-size:21px;font-weight:500;letter-spacing:.07em}
+.related-agency small{font-size:11px;line-height:1.8;color:#6c6258}
+.related-agency b{margin-top:auto;font:10px Georgia,serif;letter-spacing:.1em;color:#8a202d}
+.related-agency-pending{background:#ece5d9;border-top:3px solid #243c35;cursor:pointer}
+.related-agency-pending:hover{background:#e3dacb}
+.related-agency-pending b{color:#243c35}
+.agency-footnote{margin-top:22px;padding:18px 20px;border-left:3px solid #8a202d;background:#fbf6eb}
+.agency-footnote p{margin:5px 0 0;font-size:11px;line-height:1.8;color:#62594f}
+@media(max-width:760px){.related-agencies-grid{grid-template-columns:1fr}.related-agency{min-height:145px}}
+</style>
+<script>
+(()=>{const p=document.querySelector('[data-pending-agency="national-security"]');if(!p)return;
+p.addEventListener('click',e=>{e.preventDefault();const old=p.querySelector('.agency-pending-message');if(old){old.remove();return}
+const d=document.createElement('div');d.className='agency-pending-message';d.textContent='情報網整備中　｜　公開時期：未定　｜　所管部署へ照会済';
+d.style.cssText='position:absolute;left:22px;right:22px;bottom:16px;padding:8px 10px;border:1px solid #8a7650;background:#f7efe1;color:#54131d;font:10px serif;letter-spacing:.08em';
+p.appendChild(d);
+});})();
+</script>
+<footer class="shiki-v4-footer">
   <div class="inner">
     <div class="motto">四季ヲ絶ヤス事勿レ。</div>
     <strong>日ノ本帝國 四季廳</strong>
