@@ -148,6 +148,25 @@ body:has(.badge) footer{
  body:has(.badge) .card,body:has(.badge) .duty{min-height:0!important}
 }
 </style>
+
+<style>
+/* 護衛警備局：大正期官廳の局務頁としての情報設計 */
+.security-registry{margin:18px 0 8px;border:1px solid #a99876;background:#faf6ec;font-family:"Noto Sans JP","Yu Gothic",sans-serif}
+.security-registry .sr-head{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:10px 14px;border-bottom:3px double #756247;background:#eee5d4}
+.security-registry .sr-head strong{font-family:"Yu Mincho","Noto Serif JP",serif;color:#4b3528;font-size:14px;letter-spacing:.12em;font-weight:500}
+.security-registry .sr-head span{font:8px Georgia,serif;color:#786b59;letter-spacing:.12em}
+.security-registry dl{display:grid;grid-template-columns:105px 1fr;margin:0}
+.security-registry dt,.security-registry dd{margin:0;padding:8px 12px;border-bottom:1px solid #d4c8b4;font-size:10px;line-height:1.65}
+.security-registry dt{background:#e8decc;color:#762630;font-weight:600}
+.security-registry dd{color:#554c43;background:#fffaf1}
+body:has(.badge) h2{font-family:"Yu Mincho","Noto Serif JP",serif!important}
+body:has(.badge) h2 small{font-family:"Noto Sans JP","Yu Gothic",sans-serif!important}
+body:has(.badge) .table th{font-family:"Yu Mincho","Noto Serif JP",serif!important}
+body:has(.badge) .notice:before{content:"庁内通達　／　";display:block;color:#765d35;font-size:8px;letter-spacing:.14em;margin-bottom:4px}
+body:has(.badge) .memo:before{content:"事務連絡　";color:#765d35;letter-spacing:.12em}
+body:has(.badge) .back:before{content:"文書綴　";color:#765d35}
+@media(max-width:760px){.security-registry .sr-head{display:block}.security-registry .sr-head span{display:block;margin-top:5px}.security-registry dl{grid-template-columns:88px 1fr}}
+</style>
 </head>
 <body>
 <div class="topline"></div>
@@ -177,6 +196,16 @@ body:has(.badge) footer{
 </section>
 
 <div class="season-bar"><i class="s1"></i><i class="s2"></i><i class="s3"></i><i class="s4"></i></div>
+<div class="security-registry">
+  <div class="sr-head"><strong>護衛警備局　局務台帳</strong><span>SHIKI AGENCY / SECURITY BUREAU　DOCUMENT REGISTER</span></div>
+  <dl>
+    <dt>官制</dt><dd>四季廳組織令 第三章　護衛警備局</dd>
+    <dt>所掌</dt><dd>現人神警衛、特殊警備、異常事案初動及び關係機關連絡調整</dd>
+    <dt>所在</dt><dd>四季廳本廳舎　第二別館　警備區域</dd>
+    <dt>文書番号</dt><dd>四警総　第二三七－一〇八號　／　取扱：庁内限</dd>
+  </dl>
+</div>
+
 <div class="season-key">
 <span><i class="s1"></i>春局</span><span><i class="s2"></i>夏局</span><span><i class="s3"></i>秋局</span><span><i class="s4"></i>冬局</span>
 </div>
