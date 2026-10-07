@@ -2493,18 +2493,9 @@ document.querySelectorAll('.god-tab').forEach(btn=>btn.addEventListener('click',
     openArchiveReturn(archiveReturn);
   }else if(manuscriptReturn){
     openAuthorReturn();
-  }else if(hasSavedProgress()){
-    window.setTimeout(()=>{
-      panel.classList.add('is-visible');
-      hint.classList.remove('is-visible');
-      saveControls.hidden=false;
-      text.textContent='……前回の調査記録が残っているよ。';
-      progress.textContent='自動保存済み';
-      next.textContent='閉じる';
-    },300);
   }else{
-    // 初回アクセスでは調査パネルを自動表示しない。
-    // ARGはユーザーが導線を選択したときだけ開く。
+    // ページ読み込み時は調査パネルを絶対に自動表示しない。
+    // 保存済み進行があっても、ユーザーが「続きから」を選択した時だけ再開する。
   }
 
 })();
