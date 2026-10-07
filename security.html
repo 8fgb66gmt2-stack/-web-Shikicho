@@ -167,6 +167,196 @@ body:has(.badge) .memo:before{content:"事務連絡　";color:#765d35;letter-spa
 body:has(.badge) .back:before{content:"文書綴　";color:#765d35}
 @media(max-width:760px){.security-registry .sr-head{display:block}.security-registry .sr-head span{display:block;margin-top:5px}.security-registry dl{grid-template-columns:88px 1fr}}
 </style>
+
+<style id="security-unified-v1">
+/* 四季廳共通UI：index.html / 各局ページ統一 */
+:root{
+ --su-paper:#f4f0e7;--su-white:#fbfaf6;--su-paper2:#e8e2d4;
+ --su-ink:#20201d;--su-muted:#625d54;--su-red:#8b2630;
+ --su-green:#183b35;--su-green2:#102c28;--su-gold:#9a7a3f;--su-line:#aaa08e;
+}
+html,body{background:var(--su-paper)!important;color:var(--su-ink)!important}
+body:has(.badge){
+ font-family:"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif!important;
+ letter-spacing:.025em!important;
+}
+body:has(.badge):before{
+ content:"";position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:.035;
+ background-image:linear-gradient(90deg,rgba(30,30,25,.22) 1px,transparent 1px),linear-gradient(rgba(30,30,25,.16) 1px,transparent 1px);
+ background-size:48px 48px;
+}
+body:has(.badge) .topline{height:7px!important;background:var(--su-green2)!important;border-bottom:2px solid var(--su-gold)!important}
+body:has(.badge) header{
+ background:var(--su-white)!important;border-bottom:1px solid var(--su-ink)!important;
+ box-shadow:none!important;
+}
+body:has(.badge) .header-inner{
+ max-width:1500px!important;min-height:92px!important;padding:0 42px!important;
+}
+body:has(.badge) .agency{
+ color:var(--su-ink)!important;font-family:"Noto Serif JP","Yu Mincho",serif!important;
+ font-size:27px!important;letter-spacing:.20em!important;
+}
+body:has(.badge) .agency span{
+ display:block!important;color:#777267!important;font-family:Georgia,"Times New Roman",serif!important;
+ font-size:9px!important;letter-spacing:.18em!important;margin-bottom:8px!important;
+}
+body:has(.badge) .header-note{
+ color:var(--su-muted)!important;font-size:9px!important;line-height:1.8!important;
+ letter-spacing:.1em!important;
+}
+body:has(.badge) nav{
+ background:var(--su-white)!important;border-top:1px solid #cbc3b3!important;
+}
+body:has(.badge) .nav-inner{
+ max-width:1500px!important;padding:0 42px!important;
+}
+body:has(.badge) nav a{
+ color:var(--su-ink)!important;border-left:1px solid #cbc3b3!important;
+ font-size:10px!important;letter-spacing:.13em!important;padding:13px 17px!important;
+}
+body:has(.badge) nav a:last-child{border-right:1px solid #cbc3b3!important}
+body:has(.badge) nav a.current,body:has(.badge) nav a:hover{
+ background:var(--su-green)!important;color:#f7f2e8!important;
+}
+body:has(.badge) main{
+ max-width:1320px!important;padding:28px 42px 88px!important;
+}
+body:has(.badge) .breadcrumb{
+ margin:0 0 18px!important;padding:8px 0 8px 12px!important;
+ border-left:3px solid var(--su-red)!important;border-bottom:1px solid var(--su-line)!important;
+ font-size:9px!important;letter-spacing:.08em!important;color:#68635a!important;
+}
+body:has(.badge) .hero{
+ min-height:0!important;display:block!important;padding:0!important;
+ border:0!important;background:var(--su-white)!important;
+ border-top:4px solid var(--su-green)!important;border-bottom:1px solid var(--su-ink)!important;
+ box-shadow:none!important;
+}
+body:has(.badge) .hero>div:first-child{
+ padding:30px 38px 27px!important;border-bottom:1px solid var(--su-line)!important;
+}
+body:has(.badge) .hero>div:first-child:before{
+ content:"SHIKI AGENCY / DEPARTMENT INFORMATION"!important;
+ display:block!important;margin-bottom:14px!important;color:var(--su-green)!important;
+ font:9px Georgia,"Times New Roman",serif!important;letter-spacing:.24em!important;
+}
+body:has(.badge) .hero .en{display:none!important}
+body:has(.badge) .hero h1{
+ margin:0 0 12px!important;font-size:clamp(40px,5vw,64px)!important;
+ font-weight:500!important;letter-spacing:.14em!important;color:var(--su-ink)!important;
+}
+body:has(.badge) .hero h1:after{display:none!important}
+body:has(.badge) .hero p{margin:0!important;color:var(--su-muted)!important;font-size:12px!important}
+body:has(.badge) .badge{
+ display:block!important;margin:0!important;min-width:0!important;padding:12px 38px!important;
+ border:0!important;background:var(--su-paper2)!important;text-align:left!important;
+ color:#554f47!important;font-size:10px!important;letter-spacing:.06em!important;
+}
+body:has(.badge) .badge b{display:inline!important;color:var(--su-red)!important;margin-right:18px!important;font-size:10px!important}
+body:has(.badge) .season-bar{
+ height:5px!important;margin:0!important;border:0!important;
+}
+body:has(.badge) .season-key{
+ max-width:none!important;margin:0!important;padding:8px 4px!important;
+ border:0!important;border-bottom:1px solid var(--su-line)!important;
+ background:transparent!important;justify-content:flex-end!important;
+ font-size:9px!important;
+}
+body:has(.badge) .security-registry{
+ margin:22px 0 0!important;border:1px solid var(--su-line)!important;
+ background:var(--su-white)!important;
+ font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;
+}
+body:has(.badge) .security-registry .sr-head{
+ padding:11px 15px!important;border-bottom:3px double #756f63!important;
+ background:var(--su-green)!important;color:#f6f0e5!important;
+}
+body:has(.badge) .security-registry .sr-head strong{
+ color:#f6f0e5!important;font-family:"Noto Serif JP","Yu Mincho",serif!important;
+ font-size:13px!important;letter-spacing:.13em!important;
+}
+body:has(.badge) .security-registry .sr-head span{color:#d4c8ad!important}
+body:has(.badge) .security-registry dt{
+ background:var(--su-paper2)!important;color:var(--su-red)!important;
+ border-bottom:1px solid #d0c7b7!important;
+}
+body:has(.badge) .security-registry dd{
+ background:var(--su-white)!important;color:#554f47!important;
+ border-bottom:1px solid #d0c7b7!important;
+}
+body:has(.badge) .lead{
+ margin:34px 0 0!important;padding:20px 23px!important;
+ background:var(--su-white)!important;border:0!important;border-left:3px solid var(--su-red)!important;
+ border-top:1px solid var(--su-line)!important;border-bottom:1px solid var(--su-line)!important;
+ font-size:11px!important;line-height:1.95!important;
+}
+body:has(.badge) .lead:before{color:var(--su-red)!important}
+body:has(.badge) h2{
+ margin:55px 0 0!important;padding:12px 14px!important;
+ border-top:3px double var(--su-green)!important;border-bottom:1px solid var(--su-line)!important;
+ background:var(--su-paper2)!important;color:var(--su-ink)!important;
+ font-size:21px!important;letter-spacing:.14em!important;
+}
+body:has(.badge) h2 small{color:var(--su-red)!important}
+body:has(.badge) .grid{
+ border:1px solid var(--su-line)!important;background:var(--su-line)!important;
+ gap:1px!important;
+}
+body:has(.badge) .card,body:has(.badge) .duty{
+ background:var(--su-white)!important;
+}
+body:has(.badge) .card:nth-child(1),body:has(.badge) .card:nth-child(2),body:has(.badge) .card:nth-child(3),
+body:has(.badge) .duty:nth-child(1),body:has(.badge) .duty:nth-child(2),body:has(.badge) .duty:nth-child(3){
+ border-top:3px solid var(--su-gold)!important;
+}
+body:has(.badge) .card .post,body:has(.badge) .duty .no{color:var(--su-green)!important}
+body:has(.badge) .card h3,body:has(.badge) .duty h3{color:var(--su-ink)!important}
+body:has(.badge) .notice{
+ background:var(--su-paper2)!important;border:1px solid var(--su-line)!important;
+ border-left:4px solid var(--su-red)!important;color:#514a42!important;
+}
+body:has(.badge) .table{
+ width:100%!important;border:1px solid var(--su-line)!important;background:var(--su-white)!important;
+}
+body:has(.badge) .table th,body:has(.badge) .table td{
+ border:1px solid #d0c7b7!important;padding:11px 14px!important;
+}
+body:has(.badge) .table th{background:var(--su-paper2)!important;color:var(--su-green)!important}
+body:has(.badge) .memo{
+ background:var(--su-white)!important;border-left:3px solid var(--su-green)!important;
+ border-top:1px solid var(--su-line)!important;border-bottom:1px solid var(--su-line)!important;
+}
+body:has(.badge) .quote{
+ max-width:900px!important;margin:58px auto 25px!important;
+ border-top:3px double var(--su-green)!important;border-bottom:3px double var(--su-green)!important;
+ color:var(--su-red)!important;background:transparent!important;
+}
+body:has(.badge) .back{
+ color:var(--su-green)!important;border-bottom:1px solid var(--su-green)!important;
+}
+body:has(.badge) footer{
+ background:var(--su-green2)!important;border-top:5px double var(--su-gold)!important;
+ color:#d5c7a8!important;padding:30px 42px!important;
+}
+@media(max-width:760px){
+ body:has(.badge) .header-inner{padding:0 20px!important;min-height:78px!important}
+ body:has(.badge) .agency{font-size:21px!important;letter-spacing:.13em!important}
+ body:has(.badge) .header-note{display:none!important}
+ body:has(.badge) .nav-inner{padding:0 20px!important}
+ body:has(.badge) nav a{padding:10px 9px!important;font-size:8px!important}
+ body:has(.badge) main{padding:20px 20px 60px!important}
+ body:has(.badge) .hero>div:first-child{padding:25px 22px!important}
+ body:has(.badge) .badge{padding:11px 22px!important;line-height:1.8!important}
+ body:has(.badge) .security-registry .sr-head{display:block!important}
+ body:has(.badge) .security-registry .sr-head span{display:block!important;margin-top:5px!important}
+ body:has(.badge) .security-registry dl{grid-template-columns:85px 1fr!important}
+ body:has(.badge) .grid,body:has(.badge) .duties{grid-template-columns:1fr!important}
+ body:has(.badge) .card,body:has(.badge) .duty{min-height:0!important}
+ body:has(.badge) footer{padding:25px 20px!important}
+}
+</style>
+
 </head>
 <body>
 <div class="topline"></div>
