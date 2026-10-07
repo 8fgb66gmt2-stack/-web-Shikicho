@@ -1,0 +1,107 @@
+/* 玲瓏浪漫・帝國官公廳UI v2
+   象牙色を共通基調とし、四季色を行政上の識別色として使用。 */
+:root{
+ --hn-ivory:#f5eedf;--hn-ivory-hi:#fffaf0;--hn-ivory-deep:#e8dcc5;
+ --hn-ink:#28231f;--hn-muted:#6c6257;--hn-line:#bca887;
+ --hn-red:#7a202b;--hn-red-deep:#51131b;--hn-gold:#ad8950;
+ --spring:#d993a2;--spring-deep:#b85d70;
+ --summer:#e1b33f;--summer-deep:#78935e;
+ --autumn:#82583f;--autumn-deep:#5c65a0;
+ --winter:#a7cbd8;--winter-deep:#789fb5;
+}
+html,body{background:var(--hn-ivory)!important;color:var(--hn-ink)!important}
+body{background-image:linear-gradient(90deg,rgba(80,55,30,.025) 1px,transparent 1px)!important;background-size:72px 100%!important}
+.site-header{background:rgba(255,250,240,.98)!important;border-bottom:1px solid var(--hn-ink)!important;box-shadow:0 4px 0 rgba(122,32,43,.06)!important}
+.brand strong{color:var(--hn-red)!important}
+.brand small,.brand:after{color:var(--hn-muted)!important}
+#global-nav a{color:var(--hn-ink)!important;border-color:#d7c9b0!important}
+#global-nav a:hover{background:var(--hn-ivory-deep)!important;color:var(--hn-red)!important}
+.law-banner{background:var(--hn-ivory-deep)!important;color:var(--hn-ink)!important;border-bottom:1px solid var(--hn-line)!important}
+.law-banner-label strong{color:var(--hn-red)!important}
+.law-banner a{background:var(--hn-ivory-hi)!important;color:var(--hn-red)!important;border-color:var(--hn-red)!important}
+
+/* 四季識別帯 */
+.site-header:after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:4px;background:linear-gradient(90deg,var(--spring) 0 25%,var(--summer) 25% 50%,var(--autumn) 50% 75%,var(--winter) 75%)!important;opacity:1!important}
+.hero{min-height:650px!important;background:var(--hn-ivory-hi)!important;border-bottom:1px solid var(--hn-line)!important}
+.hero:before{border-color:rgba(173,137,80,.28)!important}
+.hero h1{color:var(--hn-ink)!important}
+.hero h1 em{color:var(--hn-red)!important}
+.hero-lead{border-left-color:var(--hn-red)!important;color:var(--hn-muted)!important}
+.hero-rule i{background:linear-gradient(90deg,var(--spring),var(--summer),var(--autumn),var(--winter))!important}
+.season-status{background:var(--hn-red-deep)!important;border-bottom:5px double var(--hn-gold)!important}
+.arg-teaser{background:var(--hn-green,var(--hn-ink))!important}
+
+/* 官報・ニュース */
+.section,.portal-body>.section{background:var(--hn-ivory-hi)!important;border-color:var(--hn-line)!important}
+.section:nth-of-type(even),.portal-body>.gods-section,.portal-body>.duties-section{background:var(--hn-ivory)!important}
+.section-title{border-bottom:2px solid var(--hn-ink)!important}
+.section-title h2{color:var(--hn-ink)!important}
+.section-title>span{color:var(--hn-red)!important}
+.news-list{border-top:2px solid var(--hn-ink)!important}
+.news-list article:hover{background:#eee3cf!important}
+.news-list article span{color:var(--hn-red)!important}
+
+/* 四季御神籍 */
+.god-tabs{background:var(--hn-ivory-deep)!important;border:1px solid var(--hn-line)!important;box-shadow:none!important}
+.god-tab{background:transparent!important;color:var(--hn-ink)!important}
+.god-tab:nth-child(1).active{background:var(--spring-deep)!important}
+.god-tab:nth-child(2).active{background:var(--summer-deep)!important}
+.god-tab:nth-child(3).active{background:var(--autumn)!important}
+.god-tab:nth-child(4).active{background:var(--winter-deep)!important}
+.god-panel{background:var(--hn-ivory-hi)!important;border:1px solid var(--hn-line)!important;box-shadow:8px 8px 0 rgba(80,55,30,.06)!important}
+.god-panel h3{color:var(--hn-red)!important}
+
+/* 各局・各課：ここを四季廳らしさの中心に */
+.departments-section,.portal-body>.departments-section{background:var(--hn-ivory)!important;color:var(--hn-ink)!important;border-top:6px double var(--hn-gold)!important}
+.departments-section .section-title h2{color:var(--hn-ink)!important}
+.departments-section .section-title p{color:var(--hn-red)!important}
+.department-grid{background:var(--hn-line)!important;border:1px solid var(--hn-line)!important;box-shadow:none!important}
+.department-grid article{background:var(--hn-ivory-hi)!important;border:0!important;border-right:1px solid var(--hn-line)!important;border-bottom:1px solid var(--hn-line)!important;min-height:190px!important;transition:transform .18s,background .18s!important}
+.department-grid article:nth-child(4n+1){border-top:5px solid var(--spring)!important}
+.department-grid article:nth-child(4n+2){border-top:5px solid var(--summer)!important}
+.department-grid article:nth-child(4n+3){border-top:5px solid var(--autumn)!important}
+.department-grid article:nth-child(4n){border-top:5px solid var(--winter)!important}
+.department-grid article:hover{background:#fffdf8!important;transform:translateY(-2px)!important}
+.department-grid h3{color:var(--hn-red)!important}
+.department-grid p,.department-grid small{color:var(--hn-muted)!important}
+.department-grid span{color:var(--hn-gold)!important}
+.department-grid:before{color:var(--hn-gold)!important}
+
+/* 「行政として存在する」情報ボックス */
+.portal-file-tabs{background:var(--hn-ivory-deep)!important;border-color:var(--hn-ink)!important}
+.file-tab{border-color:var(--hn-line)!important}
+.file-tab span{color:var(--hn-gold)!important}.file-tab b{color:var(--hn-red)!important}
+.person-search-section{background:var(--hn-ivory-hi)!important;border-color:var(--hn-line)!important;box-shadow:none!important}
+#person-search-input{background:#fffdf8!important;border-color:var(--hn-line)!important}
+#person-search-button{background:var(--hn-red)!important}
+
+/* 遊び心は「政府サイトの中に混ざっている」くらい */
+.arg-teaser{border-top:1px solid var(--hn-gold)!important;border-bottom:5px double var(--hn-gold)!important}
+.arg-teaser-mark{border-color:var(--hn-gold)!important}
+.season-status{cursor:pointer}
+.season-status:hover{filter:brightness(1.06)}
+.site-footer{background:#20352f!important;border-top:5px double var(--hn-gold)!important}
+
+/* 護衛警備局 */
+body:has(.badge) .topline{background:linear-gradient(90deg,var(--spring) 0 25%,var(--summer) 25% 50%,var(--autumn) 50% 75%,var(--winter) 75%)!important}
+body:has(.badge) header{background:var(--hn-ivory-hi)!important}
+body:has(.badge) main{background:var(--hn-ivory)!important}
+body:has(.badge) .hero{background:var(--hn-ivory-hi)!important;border-top-color:var(--hn-red)!important}
+body:has(.badge) .grid{background:var(--hn-line)!important}
+body:has(.badge) .card{background:var(--hn-ivory-hi)!important}
+body:has(.badge) .card:nth-child(1){border-top-color:var(--spring-deep)!important}
+body:has(.badge) .card:nth-child(2){border-top-color:var(--summer-deep)!important}
+body:has(.badge) .card:nth-child(3){border-top-color:var(--winter-deep)!important}
+body:has(.badge) .duty:nth-child(1){border-top-color:var(--summer)!important}
+body:has(.badge) .duty:nth-child(2){border-top-color:var(--autumn)!important}
+body:has(.badge) .duty:nth-child(3){border-top-color:var(--winter)!important}
+body:has(.badge) footer{background:#20352f!important}
+body:has(.badge) .hero h1,body:has(.badge) h2{color:var(--hn-red)!important}
+
+/* 官公廳らしい細部 */
+a:focus-visible,button:focus-visible{outline:2px solid var(--hn-gold)!important;outline-offset:3px}
+@media(max-width:800px){
+ .hero{min-height:560px!important}
+ .department-grid article{min-height:0!important}
+ .site-header:after{bottom:-4px}
+}
