@@ -105,3 +105,111 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--hn-gold)!important;
  .department-grid article{min-height:0!important}
  .site-header:after{bottom:-4px}
 }
+
+/* ===== 読みやすさ優先・四季廳第二次改修 ===== */
+body{font-family:"Yu Gothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif!important;line-height:1.8!important}
+body:after{display:none!important}
+.imperial-header-inner{min-height:32px!important}
+.site-header{box-shadow:none!important}
+.header-inner{min-height:92px!important}
+.brand-mark{width:52px!important;height:52px!important;font-size:22px!important}
+.brand strong{font-size:27px!important;letter-spacing:.22em!important}
+.brand small{font-size:8px!important}
+#global-nav a{padding:0 10px!important;font-size:12px!important}
+#global-nav:before{display:none!important}
+.law-banner-inner{padding:9px 28px!important}
+.hero{min-height:500px!important;background:var(--hn-ivory-hi)!important}
+.hero:before,.hero:after{display:none!important}
+.hero-inner{padding-top:105px!important;width:calc(100% - 70px)!important}
+.hero h1{font-size:clamp(48px,7vw,78px)!important;letter-spacing:.1em!important}
+.hero-watermark{font-size:220px!important;opacity:.035!important}
+.hero-lead{font-size:14px!important;line-height:2!important;max-width:610px!important}
+.hero-rule{max-width:650px!important}
+.section{padding:72px 0!important}
+.section:before{display:none!important}
+.section-title{margin-bottom:30px!important;padding-bottom:12px!important}
+.section-title h2{font-size:30px!important;letter-spacing:.1em!important}
+.section-title p{font-size:10px!important}
+.portal-body>.section>.content-width{max-width:1060px!important}
+.portal-body>.section>.content-width:before,.portal-body>.section>.content-width:after{display:none!important}
+.portal-document-head{padding:22px 38px!important}
+.portal-document-head h1{font-size:25px!important}
+.portal-rail{width:180px!important;padding:25px 16px!important}
+.portal-shell{grid-template-columns:180px minmax(0,1fr)!important}
+.rail-nav a{font-size:10px!important;padding:8px 2px!important}
+.portal-current-grid{border-bottom:1px solid var(--hn-line)!important}
+.portal-body>.news-section{padding-top:65px!important}
+.department-grid{box-shadow:none!important}
+.department-grid article{min-height:155px!important;padding:22px!important}
+.department-grid article:before{display:none!important}
+.department-grid h3{font-size:18px!important}
+.department-grid p{font-size:12px!important;line-height:1.8!important}
+.portal-file-tabs{border-top:4px double var(--hn-gold)!important}
+.person-search-section{margin:34px auto!important}
+.arg-teaser .content-width{min-height:100px!important;padding:22px 28px!important}
+
+/* 四季を「装飾」ではなく、サイトの情報構造として見せる */
+.season-status{background:var(--hn-ivory-deep)!important;color:var(--hn-ink)!important;border-bottom:1px solid var(--hn-line)!important;box-shadow:none!important;position:relative!important}
+.season-status:before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:linear-gradient(90deg,var(--spring) 0 25%,var(--summer) 25% 50%,var(--autumn) 50% 75%,var(--winter) 75%)!important}
+.season-status h2{color:var(--hn-red)!important}
+.season-status .eyebrow{color:var(--hn-muted)!important}
+.status-light{border-left:1px solid var(--hn-line)!important}
+.status-light b,.status-light small,#last-updated{color:var(--hn-ink)!important}
+
+/* 四季御神籍：4色を明確に */
+.god-tabs{display:grid!important;grid-template-columns:repeat(4,1fr)!important;background:var(--hn-ivory-deep)!important}
+.god-tab{min-height:70px!important;border-right:1px solid var(--hn-line)!important;border-top:5px solid transparent!important}
+.god-tab:nth-child(1){border-top-color:var(--spring)!important;background:linear-gradient(#fff7f7,var(--hn-ivory-hi))!important}
+.god-tab:nth-child(2){border-top-color:var(--summer)!important;background:linear-gradient(#fffbed,var(--hn-ivory-hi))!important}
+.god-tab:nth-child(3){border-top-color:var(--autumn)!important;background:linear-gradient(#fbf5ef,var(--hn-ivory-hi))!important}
+.god-tab:nth-child(4){border-top-color:var(--winter)!important;background:linear-gradient(#f3fbfd,var(--hn-ivory-hi))!important}
+.god-tab.active{color:var(--hn-ink)!important}
+.god-tab:nth-child(1).active{box-shadow:inset 0 -5px var(--spring-deep)!important}
+.god-tab:nth-child(2).active{box-shadow:inset 0 -5px var(--summer-deep)!important}
+.god-tab:nth-child(3).active{box-shadow:inset 0 -5px var(--autumn-deep)!important}
+.god-tab:nth-child(4).active{box-shadow:inset 0 -5px var(--winter-deep)!important}
+.god-panel{box-shadow:none!important}
+
+/* 組織図は四季の色で一目で区別 */
+.department-grid article:nth-child(1),.department-grid article:nth-child(5){background:#fff5f6!important}
+.department-grid article:nth-child(2),.department-grid article:nth-child(6){background:#fffbea!important}
+.department-grid article:nth-child(3),.department-grid article:nth-child(7){background:#fbf5ef!important}
+.department-grid article:nth-child(4),.department-grid article:nth-child(8){background:#f3fafd!important}
+
+/* 玲瓏浪漫の季節意匠：大きな絵ではなく、余白に薄く */
+.gods-section{position:relative!important;overflow:hidden!important}
+.gods-section:after{content:"春　　夏　　秋　　冬";position:absolute;right:4%;top:26px;font-family:"Shippori Mincho",serif;font-size:13px;letter-spacing:.35em;color:var(--hn-red);opacity:.22}
+.news-section{border-top:5px solid var(--spring)!important}
+.departments-section{border-top:5px solid var(--summer)!important}
+.duties-section{border-top:5px solid var(--autumn)!important}
+.contact-section{border-top:5px solid var(--winter)!important}
+
+/* 小さな季節記号 */
+.news-section .section-title:before{content:"桜"!important;color:var(--spring-deep)!important}
+.departments-section .section-title:before{content:"陽"!important;color:#b98918!important}
+.duties-section .section-title:before{content:"葉"!important;color:var(--autumn)!important}
+.contact-section .section-title:before{content:"氷"!important;color:var(--winter-deep)!important}
+.section-title:before{position:absolute!important;left:-34px!important;top:0!important;font-family:"Shippori Mincho",serif!important;font-size:18px!important}
+@media(max-width:980px){
+ .portal-shell{display:block!important}
+ .portal-rail{width:auto!important}
+ .rail-nav{display:flex!important;flex-wrap:wrap!important}
+ .rail-nav a{padding:7px 9px!important}
+ .portal-document-head{padding:20px 22px!important}
+}
+@media(max-width:700px){
+ .header-inner{min-height:72px!important}
+ .brand-mark{width:44px!important;height:44px!important}
+ .brand strong{font-size:20px!important;letter-spacing:.12em!important}
+ .hero{min-height:430px!important}
+ .hero-inner{padding-top:78px!important;width:calc(100% - 36px)!important}
+ .hero h1{font-size:43px!important}
+ .hero-lead{font-size:13px!important}
+ .section{padding:52px 0!important}
+ .section-title h2{font-size:25px!important}
+ .section-title:before{display:none!important}
+ .god-tabs{grid-template-columns:repeat(2,1fr)!important}
+ .god-tab{min-height:58px!important}
+ .gods-section:after{display:none!important}
+ .portal-current-grid{grid-template-columns:1fr!important}
+}
