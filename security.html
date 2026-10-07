@@ -1,67 +1,46 @@
 <!doctype html>
-<html lang="ja">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="日ノ本帝國 四季廳 護衛警備局。現人神を標的とするテロリスト『賊』への対処および現人神特殊警備を担当する。">
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>護衛警備局｜四季廳</title>
 <style>
-:root{--paper:#f8f0df;--paper2:#eee2cf;--ink:#29231f;--red:#7b202d;--red2:#54131d;--green:#1c332d;--gold:#b08a4a;--line:#b8a17a}
-*{box-sizing:border-box}html{background:var(--paper)}body{margin:0;color:var(--ink);font-family:"Yu Mincho","Hiragino Mincho ProN",serif;background:radial-gradient(circle at 20% 10%,#fffaf0aa,transparent 25%),var(--paper);line-height:1.9}
-a{color:inherit}.top{background:var(--green);color:#eee3d0;border-bottom:4px double var(--gold);padding:10px 24px;font:11px Georgia,serif;letter-spacing:.18em}.top a{text-decoration:none;color:#dbc18a}
-main{max-width:1180px;margin:auto;padding:48px 24px 90px}.crumb{font:10px Georgia,serif;letter-spacing:.2em;color:#806239}.title{border-bottom:3px double var(--ink);padding:10px 0 24px;margin-bottom:40px}.title small{color:var(--gold);letter-spacing:.22em}.title h1{margin:5px 0;color:var(--red);font-size:48px;font-weight:500;letter-spacing:.16em}.title p{margin:0;color:#665c52;font-size:13px}
-.lead{background:linear-gradient(135deg,#fffaf0,#eee2cf);border:1px solid var(--line);padding:26px 30px;margin-bottom:45px}.lead strong{color:var(--red)}
-h2{font-size:25px;font-weight:500;letter-spacing:.12em;color:var(--red);border-bottom:1px solid var(--line);padding-bottom:10px;margin-top:50px}
-h3{font-size:21px;font-weight:500;margin:8px 0;color:var(--ink)}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:22px}.card{background:#fffaf0;padding:25px 24px;min-height:250px}.role{font:10px Georgia,serif;color:#8a7650;letter-spacing:.15em}.card p{font-size:12px;color:#625b53}
-.rank{display:inline-block;border:1px solid var(--gold);padding:2px 8px;color:var(--red);font-size:10px;letter-spacing:.12em}
-.notice{margin-top:35px;border-left:4px solid var(--red);background:#eee2cf;padding:18px 22px;font-size:12px}.notice strong{color:var(--red)}
-.table{width:100%;border-collapse:collapse;margin-top:20px;background:#fffaf0;font-size:12px}.table th,.table td{border:1px solid #c6b393;padding:12px;text-align:left}.table th{background:#e7dac4;color:var(--red);font-weight:500}
-.quote{margin:55px 0 0;text-align:center;color:#665b4f;letter-spacing:.08em}.back{display:inline-block;margin-top:42px;border:1px solid var(--red);padding:10px 18px;color:var(--red);text-decoration:none;font-size:12px}
-footer{background:var(--green);color:#dbc18a;border-top:6px double var(--gold);padding:28px 24px;text-align:center;font-size:11px;letter-spacing:.12em}
-@media(max-width:760px){main{padding:30px 18px 65px}.title h1{font-size:34px}.grid{grid-template-columns:1fr}.card{min-height:auto}.table{font-size:11px}.table th,.table td{padding:9px}}
-</style>
-</head>
+:root{--paper:#f5eddb;--deep:#e7dbc2;--ink:#29231f;--red:#7a202c;--green:#1d332d;--gold:#b99553;--line:#bba47b;--white:#fffaf0}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);font-family:"Yu Mincho","Hiragino Mincho ProN",serif;line-height:1.85;background:linear-gradient(rgba(70,50,30,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(70,50,30,.025) 1px,transparent 1px),var(--paper);background-size:18px 18px}a{color:inherit}
+.top{background:var(--green);color:#eadfc9;border-bottom:5px double var(--gold);padding:9px 24px;display:flex;justify-content:space-between;font:10px Georgia,serif;letter-spacing:.18em}.top a{color:#dfc58d;text-decoration:none}
+main{max-width:1180px;margin:auto;padding:34px 24px 90px}.official{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:7px 0;color:#756750;font-size:10px;letter-spacing:.15em}
+.title{position:relative;border-bottom:3px double var(--ink);padding:27px 160px 27px 0}.title small{color:var(--gold);letter-spacing:.23em;font:11px Georgia,serif}.title h1{margin:4px 0;color:var(--red);font-size:52px;font-weight:500;letter-spacing:.15em}.title p{margin:0;color:#675d51;font-size:13px}
+.seal{position:absolute;right:16px;top:25px;width:108px;height:108px;border:2px solid var(--red);border-radius:50%;display:grid;place-items:center;color:var(--red);font-weight:bold;text-align:center;line-height:1.25;transform:rotate(-8deg)}.seal:before{content:"";position:absolute;inset:8px;border:1px solid var(--red);border-radius:50%}.seal span{position:relative}
+.lead{display:grid;grid-template-columns:1.5fr .8fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:25px}.lead>div,.lead>aside{padding:24px 27px;background:var(--white)}.lead aside{background:var(--deep);font-size:11px}.lead strong,h2{color:var(--red)}.status{font-weight:bold;letter-spacing:.12em;color:var(--red)}.status:before{content:"●";margin-right:7px}.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}.tags span{border:1px solid var(--line);background:#eee3ce;padding:5px 9px;font-size:10px}
+h2{font-size:22px;font-weight:500;letter-spacing:.12em;border-bottom:1px solid var(--line);padding-bottom:9px;margin:46px 0 16px}h2 small{font:10px Georgia,serif;color:#927b54;margin-right:12px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}.card{background:var(--white);padding:22px;min-height:215px;position:relative;transition:.2s}.card:hover{transform:translateY(-3px);box-shadow:0 8px 20px #4b362118;z-index:2}.card h3{font-size:20px;font-weight:500;margin:10px 0 2px}.card p{font-size:12px;color:#625b53}.rank{display:inline-block;border:1px solid var(--gold);padding:2px 8px;color:var(--red);font-size:10px;background:#f8eed8}.num{position:absolute;right:15px;bottom:7px;color:#b69b6a;font:28px Georgia,serif;opacity:.35}
+.notice{margin-top:16px;border:1px solid #9c7c48;background:#efe2c7;padding:17px 20px;font-size:12px;position:relative}.notice:after{content:"庁内回覧";position:absolute;right:14px;top:10px;border:1px solid var(--red);color:var(--red);padding:2px 7px;font-size:9px;transform:rotate(4deg)}
+.tablewrap{overflow:auto;border:1px solid var(--line);background:var(--white)}table{width:100%;border-collapse:collapse;min-width:650px;font-size:12px}th,td{border:1px solid #c6b393;padding:11px 13px;text-align:left}th{background:#e7dac4;color:var(--red);font-weight:500}
+.memo{margin:25px 0;background:var(--green);color:#eadfc9;border-left:7px solid var(--gold);padding:16px 20px;font-size:12px}.memo b{color:#e0c68d}
+.quote{text-align:center;margin:55px 0 0;color:#665b4f;letter-spacing:.08em}.quote small{color:#9b8660;letter-spacing:.2em}.back{display:inline-block;margin-top:38px;border:1px solid var(--red);padding:9px 18px;color:var(--red);text-decoration:none;font-size:12px}.back:hover{background:var(--red);color:var(--white)}
+footer{background:var(--green);color:#dbc18a;border-top:6px double var(--gold);padding:28px;text-align:center;font-size:11px;letter-spacing:.12em}
+@media(max-width:760px){.top{padding:9px 15px}.top span:first-of-type{display:none}main{padding:24px 15px 65px}.title{padding:22px 100px 22px 0}.title h1{font-size:34px}.seal{width:76px;height:76px;font-size:11px;right:2px}.lead,.grid{grid-template-columns:1fr}.card{min-height:auto}}
+</style></head>
 <body>
-<header class="top"><a href="index.html">四季廳</a>　/　SPECIAL SECURITY BUREAU　/　護衛警備局</header>
+<header class="top"><a href="index.html">四季廳</a><span>SHIKI AGENCY / SPECIAL SECURITY</span><span>護衛警備局</span></header>
 <main>
-<div class="crumb">SHIKI AGENCY / SECURITY & PROTECTION / SPECIAL SECURITY BUREAU</div>
-<div class="title"><small>四季廳・護衛警備局</small><h1>護衛警備局</h1><p>現人神専門テロリスト「賊」対策・特殊警備を所管する四季廳内局。</p></div>
-
-<div class="lead">
-<p><strong>護衛警備局</strong>は、日ノ本帝國の現人神を標的とするテロリスト「賊」に関する事案を専門に取り扱う、四季廳の特殊警備部門です。</p>
-<p>國家治安機構に設置された「賊」専門特殊部隊と緊密に連携し、現人神の警護、警戒、異常事案への初動対応、緊急時の退避・救出等を担当します。</p>
-</div>
-
-<h2>組織・役職</h2>
+<div class="official"><span>日ノ本帝國　四季神祇行政機關</span><span>局務資料　SECURITY / PROTECTION</span></div>
+<div class="title"><small>四季廳・護衛警備局　｜　SPECIAL SECURITY BUREAU</small><h1>護衛警備局</h1><p>現人神専門の特殊警備および「賊」対策を所管する四季廳内局。</p><div class="seal"><span>現人神<br>警備<br>認証</span></div></div>
+<section class="lead"><div><p><strong>護衛警備局</strong>は、現人神を護るための特殊警備部門です。國家治安機構の専門部隊と連携し、警戒、初動対応、退避・救出等を担当します。</p><div class="tags"><span>現人神保護</span><span>賊対策</span><span>特殊警備</span><span>緊急退避</span></div></div><aside><div class="status">警備体制：通常</div><p>所管　現人神特殊警備／「賊」対策<br>連携　國家治安機構／現人神護衛官</p><p>※ 本局は正式な行政機関です。見た目が多少こわくても、行政機関です。</p></aside></section>
+<h2><small>01 / ORGANIZATION</small>組織・役職</h2>
 <div class="grid">
-<article class="card"><span class="rank">名誉局長 / 四季廳次官</span><h3>菊嘉 則宗</h3><p><strong>きくか　さだむね｜35歳</strong></p><p>護衛警備局名誉局長。四季廳次官を兼任し、局の行政上の統括および四季廳全体との調整を担う。</p></article>
-<article class="card"><span class="rank">局長</span><h3>道誉 山茶花</h3><p><strong>どうよ　さざんか｜31歳</strong></p><p>護衛警備局を実務面から統括する局長。國家治安機構との合同警備・対「賊」作戦等において指揮を執る。</p></article>
-<article class="card"><span class="rank">副局長</span><h3>姫鶴 羅馬</h3><p><strong>ひめつる　らうま｜27歳</strong></p><p>局長を補佐し、現場運用および警備体制の調整を担当する副局長。</p></article>
+<article class="card"><span class="rank">名誉局長 / 四季廳次官</span><h3>菊嘉 則宗</h3><p><strong>きくか　さだむね｜35歳</strong></p><p>局の行政上の統括および四季廳全体との調整を担う。</p><span class="num">01</span></article>
+<article class="card"><span class="rank">局長</span><h3>道誉 山茶花</h3><p><strong>どうよ　さざんか｜31歳</strong></p><p>局を実務面から統括し、関係機関との合同警備等において指揮を執る。</p><span class="num">02</span></article>
+<article class="card"><span class="rank">副局長</span><h3>姫鶴 羅馬</h3><p><strong>ひめつる　らうま｜27歳</strong></p><p>局長を補佐し、現場運用および警備体制を調整する。</p><span class="num">03</span></article>
 </div>
-
-<div class="notice"><strong>【組織に関する注意】</strong><br>
-護衛警備局は、正式な行政機関であり、暴力団その他の犯罪組織ではありません。<br>
-一方、その所属職員の外見・言動・特殊警備能力等から、他部署の職員からは非公式に「ヤクザ」「指定暴力団」「一文字組」等と呼称される場合があります。これらはいずれも正式名称ではありません。</div>
-
-<h2>國家治安機構との連携</h2>
-<table class="table">
-<tr><th>機関</th><th>担当</th></tr>
-<tr><td>四季廳・護衛警備局</td><td>現人神特殊警備、「賊」関連事案の神祇行政上の対応、現人神の退避・救出等</td></tr>
-<tr><td>國家治安機構・「賊」専門特殊部隊</td><td>帝國警察権に基づく捜査・警戒・制圧等の治安活動</td></tr>
-<tr><td>現人神護衛官</td><td>各現人神の常時警護、生活・公務の支援、異常事案への初動対応</td></tr>
-</table>
-
-<h2>主要任務</h2>
+<div class="notice"><strong>【庁内回覧・注意事項】</strong><br>護衛警備局は正式な行政機関です。なお、所属職員の外見・言動等から、他部署では非公式に「ヤクザ」「指定暴力団」「一文字組」等と呼ばれることがあります。すべて正式名称ではありません。</div>
+<h2><small>02 / JOINT OPERATION</small>國家治安機構との連携</h2>
+<div class="tablewrap"><table><tr><th>機関</th><th>担当</th></tr><tr><td>四季廳・護衛警備局</td><td>現人神特殊警備、「賊」関連事案への行政対応、退避・救出等</td></tr><tr><td>國家治安機構・専門部隊</td><td>捜査・警戒・制圧等の治安活動</td></tr><tr><td>現人神護衛官</td><td>各現人神の常時警護、生活・公務の支援、異常事案への初動対応</td></tr></table></div>
+<div class="memo"><b>庁内用メモ：</b>「護衛警備局に任せれば何とかなる」という認識は概ね正しいものの、丸投げは推奨されません。異常を認知した際は所定の連絡系統に従ってください。</div>
+<h2><small>03 / DUTIES</small>主要任務</h2>
 <div class="grid">
-<article class="card"><span class="role">01 / SECURITY</span><h3>現人神特殊警備</h3><p>現人神の身辺警戒、移動・公務時の警備、緊急時の退避および救出を行う。</p></article>
-<article class="card"><span class="role">02 / ANTI-TERROR</span><h3>「賊」対策</h3><p>現人神専門テロリスト「賊」に関する情報を収集・分析し、國家治安機構と合同で対処する。</p></article>
-<article class="card"><span class="role">03 / COORDINATION</span><h3>関係機関調整</h3><p>各季局、現人神護衛官、國家治安機構その他関係機関との連絡・指揮系統を維持する。</p></article>
+<article class="card"><span class="rank">SECURITY</span><h3>現人神特殊警備</h3><p>現人神の身辺警戒、移動・公務時の警備、緊急時の退避および救出。</p></article>
+<article class="card"><span class="rank">ANTI-THREAT</span><h3>「賊」対策</h3><p>情報を収集・分析し、國家治安機構と合同で対処する。</p></article>
+<article class="card"><span class="rank">COORDINATION</span><h3>関係機関調整</h3><p>各季局、現人神護衛官、國家治安機構等との連絡・指揮系統を維持する。</p></article>
 </div>
-
-<p class="quote">現人神は、四季そのもの。<br>その四季を脅かすものから、これを護る。</p>
+<p class="quote">現人神は、四季そのもの。<br>その四季を脅かすものから、これを護る。<br><small>―― 四季廳・護衛警備局　局訓</small></p>
 <a class="back" href="index.html#departments">← 四季廳・組織案内へ戻る</a>
-</main>
-<footer>日ノ本帝國　四季廳　｜　護衛警備局　｜　四季を絶やすこと勿れ。</footer>
-</body>
-</html>
+</main><footer>日ノ本帝國　四季廳　｜　護衛警備局　｜　四季を絶やすこと勿れ。</footer>
+</body></html>
