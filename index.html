@@ -1857,7 +1857,212 @@ button,.btn,.nav a{border-radius:0!important}
   #global-nav{display:flex!important;position:relative!important}
 }
 </style>
-<style id="shiki-department-fun-v2">.official-department-intro{display:grid;grid-template-columns:1fr 260px;border-top:3px double #a88a52;border-bottom:1px solid #cfc4b1;margin:0 0 34px;background:#fbf8f0}.official-department-intro>div{padding:22px 24px}.official-department-intro span{display:block;font-size:10px;letter-spacing:.18em;color:#772c32}.official-department-intro strong{display:block;margin:8px 0;font-size:24px;letter-spacing:.12em}.official-department-intro p{margin:0;line-height:1.9}.official-department-intro aside{padding:20px;border-left:1px solid #cfc4b1;background:#f0eadf}.official-department-intro aside b{font-size:9px;letter-spacing:.18em;color:#772c32}.official-department-intro aside strong{font-size:14px;margin:7px 0}.official-department-intro aside small{line-height:1.7;color:#70685e}.org-caption{margin:25px 0 0;padding:8px 12px;border-bottom:1px solid #a88a52;color:#35483f;font-size:11px;letter-spacing:.16em}.org-grid article{position:relative}.org-grid article em{display:block;margin-top:8px;font-style:normal;font-size:10px;color:#772c32}.shiki-department-registry article{position:relative}.shiki-department-registry article small{display:block;margin-top:9px;color:#7b7064;font-size:10px;line-height:1.5}.security-teaser{position:relative;margin-top:28px!important;border:1px solid #8d7370!important;border-top:4px solid #772c32!important;background:#f5eee7!important;padding:22px!important}.security-notice{margin:14px 0;padding:10px 13px;border-left:3px solid #a88a52;background:#eee5d8;font-size:11px;line-height:1.7}.security-notice b{color:#772c32;margin-right:8px}.agency-note{margin-top:28px;padding:17px 20px;border:1px dashed #bcae97;background:#f8f4eb;color:#5f574f;font-size:11px;line-height:1.8}.agency-note>span{display:block;font-size:9px;letter-spacing:.2em;color:#772c32}.agency-note p{margin:7px 0}.agency-note small{color:#8a8176}@media(max-width:700px){.official-department-intro{grid-template-columns:1fr}.official-department-intro aside{border-left:0;border-top:1px solid #cfc4b1}.official-department-intro strong{font-size:19px}.org-caption{margin-top:18px}}</style></head>
+<style id="shiki-department-fun-v2">.official-department-intro{display:grid;grid-template-columns:1fr 260px;border-top:3px double #a88a52;border-bottom:1px solid #cfc4b1;margin:0 0 34px;background:#fbf8f0}.official-department-intro>div{padding:22px 24px}.official-department-intro span{display:block;font-size:10px;letter-spacing:.18em;color:#772c32}.official-department-intro strong{display:block;margin:8px 0;font-size:24px;letter-spacing:.12em}.official-department-intro p{margin:0;line-height:1.9}.official-department-intro aside{padding:20px;border-left:1px solid #cfc4b1;background:#f0eadf}.official-department-intro aside b{font-size:9px;letter-spacing:.18em;color:#772c32}.official-department-intro aside strong{font-size:14px;margin:7px 0}.official-department-intro aside small{line-height:1.7;color:#70685e}.org-caption{margin:25px 0 0;padding:8px 12px;border-bottom:1px solid #a88a52;color:#35483f;font-size:11px;letter-spacing:.16em}.org-grid article{position:relative}.org-grid article em{display:block;margin-top:8px;font-style:normal;font-size:10px;color:#772c32}.shiki-department-registry article{position:relative}.shiki-department-registry article small{display:block;margin-top:9px;color:#7b7064;font-size:10px;line-height:1.5}.security-teaser{position:relative;margin-top:28px!important;border:1px solid #8d7370!important;border-top:4px solid #772c32!important;background:#f5eee7!important;padding:22px!important}.security-notice{margin:14px 0;padding:10px 13px;border-left:3px solid #a88a52;background:#eee5d8;font-size:11px;line-height:1.7}.security-notice b{color:#772c32;margin-right:8px}.agency-note{margin-top:28px;padding:17px 20px;border:1px dashed #bcae97;background:#f8f4eb;color:#5f574f;font-size:11px;line-height:1.8}.agency-note>span{display:block;font-size:9px;letter-spacing:.2em;color:#772c32}.agency-note p{margin:7px 0}.agency-note small{color:#8a8176}@media(max-width:700px){.official-department-intro{grid-template-columns:1fr}.official-department-intro aside{border-left:0;border-top:1px solid #cfc4b1}.official-department-intro strong{font-size:19px}.org-caption{margin-top:18px}}</style>
+<style id="retro-modern-v7">
+/* 玲瓏浪漫・第七版 / RETRO MODERN GOVERNMENT */
+:root{
+  --rm-ink:#241f1c;--rm-paper:#f4ecdc;--rm-paper2:#e8dcc6;--rm-white:#fbf7ee;
+  --rm-red:#7d2029;--rm-red2:#a33a3d;--rm-green:#203b34;--rm-gold:#b18a4b;
+  --rm-muted:#786b5d;--rm-grid:rgba(70,49,30,.11);
+}
+body{
+  background-color:var(--rm-paper)!important;
+  background-image:
+    linear-gradient(var(--rm-grid) 1px,transparent 1px),
+    linear-gradient(90deg,var(--rm-grid) 1px,transparent 1px),
+    radial-gradient(circle at 50% 0%,rgba(255,255,255,.75),transparent 38%)!important;
+  background-size:32px 32px,32px 32px,auto!important;
+}
+body:before{opacity:.045!important;background-image:radial-gradient(#34251a .65px,transparent .65px)!important;background-size:5px 5px!important}
+body:after{inset:12px!important;border:1px solid rgba(125,32,41,.3)!important;box-shadow:inset 0 0 0 7px rgba(177,138,75,.045)!important;pointer-events:none!important}
+
+/* 上部を「官報＋百貨店＋大正官庁」の混成に */
+.imperial-header{
+  background:var(--rm-green)!important;border-bottom:3px solid var(--rm-gold)!important;
+  box-shadow:0 3px 0 var(--rm-red)!important;
+}
+.imperial-header-inner{min-height:38px!important}
+.imperial-header a{font-family:Georgia,serif!important;font-size:10px!important;letter-spacing:.18em!important}
+.site-header{
+  background:var(--rm-white)!important;border-bottom:1px solid var(--rm-ink)!important;
+  box-shadow:none!important;
+}
+.header-inner{min-height:94px!important}
+.brand-mark{
+  width:58px!important;height:58px!important;border-radius:0!important;
+  background:var(--rm-red)!important;color:#f8ead0!important;border:2px solid var(--rm-gold)!important;
+  box-shadow:4px 4px 0 rgba(32,59,52,.18)!important;
+}
+.brand-mark:after{inset:4px!important;border:1px solid rgba(248,234,208,.65)!important}
+.brand strong{
+  font-size:31px!important;letter-spacing:.27em!important;color:var(--rm-ink)!important;
+}
+.brand small{font-size:9px!important;letter-spacing:.26em!important;color:var(--rm-red)!important}
+#global-nav a{
+  font-size:11px!important;letter-spacing:.1em!important;
+  border-left:0!important;border-right:1px solid #d5c7ad!important;
+  min-height:46px!important;display:flex!important;align-items:center!important;
+}
+#global-nav a:first-child{border-left:1px solid #d5c7ad!important}
+#global-nav a:hover{background:var(--rm-red)!important;color:#fff5e6!important}
+#global-nav a:hover:after{display:none!important}
+
+/* HERO: ポスター／新聞広告の構図 */
+.hero{
+  min-height:650px!important;
+  background:
+    linear-gradient(90deg,rgba(244,236,220,.98) 0%,rgba(244,236,220,.9) 49%,rgba(244,236,220,.45) 100%),
+    repeating-linear-gradient(0deg,transparent 0 5px,rgba(80,55,30,.025) 6px 7px),
+    var(--rm-paper)!important;
+}
+.hero:before{
+  inset:20px!important;border:1px solid rgba(125,32,41,.38)!important;
+  box-shadow:inset 0 0 0 4px rgba(177,138,75,.08)!important;
+}
+.hero-inner{width:calc(100% - 140px)!important;padding-top:125px!important}
+.hero .kicker{
+  display:inline-block!important;padding:6px 12px!important;
+  border:1px solid var(--rm-red)!important;background:var(--rm-red)!important;
+  color:#fff7e9!important;letter-spacing:.28em!important;
+}
+.hero h1{
+  font-size:clamp(64px,8.5vw,116px)!important;letter-spacing:.08em!important;
+  text-shadow:3px 3px 0 rgba(177,138,75,.16)!important;
+}
+.hero h1 em{display:inline-block!important;border-bottom:7px solid var(--rm-red)!important}
+.hero-lead{
+  max-width:690px!important;border-left:0!important;border-top:1px solid var(--rm-ink)!important;
+  border-bottom:1px solid var(--rm-ink)!important;padding:15px 0!important;
+  font-size:14px!important;line-height:2!important;
+}
+.hero-rule{margin-top:24px!important}
+.hero-rule i{background:var(--rm-red)!important}
+.hero-watermark{
+  font-family:"Shippori Mincho",serif!important;opacity:.065!important;
+  font-size:420px!important;right:-2%!important;top:16%!important;
+}
+
+/* 情報ブロックを「印刷物の組版」に */
+.section{
+  padding:88px 0!important;background:var(--rm-white)!important;
+  border-bottom:1px solid #a99572!important;
+}
+.section:nth-of-type(even){background:var(--rm-paper2)!important}
+.section-inner{max-width:1180px!important}
+.section-heading{
+  border-left:8px solid var(--rm-red)!important;padding:0 0 12px 18px!important;
+  border-bottom:1px solid var(--rm-ink)!important;
+}
+.section-heading h2{
+  font-size:34px!important;letter-spacing:.12em!important;color:var(--rm-ink)!important;
+}
+.section-heading p{font-size:12px!important;color:var(--rm-muted)!important}
+
+/* ステータスを駅の案内板みたいに */
+.season-status{
+  background:var(--rm-green)!important;border:0!important;
+  border-top:5px solid var(--rm-red)!important;border-bottom:5px solid var(--rm-gold)!important;
+  box-shadow:none!important;
+}
+.status-inner{min-height:105px!important}
+.season-status h2{font-size:18px!important;letter-spacing:.15em!important}
+.status-light{border-left:1px solid rgba(239,220,174,.4)!important}
+.status-light b{font-family:Georgia,serif!important;font-size:12px!important;letter-spacing:.12em!important}
+
+/* ARGは「秘密資料の差し込み広告」 */
+.arg-teaser{
+  background:var(--rm-red)!important;border:0!important;
+  border-top:5px solid var(--rm-gold)!important;border-bottom:5px solid var(--rm-green)!important;
+}
+.arg-teaser .content-width{padding:25px 28px!important}
+.arg-teaser-mark{
+  width:48px!important;height:48px!important;border:2px solid #f0d9a4!important;
+  transform:none!important;background:transparent!important;
+}
+.arg-teaser h2{font-size:20px!important;letter-spacing:.12em!important}
+.arg-teaser a{
+  background:#f5e6c9!important;color:var(--rm-red)!important;border:0!important;
+  box-shadow:4px 4px 0 rgba(32,59,52,.3)!important;font-weight:600!important;
+}
+.arg-teaser a:hover{background:#fff8eb!important}
+
+/* 人物検索 */
+.person-search-section{
+  border:0!important;border-top:6px double var(--rm-red)!important;
+  border-bottom:1px solid var(--rm-ink)!important;border-radius:0!important;
+  background:var(--rm-paper2)!important;box-shadow:none!important;
+}
+#person-search-input{
+  border:1px solid var(--rm-ink)!important;border-radius:0!important;
+  box-shadow:inset 2px 2px 0 rgba(40,30,20,.06)!important;
+}
+#person-search-button{
+  border-radius:0!important;background:var(--rm-green)!important;
+  border:2px solid var(--rm-green)!important;box-shadow:3px 3px 0 var(--rm-gold)!important;
+}
+#person-search-button:hover{transform:translate(2px,2px)!important;box-shadow:1px 1px 0 var(--rm-gold)!important}
+
+/* 関係機關カードを「昭和初期の案内板」へ */
+.related-agencies-section{background:var(--rm-paper)!important}
+.related-agencies-grid{
+  grid-template-columns:repeat(3,1fr)!important;
+  border-left:2px solid var(--rm-green)!important;border-top:2px solid var(--rm-green)!important;
+}
+.related-agency{
+  min-height:190px!important;border-right:2px solid var(--rm-green)!important;
+  border-bottom:2px solid var(--rm-green)!important;background:var(--rm-white)!important;
+  box-shadow:none!important;
+}
+.related-agency:before{
+  content:"";position:absolute;top:0;left:0;width:100%;height:5px;background:var(--rm-red);
+}
+.related-agency:hover{
+  background:#efe0c4!important;color:var(--rm-red)!important;
+  transform:none!important;
+}
+.related-agency strong{font-size:22px!important}
+.related-agency b{
+  display:inline-block!important;border-top:1px solid var(--rm-red)!important;
+  padding-top:8px!important;
+}
+
+/* フッターを古い行政年鑑の奥付風に */
+.shiki-v4-footer{
+  background:var(--rm-green)!important;color:#eee1c9!important;
+  border-top:8px double var(--rm-gold)!important;
+}
+.shiki-v4-footer .motto{
+  color:#e3bd78!important;letter-spacing:.3em!important;
+  border-bottom:1px solid rgba(227,189,120,.45)!important;
+  padding-bottom:14px!important;margin-bottom:18px!important;
+}
+
+/* ボタン・リンク共通 */
+button,a{transition:background-color .18s ease,color .18s ease,transform .12s ease,box-shadow .12s ease!important}
+button{border-radius:0!important}
+
+/* 細い縦罫線を増やして「組版感」を出す */
+.section-heading,.person-search-section,.related-agencies-note{position:relative!important}
+.section-heading:after{
+  content:"";position:absolute;right:0;bottom:-1px;width:90px;height:4px;
+  background:var(--rm-gold);
+}
+
+/* スマホでも新聞の骨格を残す */
+@media(max-width:760px){
+  .header-inner{min-height:78px!important}
+  .brand strong{font-size:23px!important;letter-spacing:.18em!important}
+  .hero{min-height:560px!important}
+  .hero-inner{width:calc(100% - 54px)!important;padding-top:100px!important}
+  .hero h1{font-size:clamp(48px,15vw,76px)!important}
+  .hero-watermark{font-size:250px!important;top:28%!important}
+  .section{padding:65px 0!important}
+  .section-heading h2{font-size:27px!important}
+  .related-agencies-grid{grid-template-columns:1fr!important}
+}
+</style>
+
+</head>
 <body data-shiki-page="index">
 <div class="imperial-header">
   <div class="imperial-header-inner">
