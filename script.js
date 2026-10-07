@@ -222,4 +222,57 @@ document.addEventListener('DOMContentLoaded',()=>{
  `;
  document.head.appendChild(govStyle);
 
+
+  /* 大正官廳の情報設計：官報・告示・文書番号をトップ導線に統合 */
+  const historicalLabels={
+    "新着情報":"彙報",
+    "四季廳について":"四季廳案内",
+    "政策・施策":"施政",
+    "組織情報":"官制・組織",
+    "調達・採用":"入札・任用",
+    "手続・相談":"願届・照會",
+    "行政資料":"公表資料",
+    "関係機関":"關係機關"
+  };
+  document.querySelectorAll('#global-nav a,.admin-index-grid b').forEach(el=>{
+    const key=(el.textContent||'').trim();
+    if(historicalLabels[key])el.textContent=historicalLabels[key];
+  });
+  const adminHeading=document.querySelector('.admin-index-heading h2');
+  if(adminHeading)adminHeading.textContent='行政情報';
+  const adminDesc=document.querySelector('.admin-index-heading p');
+  if(adminDesc)adminDesc.textContent='四季廳ノ施政、官制、願届、告示其ノ他公表資料ヲ御案内致シマス。';
+
+  const hero=document.querySelector('.hero');
+  if(hero&&!document.querySelector('.taisho-official-index')){
+    const box=document.createElement('section');
+    box.className='taisho-official-index';
+    box.innerHTML=`
+      <div class="toi-head">
+        <strong>四季廳　官報・告示・公表情報</strong>
+        <span>OFFICIAL PUBLICATIONS　／　帝國政府情報網</span>
+      </div>
+      <dl>
+        <dt>最新告示</dt>
+        <dd><a href="#news">春局局長任命ニ関スル件　／　四季廳告示 第二三七號</a></dd>
+        <dt>重要公告</dt>
+        <dd><a href="#news">現人神ノ御名及ビ神性ヲ騙ル行為ニ關スル注意喚起</a></dd>
+        <dt>公表資料</dt>
+        <dd><a href="#duties">四季行政・祭祀・現人神保全ニ關スル行政資料</a></dd>
+        <dt>窓口案内</dt>
+        <dd><a href="#contact">願届・照會・通報其ノ他四季廳ニ關スル御相談</a></dd>
+      </dl>
+      <p class="toi-note">※ 公表資料ノ原本ハ四季廳文書庫ニ保存ス。資料番号及ビ所管課ヲ明記ノ上、閲覧請求セラレタシ。</p>
+    `;
+    hero.parentNode.insertBefore(box,hero);
+  }
+
+  /* 現代語のUIを残しつつ、官廳文書らしい補助表記を付す */
+  const breadcrumbCurrent=document.querySelector('.gov-breadcrumb strong');
+  if(breadcrumbCurrent)breadcrumbCurrent.textContent='四季廳首頁';
+  const siteSearch=document.querySelector('#gov-site-search');
+  if(siteSearch)siteSearch.placeholder='四季廳内検索';
+  const searchButton=document.querySelector('#gov-search-button');
+  if(searchButton)searchButton.textContent='検索';
+
 });
