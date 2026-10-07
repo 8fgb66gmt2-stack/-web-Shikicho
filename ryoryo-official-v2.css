@@ -213,3 +213,292 @@ body:after{display:none!important}
  .gods-section:after{display:none!important}
  .portal-current-grid{grid-template-columns:1fr!important}
 }
+
+/* ===== 玲瓏浪漫・護衛警備局専用官公廳意匠 =====
+   護衛警備局も「四季廳の一局」として本庁と同じ文書体系・季節識別を持たせる。 */
+body:has(.badge){
+  background:var(--hn-ivory)!important;
+  background-image:
+    linear-gradient(90deg,rgba(80,55,30,.025) 1px,transparent 1px),
+    radial-gradient(circle at 12% 18%,rgba(217,147,162,.08),transparent 18%),
+    radial-gradient(circle at 88% 72%,rgba(167,203,216,.08),transparent 20%)!important;
+  background-size:72px 100%,auto,auto!important;
+  font-family:"Yu Gothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif!important;
+}
+body:has(.badge) .topline{
+  height:8px!important;
+  background:linear-gradient(90deg,var(--spring) 0 25%,var(--summer) 25% 50%,var(--autumn) 50% 75%,var(--winter) 75%)!important;
+}
+body:has(.badge) header{
+  background:rgba(255,250,240,.98)!important;
+  border-bottom:1px solid var(--hn-ink)!important;
+  box-shadow:0 4px 0 rgba(122,32,43,.05)!important;
+}
+body:has(.badge) .header-inner{max-width:1180px!important;padding:18px 30px 14px!important}
+body:has(.badge) .agency{
+  color:var(--hn-red)!important;
+  font-family:"Yu Mincho","Hiragino Mincho ProN",serif!important;
+  font-size:23px!important;
+  letter-spacing:.16em!important;
+}
+body:has(.badge) .agency span{
+  color:var(--hn-muted)!important;
+  font-family:Georgia,serif!important;
+  letter-spacing:.18em!important;
+}
+body:has(.badge) .header-note{color:var(--hn-muted)!important}
+body:has(.badge) nav{background:var(--hn-ivory-hi)!important;border-top:1px solid #d7c9b0!important}
+body:has(.badge) .nav-inner{max-width:1180px!important}
+body:has(.badge) nav a{
+  color:var(--hn-ink)!important;
+  border-color:#d7c9b0!important;
+  padding:10px 19px!important;
+  font-size:12px!important;
+}
+body:has(.badge) nav a.current{
+  background:var(--hn-red)!important;
+  color:#fff!important;
+}
+body:has(.badge) main{
+  max-width:1180px!important;
+  padding:28px 30px 90px!important;
+}
+body:has(.badge) .breadcrumb{
+  color:var(--hn-muted)!important;
+  border-left:3px solid var(--hn-gold)!important;
+  padding-left:11px!important;
+  margin-bottom:20px!important;
+}
+body:has(.badge) .hero{
+  position:relative!important;
+  overflow:hidden!important;
+  min-height:330px!important;
+  padding:46px 50px 42px!important;
+  background:var(--hn-ivory-hi)!important;
+  border:1px solid var(--hn-line)!important;
+  border-top:0!important;
+}
+body:has(.badge) .hero:before{
+  content:"四季廳\A 護衛警備局"!important;
+  white-space:pre!important;
+  position:absolute!important;
+  right:48px!important;
+  top:27px!important;
+  writing-mode:vertical-rl!important;
+  font-family:"Yu Mincho","Hiragino Mincho ProN",serif!important;
+  font-size:17px!important;
+  letter-spacing:.3em!important;
+  color:var(--hn-red)!important;
+  opacity:.18!important;
+  border:0!important;
+}
+body:has(.badge) .hero:after{
+  content:"SHIKI AGENCY / SPECIAL SECURITY BUREAU"!important;
+  position:absolute!important;
+  right:46px!important;
+  bottom:28px!important;
+  font:9px Georgia,serif!important;
+  letter-spacing:.17em!important;
+  color:var(--hn-gold)!important;
+  opacity:.8!important;
+}
+body:has(.badge) .hero .en{
+  color:var(--hn-gold)!important;
+  font:10px Georgia,serif!important;
+  letter-spacing:.28em!important;
+}
+body:has(.badge) .hero h1{
+  font-family:"Yu Mincho","Hiragino Mincho ProN",serif!important;
+  font-size:clamp(42px,6vw,68px)!important;
+  font-weight:500!important;
+  letter-spacing:.16em!important;
+  color:var(--hn-ink)!important;
+  margin:5px 0 9px!important;
+}
+body:has(.badge) .hero h1:after{
+  content:"　護衛警備局"!important;
+  display:block!important;
+  margin-top:10px!important;
+  font-family:Georgia,serif!important;
+  font-size:9px!important;
+  font-weight:normal!important;
+  letter-spacing:.24em!important;
+  color:var(--hn-red)!important;
+}
+body:has(.badge) .hero p{
+  color:var(--hn-muted)!important;
+  font-size:14px!important;
+}
+body:has(.badge) .badge{
+  min-width:190px!important;
+  align-self:center!important;
+  border:1px solid var(--hn-gold)!important;
+  border-top:4px double var(--hn-red)!important;
+  background:#fffdf8!important;
+  color:var(--hn-muted)!important;
+  padding:18px 16px!important;
+  letter-spacing:.08em!important;
+}
+body:has(.badge) .badge b{
+  color:var(--hn-red)!important;
+  font-family:"Yu Mincho","Hiragino Mincho ProN",serif!important;
+  font-size:18px!important;
+}
+body:has(.badge) .season-bar{
+  height:10px!important;
+  margin-top:0!important;
+  border:1px solid var(--hn-line)!important;
+  border-top:0!important;
+}
+body:has(.badge) .season-key{
+  background:var(--hn-ivory-deep)!important;
+  border:1px solid var(--hn-line)!important;
+  border-top:0!important;
+  padding:9px 14px!important;
+  margin:0!important;
+}
+body:has(.badge) .season-key span:nth-child(1){color:#9d4c5d!important}
+body:has(.badge) .season-key span:nth-child(2){color:#657b43!important}
+body:has(.badge) .season-key span:nth-child(3){color:#704a37!important}
+body:has(.badge) .season-key span:nth-child(4){color:#547f96!important}
+body:has(.badge) .lead{
+  margin-top:26px!important;
+  padding:23px 27px!important;
+  background:var(--hn-ivory-hi)!important;
+  border:1px solid var(--hn-line)!important;
+  border-left:6px solid var(--hn-red)!important;
+  box-shadow:inset 0 0 0 1px rgba(173,137,80,.12)!important;
+}
+body:has(.badge) .lead b{color:var(--hn-red)!important;font-family:"Yu Mincho","Hiragino Mincho ProN",serif!important}
+body:has(.badge) h2{
+  position:relative!important;
+  color:var(--hn-ink)!important;
+  font-family:"Yu Mincho","Hiragino Mincho ProN",serif!important;
+  font-size:25px!important;
+  font-weight:500!important;
+  letter-spacing:.14em!important;
+  margin:52px 0 15px!important;
+  padding:0 0 11px 43px!important;
+  border-bottom:1px solid var(--hn-line)!important;
+}
+body:has(.badge) h2:before{
+  content:""!important;
+  position:absolute!important;
+  left:0!important;
+  bottom:-1px!important;
+  width:31px!important;
+  height:5px!important;
+  background:linear-gradient(90deg,var(--spring),var(--summer),var(--autumn),var(--winter))!important;
+}
+body:has(.badge) h2 small{
+  color:var(--hn-red)!important;
+  font-family:Georgia,serif!important;
+  font-size:10px!important;
+  letter-spacing:.18em!important;
+}
+body:has(.badge) .grid{
+  grid-template-columns:repeat(3,1fr)!important;
+  gap:1px!important;
+  border:1px solid var(--hn-line)!important;
+  background:var(--hn-line)!important;
+}
+body:has(.badge) .card{
+  min-height:220px!important;
+  padding:23px!important;
+  background:var(--hn-ivory-hi)!important;
+  border-top:0!important;
+  position:relative!important;
+}
+body:has(.badge) .card:nth-child(1){border-top:6px solid var(--spring)!important;background:#fff6f7!important}
+body:has(.badge) .card:nth-child(2){border-top:6px solid var(--summer)!important;background:#fffbee!important}
+body:has(.badge) .card:nth-child(3){border-top:6px solid var(--winter)!important;background:#f4fbfd!important}
+body:has(.badge) .card:after{
+  position:absolute!important;
+  right:15px!important;
+  top:13px!important;
+  font-family:"Yu Mincho",serif!important;
+  font-size:31px!important;
+  opacity:.12!important;
+}
+body:has(.badge) .card:nth-child(1):after{content:"春"!important;color:var(--spring-deep)!important}
+body:has(.badge) .card:nth-child(2):after{content:"護"!important;color:var(--summer-deep)!important}
+body:has(.badge) .card:nth-child(3):after{content:"冬"!important;color:var(--winter-deep)!important}
+body:has(.badge) .card .post{color:var(--hn-red)!important;border-color:var(--hn-line)!important}
+body:has(.badge) .card h3{font-family:"Yu Mincho","Hiragino Mincho ProN",serif!important;font-size:21px!important}
+body:has(.badge) .notice{
+  background:#fff9e9!important;
+  border:1px solid #c7aa6e!important;
+  border-left:5px solid var(--hn-gold)!important;
+}
+body:has(.badge) .table{
+  background:var(--hn-ivory-hi)!important;
+  border-color:var(--hn-line)!important;
+}
+body:has(.badge) .table th{
+  background:var(--hn-ivory-deep)!important;
+  color:var(--hn-red)!important;
+  border-color:var(--hn-line)!important;
+}
+body:has(.badge) .table td{border-color:var(--hn-line)!important}
+body:has(.badge) .memo{
+  background:#edf1ed!important;
+  border-left-color:var(--summer-deep)!important;
+}
+body:has(.badge) .duties{
+  grid-template-columns:repeat(3,1fr)!important;
+  gap:0!important;
+  border:1px solid var(--hn-line)!important;
+}
+body:has(.badge) .duty{
+  border:0!important;
+  border-right:1px solid var(--hn-line)!important;
+  min-height:170px!important;
+  padding:22px!important;
+  background:var(--hn-ivory-hi)!important;
+}
+body:has(.badge) .duty:nth-child(1){border-top:6px solid var(--summer)!important;background:#fffbee!important}
+body:has(.badge) .duty:nth-child(2){border-top:6px solid var(--autumn)!important;background:#fbf5ef!important}
+body:has(.badge) .duty:nth-child(3){border-top:6px solid var(--winter)!important;background:#f4fbfd!important}
+body:has(.badge) .duty h3{font-family:"Yu Mincho","Hiragino Mincho ProN",serif!important;color:var(--hn-red)!important}
+body:has(.badge) .quote{
+  position:relative!important;
+  margin:65px auto 15px!important;
+  padding:32px 20px!important;
+  max-width:760px!important;
+  border-top:3px double var(--hn-gold)!important;
+  border-bottom:3px double var(--hn-gold)!important;
+  color:var(--hn-red)!important;
+  font-family:"Yu Mincho","Hiragino Mincho ProN",serif!important;
+  font-size:18px!important;
+}
+body:has(.badge) .quote:before{
+  content:"四季を護る者たち"!important;
+  display:block!important;
+  color:var(--hn-muted)!important;
+  font-size:9px!important;
+  letter-spacing:.25em!important;
+  margin-bottom:9px!important;
+}
+body:has(.badge) .back{
+  border:1px solid var(--hn-red)!important;
+  background:var(--hn-ivory-hi)!important;
+  color:var(--hn-red)!important;
+  padding:9px 22px!important;
+}
+body:has(.badge) .back:hover{background:var(--hn-red)!important;color:#fff!important}
+body:has(.badge) footer{
+  background:#20352f!important;
+  border-top:5px double var(--hn-gold)!important;
+  color:#e4d6b6!important;
+}
+@media(max-width:760px){
+ body:has(.badge) main{padding:20px 14px 60px!important}
+ body:has(.badge) .header-inner{padding:14px 16px!important}
+ body:has(.badge) .hero{padding:30px 22px!important}
+ body:has(.badge) .hero:before,body:has(.badge) .hero:after{display:none!important}
+ body:has(.badge) .hero h1{font-size:38px!important}
+ body:has(.badge) .badge{margin-top:20px!important;width:100%!important}
+ body:has(.badge) .grid,body:has(.badge) .duties{grid-template-columns:1fr!important}
+ body:has(.badge) .card,body:has(.badge) .duty{min-height:auto!important}
+ body:has(.badge) h2{font-size:21px!important;padding-left:31px!important}
+}
