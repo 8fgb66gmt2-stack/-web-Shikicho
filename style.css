@@ -38,3 +38,328 @@ footer{position:relative;padding:52px 25px 60px;text-align:center;color:#eee5d9;
 @media(max-width:900px){.imperial-header-inner{overflow-x:auto;white-space:nowrap}.header-inner{gap:15px}#global-nav a{padding:6px 8px;font-size:.63rem}.status-inner{grid-template-columns:1fr auto}.about-grid{grid-template-columns:1fr}}
 @media(max-width:700px){main{width:100%;box-shadow:none}.site-header{position:relative}.site-header:before{text-align:center;padding:4px 12px;font-size:.45rem;letter-spacing:.08em}.header-inner{min-height:67px;padding:0 14px}.brand strong{font-size:1.13rem}.brand small{font-size:.42rem}#global-nav{display:none}.menu-toggle{display:block;margin-left:auto;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4);padding:7px 11px;font-size:.64rem}.hero{min-height:500px;padding:75px 24px}.hero:before{inset:14px}.hero:after{inset:20px}.vertical-label{left:11px;font-size:.45rem}.hero h1{font-size:clamp(2.5rem,15vw,4.4rem);letter-spacing:.13em}.hero-lead{font-size:.81rem;letter-spacing:.06em}.hero-watermark{font-size:10.5rem}.status-inner{grid-template-columns:1fr;gap:13px;padding:21px 22px}#last-updated{grid-column:auto}.section{padding:57px 22px}.section-title{gap:11px;margin-bottom:29px}.section-title>span{min-width:29px;font-size:.62rem}.section-title p{font-size:.48rem}h2{font-size:1.5rem;letter-spacing:.1em}.news-list article{grid-template-columns:1fr;gap:5px;padding:14px 3px}.news-list article>span{justify-self:start;padding:2px 10px}.news-list a{font-size:.76rem}.god-tabs{grid-template-columns:repeat(2,1fr)}.god-tab:nth-child(odd){border-bottom:1px solid var(--line)}.god-panel{grid-template-columns:1fr;gap:20px;padding:21px}.season-kanji{min-height:100px;border-right:0;border-bottom:1px solid var(--line);font-size:6rem}.god-panel dl{grid-template-columns:88px 1fr}}
 @media print{body{background:#fff;color:#000}body:before{display:none}main{width:100%;box-shadow:none}.imperial-header,.site-header,footer{background:#fff;color:#000}.hero{background:#fff;color:#000}.hero h1,.hero-lead{color:#111;text-shadow:none}}
+
+/* =========================================================
+   大正官廳化・最終仕上げ
+   「大正時代のサイト」ではなく「大正から存続する官廳のWeb化」
+   ========================================================= */
+:root{
+  --taisho-paper:#f6f0e4;
+  --taisho-paper2:#eee4d2;
+  --taisho-ink:#27231f;
+  --taisho-red:#6f2028;
+  --taisho-green:#203a33;
+  --taisho-gold:#a8864c;
+  --taisho-line:#b9aa91;
+}
+body{
+  background:
+    radial-gradient(circle at 12% 8%,rgba(255,255,255,.55),transparent 25%),
+    repeating-linear-gradient(0deg,rgba(72,54,37,.018) 0 1px,transparent 1px 4px),
+    var(--taisho-paper)!important;
+}
+body:before{opacity:.055!important}
+main{
+  width:min(1480px,calc(100% - 28px))!important;
+  background:#faf7f0!important;
+  box-shadow:0 0 0 1px #b9aa91,0 10px 35px rgba(65,46,30,.10)!important;
+}
+.imperial-header{
+  background:#1f302c!important;
+  border-bottom:3px double #b9985b!important;
+}
+.imperial-header-inner{
+  font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;
+  font-size:10px!important;
+}
+.site-header{
+  position:relative!important;
+  background:#f8f2e7!important;
+  color:var(--taisho-ink)!important;
+  border-top:0!important;
+  border-bottom:3px double #51463b!important;
+  box-shadow:none!important;
+}
+.site-header:before{
+  content:"日ノ本帝國政府　｜　四季ニ關スル行政・祭祀・保全　｜　勅命行政機關"!important;
+  text-align:left!important;
+  color:#62584d!important;
+  background:#eee5d6!important;
+  padding:6px max(18px,calc((100vw - 1420px)/2))!important;
+  border-bottom:1px solid #c9bba5!important;
+  font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;
+  font-size:9px!important;
+  letter-spacing:.09em!important;
+}
+.header-inner{
+  width:min(1420px,calc(100% - 36px))!important;
+  min-height:88px!important;
+}
+.brand{color:var(--taisho-ink)!important}
+.brand-mark{
+  width:58px!important;height:58px!important;
+  border:1px solid var(--taisho-red)!important;
+  color:var(--taisho-red)!important;
+  background:#fffaf1!important;
+  box-shadow:inset 0 0 0 4px rgba(168,134,76,.10)!important;
+}
+.brand-mark:after{border-color:#bca16d!important}
+.brand strong{
+  color:#3b3028!important;
+  font-family:"Shippori Mincho","Yu Mincho",serif!important;
+  font-size:27px!important;
+  letter-spacing:.24em!important;
+}
+.brand small{
+  color:#76695a!important;
+  font-family:Georgia,serif!important;
+  letter-spacing:.18em!important;
+}
+#global-nav a{
+  color:#41372f!important;
+  font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;
+  font-size:11px!important;
+  border-left:1px solid #cfc3b0!important;
+}
+#global-nav a:hover{background:#ebe1d1!important;color:var(--taisho-red)!important}
+#global-nav a:after{background:var(--taisho-red)!important}
+
+.gov-chrome{
+  background:#263d36!important;
+  border-bottom:1px solid #a88750!important;
+}
+.gov-chrome-inner{
+  max-width:1420px!important;
+  min-height:31px!important;
+}
+.gov-breadcrumb{background:#eee7dc!important}
+.gov-breadcrumb-inner{max-width:1420px!important}
+
+.administrative-index{
+  background:#eee8dc!important;
+  border-top:0!important;
+  border-bottom:1px solid #807362!important;
+}
+.admin-index-inner{max-width:1420px!important}
+.admin-index-heading{
+  border-bottom:3px double #625448!important;
+}
+.admin-index-heading h2{
+  font-family:"Shippori Mincho","Yu Mincho",serif!important;
+  font-size:25px!important;
+}
+.admin-index-grid{
+  border-left:1px solid #b9aa91!important;
+  border-top:1px solid #b9aa91!important;
+}
+.admin-index-grid a{
+  background:#faf7f0!important;
+  border-right:1px solid #b9aa91!important;
+  border-bottom:1px solid #b9aa91!important;
+}
+.admin-index-grid a:hover{background:#eee4d4!important}
+
+.taisho-official-index{
+  max-width:1420px;
+  margin:0 auto;
+  padding:0 42px 30px;
+  background:#eee8dc;
+  font-family:"Noto Sans JP","Yu Gothic",sans-serif;
+}
+.taisho-official-index .toi-head{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:20px;
+  padding:15px 0 9px;
+  border-bottom:3px double #6b5b4b;
+}
+.taisho-official-index .toi-head strong{
+  color:#3d3027;
+  font-family:"Shippori Mincho","Yu Mincho",serif;
+  font-size:17px;
+  font-weight:500;
+  letter-spacing:.12em;
+}
+.taisho-official-index .toi-head span{
+  color:#75695d;
+  font-size:9px;
+  letter-spacing:.08em;
+}
+.taisho-official-index dl{
+  display:grid;
+  grid-template-columns:145px 1fr;
+  margin:0;
+  border-bottom:1px solid #c5b8a5;
+}
+.taisho-official-index dt,
+.taisho-official-index dd{
+  margin:0;
+  padding:10px 12px;
+  border-bottom:1px solid #d2c6b5;
+  font-size:10px;
+  line-height:1.7;
+}
+.taisho-official-index dt{
+  color:#6f2028;
+  background:#e6dccb;
+  font-weight:500;
+}
+.taisho-official-index dd{color:#4f4840;background:#faf7f0}
+.taisho-official-index dd a{
+  color:#5e2028;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+.taisho-official-index .toi-note{
+  margin:8px 0 0;
+  color:#766c62;
+  font-size:9px;
+}
+
+.hero{
+  min-height:500px!important;
+  background:#f8f2e7!important;
+  color:var(--taisho-ink)!important;
+  border-bottom:3px double #51463b!important;
+  text-align:left!important;
+}
+.hero:before{inset:18px!important;border:1px solid rgba(120,91,48,.25)!important}
+.hero:after{
+  content:"四季廳　官房　／　SHIKI AGENCY　／　帝國政府"!important;
+  right:42px!important;bottom:27px!important;
+  color:#806a4a!important;
+  font-size:9px!important;
+}
+.hero-inner{
+  max-width:1420px!important;
+  width:calc(100% - 90px)!important;
+  padding-top:88px!important;
+  margin:auto!important;
+}
+.hero .kicker{
+  color:#79623f!important;
+  font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;
+  font-size:10px!important;
+  letter-spacing:.15em!important;
+}
+.hero h1{
+  color:#342b25!important;
+  font-family:"Shippori Mincho","Yu Mincho",serif!important;
+  font-size:clamp(58px,8vw,105px)!important;
+  letter-spacing:.18em!important;
+  text-shadow:none!important;
+}
+.hero h1 em{color:var(--taisho-red)!important}
+.hero-lead{
+  color:#514940!important;
+  border-left:3px solid var(--taisho-red)!important;
+  padding-left:18px!important;
+  font-family:"Noto Serif JP","Yu Mincho",serif!important;
+  font-size:14px!important;
+  line-height:2.1!important;
+  text-align:left!important;
+}
+.hero-rule{
+  justify-content:flex-start!important;
+  color:#786344!important;
+  font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;
+}
+.hero-watermark{
+  color:#6f2028!important;
+  opacity:.035!important;
+  font-size:310px!important;
+}
+.vertical-label{color:#856f4d!important}
+
+.season-status{
+  background:#eee6d8!important;
+  border-bottom:3px double #6f2028!important;
+}
+.status-inner{max-width:1420px!important}
+.status-inner h2{font-family:"Shippori Mincho","Yu Mincho",serif!important;color:#342d27!important}
+.status-light{background:#f9f6ef!important;border-color:#aaa08f!important}
+.status-light b{color:#315145!important}
+
+.section{
+  background:#faf7f0!important;
+  border-bottom:1px solid #b9aa91!important;
+}
+.section:nth-of-type(even){background:#f0e8da!important}
+.section:before{
+  background:linear-gradient(90deg,transparent,#a8864c,transparent)!important;
+}
+.section:after{
+  background:#faf7f0!important;
+  border-color:#a8864c!important;
+}
+.section-title h2{
+  font-family:"Shippori Mincho","Yu Mincho",serif!important;
+  color:#3c3028!important;
+  border-bottom:1px solid #9f875f!important;
+}
+.section-title>span{color:#6f2028!important;border-bottom-color:#6f2028!important}
+.section-title p{
+  font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;
+  color:#756b60!important;
+}
+
+.news-section{background:#f0e8da!important}
+.news-list{
+  border-top:3px double #6f2028!important;
+  border-bottom:3px double #6f2028!important;
+}
+.news-list article{background:#faf7f0!important}
+.news-list article:hover{background:#eee4d4!important}
+.news-list article>span{
+  border-color:#a8864c!important;
+  color:#6f2028!important;
+  background:#f5eee2!important;
+}
+
+.card,.department,.person,.season-card{
+  border:1px solid #b9aa91!important;
+  border-radius:0!important;
+  box-shadow:2px 3px 0 rgba(73,51,31,.045)!important;
+}
+.card:hover,.department:hover,.person:hover,.season-card:hover{
+  transform:none!important;
+  box-shadow:2px 3px 0 rgba(73,51,31,.045)!important;
+}
+table{
+  border-top:3px double #6f2028!important;
+  border-bottom:3px double #6f2028!important;
+}
+th{background:#6f2028!important}
+tr:nth-child(even){background:#f0e8da!important}
+
+.arg-teaser{
+  background:#263d36!important;
+  border-top:3px double #a8864c!important;
+  border-bottom:3px double #a8864c!important;
+}
+.arg-teaser h2{font-family:"Shippori Mincho","Yu Mincho",serif!important}
+.arg-teaser a{border-radius:0!important}
+
+footer{
+  background:#26312e!important;
+  border-top:3px double #a8864c!important;
+  text-align:left!important;
+  padding-left:max(25px,calc((100vw - 1320px)/2))!important;
+  padding-right:max(25px,calc((100vw - 1320px)/2))!important;
+}
+footer:before{content:"四季廳官房　／　日ノ本帝國政府"!important;font-family:"Shippori Mincho",serif!important}
+footer:after{content:"四季廳　｜　日ノ本帝國政府　｜　官公廳情報網　｜　文書管理番号：四季廳-237"!important}
+
+@media(max-width:700px){
+  main{width:100%!important}
+  .header-inner{min-height:74px!important}
+  .brand strong{font-size:20px!important}
+  .brand-mark{width:47px!important;height:47px!important}
+  .hero{text-align:left!important;min-height:460px!important}
+  .hero-inner{width:calc(100% - 50px)!important;padding-top:68px!important}
+  .hero h1{font-size:clamp(45px,14vw,70px)!important}
+  .taisho-official-index{padding:0 16px 22px}
+  .taisho-official-index dl{grid-template-columns:105px 1fr}
+  .taisho-official-index dt,.taisho-official-index dd{font-size:9px;padding:8px}
+}
