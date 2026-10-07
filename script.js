@@ -112,4 +112,66 @@ document.addEventListener('DOMContentLoaded',()=>{
  `;
  document.head.appendChild(governmentOfficialStyle);
 
+ /* 行政サイト共通部品：利用者向け導線を追加 */
+ const govChrome=document.createElement('div');
+ govChrome.className='gov-chrome';
+ govChrome.innerHTML=`<div class="gov-chrome-inner">
+   <div class="gov-language"><span>日ノ本帝國政府</span><a href="#home">日本語</a><a href="#home">English</a></div>
+   <div class="gov-tools"><a href="#about">このサイトについて</a><a href="#contact">お問い合わせ</a><a href="#home">サイトマップ</a><label><span class="sr-only">サイト内検索</span><input id="gov-site-search" type="search" placeholder="サイト内検索" autocomplete="off"><button type="button" id="gov-search-button">検索</button></label></div>
+ </div>`;
+ const firstHeader=document.querySelector('.imperial-header,.site-header');
+ if(firstHeader) firstHeader.parentNode.insertBefore(govChrome,firstHeader);
+ const breadcrumb=document.createElement('div');
+ breadcrumb.className='gov-breadcrumb';
+ breadcrumb.innerHTML='<div class="gov-breadcrumb-inner"><a href="#home">ホーム</a><span aria-hidden="true">›</span><strong>四季廳</strong></div>';
+ const siteHeader=document.querySelector('.site-header');
+ if(siteHeader) siteHeader.parentNode.insertBefore(breadcrumb,siteHeader.nextSibling);
+ const searchInput=document.querySelector('#gov-site-search'),searchButton=document.querySelector('#gov-search-button');
+ const runGovSearch=()=>{
+   const q=(searchInput?.value||'').trim().toLowerCase();
+   if(!q)return;
+   const targets=[...document.querySelectorAll('.portal-body h2,.portal-body h3,.portal-body p,.portal-body article,.portal-body dt,.portal-body dd,.portal-body a')];
+   const hit=targets.find(el=>(el.textContent||'').toLowerCase().includes(q));
+   if(hit){hit.scrollIntoView({behavior:'smooth',block:'center'});hit.classList.add('gov-search-hit');setTimeout(()=>hit.classList.remove('gov-search-hit'),1800)}
+   else alert('該当する情報が見つかりませんでした。');
+ };
+ searchButton?.addEventListener('click',runGovSearch);
+ searchInput?.addEventListener('keydown',e=>{if(e.key==='Enter')runGovSearch()});
+ const govFooter=document.querySelector('.site-footer');
+ if(govFooter&&!govFooter.querySelector('.gov-footer-links')){
+   const links=document.createElement('div');
+   links.className='gov-footer-links';
+   links.innerHTML='<a href="#about">四季廳について</a><a href="#departments">組織情報</a><a href="#news">報道・公告</a><a href="#contact">お問い合わせ</a><a href="#home">サイトマップ</a><span>｜</span><a href="#home">アクセシビリティ</a><a href="#home">サイトポリシー</a>';
+   govFooter.appendChild(links);
+ }
+ const govStyle=document.createElement('style');
+ govStyle.textContent=`
+ .gov-chrome{background:#172b27;color:#eee7d8;border-bottom:1px solid #ad8a51;font-family:"Noto Sans JP","Yu Gothic",sans-serif;font-size:10px}
+ .gov-chrome-inner{max-width:1440px;margin:auto;min-height:34px;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+ .gov-chrome a{color:#e2d6be;text-decoration:none;border-bottom:1px solid transparent}
+ .gov-chrome a:hover{color:#fff;border-bottom-color:#d9be83}
+ .gov-language,.gov-tools{display:flex;align-items:center;gap:15px}
+ .gov-language span{color:#d9be83;letter-spacing:.08em;margin-right:4px}
+ .gov-tools label{display:flex;height:24px;margin-left:4px}
+ .gov-tools input{width:150px;border:1px solid #8c7a5a;background:#fffdf8;color:#27221f;padding:3px 7px;font:10px "Noto Sans JP",sans-serif}
+ .gov-tools button{border:1px solid #d9be83;background:#29413a;color:#fff8e9;padding:0 10px;font:10px "Noto Sans JP",sans-serif;cursor:pointer}
+ .gov-breadcrumb{background:#f4efe5;border-bottom:1px solid #c8baa3;font-family:"Noto Sans JP","Yu Gothic",sans-serif}
+ .gov-breadcrumb-inner{max-width:1440px;margin:auto;padding:8px 24px;display:flex;align-items:center;gap:9px;font-size:10px;color:#70675e}
+ .gov-breadcrumb a{color:#6c1f28;text-decoration:underline;text-underline-offset:3px}
+ .gov-breadcrumb strong{font-weight:500;color:#302a25}
+ .gov-search-hit{outline:3px solid rgba(173,138,81,.45);outline-offset:6px;background:rgba(255,245,215,.7)!important}
+ .gov-footer-links{display:flex;flex-wrap:wrap;gap:8px 15px;max-width:1180px;margin:20px auto 0;padding:16px 20px;border-top:1px solid rgba(217,190,131,.25);font:10px "Noto Sans JP",sans-serif}
+ .gov-footer-links a{color:#d9be83;text-decoration:none}
+ .gov-footer-links a:hover{text-decoration:underline}
+ .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+ @media(max-width:800px){
+   .gov-chrome-inner{padding:7px 14px;display:block}
+   .gov-language{margin-bottom:6px;gap:10px}
+   .gov-tools{gap:9px;flex-wrap:wrap}
+   .gov-tools input{width:min(52vw,190px)}
+   .gov-breadcrumb-inner{padding:7px 14px}
+ }
+ `;
+ document.head.appendChild(govStyle);
+
 });
