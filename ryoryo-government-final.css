@@ -1,0 +1,273 @@
+/* =========================================================
+   玲瓏浪漫・官公廳公式情報網 UI FINAL
+   四季廳本省向け最終意匠層
+   ========================================================= */
+:root{
+  --rr-paper:#f6f0e3;
+  --rr-paper-hi:#fffaf1;
+  --rr-paper-dk:#e9dfcc;
+  --rr-ink:#29251f;
+  --rr-muted:#70675c;
+  --rr-red:#7b202c;
+  --rr-red-dk:#51151d;
+  --rr-green:#223933;
+  --rr-green-dk:#172a25;
+  --rr-gold:#a9854e;
+  --rr-line:#c7b89d;
+  --rr-line-dark:#8d795a;
+  --rr-spring:#d994a4;
+  --rr-summer:#d5ad3e;
+  --rr-autumn:#8a624a;
+  --rr-winter:#a6cbd8;
+}
+
+html,body{background:var(--rr-paper)!important;color:var(--rr-ink)!important}
+body{
+  font-family:"Yu Mincho","Hiragino Mincho ProN","Noto Serif JP",serif!important;
+  line-height:1.9!important;
+  background:
+    linear-gradient(rgba(80,56,35,.022) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(80,56,35,.018) 1px,transparent 1px),
+    radial-gradient(circle at 50% 0,rgba(255,255,255,.7),transparent 38%),
+    var(--rr-paper)!important;
+  background-size:28px 28px,28px 28px,auto,auto!important;
+}
+body:before{opacity:.012!important}
+body:after{
+  inset:8px!important;
+  border:1px solid rgba(169,133,78,.34)!important;
+  box-shadow:inset 0 0 0 4px rgba(169,133,78,.025)!important;
+  pointer-events:none!important;
+}
+a{color:var(--rr-red)!important}
+
+.imperial-header{
+  background:var(--rr-green-dk)!important;
+  border-bottom:3px double var(--rr-gold)!important;
+}
+.imperial-header-inner{max-width:1280px!important;min-height:35px!important}
+.imperial-header a{font-size:10px!important;letter-spacing:.16em!important;color:#eee4d2!important}
+.imperial-header .current{color:#fff9ef!important;border-bottom-color:var(--rr-gold)!important}
+
+.site-header{
+  position:relative!important;
+  top:auto!important;
+  background:rgba(255,250,241,.98)!important;
+  border-bottom:1px solid var(--rr-line-dark)!important;
+  box-shadow:none!important;
+}
+.header-inner{max-width:1280px!important;min-height:92px!important}
+.brand-mark{
+  width:54px!important;height:54px!important;
+  border:1px solid var(--rr-red)!important;
+  background:var(--rr-paper-hi)!important;
+  box-shadow:inset 0 0 0 4px rgba(169,133,78,.08)!important;
+}
+.brand strong{
+  font-family:"Shippori Mincho","Yu Mincho",serif!important;
+  color:var(--rr-red)!important;
+  font-size:30px!important;
+  font-weight:600!important;
+  letter-spacing:.2em!important;
+}
+.brand small{font-family:Georgia,serif!important;color:var(--rr-muted)!important;letter-spacing:.18em!important}
+#global-nav{
+  border-top:1px solid var(--rr-line)!important;
+}
+#global-nav a{
+  color:var(--rr-ink)!important;
+  font-size:11px!important;
+  letter-spacing:.08em!important;
+  border-left:1px solid rgba(141,121,90,.32)!important;
+  padding:0 12px!important;
+}
+#global-nav a:hover{background:var(--rr-paper-dk)!important;color:var(--rr-red)!important}
+
+.law-banner{
+  background:var(--rr-paper-dk)!important;
+  border-bottom:1px solid var(--rr-line)!important;
+  box-shadow:none!important;
+}
+.law-banner-inner{max-width:1280px!important;padding:10px 24px!important}
+.law-banner-label .mark{border-color:var(--rr-gold)!important;color:var(--rr-red)!important}
+.law-banner-label span{color:#77664d!important}
+.law-banner-label strong{font-family:"Yu Mincho",serif!important;color:var(--rr-red)!important}
+.law-banner a{background:var(--rr-paper-hi)!important;color:var(--rr-red)!important;border-color:var(--rr-red)!important}
+
+.hero{
+  min-height:550px!important;
+  background:
+    linear-gradient(90deg,rgba(246,240,227,.99) 0%,rgba(246,240,227,.97) 55%,rgba(246,240,227,.76) 100%)!important;
+  border-bottom:3px double var(--rr-line-dark)!important;
+}
+.hero:before{
+  inset:18px!important;
+  border:1px solid rgba(169,133,78,.30)!important;
+  background:linear-gradient(90deg,transparent 49.8%,rgba(123,32,44,.055) 50%,transparent 50.2%)!important;
+}
+.hero-inner{max-width:1280px!important;width:calc(100% - 84px)!important;padding-top:115px!important}
+.hero-watermark{color:var(--rr-red)!important;opacity:.032!important;font-size:280px!important;right:2%!important}
+.hero .kicker{font-size:9px!important;letter-spacing:.4em!important;color:var(--rr-gold)!important}
+.hero h1{
+  font-family:"Shippori Mincho","Yu Mincho",serif!important;
+  font-weight:500!important;
+  font-size:clamp(56px,7.7vw,104px)!important;
+  letter-spacing:.16em!important;
+  line-height:1.04!important;
+  color:var(--rr-ink)!important;
+}
+.hero h1 em{color:var(--rr-red)!important}
+.hero-lead{
+  color:#584f45!important;
+  border-left:3px solid var(--rr-red)!important;
+  padding-left:18px!important;
+  font-size:14px!important;
+  line-height:2.15!important;
+}
+.hero-rule{color:#75654e!important}
+.hero-rule i{background:var(--rr-gold)!important}
+
+.season-status{
+  background:var(--rr-red-dk)!important;
+  border-bottom:3px double var(--rr-gold)!important;
+  box-shadow:none!important;
+}
+.status-inner{max-width:1280px!important;min-height:98px!important}
+.season-status .eyebrow{color:#d9c18b!important}
+.season-status h2{font-family:"Shippori Mincho",serif!important;font-size:19px!important}
+.status-light{border-left:1px solid rgba(205,185,135,.34)!important}
+.status-light b,.status-light small,#last-updated{color:#fff7eb!important}
+
+.section{
+  padding:78px 0!important;
+  background:var(--rr-paper-hi)!important;
+  border-bottom:1px solid var(--rr-line)!important;
+}
+.section:nth-of-type(even){background:#eee5d5!important}
+.content-width{max-width:1280px!important}
+.section-title{
+  border-bottom:1px solid var(--rr-line-dark)!important;
+  padding-bottom:15px!important;
+  margin-bottom:28px!important;
+}
+.section-title h2{
+  font-family:"Shippori Mincho","Yu Mincho",serif!important;
+  font-size:29px!important;
+  font-weight:500!important;
+  color:var(--rr-ink)!important;
+  letter-spacing:.16em!important;
+}
+.section-title p{font-family:Georgia,serif!important;color:var(--rr-red)!important;letter-spacing:.18em!important;font-size:9px!important}
+.section-title>span{color:var(--rr-red)!important}
+
+.news-list{border-top:2px solid #6f5c41!important}
+.news-list article{
+  background:rgba(255,250,241,.78)!important;
+  border-bottom:1px solid var(--rr-line)!important;
+  padding:16px 18px!important;
+}
+.news-list article:hover{background:#fffdf8!important}
+.news-list article time{color:#827463!important;font-family:Georgia,serif!important}
+.news-list article span{color:var(--rr-red)!important;border-color:rgba(123,32,44,.30)!important}
+.news-list article a{color:var(--rr-ink)!important}
+.news-list article a:hover{color:var(--rr-red)!important}
+
+.departments-section{
+  background:var(--rr-green-dk)!important;
+  border-top:3px double var(--rr-gold)!important;
+  border-bottom:3px double var(--rr-gold)!important;
+}
+.departments-section .section-title{border-color:rgba(205,185,135,.34)!important}
+.departments-section .section-title h2{color:#f6eddf!important}
+.departments-section .section-title p{color:#d8c28f!important}
+.department-grid{
+  border:1px solid rgba(205,185,135,.34)!important;
+  background:rgba(205,185,135,.34)!important;
+  gap:1px!important;
+}
+.department-grid article{
+  border:0!important;
+  border-top:5px solid transparent!important;
+  border-radius:0!important;
+  background:#213a32!important;
+  box-shadow:none!important;
+  min-height:172px!important;
+}
+.department-grid article:nth-child(4n+1){border-top-color:var(--rr-spring)!important}
+.department-grid article:nth-child(4n+2){border-top-color:var(--rr-summer)!important}
+.department-grid article:nth-child(4n+3){border-top-color:var(--rr-autumn)!important}
+.department-grid article:nth-child(4n){border-top-color:var(--rr-winter)!important}
+.department-grid article:hover{background:#29433a!important;transform:none!important}
+.department-grid h3{font-family:"Shippori Mincho",serif!important;color:#fff5e8!important}
+.department-grid p,.department-grid small{color:#d8d1c5!important}
+.department-grid span{color:#d7bd83!important}
+
+.gods-section{background:#f7f0e1!important}
+.god-tabs{
+  border:1px solid var(--rr-line-dark)!important;
+  border-radius:0!important;
+  background:var(--rr-paper-dk)!important;
+}
+.god-tab{border-radius:0!important;color:var(--rr-ink)!important}
+.god-tab.active{background:var(--rr-red)!important;color:#fffaf1!important}
+.god-panel{
+  background:var(--rr-paper-hi)!important;
+  border:1px solid var(--rr-line)!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+}
+.god-panel h3{font-family:"Shippori Mincho",serif!important;color:var(--rr-red)!important}
+
+.mission-card,.document-copy,.duty-grid article,.report-box,.contact-box,.portal-file-tabs,.person-search-section{
+  border-radius:0!important;
+  box-shadow:none!important;
+  border-color:var(--rr-line)!important;
+}
+.mission-card,.document-copy,.duty-grid article,.report-box,.contact-box{background:var(--rr-paper-hi)!important}
+
+.person-search-section{
+  background:#eee4d3!important;
+  border:1px solid var(--rr-line-dark)!important;
+  border-top:3px double var(--rr-red)!important;
+}
+.person-search-kicker{color:var(--rr-gold)!important}
+.person-search-section h2{font-family:"Shippori Mincho",serif!important;color:var(--rr-ink)!important}
+#person-search-input{background:#fffdf8!important;border-color:var(--rr-line-dark)!important}
+#person-search-button{background:var(--rr-red)!important;border-color:var(--rr-red)!important}
+
+.arg-teaser{
+  background:var(--rr-green)!important;
+  border-top:1px solid rgba(205,185,135,.30)!important;
+  border-bottom:3px double var(--rr-gold)!important;
+}
+.arg-teaser-mark{border-color:#d6bd83!important;color:#d6bd83!important;border-radius:0!important}
+.arg-teaser h2{font-family:"Shippori Mincho",serif!important;color:#fff4e5!important}
+.arg-teaser p{color:#d4ccc0!important}
+.arg-teaser a{border-color:rgba(205,185,135,.60)!important;color:#fff4e5!important}
+
+.shiki-v4-footer,.site-footer{
+  background:var(--rr-green-dk)!important;
+  border-top:3px double var(--rr-gold)!important;
+}
+.shiki-v4-footer strong{font-family:"Shippori Mincho",serif!important;color:#fff3e2!important}
+.shiki-v4-footer p{color:#cfc6b8!important}
+.shiki-v4-footer .motto{color:#d7be83!important}
+
+button,input,select,textarea{border-radius:0!important}
+hr{border-color:var(--rr-line)!important}
+
+@media(max-width:900px){
+  .header-inner{min-height:82px!important}
+  .hero{min-height:500px!important}
+  .hero-inner{width:calc(100% - 46px)!important;padding-top:92px!important}
+  .section{padding:64px 0!important}
+}
+@media(max-width:600px){
+  body:after{inset:5px!important}
+  .header-inner{padding-left:16px!important;padding-right:16px!important}
+  .brand strong{font-size:24px!important;letter-spacing:.14em!important}
+  .hero-inner{width:calc(100% - 28px)!important;padding-top:72px!important}
+  .hero h1{font-size:54px!important;letter-spacing:.11em!important}
+  .section{padding:56px 0!important}
+  .section-title h2{font-size:23px!important}
+}
