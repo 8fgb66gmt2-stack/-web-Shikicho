@@ -1,0 +1,727 @@
+/* =========================================================
+   四季廳 / READABLE PORTAL UI
+   玲瓏浪漫の意匠を残しつつ、情報探索を最優先に再設計
+   ========================================================= */
+
+:root{
+  --ui-bg:#f6f3ec;
+  --ui-surface:#fffdf8;
+  --ui-surface2:#eee8dc;
+  --ui-ink:#27231f;
+  --ui-muted:#6b635a;
+  --ui-red:#7a2430;
+  --ui-red-dark:#56151e;
+  --ui-green:#28443a;
+  --ui-gold:#a98245;
+  --ui-line:#cfc5b5;
+  --ui-focus:#8d6a31;
+}
+
+/* ---- 基本 ---- */
+html,body{
+  background:var(--ui-bg)!important;
+  color:var(--ui-ink)!important;
+}
+body{
+  font-family:"Noto Sans JP","Yu Gothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif!important;
+  line-height:1.8!important;
+  font-size:15px!important;
+  overflow-x:hidden!important;
+}
+body:before{display:none!important}
+body:after{
+  inset:0!important;
+  border:0!important;
+  box-shadow:none!important;
+  pointer-events:none!important;
+}
+
+/* ---- 国家共通ヘッダー ---- */
+.imperial-header{
+  background:var(--ui-green)!important;
+  border-bottom:1px solid #c7a568!important;
+  box-shadow:none!important;
+}
+.imperial-header-inner{
+  max-width:1280px!important;
+  min-height:34px!important;
+  padding:0 20px!important;
+}
+.imperial-header a,.imperial-header span{
+  font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;
+  font-size:11px!important;
+  letter-spacing:.06em!important;
+  color:#f0eadf!important;
+}
+.imperial-header .current{
+  color:#fff!important;
+  font-weight:600!important;
+}
+
+/* ---- 本省ヘッダー ---- */
+.site-header,
+.shiki-v4-masthead{
+  background:var(--ui-surface)!important;
+  border:0!important;
+  border-bottom:1px solid var(--ui-line)!important;
+  box-shadow:none!important;
+}
+.shiki-v4-masthead .inner{
+  max-width:1280px!important;
+  min-height:auto!important;
+  padding:20px 24px!important;
+}
+.shiki-v4-kicker{
+  font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;
+  font-size:10px!important;
+  letter-spacing:.08em!important;
+  color:var(--ui-muted)!important;
+}
+.shiki-v4-title{
+  font-family:"Yu Mincho","Hiragino Mincho ProN","Noto Serif JP",serif!important;
+  font-size:clamp(30px,4vw,48px)!important;
+  line-height:1.2!important;
+  letter-spacing:.12em!important;
+  color:var(--ui-ink)!important;
+}
+.shiki-v4-title span{color:var(--ui-red)!important}
+.shiki-v4-sub{
+  margin-top:6px!important;
+  color:var(--ui-muted)!important;
+  font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;
+  font-size:12px!important;
+  letter-spacing:.04em!important;
+}
+.shiki-v4-date{
+  color:var(--ui-muted)!important;
+  font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;
+  font-size:11px!important;
+  line-height:1.7!important;
+}
+.shiki-v4-date strong{color:var(--ui-red)!important}
+
+/* ---- メインサイト名表示を簡潔に ---- */
+.header-inner{
+  max-width:1280px!important;
+  min-height:78px!important;
+  padding:12px 24px!important;
+}
+.brand{gap:14px!important}
+.brand-mark{
+  width:52px!important;
+  height:52px!important;
+  flex:0 0 52px!important;
+  background:var(--ui-red)!important;
+  color:#fff!important;
+  border:2px solid var(--ui-gold)!important;
+  outline:none!important;
+  box-shadow:none!important;
+}
+.brand-mark:before{
+  content:"四時"!important;
+  position:absolute!important;
+  inset:0!important;
+  display:grid!important;
+  place-items:center!important;
+  font-family:"Yu Mincho","Noto Serif JP",serif!important;
+  font-size:19px!important;
+  color:#fff7ed!important;
+}
+.brand-mark:after{display:none!important}
+.brand strong{
+  color:var(--ui-ink)!important;
+  font-family:"Yu Mincho","Noto Serif JP",serif!important;
+  font-size:27px!important;
+  letter-spacing:.12em!important;
+  font-weight:600!important;
+}
+.brand small{
+  display:block!important;
+  color:var(--ui-muted)!important;
+  font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;
+  font-size:10px!important;
+  letter-spacing:.04em!important;
+}
+.brand:after{display:none!important}
+
+#global-nav{
+  align-self:stretch!important;
+  border:0!important;
+  background:transparent!important;
+}
+#global-nav:before{display:none!important}
+#global-nav a{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  min-width:auto!important;
+  padding:12px 13px!important;
+  color:var(--ui-ink)!important;
+  background:transparent!important;
+  border-left:1px solid var(--ui-line)!important;
+  font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;
+  font-size:11px!important;
+  letter-spacing:.03em!important;
+}
+#global-nav a:hover{
+  background:var(--ui-surface2)!important;
+  color:var(--ui-red)!important;
+}
+#global-nav a:after{display:none!important}
+
+/* ---- 法令・重要告知 ---- */
+.law-banner{
+  background:#eee7da!important;
+  border-bottom:1px solid var(--ui-line)!important;
+}
+.law-banner-inner{
+  max-width:1280px!important;
+  padding:9px 24px!important;
+}
+.law-banner-label .mark{
+  width:28px!important;height:28px!important;
+  border:1px solid var(--ui-red)!important;
+  color:var(--ui-red)!important;
+}
+.law-banner-label span{
+  color:var(--ui-muted)!important;
+  font-size:10px!important;
+}
+.law-banner-label strong{
+  color:var(--ui-red)!important;
+  font-size:12px!important;
+}
+.law-banner a{
+  padding:8px 13px!important;
+  background:var(--ui-red)!important;
+  color:#fff!important;
+  border:0!important;
+}
+
+/* ---- 補助ナビ ---- */
+.gov-chrome,.government-utility{
+  font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;
+}
+
+/* ---- ポータル本文 ---- */
+.portal-shell{
+  display:block!important;
+  max-width:1280px!important;
+  margin:0 auto!important;
+  border-left:1px solid var(--ui-line)!important;
+  border-right:1px solid var(--ui-line)!important;
+  background:var(--ui-bg)!important;
+}
+.portal-rail{display:none!important}
+.portal-body{
+  width:100%!important;
+  background:var(--ui-bg)!important;
+}
+
+/* ---- パンくず / レジストリ ---- */
+.portal-registry{
+  background:var(--ui-green)!important;
+  border:0!important;
+}
+.portal-registry-inner{
+  max-width:1280px!important;
+  padding:7px 24px!important;
+  font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;
+  font-size:10px!important;
+}
+.registry-code,.registry-status{color:#e4d09e!important}
+
+/* ---- ページ情報 ---- */
+.portal-document-head{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) 300px!important;
+  gap:30px!important;
+  padding:20px 24px!important;
+  background:var(--ui-surface)!important;
+  border-bottom:1px solid var(--ui-line)!important;
+}
+.portal-document-head:before{display:none!important}
+.document-class{
+  color:var(--ui-red)!important;
+  font:600 10px "Noto Sans JP","Yu Gothic",sans-serif!important;
+  letter-spacing:.08em!important;
+}
+.portal-document-head h1{
+  margin:4px 0!important;
+  font-family:"Yu Mincho","Noto Serif JP",serif!important;
+  font-size:25px!important;
+  color:var(--ui-ink)!important;
+  letter-spacing:.08em!important;
+}
+.portal-document-head p{
+  margin:0!important;
+  color:var(--ui-muted)!important;
+  font-size:11px!important;
+}
+.document-meta{
+  border-left:1px solid var(--ui-line)!important;
+  padding-left:18px!important;
+}
+.document-meta dt{
+  color:var(--ui-muted)!important;
+  font-size:10px!important;
+}
+.document-meta dd{
+  color:var(--ui-ink)!important;
+  font-size:11px!important;
+}
+
+/* ---- HERO：高さを抑え、要点を先に ---- */
+.hero{
+  min-height:420px!important;
+  background:
+    linear-gradient(100deg,#fffdf8 0%,#faf5ea 70%,#f0e5d3 100%)!important;
+  border:0!important;
+  border-bottom:1px solid var(--ui-line)!important;
+}
+.hero:before{display:none!important}
+.hero-inner{
+  max-width:1280px!important;
+  width:auto!important;
+  padding:76px 70px 72px!important;
+}
+.hero-inner:before,.hero-inner:after{display:none!important}
+.hero-watermark{
+  opacity:.025!important;
+  font-size:220px!important;
+  right:3%!important;
+  color:var(--ui-red)!important;
+}
+.hero .kicker{
+  display:inline-block!important;
+  padding:5px 9px!important;
+  background:var(--ui-red)!important;
+  color:#fff!important;
+  font:600 10px "Noto Sans JP","Yu Gothic",sans-serif!important;
+  letter-spacing:.08em!important;
+}
+.hero h1{
+  max-width:760px!important;
+  margin:18px 0 16px!important;
+  font-family:"Yu Mincho","Noto Serif JP",serif!important;
+  font-size:clamp(48px,7vw,82px)!important;
+  line-height:1.05!important;
+  letter-spacing:.08em!important;
+  color:var(--ui-ink)!important;
+  text-shadow:none!important;
+}
+.hero h1 em{
+  color:var(--ui-red)!important;
+  border:0!important;
+}
+.hero-lead{
+  max-width:700px!important;
+  padding-left:16px!important;
+  border-left:3px solid var(--ui-red)!important;
+  color:var(--ui-muted)!important;
+  font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;
+  font-size:14px!important;
+  line-height:2!important;
+}
+.hero-rule{
+  max-width:700px!important;
+  color:var(--ui-muted)!important;
+  font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;
+  font-size:10px!important;
+}
+.hero-rule:before,.hero-rule:after{display:none!important}
+.hero-rule i{background:var(--ui-gold)!important}
+
+/* 四季輪は「背景装飾」に徹する */
+.four-season-wheel{
+  width:300px!important;
+  height:300px!important;
+  right:8%!important;
+  top:52%!important;
+  opacity:.14!important;
+}
+.season-wheel-center{background:rgba(255,253,248,.8)!important}
+
+/* ---- 現在事項 ---- */
+.season-status{
+  background:var(--ui-red)!important;
+  border:0!important;
+  border-bottom:3px solid var(--ui-gold)!important;
+}
+.status-inner{
+  max-width:1280px!important;
+  min-height:86px!important;
+  padding:0 24px!important;
+}
+.season-status:before{display:none!important}
+.season-status .eyebrow{color:#e9cfa0!important}
+.season-status h2{
+  color:#fff!important;
+  font-size:17px!important;
+}
+.status-light{
+  border-left:1px solid rgba(255,255,255,.25)!important;
+}
+
+/* ---- 情報章 ---- */
+.section{
+  padding:60px 0!important;
+  background:var(--ui-surface)!important;
+  border-bottom:1px solid var(--ui-line)!important;
+}
+.section:nth-of-type(even){background:#f0eadf!important}
+.portal-body>.section>.content-width{
+  max-width:1120px!important;
+}
+.section>.content-width:before,
+.section>.content-width:after,
+.section:before,
+.section:after{display:none!important}
+.section-title{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  align-items:end!important;
+  gap:8px 16px!important;
+  margin:0 0 22px!important;
+  padding:0 0 10px 14px!important;
+  border-bottom:2px solid var(--ui-green)!important;
+  border-left:5px solid var(--ui-red)!important;
+}
+.section-title:before,.section-title:after{display:none!important}
+.section-title>span{
+  color:var(--ui-muted)!important;
+  font:700 10px "Noto Sans JP","Yu Gothic",sans-serif!important;
+  letter-spacing:.05em!important;
+}
+.section-title h2{
+  margin:0!important;
+  color:var(--ui-ink)!important;
+  font-family:"Yu Mincho","Noto Serif JP",serif!important;
+  font-size:28px!important;
+  line-height:1.4!important;
+  letter-spacing:.06em!important;
+}
+.section-title p{
+  flex-basis:100%!important;
+  margin:0!important;
+  color:var(--ui-muted)!important;
+  font-size:11px!important;
+}
+
+/* ---- 新着：一覧性重視 ---- */
+.news-list{
+  border-top:2px solid var(--ui-green)!important;
+}
+.portal-body .news-list article{
+  display:grid!important;
+  grid-template-columns:118px 68px minmax(0,1fr)!important;
+  gap:14px!important;
+  align-items:center!important;
+  min-height:64px!important;
+  padding:9px 10px!important;
+  background:transparent!important;
+  border-bottom:1px solid var(--ui-line)!important;
+}
+.news-list article:hover{
+  background:#f3eee5!important;
+  padding-left:14px!important;
+}
+.news-list article time{
+  color:var(--ui-muted)!important;
+  font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;
+  font-size:10px!important;
+}
+.news-list article span{
+  color:var(--ui-red)!important;
+  font-size:10px!important;
+  font-weight:600!important;
+  border-left:3px solid var(--ui-gold)!important;
+  border-top:0!important;border-right:0!important;border-bottom:0!important;
+  padding-left:8px!important;
+}
+.news-list article a{
+  color:var(--ui-ink)!important;
+  font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;
+  font-size:13px!important;
+}
+.news-list article a:hover{color:var(--ui-red)!important}
+
+/* ---- 神籍 ---- */
+.gods-section{background:#eee7da!important}
+.god-tabs{
+  display:grid!important;
+  grid-template-columns:repeat(4,1fr)!important;
+  border:1px solid var(--ui-line)!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  background:var(--ui-surface)!important;
+}
+.god-tab{
+  min-height:60px!important;
+  border-top:4px solid transparent!important;
+  border-right:1px solid var(--ui-line)!important;
+  color:var(--ui-ink)!important;
+  font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;
+  font-size:12px!important;
+}
+.god-tab:nth-child(1){border-top-color:#d49ba7!important}
+.god-tab:nth-child(2){border-top-color:#d5b04d!important}
+.god-tab:nth-child(3){border-top-color:#9a7152!important}
+.god-tab:nth-child(4){border-top-color:#9ebec9!important}
+.god-tab.active{
+  background:var(--ui-green)!important;
+  color:#fff!important;
+}
+.god-panel{
+  border:1px solid var(--ui-line)!important;
+  border-top:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  background:var(--ui-surface)!important;
+  padding:28px!important;
+}
+.god-panel h3{
+  color:var(--ui-red)!important;
+  font-family:"Yu Mincho","Noto Serif JP",serif!important;
+  font-size:25px!important;
+}
+.god-panel p,.god-panel dt,.god-panel dd{
+  font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;
+  font-size:12px!important;
+}
+
+/* ---- 護衛官 / 組織 ---- */
+.guards-section,.departments-section{
+  background:var(--ui-green)!important;
+  border-top:1px solid var(--ui-gold)!important;
+  border-bottom:1px solid var(--ui-gold)!important;
+}
+.guards-section .section-title,
+.departments-section .section-title{
+  border-bottom-color:#c7aa74!important;
+}
+.guards-section .section-title h2,
+.departments-section .section-title h2{color:#fff!important}
+.guards-section .section-title>span,
+.guards-section .section-title p,
+.departments-section .section-title>span,
+.departments-section .section-title p{color:#dfcb9c!important}
+.guards-section .department-grid,
+.departments-section .department-grid{
+  border:1px solid rgba(223,203,156,.3)!important;
+  background:rgba(223,203,156,.25)!important;
+  gap:1px!important;
+}
+.guards-section .department-grid article,
+.departments-section .department-grid article{
+  background:#29443a!important;
+  border:0!important;
+  box-shadow:none!important;
+  min-height:180px!important;
+}
+.department-grid article:before{display:none!important}
+.department-grid article:hover{
+  transform:none!important;
+  background:#315047!important;
+}
+.department-grid h3{
+  font-family:"Yu Mincho","Noto Serif JP",serif!important;
+  color:#fff!important;
+  font-size:19px!important;
+}
+.department-grid p,.department-grid small{
+  color:#d9d6cd!important;
+  font-size:11px!important;
+}
+
+/* ---- 業務 ---- */
+.duties-section{background:#eee7da!important}
+.duty-grid{
+  display:grid!important;
+  grid-template-columns:repeat(2,1fr)!important;
+  gap:12px!important;
+}
+.duty-grid article{
+  min-height:145px!important;
+  padding:22px!important;
+  border:1px solid var(--ui-line)!important;
+  border-top:4px solid var(--ui-red)!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  background:var(--ui-surface)!important;
+}
+.duty-grid article:hover{
+  transform:none!important;
+  border-color:var(--ui-gold)!important;
+}
+.duty-grid h3{
+  font-family:"Yu Mincho","Noto Serif JP",serif!important;
+  color:var(--ui-red)!important;
+  font-size:20px!important;
+}
+.duty-grid p{
+  color:var(--ui-muted)!important;
+  font-size:12px!important;
+}
+
+/* ---- 人物検索 ---- */
+.portal-person-frame{
+  background:#e9e0d0!important;
+  padding:28px 24px 34px!important;
+}
+.portal-person-frame:before{color:var(--ui-muted)!important}
+.person-search-section{
+  max-width:1120px!important;
+  margin:0 auto!important;
+  padding:22px!important;
+  background:var(--ui-surface)!important;
+  border:1px solid var(--ui-line)!important;
+  border-top:4px solid var(--ui-red)!important;
+  box-shadow:none!important;
+}
+.person-search-section h2{
+  font-family:"Yu Mincho","Noto Serif JP",serif!important;
+  font-size:23px!important;
+  color:var(--ui-red)!important;
+}
+#person-search-input{
+  min-height:42px!important;
+  border:1px solid #a99b88!important;
+  background:#fff!important;
+  font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;
+}
+#person-search-button{
+  min-height:42px!important;
+  background:var(--ui-red)!important;
+  border:1px solid var(--ui-red)!important;
+  color:#fff!important;
+}
+
+/* ---- 記録タブ ---- */
+.portal-file-tabs{
+  background:var(--ui-surface2)!important;
+  border-top:4px solid var(--ui-gold)!important;
+  border-bottom:1px solid var(--ui-line)!important;
+}
+.file-tab{
+  min-height:70px!important;
+  background:transparent!important;
+}
+.file-tab:hover{background:#e6ddce!important}
+.file-tab b{
+  color:var(--ui-red)!important;
+  font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;
+}
+
+/* ---- 附属資料 ---- */
+.arg-teaser{
+  background:var(--ui-green)!important;
+  border-top:1px solid var(--ui-gold)!important;
+  border-bottom:3px solid var(--ui-gold)!important;
+}
+.arg-teaser h2{
+  color:#fff!important;
+  font-family:"Yu Mincho","Noto Serif JP",serif!important;
+}
+.arg-teaser p{
+  color:#d8d4cc!important;
+  font-family:"Noto Sans JP","Yu Gothic",sans-serif!important;
+}
+.arg-teaser a{
+  background:var(--ui-gold)!important;
+  color:#221b14!important;
+  border:0!important;
+}
+
+/* ---- 関係機関・連絡先 ---- */
+.contact-section,.related-agencies-section{
+  background:var(--ui-surface)!important;
+}
+.contact-box,.related-agency{
+  background:#faf7f0!important;
+  border:1px solid var(--ui-line)!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+}
+
+/* ---- フッター ---- */
+.site-footer,.shiki-v4-footer{
+  background:#1e302a!important;
+  border-top:4px solid var(--ui-gold)!important;
+  color:#e6ddd0!important;
+}
+.site-footer:after{display:none!important}
+.shiki-v4-footer strong{color:#fff!important}
+.shiki-v4-footer .motto{color:#ddc994!important}
+
+/* ---- フォーカス / アクセシビリティ ---- */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
+  outline:3px solid rgba(169,130,69,.6)!important;
+  outline-offset:2px!important;
+}
+button,input,select,textarea{border-radius:0!important}
+
+/* ---- モバイル ---- */
+@media(max-width:900px){
+  .header-inner{min-height:72px!important;padding:10px 16px!important}
+  .brand strong{font-size:23px!important}
+  .brand small{font-size:9px!important}
+  .portal-document-head{grid-template-columns:1fr!important}
+  .document-meta{border-left:0!important;border-top:1px solid var(--ui-line)!important;padding:12px 0 0!important}
+  .hero{min-height:430px!important}
+  .hero-inner{padding:72px 34px 62px!important}
+  .hero h1{font-size:58px!important}
+  .four-season-wheel{width:250px!important;height:250px!important;right:-4%!important;opacity:.1!important}
+  .section{padding:54px 0!important}
+  .duties-section .duty-grid{grid-template-columns:1fr!important}
+}
+@media(max-width:680px){
+  body{font-size:14px!important}
+  .imperial-header-inner{padding:0 10px!important}
+  .imperial-header-inner span:not(.current),.imperial-header-inner a{display:none!important}
+  .shiki-v4-masthead .inner{padding:17px 16px!important}
+  .shiki-v4-title{font-size:30px!important}
+  .shiki-v4-sub{font-size:10px!important}
+  .header-inner{padding:9px 14px!important}
+  .brand-mark{width:44px!important;height:44px!important;flex-basis:44px!important}
+  .brand strong{font-size:20px!important}
+  #global-nav{
+    position:absolute!important;
+    top:100%!important;
+    left:10px!important;
+    right:10px!important;
+    background:var(--ui-surface)!important;
+    border:1px solid var(--ui-line)!important;
+    box-shadow:0 8px 22px rgba(40,30,20,.12)!important;
+  }
+  #global-nav a{
+    justify-content:flex-start!important;
+    min-height:42px!important;
+    padding:10px 12px!important;
+    border-left:0!important;
+    border-bottom:1px solid var(--ui-line)!important;
+  }
+  .law-banner-inner{padding:8px 12px!important}
+  .portal-document-head{padding:16px!important}
+  .hero{min-height:410px!important}
+  .hero-inner{padding:62px 22px 52px!important}
+  .hero h1{font-size:49px!important;letter-spacing:.03em!important}
+  .hero-lead{font-size:12px!important}
+  .status-inner{padding:0 14px!important}
+  .portal-body>.section>.content-width{padding-left:14px!important;padding-right:14px!important}
+  .section-title h2{font-size:24px!important}
+  .portal-body .news-list article{
+    grid-template-columns:1fr!important;
+    gap:4px!important;
+    min-height:auto!important;
+    padding:12px 4px!important;
+  }
+  .god-tabs{grid-template-columns:1fr 1fr!important}
+  .god-tab{min-height:54px!important}
+  .god-panel{padding:20px!important}
+  .portal-person-frame{padding:20px 12px 26px!important}
+  .person-search-section{padding:17px!important}
+  .portal-file-tabs{grid-template-columns:1fr 1fr!important}
+  .file-tab{min-height:64px!important;padding:12px 10px!important}
+  .gov-chrome-inner{padding:7px 12px!important}
+}
