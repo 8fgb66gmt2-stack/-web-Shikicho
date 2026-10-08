@@ -2,148 +2,183 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="日ノ本帝國 國家治安機構。帝國の警察権を有し、臣民の安全と秩序を守る国家行政機關。">
-<meta name="theme-color" content="#111615">
-<title>國家治安機構｜日ノ本帝國 公式情報網</title>
+<meta name="theme-color" content="#17201d">
+<title>國家治安機構｜日ノ本帝國政府 公式情報網</title>
 <style>
 :root{
- --ink:#111615;--ink2:#1c2522;--green:#263f39;--jade:#628b80;--jade2:#9ab7ad;
- --silver:#aeb5ae;--paper:#e9e6dc;--paper2:#f5f2e9;--line:#9ba69f;--gold:#a99b78;--red:#71352f;
+ --ink:#121715;--ink2:#1d2824;--green:#29453d;--jade:#668f83;--jade2:#9dbab0;
+ --paper:#f2efe6;--paper2:#e6e3d8;--white:#faf8f1;--line:#a6afa9;
+ --silver:#c1c5bf;--gold:#a9956a;--red:#74352f;--muted:#63716b;
 }
 *{box-sizing:border-box}
-html{background:var(--ink);scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:#202523;font-family:"Yu Mincho","Hiragino Mincho ProN","Noto Serif JP",serif;line-height:1.9}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:20;opacity:.22;background-image:linear-gradient(rgba(38,63,57,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(38,63,57,.055) 1px,transparent 1px);background-size:44px 44px}
+html{scroll-behavior:smooth;background:var(--ink)}
+body{margin:0;color:#222825;background:var(--paper);font-family:"Yu Mincho","Hiragino Mincho ProN","Noto Serif JP",serif;line-height:1.85}
+body:before{content:"";position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.15;background-image:linear-gradient(90deg,rgba(41,69,61,.12) 1px,transparent 1px),linear-gradient(rgba(41,69,61,.06) 1px,transparent 1px);background-size:48px 48px}
 a{color:inherit}
-.govbar{background:#0b0f0e;color:#aebbb5;border-bottom:1px solid #4c655e;font:10px/1.5 Georgia,serif;letter-spacing:.18em}
-.govbar-inner,.head-inner,.hero-inner,.main,.footer-inner{max-width:1260px;margin:auto}
-.govbar-inner{padding:9px 30px;display:flex;justify-content:space-between;gap:20px}
-.header{background:linear-gradient(135deg,#17201e,#26332f);color:#eeeae0;border-bottom:5px double var(--jade);box-shadow:0 8px 24px rgba(0,0,0,.16)}
-.head-inner{padding:27px 30px 21px}
-.masthead{display:flex;align-items:center;gap:20px}
-.emblem{width:72px;height:72px;border:1px solid var(--jade);outline:1px solid rgba(154,183,173,.45);outline-offset:5px;display:grid;place-items:center;position:relative;color:#d5dfda;font-size:30px}
-.emblem:before,.emblem:after{content:"";position:absolute;width:8px;height:8px;border:1px solid var(--gold);transform:rotate(45deg);background:#17201e}
-.emblem:before{top:-5px;left:-5px}.emblem:after{right:-5px;bottom:-5px}
-.kana{font:10px Georgia,serif;letter-spacing:.28em;color:#9db4ac}
-h1{font-size:31px;font-weight:500;letter-spacing:.2em;margin:2px 0 0}
-.subtitle{font-size:10px;letter-spacing:.16em;color:#aeb8b3;margin-top:4px}
-.nav{display:flex;flex-wrap:wrap;gap:7px;margin-top:25px;padding-top:13px;border-top:1px solid #53655e}
-.nav a{text-decoration:none;color:#dbe3de;border:1px solid #4e625a;padding:6px 12px;font-size:11px;letter-spacing:.08em;transition:.2s}
-.nav a:hover{background:#30423d;border-color:var(--jade2)}
-.notice{background:#d7d5ca;border-bottom:1px solid #8b948e}
-.notice-inner{max-width:1260px;margin:auto;padding:9px 30px;display:flex;gap:15px;align-items:center;font-size:11px}
-.notice b{color:var(--red);font:10px Georgia,serif;letter-spacing:.15em}
-.hero{background:
- radial-gradient(circle at 82% 18%,rgba(98,139,128,.16),transparent 25%),
- linear-gradient(125deg,#17201e 0%,#111615 58%,#253d37 100%);
-color:#eeeae0;border-bottom:5px double var(--jade);position:relative;overflow:hidden}
-.hero:before{content:"治";position:absolute;right:7%;top:2%;font-family:serif;font-size:280px;line-height:1;color:rgba(154,183,173,.035);font-weight:bold}
-.hero-inner{padding:88px 30px 82px;position:relative}
-.eyebrow{font:10px Georgia,serif;letter-spacing:.35em;color:var(--jade2)}
-.hero h2{font-size:clamp(48px,7vw,88px);line-height:1.05;font-weight:500;letter-spacing:.16em;margin:14px 0 24px}
-.hero h2 span{display:block;font:11px Georgia,serif;letter-spacing:.28em;color:#aeb8b3;margin-bottom:12px}
-.hero-lead{max-width:760px;border-left:3px solid var(--jade);padding-left:19px;color:#cbd2ce;font-size:14px}
-.classification{display:flex;gap:8px;flex-wrap:wrap;margin-top:28px}
-.classification span{border:1px solid #5e756d;padding:4px 10px;color:#d6dfdb;font:9px Georgia,serif;letter-spacing:.14em}
-.stamp{position:absolute;right:30px;bottom:29px;border:1px solid #6b8179;color:#9eb5ad;padding:10px 14px;font-size:10px;letter-spacing:.16em;transform:rotate(-2deg);opacity:.8}
-.main{padding:56px 30px 95px}
-.section{position:relative;background:rgba(245,242,233,.95);border:1px solid var(--line);margin-bottom:27px;box-shadow:0 12px 28px rgba(17,22,21,.07)}
-.section:before{content:"";position:absolute;inset:5px;border:1px solid rgba(98,139,128,.32);pointer-events:none}
-.section-head{padding:21px 27px 18px;background:#deded5;border-bottom:3px double #9aa49e;position:relative}
-.section-head small{display:block;color:#52776c;font:9px Georgia,serif;letter-spacing:.2em}
-.section-head h3{margin:4px 0 0;font-size:22px;font-weight:500;letter-spacing:.14em}
-.section-body{padding:27px;position:relative}
-.section-body>p{max-width:860px;font-size:13px}
-.facts{display:grid;grid-template-columns:repeat(2,1fr)}
-.fact{padding:17px 20px;border-right:1px solid #bec5c0;border-bottom:1px solid #bec5c0}
-.fact:nth-child(even){border-right:0}
-.fact b{display:block;color:#63716b;font:9px Georgia,serif;letter-spacing:.14em;margin-bottom:4px}
-.fact strong{font-weight:500;font-size:14px}
-.unit{display:grid;grid-template-columns:1.35fr 1fr;gap:17px}
-.unit-card{background:#e8e7df;border:1px solid #a9b1ab;padding:23px;position:relative}
-.unit-card:after{content:"";position:absolute;inset:6px;border:1px solid rgba(98,139,128,.25);pointer-events:none}
-.unit-card.highlight{border-top:4px solid var(--jade)}
-.unit-card h4{margin:0 0 7px;font-size:25px;font-weight:500;color:var(--green);letter-spacing:.1em}
-.latin{font:10px Georgia,serif;color:#70827b;letter-spacing:.2em}
-.unit-card p{font-size:12px;color:#4c5752;margin:12px 0 0}
-.record{display:inline-block;margin-bottom:10px;border:1px solid #7c8e87;padding:3px 8px;color:#536c64;font:9px Georgia,serif;letter-spacing:.12em}
-.footer{background:#0e1211;color:#aeb8b3;border-top:5px double var(--jade);padding:38px 30px}
-.footer-inner{display:flex;justify-content:space-between;gap:30px;align-items:end}
-.footer strong{font-size:18px;font-weight:500;letter-spacing:.16em;color:#e1e0d8}
-.footer p{font-size:10px;color:#7f8d87;margin:7px 0 0}
-.back{text-decoration:none;border:1px solid #4d625a;padding:7px 12px;font-size:10px;color:#c4d0cb}
-.back:hover{background:#24312d}
-@media(max-width:760px){
- .govbar-inner,.head-inner,.hero-inner,.main,.footer{padding-left:18px;padding-right:18px}
- .govbar-inner,.footer-inner{display:block}
- .govbar-inner span+span{display:block;margin-top:4px}
- .masthead{align-items:flex-start}.emblem{width:58px;height:58px;font-size:24px}h1{font-size:24px}
- .facts,.unit{grid-template-columns:1fr}.fact{border-right:0}.fact:nth-child(even){border-right:0}
- .hero-inner{padding-top:62px;padding-bottom:75px}.stamp{right:18px}
-}
+.wrap{max-width:1280px;margin:auto}
+.govline{background:#0b0f0e;color:#aebbb5;border-bottom:1px solid #496159;font:10px/1.5 Georgia,serif;letter-spacing:.18em}
+.govline .wrap{padding:8px 30px;display:flex;justify-content:space-between;gap:20px}
+.utility{background:#1a2421;color:#c9d1cd;border-bottom:1px solid #3f514b;font-size:10px}
+.utility .wrap{display:flex;justify-content:flex-end;gap:0}
+.utility a{padding:7px 12px;text-decoration:none;border-left:1px solid #3b4b46}
+.utility a:last-child{border-right:1px solid #3b4b46}
+.utility a:hover{background:#2b3934;color:#fff}
+.header{background:linear-gradient(115deg,#1a2421,#263731);color:#f0eee5;border-bottom:5px double var(--jade);box-shadow:0 7px 25px rgba(0,0,0,.12)}
+.head{padding:25px 30px 0}
+.brand{display:flex;align-items:center;gap:20px}
+.emblem{width:70px;height:70px;border:1px solid var(--jade2);outline:1px solid rgba(157,186,176,.45);outline-offset:5px;display:grid;place-items:center;position:relative;color:#dce5e0;font-size:29px}
+.emblem:before,.emblem:after{content:"";position:absolute;width:9px;height:9px;border:1px solid var(--gold);transform:rotate(45deg);background:#1c2723}
+.emblem:before{top:-6px;left:-6px}.emblem:after{right:-6px;bottom:-6px}
+.kana{font:9px Georgia,serif;letter-spacing:.3em;color:#9dbab0}
+h1{font-size:31px;font-weight:500;letter-spacing:.19em;margin:2px 0}
+.sub{font-size:10px;letter-spacing:.16em;color:#adbab5}
+.nav{display:flex;flex-wrap:wrap;margin-top:25px;border-top:1px solid #53655e}
+.nav a{flex:1 1 auto;text-align:center;text-decoration:none;color:#e0e6e2;font-size:11px;letter-spacing:.1em;padding:10px 13px;border-right:1px solid #53615c}
+.nav a:first-child{border-left:1px solid #53615c}.nav a:hover{background:#30433d}
+.crumb{background:#d8d6cc;border-bottom:1px solid #969e98}
+.crumb .wrap{padding:8px 30px;color:#59645f;font-size:10px}
+.alert{background:#f5f1e7;border-bottom:1px solid #b0b3ab}
+.alert .wrap{display:flex;gap:18px;align-items:center;padding:11px 30px;font-size:11px}
+.alert b{color:var(--red);font:10px Georgia,serif;letter-spacing:.16em}
+.hero{background:linear-gradient(120deg,#263f38,#18211e 68%,#2c4b42);color:#eeeae0;border-bottom:1px solid #708c82}
+.hero .wrap{display:grid;grid-template-columns:1.6fr .8fr;gap:45px;padding:65px 30px 62px;align-items:end}
+.eyebrow{font:10px Georgia,serif;letter-spacing:.32em;color:var(--jade2)}
+.hero h2{font-size:clamp(42px,6vw,72px);font-weight:500;letter-spacing:.16em;line-height:1.08;margin:12px 0 18px}
+.hero h2 small{display:block;font:10px Georgia,serif;letter-spacing:.27em;color:#b5c0bc;margin-bottom:12px}
+.lead{max-width:760px;border-left:3px solid var(--jade2);padding-left:18px;color:#d0d7d3;font-size:13px}
+.hero-card{border:1px solid #6d887f;background:rgba(9,15,13,.22);padding:20px;position:relative}
+.hero-card:before{content:"PUBLIC SECURITY";display:block;font:9px Georgia,serif;letter-spacing:.2em;color:#9eb8af;margin-bottom:10px}
+.hero-card strong{display:block;font-size:20px;font-weight:500;letter-spacing:.1em}
+.hero-card span{font-size:10px;color:#aab8b3}
+.quick{background:#deddd4;border-bottom:1px solid #a5aba6}
+.quick .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.quick a{text-decoration:none;text-align:center;padding:17px 10px;border-right:1px solid #afb4ae;color:#30433d}
+.quick a:first-child{border-left:1px solid #afb4ae}
+.quick b{display:block;font-size:13px;font-weight:500;letter-spacing:.12em}
+.quick small{font:8px Georgia,serif;letter-spacing:.13em;color:#738078}
+main.wrap{padding:48px 30px 90px}
+.grid{display:grid;grid-template-columns:1.4fr .8fr;gap:24px}
+.panel{background:rgba(250,248,241,.94);border:1px solid var(--line);box-shadow:0 8px 24px rgba(18,23,21,.055);margin-bottom:24px;position:relative}
+.panel:after{content:"";position:absolute;inset:5px;border:1px solid rgba(102,143,131,.27);pointer-events:none}
+.panel-head{padding:18px 22px 14px;background:var(--paper2);border-bottom:3px double #a2aaa4}
+.panel-head small{display:block;color:#5e8076;font:9px Georgia,serif;letter-spacing:.19em}
+.panel-head h3{font-size:20px;font-weight:500;letter-spacing:.12em;margin:3px 0 0}
+.panel-body{padding:22px;position:relative}
+.news{list-style:none;margin:0;padding:0}
+.news li{display:grid;grid-template-columns:92px 86px 1fr;gap:9px;padding:10px 0;border-bottom:1px dotted #afb5af;font-size:11px}
+.news li:last-child{border-bottom:0}
+.date{font-family:Georgia,serif;color:#697770}
+.tag{border:1px solid #a2aca6;text-align:center;font-size:9px;color:#53665e}
+.notice-tag{border-color:#9a625b;color:#78433c}
+.link{color:#304f46;text-decoration:none}.link:hover{text-decoration:underline}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.stat{background:#e8e7df;border:1px solid #b4bbb5;padding:14px}
+.stat b{display:block;font:9px Georgia,serif;letter-spacing:.13em;color:#66746e}
+.stat strong{font-weight:500;font-size:15px}
+.listlinks{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.listlinks a{background:#e8e7df;border:1px solid #b5bbb5;padding:12px;text-decoration:none;font-size:11px;color:#334941}
+.listlinks a:hover{background:#dfe2db}
+.profile{display:grid;grid-template-columns:repeat(2,1fr)}
+.profile div{padding:14px 16px;border-bottom:1px solid #c3c7c2;border-right:1px solid #c3c7c2}
+.profile div:nth-child(even){border-right:0}
+.profile b{display:block;font:9px Georgia,serif;color:#66736e;letter-spacing:.13em;margin-bottom:3px}
+.profile strong{font-weight:500;font-size:13px}
+.yama{background:#e3e5df;border:1px solid #9eaaa3;padding:22px;position:relative}
+.yama:before{content:"YAMAARASHI";position:absolute;right:18px;top:15px;font:9px Georgia,serif;letter-spacing:.18em;color:#789088}
+.yama h4{font-size:25px;font-weight:500;letter-spacing:.12em;color:var(--green);margin:0 0 8px}
+.yama p{font-size:12px;margin:0;max-width:800px}
+.record{display:inline-block;border:1px solid #81968e;padding:3px 8px;color:#557068;font:9px Georgia,serif;letter-spacing:.12em;margin-bottom:10px}
+.footer{background:#0d1210;color:#aeb9b4;border-top:5px double var(--jade);padding:38px 30px}
+.footer .wrap{display:flex;justify-content:space-between;gap:25px;align-items:end}
+.footer strong{font-size:18px;font-weight:500;letter-spacing:.15em;color:#e2e0d7}
+.footer p{font-size:10px;color:#7f8b86;margin:7px 0 0}
+.back{text-decoration:none;border:1px solid #50645b;padding:7px 12px;font-size:10px;color:#c5d0cc}
+@media(max-width:820px){.hero .wrap,.grid{grid-template-columns:1fr}.quick .wrap{grid-template-columns:repeat(2,1fr)}.quick a:nth-child(odd){border-left:1px solid #afb4ae}.head,main.wrap,.hero .wrap,.alert .wrap,.crumb .wrap{padding-left:18px;padding-right:18px}.footer .wrap{display:block}.footer .back{display:inline-block;margin-top:18px}}
+@media(max-width:600px){.govline .wrap{display:block;padding-left:18px;padding-right:18px}.govline span+span{display:block;margin-top:3px}.utility .wrap{justify-content:flex-start;overflow:auto}.utility a{white-space:nowrap}.brand{align-items:flex-start}.emblem{width:56px;height:56px;font-size:23px}h1{font-size:23px}.sub{font-size:8px}.nav a{flex-basis:33%}.hero .wrap{padding-top:48px}.profile,.stats,.listlinks{grid-template-columns:1fr}.profile div{border-right:0}.news li{grid-template-columns:78px 72px 1fr;font-size:10px}}
 </style>
 </head>
 <body>
-<div class="govbar"><div class="govbar-inner"><span>帝國政府｜中央行政機關｜治安・警察行政</span><span>NATIONAL SECURITY ORGANIZATION / IMPERIAL GOVERNMENT</span></div></div>
+<div class="govline"><div class="wrap"><span>帝國政府｜中央行政機關｜治安・警察行政</span><span>NATIONAL SECURITY ORGANIZATION / IMPERIAL GOVERNMENT</span></div></div>
+
+<div class="utility"><div class="wrap">
+<a href="#news">新着情報</a><a href="#policy">政策・施策</a><a href="#organization">組織案内</a><a href="#public">公示・公開資料</a><a href="#contact">相談・情報提供</a>
+</div></div>
 
 <header class="header">
-<div class="head-inner">
-<div class="masthead">
-<div class="emblem">治</div>
-<div><div class="kana">日ノ本帝國　政府公式情報網</div><h1>國家治安機構</h1><div class="subtitle">中央治安行政　｜　警察権　｜　臣民の安全と秩序</div></div>
-</div>
+<div class="wrap head">
+<div class="brand"><div class="emblem">治</div><div><div class="kana">日ノ本帝國　政府公式情報網</div><h1>國家治安機構</h1><div class="sub">中央治安行政　｜　警察権　｜　臣民の安全と秩序</div></div></div>
 <nav class="nav">
-<a href="#about">機構概要</a><a href="#organization">組織・所掌</a><a href="#yama">豪猪</a><a href="#public">公示・公開資料</a><a href="../">四季廳</a>
+<a href="#about">機構概要</a><a href="#news">新着情報</a><a href="#policy">政策・施策</a><a href="#organization">組織・所掌</a><a href="#yama">豪猪</a><a href="../">四季廳</a>
 </nav>
 </div>
 </header>
 
-<div class="notice"><div class="notice-inner"><b>行政公告</b><span>本情報網は國家治安機構の公開行政情報を案内する公式情報網です。</span></div></div>
+<div class="crumb"><div class="wrap">日ノ本帝國政府　&gt;　國家治安機構　&gt;　公式情報網</div></div>
+<div class="alert"><div class="wrap"><b>重要なお知らせ</b><span>本情報網は國家治安機構の公開行政情報を案内する公式情報網です。</span></div></div>
 
 <section class="hero">
-<div class="hero-inner">
-<div class="eyebrow">NATIONAL SECURITY ORGANIZATION　／　IMPERIAL GOVERNMENT</div>
-<h2><span>日ノ本帝國</span>國家治安機構</h2>
-<p class="hero-lead">日ノ本帝國の警察権を有する行政機関。日ノ本帝國の臣民の安全と秩序を守るための組織。</p>
-<div class="classification"><span>中央行政機關</span><span>警察権</span><span>治安行政</span><span>一般公開</span></div>
-<div class="stamp">行政機關　公開情報</div>
+<div class="wrap">
+<div><div class="eyebrow">NATIONAL SECURITY ORGANIZATION　／　OFFICIAL GOVERNMENT SITE</div>
+<h2><small>日ノ本帝國</small>國家治安機構</h2>
+<p class="lead">日ノ本帝國の警察権を有する行政機関。日ノ本帝國の臣民の安全と秩序を守るための組織。</p></div>
+<div class="hero-card"><strong>治安行政</strong><span>PUBLIC SECURITY ADMINISTRATION</span><hr style="border:0;border-top:1px solid #5c766d;margin:15px 0"><span>中央行政機關　／　一般公開</span></div>
 </div>
 </section>
 
-<main class="main">
-<section class="section" id="about">
-<div class="section-head"><small>01　｜　OFFICIAL PROFILE</small><h3>機構概要</h3></div>
-<div class="section-body"><div class="facts">
-<div class="fact"><b>機關名</b><strong>國家治安機構</strong></div>
-<div class="fact"><b>英語表記</b><strong>National Security Organization</strong></div>
-<div class="fact"><b>機能</b><strong>警察権を有する国家行政機關</strong></div>
-<div class="fact"><b>目的</b><strong>臣民の安全と秩序の維持</strong></div>
+<div class="quick"><div class="wrap">
+<a href="#news"><b>新着情報</b><small>NEWS</small></a>
+<a href="#policy"><b>政策・施策</b><small>POLICIES</small></a>
+<a href="#organization"><b>組織案内</b><small>ORGANIZATION</small></a>
+<a href="#public"><b>公示・公開資料</b><small>PUBLIC DOCUMENTS</small></a>
 </div></div>
-</section>
 
-<section class="section" id="organization">
-<div class="section-head"><small>02　｜　ORGANIZATION / JURISDICTION</small><h3>組織・所掌</h3></div>
-<div class="section-body"><p>國家治安機構は、帝國全域の治安維持および重大な治安事案への対処に関する行政事務を所掌する。</p></div>
-</section>
+<main class="wrap">
+<div class="grid">
+<div>
+<section class="panel" id="news"><div class="panel-head"><small>01　｜　NEWS / ADMINISTRATIVE UPDATES</small><h3>新着情報</h3></div><div class="panel-body"><ul class="news">
+<li><span class="date">帝國暦238.10</span><span class="tag notice-tag">重要</span><a class="link" href="#public">國家治安機構 公開情報網の整備について</a></li>
+<li><span class="date">帝國暦238.10</span><span class="tag">公示</span><a class="link" href="#organization">治安行政に関する機構概要を公開</a></li>
+<li><span class="date">帝國暦238.10</span><span class="tag">広報</span><a class="link" href="#yama">専門部隊「豪猪」について</a></li>
+</ul></div></section>
 
-<section class="section" id="yama">
-<div class="section-head"><small>03　｜　SPECIALIZED UNIT / CLASSIFIED SECURITY RESPONSE</small><h3>豪猪（やまあらし）</h3></div>
-<div class="section-body"><div class="unit">
-<article class="unit-card highlight"><span class="record">専門部隊　｜　要請出動</span><div class="latin">YAMAARASHI</div><h4>豪猪</h4><p>國家治安機構内に存在する対テロリスト集団専門部隊。日ノ本帝國各地に駐屯地があり、要請に応じて出動する。</p></article>
-<article class="unit-card"><span class="record">帝國全域　｜　駐屯</span><div class="latin">DEPLOYMENT</div><h4>駐屯・出動</h4><p>帝國各地の駐屯地を基盤とし、要請その他必要に応じて出動する。</p></article>
-</div></div>
-</section>
+<section class="panel" id="policy"><div class="panel-head"><small>02　｜　POLICY / PUBLIC SAFETY</small><h3>政策・施策</h3></div><div class="panel-body"><div class="listlinks">
+<a href="#organization">帝國全域の治安維持　›</a><a href="#yama">重大治安事案への対処　›</a>
+<a href="#public">警察行政資料　›</a><a href="#contact">安全・秩序に関する情報　›</a>
+</div></div></section>
 
-<section class="section" id="public">
-<div class="section-head"><small>04　｜　PUBLIC DOCUMENTS / ADMINISTRATIVE RECORD</small><h3>公示・公開資料</h3></div>
-<div class="section-body"><div class="facts">
-<div class="fact"><b>公開区分</b><strong>一般公開</strong></div>
-<div class="fact"><b>情報網整備</b><strong>順次公開</strong></div>
-</div></div>
-</section>
+<section class="panel" id="organization"><div class="panel-head"><small>03　｜　ORGANIZATION / JURISDICTION</small><h3>組織・所掌</h3></div><div class="panel-body"><p>國家治安機構は、帝國全域の治安維持および重大な治安事案への対処に関する行政事務を所掌する。</p><div class="profile">
+<div><b>機關名</b><strong>國家治安機構</strong></div><div><b>英語表記</b><strong>National Security Organization</strong></div>
+<div><b>機能</b><strong>警察権を有する国家行政機關</strong></div><div><b>目的</b><strong>臣民の安全と秩序の維持</strong></div>
+</div></div></section>
+</div>
+
+<aside>
+<section class="panel" id="about"><div class="panel-head"><small>04　｜　OFFICIAL PROFILE</small><h3>機構概要</h3></div><div class="panel-body"><div class="stats">
+<div class="stat"><b>行政区分</b><strong>中央行政機關</strong></div><div class="stat"><b>権限</b><strong>警察権</strong></div>
+<div class="stat"><b>公開区分</b><strong>一般公開</strong></div><div class="stat"><b>所掌区域</b><strong>帝國全域</strong></div>
+</div></div></section>
+
+<section class="panel" id="yama"><div class="panel-head"><small>05　｜　SPECIALIZED UNIT</small><h3>豪猪（やまあらし）</h3></div><div class="panel-body"><div class="yama">
+<span class="record">専門部隊　｜　要請出動</span>
+<h4>豪猪</h4>
+<p>國家治安機構内に存在する対テロリスト集団専門部隊。日ノ本帝國各地に駐屯地があり、要請に応じて出動する。</p>
+</div></div></section>
+
+<section class="panel" id="public"><div class="panel-head"><small>06　｜　PUBLIC DOCUMENTS</small><h3>公示・公開資料</h3></div><div class="panel-body"><div class="listlinks">
+<a href="#about">機構概要　›</a><a href="#organization">組織・所掌　›</a>
+<a href="#yama">専門部隊資料　›</a><a href="#news">行政情報　›</a>
+</div></div></section>
+
+<section class="panel" id="contact"><div class="panel-head"><small>07　｜　CONTACT / INFORMATION</small><h3>相談・情報提供</h3></div><div class="panel-body"><p style="font-size:11px">治安・安全に関する情報提供その他の行政案内については、國家治安機構の公開情報網をご確認ください。</p></div></section>
+</aside>
+</div>
 </main>
 
-<footer class="footer"><div class="footer-inner"><div><strong>國家治安機構</strong><p>日ノ本帝國政府｜中央治安行政｜公開情報網</p></div><a class="back" href="../#related-agencies">← 四季廳・関係行政機關へ戻る</a></div></footer>
+<footer class="footer"><div class="wrap">
+<div><strong>國家治安機構</strong><p>日ノ本帝國政府｜中央治安行政｜公開情報網</p></div>
+<a class="back" href="../#related-agencies">← 四季廳・関係行政機關へ戻る</a>
+</div></footer>
 </body>
 </html>
