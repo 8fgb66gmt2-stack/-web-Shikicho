@@ -2496,6 +2496,53 @@ button,input,a{border-radius:0!important}
 }
 </style>
 
+
+<style id="shiki-divine-record-registry">
+/* 現人神・行政記録欄 */
+.god-panel dl{
+  border-top:1px solid rgba(176,138,74,.55);
+  border-bottom:1px solid rgba(176,138,74,.35);
+}
+.god-panel dl dt,
+.god-panel dl dd{
+  padding-top:9px;
+  padding-bottom:9px;
+}
+.god-panel dl dt{
+  position:relative;
+}
+.god-panel dl dt:nth-of-type(-n+5){
+  font-weight:600;
+  color:#752b2d;
+}
+.god-panel dl dt:nth-of-type(-n+5)::before{
+  content:"行政記録";
+  display:inline-block;
+  margin-right:7px;
+  padding:1px 5px;
+  border:1px solid rgba(176,138,74,.75);
+  color:#8a7650;
+  font-size:8px;
+  line-height:1.3;
+  letter-spacing:.08em;
+  vertical-align:middle;
+}
+.record-status{
+  display:inline-block;
+  padding:2px 8px;
+  border:1px solid #8a7650;
+  font-size:.82em;
+  letter-spacing:.08em;
+}
+.record-status.is-public{
+  color:#243c35;
+  background:rgba(36,60,53,.055);
+}
+@media(max-width:760px){
+  .god-panel dl dt:nth-of-type(-n+5)::before{display:block;width:max-content;margin:0 0 3px}
+}
+</style>
+
 </head>
 <body data-shiki-page="index">
 <div class="imperial-header">
@@ -2713,7 +2760,7 @@ button,input,a{border-radius:0!important}
 </section>
 <section id="news" class="section news-section"><div class="content-width"><div class="section-title"><span>01</span><div><p>四季廳官報 / PUBLIC INFORMATION</p><h2>官報・公告</h2></div></div><div class="news-list"><article id="news-record-2370902" data-investigation-target="news-record" tabindex="0" aria-label="帝國暦237年09月02日の官報記録を調査する"><time>帝國暦237.09.02</time><span>研究</span><a href="#duties">帝國大學農學部・理學部との共同研究「四時神性波動に於ける氣候影響調査」の開示について</a></article><article><time>帝國暦237.08.20</time><span>人事</span><a href="#departments">春局局長に京極馨氏（帝國高等學院首席卒）が正式就任致しました</a></article><article><time>帝國暦237.08.05</time><span>注意</span><a href="#contact">【注意喚起】現人神の神性を騙る不法占拠及び詐術行為への厳罰対処について</a></article><article><time>帝國暦237.07.15</time><span>祭祀</span><a href="#duties">附属神域・霊脈調整に伴ふ「夏祭」執り行ひの儀令開示</a></article></div></div></section>
       <section id="about" class="section about-section"><div class="content-width"><div class="section-title"><span>02</span><div><p>ABOUT SHIKI AGENCY</p><h2>四季廳とは</h2></div></div><div class="about-grid"><div class="document-copy"><p class="lead">四季廳は、日ノ本帝國における<strong>四季神祇行政・神祇災害對策・現人神の保護および警備</strong>を統括する中央官庁です。</p><p>帝國の「春・夏・秋・冬」を司る四柱の神々、すなわち四季の現人神を中心として組織され、各季節に対応する局を設置しています。</p><p>四季廳における職務は単なる行政に留まりません。現人神は帝國における神祇的象徴であり、その身辺警護を担う護衛官、四季廳全体を統括する長官、各季節の行政・警備を担う局長、そして局長を補佐する局長管理官によって、帝國の四季は維持されています。</p></div><aside class="mission-card"><span>基本使命</span><strong>四季を<br>絶やすこと勿れ。</strong><small>これが、四季廳の最も基本的な使命です。</small></aside></div></div></section>
-      <section id="gods" class="section gods-section"><div class="content-width"><div class="section-title"><span>03</span><div><p>FOUR DIVINE SEASONS</p><h2>現人神と四時の理</h2></div></div><p class="section-intro">「現人神」とは、帝國においてそれぞれ「春」「夏」「秋」「冬」をその身に宿す神格的人間を指します。各現人神は自身の季節を象徴すると同時に、帝國における季節神祇の中心的存在でもあります。</p><div class="god-tabs" role="tablist"><button class="god-tab active spring" data-season="spring" role="tab">春　花葉 雛菊</button><button class="god-tab summer" data-season="summer" role="tab">夏　葉桜 瑠璃</button><button class="god-tab autumn" data-season="autumn" role="tab">秋　祝月 杏莉</button><button class="god-tab winter" data-season="winter" role="tab">冬　森林 太郎</button></div><div class="god-panel active" id="panel-spring"><div class="season-kanji">春</div><div><span>SPRING / 春</span><h3>花葉 雛菊</h3><p>春を司る現人神。帝國における「春」の神格を担い、四季の生命循環における芽吹きと生命の始まりを象徴します。</p><dl><dt>年齢</dt><dd>18歳</dd><dt>神性</dt><dd>春・生命促進</dd><dt>配偶者</dt><dd>花葉 春月／京極 馨</dd><dt>養女</dt><dd>祝月 杏莉</dd><dt>専属護衛官</dt><dd>花葉 さくら</dd><dt>管轄部局</dt><dd>保全課 春局　局長：京極 馨</dd></dl></div></div><div class="god-panel" id="panel-summer"><div class="season-kanji">夏</div><div><span>SUMMER / 夏</span><h3>葉桜 瑠璃</h3><p>夏を司る現人神。明朗快活で行動力に富み、感情をそのまま行動へ移すことのできる人物です。</p><dl><dt>年齢</dt><dd>18歳</dd><dt>神性</dt><dd>夏・生命使役</dd><dt>姉</dt><dd>葉桜 あやめ</dd><dt>婚姻</dt><dd>雪柳 残雪</dd><dt>専属護衛官</dt><dd>葉桜 あやめ</dd><dt>管轄部局</dt><dd>保全課 夏局　局長：九鬼 湊</dd></dl></div></div><div class="god-panel" id="panel-autumn"><div class="season-kanji">秋</div><div><span>AUTUMN / 秋</span><h3>祝月 杏莉</h3><p>秋を司る現人神。幼いながらも神格を宿し、秋の現人神として四季廳に迎えられています。無垢な性質から周囲に大切にされています。</p><dl><dt>年齢</dt><dd>7歳</dd><dt>神性</dt><dd>秋・生命腐敗</dd><dt>養父</dt><dd>花葉 春月</dd><dt>養母</dt><dd>花葉 雛菊</dd><dt>専属護衛官</dt><dd>阿佐美 竜胆</dd><dt>管轄部局</dt><dd>保全課 秋局　局長：日向 瑞穂</dd></dl></div></div><div class="god-panel" id="panel-winter"><div class="season-kanji">冬</div><div><span>WINTER / 冬</span><h3>森林 太郎／薄氷宮 幸仁</h3><p>冬を司る現人神。日ノ本帝國皇太子としての身分を持ちながら、医学者・小説家としても活動しています。文学作品を発表する際には「森鴎外」の筆名を用います。</p><dl><dt>年齢</dt><dd>32歳</dd><dt>皇族としての名</dt><dd>薄氷宮 幸仁</dd><dt>身分</dt><dd>日ノ本帝國 皇太子</dd><dt>神性</dt><dd>冬・生命凍結</dd><dt>専属護衛官</dt><dd>雪柳 残雪</dd><dt>管轄部局</dt><dd>保全課 冬局　局長：石田 雅向</dd></dl></div></div><p class="four-law">四つの力は互いに独立したものではなく、相互に補完し合ふことで、本邦の四時を成立させています。</p></div></section>
+      <section id="gods" class="section gods-section"><div class="content-width"><div class="section-title"><span>03</span><div><p>FOUR DIVINE SEASONS</p><h2>現人神と四時の理</h2></div></div><p class="section-intro">「現人神」とは、帝國においてそれぞれ「春」「夏」「秋」「冬」をその身に宿す神格的人間を指します。各現人神は自身の季節を象徴すると同時に、帝國における季節神祇の中心的存在でもあります。</p><div class="god-tabs" role="tablist"><button class="god-tab active spring" data-season="spring" role="tab">春　花葉 雛菊</button><button class="god-tab summer" data-season="summer" role="tab">夏　葉桜 瑠璃</button><button class="god-tab autumn" data-season="autumn" role="tab">秋　祝月 杏莉</button><button class="god-tab winter" data-season="winter" role="tab">冬　森林 太郎</button></div><div class="god-panel active" id="panel-spring"><div class="season-kanji">春</div><div><span>SPRING / 春</span><h3>花葉 雛菊</h3><p>春を司る現人神。帝國における「春」の神格を担い、四季の生命循環における芽吹きと生命の始まりを象徴します。</p><dl><dt>神籍</dt><dd>SHK-SPR-001</dd><dt>登録区分</dt><dd>第一種四季神祇・現人神</dd><dt>所管</dt><dd>四季廳 保全課 春局</dd><dt>法的根拠</dt><dd>四季祭祀法・四季廳設置法</dd><dt>公開区分</dt><dd><span class="record-status is-public">一般公開</span></dd><dt>年齢</dt><dd>18歳</dd><dt>神性</dt><dd>春・生命促進</dd><dt>配偶者</dt><dd>花葉 春月／京極 馨</dd><dt>養女</dt><dd>祝月 杏莉</dd><dt>専属護衛官</dt><dd>花葉 さくら</dd><dt>管轄部局</dt><dd>保全課 春局　局長：京極 馨</dd></dl></div></div><div class="god-panel" id="panel-summer"><div class="season-kanji">夏</div><div><span>SUMMER / 夏</span><h3>葉桜 瑠璃</h3><p>夏を司る現人神。明朗快活で行動力に富み、感情をそのまま行動へ移すことのできる人物です。</p><dl><dt>神籍</dt><dd>SHK-SUM-001</dd><dt>登録区分</dt><dd>第一種四季神祇・現人神</dd><dt>所管</dt><dd>四季廳 保全課 夏局</dd><dt>法的根拠</dt><dd>四季祭祀法・四季廳設置法</dd><dt>公開区分</dt><dd><span class="record-status is-public">一般公開</span></dd><dt>年齢</dt><dd>18歳</dd><dt>神性</dt><dd>夏・生命使役</dd><dt>姉</dt><dd>葉桜 あやめ</dd><dt>婚姻</dt><dd>雪柳 残雪</dd><dt>専属護衛官</dt><dd>葉桜 あやめ</dd><dt>管轄部局</dt><dd>保全課 夏局　局長：九鬼 湊</dd></dl></div></div><div class="god-panel" id="panel-autumn"><div class="season-kanji">秋</div><div><span>AUTUMN / 秋</span><h3>祝月 杏莉</h3><p>秋を司る現人神。幼いながらも神格を宿し、秋の現人神として四季廳に迎えられています。無垢な性質から周囲に大切にされています。</p><dl><dt>神籍</dt><dd>SHK-AUT-001</dd><dt>登録区分</dt><dd>第一種四季神祇・現人神</dd><dt>所管</dt><dd>四季廳 保全課 秋局</dd><dt>法的根拠</dt><dd>四季祭祀法・現人神保護法</dd><dt>公開区分</dt><dd><span class="record-status is-public">一般公開</span></dd><dt>年齢</dt><dd>7歳</dd><dt>神性</dt><dd>秋・生命腐敗</dd><dt>養父</dt><dd>花葉 春月</dd><dt>養母</dt><dd>花葉 雛菊</dd><dt>専属護衛官</dt><dd>阿佐美 竜胆</dd><dt>管轄部局</dt><dd>保全課 秋局　局長：日向 瑞穂</dd></dl></div></div><div class="god-panel" id="panel-winter"><div class="season-kanji">冬</div><div><span>WINTER / 冬</span><h3>森林 太郎／薄氷宮 幸仁</h3><p>冬を司る現人神。日ノ本帝國皇太子としての身分を持ちながら、医学者・小説家としても活動しています。文学作品を発表する際には「森鴎外」の筆名を用います。</p><dl><dt>神籍</dt><dd>SHK-WIN-001</dd><dt>登録区分</dt><dd>第一種四季神祇・現人神</dd><dt>所管</dt><dd>四季廳 保全課 冬局</dd><dt>法的根拠</dt><dd>四季祭祀法・皇室典範・四季廳設置法</dd><dt>公開区分</dt><dd><span class="record-status is-public">一般公開</span></dd><dt>年齢</dt><dd>32歳</dd><dt>皇族としての名</dt><dd>薄氷宮 幸仁</dd><dt>身分</dt><dd>日ノ本帝國 皇太子</dd><dt>神性</dt><dd>冬・生命凍結</dd><dt>専属護衛官</dt><dd>雪柳 残雪</dd><dt>管轄部局</dt><dd>保全課 冬局　局長：石田 雅向</dd></dl></div></div><p class="four-law">四つの力は互いに独立したものではなく、相互に補完し合ふことで、本邦の四時を成立させています。</p></div></section>
       <section id="guards" class="section guards-section"><div class="content-width"><div class="section-title"><span>04</span><div><p>IMPERIAL GUARDIANS</p><h2>現人神護衛官</h2></div></div><p class="section-intro">現人神護衛官は、その名の通り現人神の身辺警護を専門とする職です。現人神本人の安全確保のみならず、神祇災害、異常事案、襲撃等への対応を担います。</p><div class="department-grid"><article><b>春</b><span>春の現人神護衛官</span><h3>花葉 さくら</h3><p>春の現人神・花葉雛菊の護衛官。雛菊の姉。帝國大學にて東欧史を専門とする教授を務める。</p><small>専門：東欧史・ヴラド三世研究</small></article><article><b>夏</b><span>夏の現人神護衛官</span><h3>葉桜 あやめ</h3><p>夏の現人神・葉桜瑠璃の護衛官。瑠璃の姉。夏局と連携し、季節警備を担う。</p><small>専門：警備・神祇災害對策</small></article><article><b>秋</b><span>秋の現人神護衛官</span><h3>阿佐美 竜胆</h3><p>秋の現人神・祝月杏莉の護衛官。幼い現人神の生活と安全を第一に職務にあたる。</p><small>専門：護衛・保全</small></article><article><b>冬</b><span>冬の現人神護衛官</span><h3>雪柳 残雪</h3><p>冬の現人神・森林太郎／薄氷宮幸仁の護衛官。皇太子護衛も兼務する。</p><small>専門：皇族警護・冬局連携</small></article></div></div></section>
       <section id="departments" class="section departments-section"><div class="content-width">
 <div class="section-title"><span>05</span><div><p>ORGANIZATION / IMPERIAL AGENCY</p><h2>組織・各局・各課</h2></div></div>
