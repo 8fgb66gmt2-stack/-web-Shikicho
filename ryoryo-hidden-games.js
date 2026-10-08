@@ -331,7 +331,7 @@
     decodeSubmit.addEventListener('click',()=>{
       if(decodePick.length!==decodeAnswer.length){decodeResult.textContent='四つすべて選んでください。';return}
       if(decodePick.join('|')===decodeAnswer.join('|')){
-        decodeResult.innerHTML='<div class="ry-secret-stamp">照合成立・閲覧権限確認。<br>内部文書《四季ヲ絶ヤス事勿レ》への参照資格を記録しました。公開情報網には表示されません。</div>';
+        decodeResult.innerHTML='<div class="ry-secret-stamp">照合成立・分類確定。<br>文書番号：SHIKI-ARCH-001　｜　公開区分：非公開　｜　閲覧記録：登録済</div>';
         saveRecord('秘匿文書・四時分類照合');
       }else{
         decodeResult.textContent='分類順が一致しません。再度照合してください。';
