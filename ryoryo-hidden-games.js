@@ -17,6 +17,12 @@
       .ry-hidden-games.open{display:block}
       .ry-game-cabinet{position:absolute;left:50%;top:7%;transform:translateX(-50%);width:min(760px,calc(100vw - 26px));max-height:86vh;overflow:auto;background:#fffaf0;color:#2d2823;border:1px solid #a98b55;border-top:5px double #711d28;box-shadow:0 28px 100px rgba(0,0,0,.38)}
       .ry-game-head{padding:18px 22px 15px;border-bottom:1px solid #d6c7ae;display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+      .ry-game-meta{position:absolute;left:0;right:0;bottom:0;display:flex;gap:0;border-top:1px solid #d6c7ae;background:#f2eadd;font:8px "Noto Sans JP","Yu Gothic",sans-serif;letter-spacing:.08em;color:#74685c}
+      .ry-game-meta span{padding:6px 12px;border-right:1px solid #d6c7ae}
+      .ry-game-meta span:last-child{color:#243c35}
+      .ry-game-head{position:relative;padding-bottom:48px}
+      .ry-game-card:after{content:"STATUS  /  使用可";position:absolute;left:17px;bottom:10px;color:#837563;font:8px Georgia,serif;letter-spacing:.09em}
+      .ry-game-card em{bottom:27px}
       .ry-game-kicker{font:9px Georgia,serif;letter-spacing:.22em;color:#8a7650}
       .ry-game-head h2{margin:5px 0 4px;font:500 23px "Shippori Mincho","Yu Mincho",serif;letter-spacing:.08em;color:#54131d}
       .ry-game-head p{margin:0;font-size:11px;color:#73695f;line-height:1.7}
@@ -82,62 +88,63 @@
     overlay.innerHTML=`
       <div class="ry-game-cabinet" role="dialog" aria-modal="true" aria-labelledby="ry-game-title">
         <div class="ry-game-head">
+          <div class="ry-game-meta"><span>機關コード　SHIKI-ADM-04</span><span>利用区分　内部事務補助</span><span>状態　接続可</span></div>
           <div>
-            <div class="ry-game-kicker">IMPERIAL ARCHIVE / RESTRICTED RECREATION ROOM</div>
-            <h2 id="ry-game-title">四季廳・隠し遊戯室</h2>
-            <p>公開情報網には記録されない、小さな遊戯が三つ。</p>
+            <div class="ry-game-kicker">RYORYO GOVERNMENT / INTERNAL ADMINISTRATIVE TERMINAL</div>
+            <h2 id="ry-game-title">四季廳・内部事務補助端末</h2>
+            <p>本端末は公開情報網から分離された内部事務補助機能です。一般利用者への案内は要しません。</p>
           </div>
           <button class="ry-game-close" type="button" aria-label="閉じる">×</button>
         </div>
         <div class="ry-game-body">
           <div class="ry-game-menu">
             <button class="ry-game-card" type="button" data-game="memory">
-              <b>GAME I / 御璽</b><strong>四時記憶遊戯</strong>
-              <span>示された季節の順を記憶し、同じ順番で御璽を押してください。</span><em>MEMORY</em>
+              <b>事務補助 01 / 順序照合</b><strong>四時順序照合訓練</strong>
+              <span>提示された四時の順序を記憶し、同一順序で標章を照合してください。</span><em>SEQUENCE CHECK</em>
             </button>
             <button class="ry-game-card" type="button" data-game="collect">
-              <b>GAME II / 採集</b><strong>四季奉納・花葉集め</strong>
-              <span>短い間だけ現れる四季のしるしを、制限時間内に集めます。</span><em>COLLECT</em>
+              <b>事務補助 02 / 標章収集</b><strong>季節標章収集訓練</strong>
+              <span>表示される四季標章を所定時間内に収集し、受付件数を満たしてください。</span><em>MARK COLLECTION</em>
             </button>
             <button class="ry-game-card" type="button" data-game="decode">
-              <b>GAME III / 文書</b><strong>秘匿文書・四時解読</strong>
-              <span>四つの印を正しい順に並べ、秘匿指定の文書を開封します。</span><em>DECODE</em>
+              <b>事務補助 03 / 文書照合</b><strong>秘匿文書・四時分類照合</strong>
+              <span>文書に付された四時記号を照合し、正規の分類順を確定してください。</span><em>DOCUMENT CHECK</em>
             </button>
           </div>
-          <div class="ry-game-hint">発見者記録：<span id="ry-game-record">未記録</span>　／　遊戯を完了すると、この端末にだけ残る閲覧記録があります。</div>
+          <div class="ry-game-hint">利用記録：<span id="ry-game-record">未記録</span>　／　本端末で実行した補助事務のみ、この端末内の閲覧記録に保存されます。</div>
 
           <section class="ry-game-panel" data-panel="memory" hidden>
-            <button class="ry-game-back" type="button">← 遊戯室へ戻る</button>
-            <h3>四時記憶遊戯</h3>
-            <p class="ry-game-note">最初に光る印を覚えてください。二回目からは一つずつ順番に押します。段位が上がるほど長くなります。</p>
-            <div class="ry-memory-status"><span>段位 <b id="ry-memory-level">一</b></span><span class="ry-memory-seq" id="ry-memory-seq">順番を準備中</span></div>
+            <button class="ry-game-back" type="button">← 内部事務一覧へ</button>
+            <h3>四時順序照合訓練</h3>
+            <p class="ry-game-note">提示される四時標章を記憶し、同一順序で照合します。正常終了後は次の照合段階へ移行します。</p>
+            <div class="ry-memory-status"><span>照合段階 <b id="ry-memory-level">一</b></span><span class="ry-memory-seq" id="ry-memory-seq">順番を準備中</span></div>
             <div class="ry-memory-grid" id="ry-memory-grid"></div>
             <div class="ry-game-result" id="ry-memory-result"></div>
           </section>
 
           <section class="ry-game-panel" data-panel="collect" hidden>
-            <button class="ry-game-back" type="button">← 遊戯室へ戻る</button>
-            <h3>四季奉納・花葉集め</h3>
-            <p class="ry-game-note">「春」「夏」「秋」「冬」のしるしをクリック。30秒で15個集めると合格です。</p>
-            <div class="ry-collect-head"><span class="ry-collect-score" id="ry-collect-score">奉納数 0 / 15</span><span class="ry-collect-timer" id="ry-collect-timer">00:30</span></div>
+            <button class="ry-game-back" type="button">← 内部事務一覧へ</button>
+            <h3>季節標章収集訓練</h3>
+            <p class="ry-game-note">「春」「夏」「秋」「冬」の標章を収集してください。制限時間30秒、基準件数15件。</p>
+            <div class="ry-collect-head"><span class="ry-collect-score" id="ry-collect-score">受付件数 0 / 15</span><span class="ry-collect-timer" id="ry-collect-timer">00:30</span></div>
             <div class="ry-collect-stage" id="ry-collect-stage"><div class="ry-season-field" id="ry-season-field"></div></div>
-            <button class="ry-collect-start" id="ry-collect-start" type="button">奉納開始</button>
+            <button class="ry-collect-start" id="ry-collect-start" type="button">収集開始</button>
             <div class="ry-game-result" id="ry-collect-result"></div>
           </section>
 
           <section class="ry-game-panel" data-panel="decode" hidden>
-            <button class="ry-game-back" type="button">← 遊戯室へ戻る</button>
-            <h3>秘匿文書・四時解読</h3>
-            <p class="ry-game-note">暗号文の下に示される「四時の並び」を読んで、正しい四字の順を選んでください。</p>
+            <button class="ry-game-back" type="button">← 内部事務一覧へ</button>
+            <h3>秘匿文書・四時分類照合</h3>
+            <p class="ry-game-note">表示された四時分類コードを確認し、同じ順序で記号を選択してください。</p>
             <div class="ry-decode-box">
               <div class="ry-decode-code" id="ry-decode-code">春 → 夏 → 秋 → 冬</div>
               <div class="ry-decode-choices" id="ry-decode-choices"></div>
-              <div style="text-align:center;margin-top:12px"><button class="ry-decode-submit" id="ry-decode-submit" type="button">開封照合</button></div>
+              <div style="text-align:center;margin-top:12px"><button class="ry-decode-submit" id="ry-decode-submit" type="button">分類照合</button></div>
             </div>
             <div class="ry-game-result" id="ry-decode-result"></div>
           </section>
 
-          <div class="ry-hidden-footer"><span>閲覧端末：四季廳公開情報網</span><button class="ry-game-close ry-game-close-text" type="button">閉じる</button></div>
+          <div class="ry-hidden-footer"><span>接続先：四季廳 内部事務補助端末　｜　機關コード：SHIKI-ADM-04</span><button class="ry-game-close ry-game-close-text" type="button">閉じる</button></div>
         </div>
       </div>
     `;
@@ -145,7 +152,7 @@
 
     const discover=document.createElement('div');
     discover.className='ry-game-discover';
-    discover.textContent='記録にない遊戯室';
+    discover.textContent='公開情報網にない内部事務端末';
     body.appendChild(discover);
 
     const recordsKey='shiki-hidden-game-records';
@@ -213,7 +220,7 @@
       setTimeout(()=>{
         memLocked=false;
         memPos=0;
-        memSeqEl.textContent='いま見た順に押してください';
+        memSeqEl.textContent='提示順に標章を照合してください';
       },500+memSeq.length*650);
     };
     const startMemory=()=>{
@@ -235,7 +242,7 @@
       if(btn.dataset.k!==expected){
         btn.classList.add('wrong');setTimeout(()=>btn.classList.remove('wrong'),500);
         memResult.textContent='照合失敗。もう一度この段位から。';
-        saveRecord('四時記憶遊戯');
+        saveRecord('四時順序照合訓練');
         setTimeout(()=>nextMemoryRound(),700);
         return;
       }
@@ -245,7 +252,7 @@
       if(memPos>=memSeq.length){
         if(memLevel>=3){
           memResult.innerHTML='照合成功。<strong>「四時ヲ絶ヤス事勿レ。」</strong>　閲覧記録を登録しました。';
-          saveRecord('四時記憶遊戯');
+          saveRecord('四時順序照合訓練');
           memLocked=true;
         }else{
           memLevel++;
@@ -265,7 +272,7 @@
     const startCollect=()=>{
       stopCollect();
       collectScore=0;let left=30;
-      scoreEl.textContent='奉納数 0 / 15';timerEl.textContent='00:30';collectResult.textContent='';
+      scoreEl.textContent='受付件数 0 / 15';timerEl.textContent='00:30';collectResult.textContent='';
       field.innerHTML='';
       const spawn=()=>{
         const item=document.createElement('button');
@@ -278,8 +285,8 @@
           scoreEl.textContent='奉納数 '+collectScore+' / 15';
           item.remove();
           if(collectScore>=15){
-            collectResult.textContent='奉納完了。四時の記録が一件追加されました。';
-            saveRecord('四季奉納・花葉集め');
+            collectResult.textContent='収集基準到達。事務処理記録を登録しました。';
+            saveRecord('季節標章収集訓練');
             stopCollect();
           }
         },{once:true});
@@ -292,7 +299,7 @@
         spawn();
         if(left<=0){
           stopCollect();
-          if(collectScore<15)collectResult.textContent='奉納未完。もう一度、四時を集めてください。';
+          if(collectScore<15)collectResult.textContent='基準件数未達。再実行してください。';
         }
       },1000);
     };
@@ -324,10 +331,10 @@
     decodeSubmit.addEventListener('click',()=>{
       if(decodePick.length!==decodeAnswer.length){decodeResult.textContent='四つすべて選んでください。';return}
       if(decodePick.join('|')===decodeAnswer.join('|')){
-        decodeResult.innerHTML='<div class="ry-secret-stamp">秘匿解除・閲覧許可。<br>《四季ヲ絶ヤス事勿レ》の原文記録へ接続――ただし、これは公開情報網には表示されません。</div>';
-        saveRecord('秘匿文書・四時解読');
+        decodeResult.innerHTML='<div class="ry-secret-stamp">照合成立・閲覧権限確認。<br>内部文書《四季ヲ絶ヤス事勿レ》への参照資格を記録しました。公開情報網には表示されません。</div>';
+        saveRecord('秘匿文書・四時分類照合');
       }else{
-        decodeResult.textContent='順序が違います。並び直してください。';
+        decodeResult.textContent='分類順が一致しません。再度照合してください。';
       }
     });
 
@@ -372,8 +379,8 @@
       const mini=document.createElement('button');
       mini.type='button';
       mini.className='ry-game-reopen';
-      mini.textContent='記録室';
-      mini.title='隠し遊戯室を開く';
+      mini.textContent='内部端末';
+      mini.title='内部事務補助端末を開く';
       mini.addEventListener('click',open);
       body.appendChild(mini);
     }
