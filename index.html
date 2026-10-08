@@ -2617,7 +2617,68 @@ body:after{inset:7px!important;border:1px solid rgba(185,150,85,.42)!important;b
  .hero-lead:before,.hero-lead:after{display:none}.site-header .header-inner{min-height:92px!important}
 }
 </style>
-</head>
+<style id="ryoryo-kantei-v11">
+/* 玲瓏浪漫・官公廳正式版 v11
+   「美術サイト」ではなく「帝國政府の実務サイト」に見せるための行政UI層 */
+:root{
+ --kantei-paper:#f6efe2;--kantei-paper2:#eee2cf;--kantei-white:#fffaf1;
+ --kantei-ink:#26231f;--kantei-red:#721f2a;--kantei-red2:#4e131b;
+ --kantei-green:#203a32;--kantei-gold:#a9894d;--kantei-line:#b9a47c;
+}
+body{font-feature-settings:"palt";letter-spacing:.025em}
+.site-header{position:relative!important}
+.site-header:before{
+ content:"日ノ本帝國政府　｜　四季廳公式情報網　｜　SHIKI GOVERNMENT INFORMATION NETWORK";
+ display:block;max-width:1380px;margin:0 auto;padding:7px 34px 6px;
+ color:#75664e;background:#efe3d0;border-bottom:1px solid rgba(169,137,77,.42);
+ font:9px/1.4 Georgia,"Yu Mincho",serif;letter-spacing:.18em;
+ text-align:right;
+}
+.header-inner{min-height:92px!important}
+.brand strong{font-size:31px!important;letter-spacing:.26em!important}
+.brand small:after{content:"　｜　中央行政機關";color:#a9894d}
+#global-nav{border-top:1px solid rgba(185,164,124,.7);border-bottom:1px solid rgba(185,164,124,.7);background:#f3eadb}
+#global-nav a{font-size:11px!important;letter-spacing:.08em!important;min-height:38px}
+.hero{min-height:660px!important}
+.hero-inner{padding-top:128px!important}
+.hero .kicker:before{content:"勅命行政機關　・　中央省廳";display:block;margin-bottom:13px;color:#8d7650;font:9px Georgia,serif;letter-spacing:.28em}
+.hero h1{font-size:clamp(58px,8vw,108px)!important;letter-spacing:.16em!important}
+.hero-lead{max-width:760px!important;font-size:14px!important;line-height:2!important}
+.hero-rule:before{content:"官署番号　SHK-CENTRAL-001";color:#8a7650}
+.season-status .status-inner:before{
+ content:"行政公告　｜　現行指定";display:block;position:absolute;top:12px;left:0;
+ color:#e0c58b;font:9px Georgia,serif;letter-spacing:.18em
+}
+.season-status .status-inner{position:relative!important;padding-top:34px!important}
+.section-heading h2{font-family:"Shippori Mincho","Yu Mincho",serif!important;font-weight:500!important}
+.section-heading p{max-width:760px}
+.section-heading:after{
+ content:"PUBLIC ADMINISTRATION / OFFICIAL RECORD";
+ display:block;margin-top:10px;color:#9a8057;font:8px Georgia,serif;letter-spacing:.22em
+}
+.person-search-section{position:relative}
+.person-search-section:before{
+ content:"公文書公開・人物記録検索";display:block;margin-bottom:8px;
+ color:#8a202d;font:10px Georgia,"Yu Mincho",serif;letter-spacing:.18em
+}
+.related-agencies-note strong{font-size:14px}
+.related-agency strong{font-size:19px!important}
+.shiki-v4-footer{background:#1d302b!important;border-top:5px double #b08a4a!important}
+.shiki-v4-footer .motto{letter-spacing:.28em!important}
+.shiki-v4-footer:after{
+ content:"日ノ本帝國政府　｜　四季廳　｜　公式情報網　｜　文書公開区分：一般公開";
+ display:block;max-width:1100px;margin:18px auto 0;padding-top:12px;
+ border-top:1px solid rgba(212,184,120,.25);
+ color:#b9aa8c;font:8px Georgia,serif;letter-spacing:.12em
+}
+@media(max-width:700px){
+ .site-header:before{padding:6px 18px;text-align:left;font-size:7px;letter-spacing:.11em}
+ .header-inner{min-height:82px!important}
+ .brand strong{font-size:25px!important}
+ .hero{min-height:570px!important}.hero-inner{padding-top:90px!important}
+ .hero h1{font-size:clamp(46px,15vw,76px)!important}
+}
+</style></head>
 <body data-shiki-page="index">
 <div class="imperial-header">
   <div class="imperial-header-inner">
