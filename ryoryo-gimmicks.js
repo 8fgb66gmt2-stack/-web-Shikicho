@@ -66,6 +66,18 @@ document.addEventListener('DOMContentLoaded',()=>{
   }
 
   /* ---- コマンドパレット ---- */
+  .ry-command-trigger{
+    position:fixed;right:18px;bottom:18px;z-index:9001;
+    display:flex;align-items:center;gap:7px;
+    min-height:38px;padding:0 12px;
+    border:1px solid #b9985b;background:rgba(255,250,240,.96);
+    color:#4b201f;box-shadow:0 6px 18px rgba(50,35,24,.13);
+    cursor:pointer;font:11px "Noto Sans JP","Yu Gothic",sans-serif;
+  }
+  .ry-command-trigger:hover{background:#f0e5d1}
+  .ry-command-trigger span{font:18px Georgia,serif;color:#7a2430;line-height:1}
+  .ry-command-trigger b{font-weight:600}
+  .ry-command-trigger small{font:8px Arial,sans-serif;color:#887a68;letter-spacing:.05em}
   .ry-command-backdrop{
     position:fixed;inset:0;z-index:10010;display:none;
     background:rgba(22,20,17,.52);backdrop-filter:blur(5px);
@@ -122,6 +134,8 @@ document.addEventListener('DOMContentLoaded',()=>{
     .ry-season-btn small{display:none}
   }
   @media(max-width:650px){
+    .ry-command-trigger{right:8px;bottom:60px;min-height:36px;padding:0 10px}
+    .ry-command-trigger small{display:none}
     .ry-gimmick-rail{right:7px;top:auto;bottom:12px;transform:none;flex-direction:row;width:auto}
     .ry-gimmick-rail:before{height:37px;padding:0 8px}
     .ry-season-btn{width:38px;height:37px;border-bottom:0;border-right:1px solid #ddd2c0}
@@ -210,7 +224,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     if(label) showStamp('閲覧記録　'+label);
   });
 
-  /* ---- 「/」で行政コマンド検索 ---- */
+  /* ---- 行政コマンド検索：ボタン＋Ctrl/Cmd+K ---- */
   const navTargets=[
     ['01','新着情報','官報・公告','#news'],
     ['02','四季廳について','機關案内','#about'],
@@ -246,8 +260,16 @@ document.addEventListener('DOMContentLoaded',()=>{
     if(target){target.scrollIntoView({behavior:'smooth',block:'start'});showStamp('行政情報　'+item.querySelector('span').textContent);}
   });
   backdrop.addEventListener('click',e=>{if(e.target===backdrop)closeCommands()});
+  const commandButton=document.createElement('button');
+  commandButton.type='button';
+  commandButton.className='ry-command-trigger';
+  commandButton.innerHTML='<span>⌕</span><b>行政検索</b><small>CTRL / ⌘ K</small>';
+  commandButton.setAttribute('aria-label','行政情報を検索');
+  body.appendChild(commandButton);
+  commandButton.addEventListener('click',openCommands);
+
   document.addEventListener('keydown',e=>{
-    if(e.key==='/' && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName||'')){
+    if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){
       e.preventDefault();openCommands();
     }
     if(e.key==='Escape'&&backdrop.classList.contains('open'))closeCommands();
