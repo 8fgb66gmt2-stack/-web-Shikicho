@@ -1,0 +1,721 @@
+/* =========================================================
+   玲瓏浪漫・本式意匠 / RYORYO ROMAN EDITORIAL GOVERNMENT
+   「官公廳」ではなく「玲瓏時代の国家美術そのもの」
+   ========================================================= */
+
+:root{
+ --rrx-ivory:#f4ead7;
+ --rrx-ivory-hi:#fff9ec;
+ --rrx-ivory-dk:#e1d0b2;
+ --rrx-ink:#211d1a;
+ --rrx-ink2:#4e4540;
+ --rrx-vermilion:#711d28;
+ --rrx-vermilion-dk:#3e0e15;
+ --rrx-sumi:#151817;
+ --rrx-green:#20342d;
+ --rrx-green2:#10201b;
+ --rrx-gold:#b59050;
+ --rrx-gold-hi:#dfc992;
+ --rrx-pink:#d5a0aa;
+ --rrx-blue:#9cb8c2;
+ --rrx-line:#bea98a;
+}
+
+/* ---------- 紙・印刷物 ---------- */
+html{background:var(--rrx-sumi)!important}
+body{
+ background:
+   radial-gradient(circle at 50% 0,rgba(255,255,255,.74),transparent 35%),
+   linear-gradient(90deg,transparent 0 11%,rgba(113,29,40,.025) 11.1%,transparent 11.2% 88.8%,rgba(113,29,40,.025) 88.9%,transparent 89%),
+   repeating-linear-gradient(0deg,rgba(65,42,22,.028) 0 1px,transparent 1px 7px),
+   var(--rrx-ivory)!important;
+ color:var(--rrx-ink)!important;
+ font-family:"Shippori Mincho","Noto Serif JP","Yu Mincho",serif!important;
+}
+body:before{
+ content:""!important;
+ position:fixed!important;
+ inset:0!important;
+ z-index:9997!important;
+ pointer-events:none!important;
+ opacity:.28!important;
+ background-image:
+   radial-gradient(circle,rgba(75,45,23,.10) .7px,transparent .8px),
+   radial-gradient(circle,rgba(113,29,40,.06) .55px,transparent .65px)!important;
+ background-size:8px 8px,13px 13px!important;
+}
+body:after{
+ inset:10px!important;
+ border:1px solid rgba(181,144,80,.42)!important;
+ box-shadow:
+   inset 0 0 0 2px rgba(181,144,80,.08),
+   inset 0 0 0 8px rgba(113,29,40,.028)!important;
+ pointer-events:none!important;
+ z-index:9998!important;
+}
+
+/* ---------- 最上段：国家の銘板 ---------- */
+.imperial-header{
+ background:var(--rrx-sumi)!important;
+ border:0!important;
+ box-shadow:inset 0 -1px var(--rrx-gold),inset 0 -3px rgba(113,29,40,.8)!important;
+}
+.imperial-header-inner{
+ max-width:none!important;
+ min-height:29px!important;
+ padding:0 34px!important;
+ justify-content:center!important;
+}
+.imperial-header-inner>*{
+ padding:0 18px!important;
+ border-left:1px solid rgba(223,201,146,.16)!important;
+}
+.imperial-header-inner>*:first-child{border-left:0!important}
+.imperial-header a,.imperial-header span{
+ font:8px Georgia,serif!important;
+ letter-spacing:.23em!important;
+ color:#dbca9b!important;
+}
+.imperial-header .current{color:#fff7ea!important}
+
+/* ---------- 本体の題字：雑誌の表紙のように ---------- */
+.shiki-v4-masthead{
+ background:var(--rrx-ivory-hi)!important;
+ border:0!important;
+ position:relative!important;
+ overflow:hidden!important;
+}
+.shiki-v4-masthead:before{
+ content:"四季　春　夏　秋　冬"!important;
+ position:absolute!important;
+ left:50%!important;
+ bottom:-8px!important;
+ transform:translateX(-50%)!important;
+ font-size:70px!important;
+ white-space:nowrap!important;
+ letter-spacing:.5em!important;
+ color:var(--rrx-vermilion)!important;
+ opacity:.045!important;
+}
+.shiki-v4-masthead .inner{
+ max-width:1400px!important;
+ min-height:150px!important;
+ padding:33px 60px 28px!important;
+ position:relative!important;
+}
+.shiki-v4-kicker{
+ font-size:8px!important;
+ letter-spacing:.42em!important;
+ color:var(--rrx-gold)!important;
+}
+.shiki-v4-title{
+ font-size:54px!important;
+ line-height:1.05!important;
+ letter-spacing:.28em!important;
+ color:var(--rrx-ink)!important;
+ font-weight:500!important;
+}
+.shiki-v4-title span{color:var(--rrx-vermilion)!important}
+.shiki-v4-sub{
+ margin-top:9px!important;
+ color:var(--rrx-ink2)!important;
+ font-size:11px!important;
+ letter-spacing:.14em!important;
+}
+.shiki-v4-date{
+ color:#7c6d5b!important;
+ font-size:9px!important;
+ line-height:2!important;
+ letter-spacing:.08em!important;
+}
+.shiki-v4-date strong{color:var(--rrx-vermilion)!important}
+
+/* ---------- メインヘッダー：古い洋館の案内板 ---------- */
+.site-header{
+ background:transparent!important;
+ border:0!important;
+ box-shadow:none!important;
+ position:relative!important;
+}
+.site-header:before{
+ content:""!important;
+ position:absolute!important;
+ left:35px!important;right:35px!important;top:0!important;height:1px!important;
+ background:var(--rrx-gold)!important;
+}
+.header-inner{
+ max-width:none!important;
+ min-height:96px!important;
+ padding:10px 56px 15px!important;
+}
+.brand-mark{
+ width:68px!important;height:68px!important;
+ background:var(--rrx-vermilion)!important;
+ color:#f8e9cb!important;
+ border:2px solid var(--rrx-gold-hi)!important;
+ outline:1px solid var(--rrx-vermilion)!important;
+ outline-offset:4px!important;
+ box-shadow:5px 5px 0 rgba(31,25,20,.13)!important;
+}
+.brand-mark:before{
+ content:"四時"!important;
+ top:50%!important;left:50%!important;
+ transform:translate(-50%,-50%)!important;
+ color:#f8e9cb!important;
+ font:20px "Shippori Mincho",serif!important;
+ letter-spacing:.12em!important;
+}
+.brand-mark:after{
+ inset:5px!important;
+ border:1px solid rgba(248,233,203,.65)!important;
+}
+.brand strong{
+ color:var(--rrx-ink)!important;
+ font-size:35px!important;
+ font-weight:500!important;
+ letter-spacing:.24em!important;
+}
+.brand small{
+ color:var(--rrx-vermilion)!important;
+ font-size:8px!important;
+ letter-spacing:.28em!important;
+}
+.brand:after{
+ content:"玲瓏時代　・　勅命行政機關　・　四季神祇行政"!important;
+ bottom:3px!important;
+ color:var(--rrx-gold)!important;
+ font-size:7px!important;
+ letter-spacing:.17em!important;
+}
+
+/* ---------- ナビ：装飾美術の帯 ---------- */
+#global-nav{
+ background:var(--rrx-ivory-dk)!important;
+ border-top:1px solid var(--rrx-line)!important;
+ border-bottom:1px solid var(--rrx-green)!important;
+ align-self:stretch!important;
+}
+#global-nav:before{
+ content:"四季廳 / INDEX"!important;
+ position:absolute!important;
+ top:4px!important;left:8px!important;
+ font:7px Georgia,serif!important;
+ letter-spacing:.25em!important;
+ color:var(--rrx-vermilion)!important;
+}
+#global-nav a{
+ min-width:62px!important;
+ padding:25px 10px 6px!important;
+ color:var(--rrx-ink)!important;
+ border-left:1px solid rgba(113,29,40,.16)!important;
+ font-size:10px!important;
+ letter-spacing:.09em!important;
+}
+#global-nav a:hover{
+ background:var(--rrx-vermilion)!important;
+ color:#fff5e4!important;
+}
+#global-nav a:hover:after{background:var(--rrx-gold-hi)!important}
+
+/* ---------- 告示帯：新聞の見出し ---------- */
+.law-banner{
+ background:var(--rrx-green)!important;
+ border:0!important;
+ box-shadow:none!important;
+}
+.law-banner-inner{max-width:none!important;padding:9px 48px!important}
+.law-banner-label .mark{
+ width:27px!important;height:27px!important;
+ border:1px solid var(--rrx-gold-hi)!important;
+ color:var(--rrx-gold-hi)!important;
+}
+.law-banner-label span{color:#cdbf9f!important;font-size:8px!important}
+.law-banner-label strong{color:#fff2dc!important}
+.law-banner a{
+ color:#241e19!important;
+ background:var(--rrx-gold-hi)!important;
+ border:0!important;
+ padding:9px 15px!important;
+}
+
+/* ---------- 本庁舎：中央の余白を広く ---------- */
+.portal-shell{
+ display:block!important;
+ max-width:1380px!important;
+ margin:0 auto!important;
+ border-left:1px solid var(--rrx-line)!important;
+ border-right:1px solid var(--rrx-line)!important;
+ background:var(--rrx-ivory)!important;
+}
+.portal-rail{
+ display:none!important;
+}
+.portal-body{width:100%!important;background:var(--rrx-ivory)!important}
+
+/* 行政資料ヘッダー */
+.portal-document-head{
+ grid-template-columns:minmax(0,1fr) 270px!important;
+ padding:21px 54px 18px!important;
+ background:#eee1cb!important;
+ border-bottom:1px solid var(--rrx-ink)!important;
+}
+.portal-document-head:before{
+ content:"THE IMPERIAL GOVERNMENT / 中央官廳"!important;
+ color:var(--rrx-vermilion)!important;
+ font:7px Georgia,serif!important;
+ letter-spacing:.24em!important;
+}
+.document-class{color:var(--rrx-gold)!important}
+.portal-document-head h1{
+ color:var(--rrx-ink)!important;
+ font-size:25px!important;
+ letter-spacing:.19em!important;
+}
+.portal-document-head p{color:var(--rrx-muted)!important;font-size:10px!important}
+.document-meta{
+ border-left:3px double var(--rrx-gold)!important;
+}
+.document-meta dt{color:#8a6e3e!important}
+.document-meta dd{color:var(--rrx-ink)!important}
+
+/* ---------- HERO：玲瓏浪漫の「表紙」 ---------- */
+.hero{
+ min-height:690px!important;
+ overflow:hidden!important;
+ border:0!important;
+ border-bottom:1px solid var(--rrx-green)!important;
+ background:
+   radial-gradient(circle at 76% 50%,rgba(185,144,80,.34) 0 1px,transparent 2px 13%),
+   radial-gradient(circle at 76% 50%,rgba(213,160,170,.12) 0 18%,transparent 19%),
+   radial-gradient(circle at 76% 50%,rgba(156,184,194,.10) 0 31%,transparent 32%),
+   linear-gradient(90deg,#efe1ca 0%,#f9f1df 45%,#e7d7bd 100%)!important;
+}
+.hero:before{
+ inset:20px!important;
+ border:1px solid rgba(181,144,80,.58)!important;
+ box-shadow:
+   inset 0 0 0 5px rgba(181,144,80,.045),
+   inset 0 0 0 7px rgba(113,29,40,.032)!important;
+ background:
+   linear-gradient(90deg,transparent 0 67%,rgba(113,29,40,.05) 67.1%,transparent 67.2%),
+   linear-gradient(0deg,transparent 0 50%,rgba(181,144,80,.05) 50.1%,transparent 50.2%)!important;
+}
+.hero-inner{
+ width:auto!important;
+ max-width:none!important;
+ padding:150px 10% 90px!important;
+}
+.hero-inner:before{
+ content:"四季廳"!important;
+ left:1%!important;top:85px!important;
+ writing-mode:vertical-rl!important;
+ color:var(--rrx-vermilion)!important;
+ font-size:13px!important;
+ letter-spacing:.48em!important;
+ opacity:.76!important;
+}
+.hero-inner:after{
+ content:"SHIKI AGENCY  /  IMPERIAL GOVERNMENT"!important;
+ right:3%!important;top:95px!important;
+ writing-mode:vertical-rl!important;
+ color:var(--rrx-gold)!important;
+ font:7px Georgia,serif!important;
+ letter-spacing:.26em!important;
+}
+.hero .kicker{
+ background:var(--rrx-vermilion)!important;
+ color:#fff5e4!important;
+ padding:7px 15px!important;
+ border:0!important;
+ font:8px Georgia,serif!important;
+ letter-spacing:.34em!important;
+}
+.hero h1{
+ font-size:clamp(82px,10vw,145px)!important;
+ line-height:.94!important;
+ color:var(--rrx-ink)!important;
+ letter-spacing:.07em!important;
+ font-weight:500!important;
+ text-shadow:2px 2px 0 rgba(181,144,80,.16)!important;
+ max-width:790px!important;
+}
+.hero h1 em{
+ color:var(--rrx-vermilion)!important;
+ border-bottom:3px solid var(--rrx-gold)!important;
+}
+.hero h1:after{
+ color:var(--rrx-gold)!important;
+}
+.hero-lead{
+ max-width:610px!important;
+ margin-top:35px!important;
+ border-left:2px solid var(--rrx-vermilion)!important;
+ padding-left:21px!important;
+ color:#5f554a!important;
+ font-size:14px!important;
+ line-height:2.25!important;
+}
+.hero-rule{color:#846d45!important}
+.hero-rule i{background:var(--rrx-gold)!important}
+
+/* 四時紋 */
+.four-season-wheel{
+ width:470px!important;height:470px!important;
+ right:9%!important;top:52%!important;
+ border-color:rgba(113,29,40,.24)!important;
+ box-shadow:
+  0 0 0 12px rgba(181,144,80,.035),
+  0 0 0 13px rgba(181,144,80,.24)!important;
+ opacity:.88!important;
+}
+.four-season-wheel:before{border-color:rgba(181,144,80,.38)!important}
+.four-season-wheel:after{border-color:rgba(113,29,40,.16)!important}
+.season-wheel-center{
+ width:108px!important;height:108px!important;
+ background:rgba(255,249,236,.88)!important;
+ color:var(--rrx-vermilion)!important;
+ border-color:var(--rrx-gold)!important;
+}
+.season-wheel-item b{background:rgba(255,249,236,.82)!important}
+
+/* ---------- 現在事項：深紅の短冊 ---------- */
+.season-status{
+ background:var(--rrx-vermilion)!important;
+ border:0!important;
+ border-bottom:5px double var(--rrx-gold-hi)!important;
+}
+.status-inner{max-width:1180px!important;min-height:105px!important}
+.season-status .eyebrow{color:var(--rrx-gold-hi)!important}
+.season-status h2{color:#fff4e2!important;font-size:20px!important}
+.status-light{border-left-color:rgba(255,238,211,.32)!important}
+
+/* ---------- 行政章：編集物っぽいリズム ---------- */
+.section{
+ padding:100px 0!important;
+ border:0!important;
+ border-bottom:1px solid var(--rrx-line)!important;
+ background:var(--rrx-ivory-hi)!important;
+}
+.section:nth-of-type(even){
+ background:
+   radial-gradient(circle at 90% 8%,rgba(213,160,170,.065),transparent 23%),
+   var(--rrx-ivory)!important;
+}
+.portal-body>.section>.content-width{max-width:1080px!important}
+.section-title{
+ margin-bottom:40px!important;
+ padding:0 0 17px!important;
+ border-bottom:1px solid var(--rrx-ink)!important;
+}
+.section-title:after{
+ content:"❦"!important;
+ position:absolute!important;
+ left:50%!important;
+ bottom:-13px!important;
+ transform:translateX(-50%)!important;
+ padding:0 10px!important;
+ background:inherit!important;
+ color:var(--rrx-vermilion)!important;
+}
+.section-title h2{
+ color:var(--rrx-vermilion)!important;
+ font-size:40px!important;
+ letter-spacing:.13em!important;
+ font-weight:500!important;
+}
+.section-title>span{
+ color:var(--rrx-gold)!important;
+ font:8px Georgia,serif!important;
+ letter-spacing:.35em!important;
+}
+.section-title p{
+ color:var(--rrx-muted)!important;
+}
+
+/* ---------- 新着情報：文芸誌の目次 ---------- */
+.news-section{background:#efe2ce!important}
+.news-list{
+ border-top:4px double var(--rrx-vermilion)!important;
+}
+.portal-body .news-list article{
+ background:transparent!important;
+ border-bottom:1px solid var(--rrx-line)!important;
+ min-height:90px!important;
+ padding:15px 7px!important;
+}
+.news-list article:hover{
+ background:rgba(113,29,40,.045)!important;
+ padding-left:17px!important;
+}
+.news-list article time{
+ color:#8e7041!important;
+ font:9px Georgia,serif!important;
+}
+.news-list article span{
+ border:0!important;
+ border-left:2px solid var(--rrx-gold)!important;
+ color:var(--rrx-vermilion)!important;
+ font-size:8px!important;
+}
+.news-list article a{
+ color:var(--rrx-ink)!important;
+ font-size:13px!important;
+}
+.news-list article a:hover{color:var(--rrx-vermilion)!important}
+
+/* ---------- 神籍：四季の章扉 ---------- */
+.gods-section{
+ background:#eadbc3!important;
+}
+.god-tabs{
+ border:1px solid var(--rrx-line)!important;
+ border-radius:0!important;
+ background:var(--rrx-ivory-hi)!important;
+ box-shadow:none!important;
+}
+.god-tab{
+ min-height:82px!important;
+ background:transparent!important;
+ border-top:6px solid transparent!important;
+ font-size:13px!important;
+ letter-spacing:.08em!important;
+}
+.god-tab:nth-child(1){border-top-color:var(--rrx-pink)!important}
+.god-tab:nth-child(2){border-top-color:#d4af55!important}
+.god-tab:nth-child(3){border-top-color:#967354!important}
+.god-tab:nth-child(4){border-top-color:var(--rrx-blue)!important}
+.god-tab.active{
+ background:var(--rrx-green)!important;
+ color:#fff3df!important;
+}
+.god-panel{
+ border:1px solid var(--rrx-line)!important;
+ border-top:0!important;
+ border-radius:0!important;
+ background:var(--rrx-ivory-hi)!important;
+ box-shadow:14px 14px 0 rgba(113,29,40,.045)!important;
+}
+.god-panel h3{
+ color:var(--rrx-vermilion)!important;
+ font-size:31px!important;
+}
+.god-panel dt{color:#977242!important}
+
+/* ---------- 護衛官：華族名鑑の見開き ---------- */
+.guards-section{
+ background:
+   linear-gradient(90deg,rgba(16,32,27,.99),rgba(32,52,45,.97)),
+   var(--rrx-green2)!important;
+}
+.guards-section .section-title{border-color:rgba(223,201,146,.35)!important}
+.guards-section .section-title h2{color:#f7ebd8!important}
+.guards-section .section-title>span,.guards-section .section-title p{color:var(--rrx-gold-hi)!important}
+.guards-section .department-grid{
+ background:rgba(223,201,146,.18)!important;
+ border:1px solid rgba(223,201,146,.3)!important;
+ box-shadow:none!important;
+}
+.guards-section .department-grid article{
+ min-height:250px!important;
+ background:#213a32!important;
+ border:0!important;
+ border-top:4px solid var(--rrx-gold)!important;
+}
+.guards-section .department-grid article:before{
+ inset:12px!important;
+ border:1px solid rgba(223,201,146,.16)!important;
+}
+.guards-section .department-grid h3{
+ color:#fff2df!important;
+ font-size:22px!important;
+}
+
+/* ---------- 組織：舞台装置のように ---------- */
+.departments-section{
+ background:
+   repeating-linear-gradient(45deg,rgba(223,201,146,.025) 0 1px,transparent 1px 12px),
+   var(--rrx-green2)!important;
+ border-top:7px double var(--rrx-gold)!important;
+ border-bottom:7px double var(--rrx-gold)!important;
+}
+.departments-section .section-title h2{color:#fff1dc!important}
+.departments-section .section-title>span,.departments-section .section-title p{color:var(--rrx-gold-hi)!important}
+.departments-section .org-node.chief{
+ background:var(--rrx-vermilion-dk)!important;
+ border:1px solid var(--rrx-gold)!important;
+ box-shadow:0 12px 30px rgba(0,0,0,.18)!important;
+}
+.departments-section .org-line{background:var(--rrx-gold)!important}
+.departments-section .org-grid article{
+ background:rgba(255,249,236,.035)!important;
+ border-color:rgba(223,201,146,.24)!important;
+}
+
+/* ---------- 業務：縦長の古い案内札 ---------- */
+.duties-section{
+ background:#e5d5bb!important;
+}
+.duty-grid{
+ border-top:4px double var(--rrx-vermilion)!important;
+ gap:0!important;
+}
+.duty-grid article{
+ min-height:175px!important;
+ border:0!important;
+ border-bottom:1px solid var(--rrx-line)!important;
+ background:rgba(255,249,236,.72)!important;
+ box-shadow:none!important;
+ border-radius:0!important;
+ padding:28px!important;
+}
+.duty-grid article:before{display:none!important}
+.duty-grid article:hover{
+ background:#fffaf0!important;
+ transform:none!important;
+}
+.duty-grid h3{
+ color:var(--rrx-vermilion)!important;
+ font-size:23px!important;
+}
+
+/* ---------- 人物原簿：赤い文庫室 ---------- */
+.portal-person-frame{
+ background:
+   radial-gradient(circle at 15% 25%,rgba(213,160,170,.13),transparent 25%),
+   #dfcdb0!important;
+ padding:40px 42px 44px!important;
+ border-bottom:1px solid var(--rrx-line)!important;
+}
+.portal-person-frame .person-search-section{
+ background:var(--rrx-ivory-hi)!important;
+ border:1px solid var(--rrx-line)!important;
+ border-top:4px double var(--rrx-vermilion)!important;
+ box-shadow:10px 12px 0 rgba(113,29,40,.045)!important;
+}
+.person-search-section h2{color:var(--rrx-vermilion)!important}
+#person-search-button{background:var(--rrx-vermilion)!important}
+
+/* ---------- 記録棚 ---------- */
+.portal-file-tabs{
+ background:linear-gradient(90deg,#eadcc6,#f6ecdc,#eadcc6)!important;
+ border-top:6px double var(--rrx-gold)!important;
+ border-bottom:1px solid var(--rrx-ink)!important;
+}
+.file-tab{
+ min-height:80px!important;
+ background:transparent!important;
+ border-right:1px solid var(--rrx-line)!important;
+}
+.file-tab span{color:#987443!important}
+.file-tab b{color:var(--rrx-vermilion)!important}
+
+/* ---------- 附属資料室：劇場の緞帳 ---------- */
+.arg-teaser{
+ background:
+   radial-gradient(circle at 12% 60%,rgba(185,144,80,.12),transparent 20%),
+   linear-gradient(115deg,#11211c,#391018)!important;
+ border-top:1px solid var(--rrx-gold)!important;
+ border-bottom:6px double var(--rrx-gold)!important;
+}
+.arg-teaser h2{color:#fff0d9!important}
+.arg-teaser p{color:#d7c9b5!important}
+.arg-teaser-mark{
+ border-color:var(--rrx-gold-hi)!important;
+ color:var(--rrx-gold-hi)!important;
+}
+.arg-teaser a{
+ background:var(--rrx-gold-hi)!important;
+ color:#331913!important;
+ border:0!important;
+}
+
+/* ---------- 関係機関・窓口 ---------- */
+.contact-section,.related-agencies-section{
+ background:var(--rrx-ivory-hi)!important;
+}
+.contact-box,.related-agency{
+ border:1px solid var(--rrx-line)!important;
+ background:#fbf3e4!important;
+ border-radius:0!important;
+ box-shadow:none!important;
+}
+.related-agency-open{
+ color:var(--rrx-vermilion)!important;
+ border-color:var(--rrx-gold)!important;
+}
+
+/* ---------- フッター：帝國夜会 ---------- */
+.site-footer,.shiki-v4-footer{
+ background:
+   radial-gradient(circle at 50% -10%,rgba(185,144,80,.08),transparent 35%),
+   var(--rrx-sumi)!important;
+ border-top:6px double var(--rrx-gold)!important;
+ color:#e8dcc7!important;
+}
+.site-footer:after{
+ content:"玲瓏時代"!important;
+ color:var(--rrx-gold)!important;
+ opacity:.07!important;
+ font-size:120px!important;
+ letter-spacing:.3em!important;
+}
+.shiki-v4-footer strong{
+ color:#fff0d9!important;
+ font-size:22px!important;
+}
+.shiki-v4-footer .motto{
+ color:var(--rrx-gold-hi)!important;
+}
+
+/* ---------- 「現代のUI」を消す ---------- */
+button,input,select,textarea{
+ border-radius:0!important;
+}
+.card,.mission-card,.document-copy,.report-box,.contact-box,.related-agency{
+ border-radius:0!important;
+}
+a:focus-visible,button:focus-visible,input:focus-visible{
+ outline:1px solid var(--rrx-gold)!important;
+ outline-offset:3px!important;
+}
+
+/* ---------- スマホ ---------- */
+@media(max-width:1000px){
+ .header-inner{padding:12px 22px 14px!important;min-height:82px!important}
+ .brand strong{font-size:27px!important}
+ .portal-shell{display:block!important;border:0!important}
+ .portal-rail{display:none!important}
+ .portal-document-head{grid-template-columns:1fr!important;padding:19px 24px!important}
+ .hero{min-height:650px!important}
+ .hero-inner{padding:105px 44px 70px!important}
+ .hero h1{font-size:68px!important}
+ .four-season-wheel{width:350px!important;height:350px!important;right:1%!important;opacity:.32!important}
+}
+@media(max-width:700px){
+ body:after{inset:4px!important}
+ .imperial-header-inner{padding:0 10px!important}
+ .imperial-header-inner>*{padding:0 8px!important}
+ .imperial-header-inner>*:not(:first-child){display:none}
+ .shiki-v4-masthead .inner{padding:24px 18px 19px!important}
+ .shiki-v4-title{font-size:34px!important;letter-spacing:.14em!important}
+ .shiki-v4-sub{font-size:9px!important}
+ .shiki-v4-date{display:none!important}
+ .header-inner{padding:12px 16px!important}
+ .brand-mark{width:48px!important;height:48px!important}
+ .brand strong{font-size:22px!important;letter-spacing:.12em!important}
+ .brand small,.brand:after{display:none!important}
+ #global-nav:before{display:none!important}
+ .law-banner-inner{padding:8px 14px!important}
+ .hero{min-height:590px!important}
+ .hero:before{inset:11px!important}
+ .hero-inner{padding:84px 29px 55px!important}
+ .hero-inner:before{left:0!important;top:48px!important}
+ .hero h1{font-size:55px!important;letter-spacing:.015em!important}
+ .hero-lead{font-size:12px!important}
+ .four-season-wheel{width:240px!important;height:240px!important;top:65%!important;right:-7%!important;opacity:.2!important}
+ .section{padding:62px 0!important}
+ .portal-body>.section>.content-width{padding:0 18px!important}
+ .section-title h2{font-size:30px!important}
+ .god-panel{padding:25px!important}
+ .portal-person-frame{padding:22px 14px!important}
+}
