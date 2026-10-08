@@ -60,6 +60,8 @@
       .ry-hidden-footer{display:flex;justify-content:space-between;gap:14px;align-items:center;margin-top:17px;padding-top:12px;border-top:1px solid #d6c7ae;font-size:10px;color:#85796b}
       .ry-game-back{border:0;background:transparent;color:#8a202d;cursor:pointer;font:11px "Shippori Mincho",serif}
       .ry-game-discover{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:10990;opacity:.18;font:8px Georgia,serif;letter-spacing:.2em;color:#8a7650;pointer-events:none}
+      .ry-game-reopen{position:fixed;left:12px;bottom:12px;z-index:9005;border:1px solid #b9985b;background:rgba(255,250,240,.93);color:#54131d;padding:7px 10px;font:10px "Shippori Mincho",serif;letter-spacing:.08em;cursor:pointer;box-shadow:0 4px 12px rgba(50,35,24,.1)}
+      .ry-game-reopen:hover{background:#f0e5d1}
       @media(max-width:700px){
         .ry-game-cabinet{top:3%;max-height:92vh}
         .ry-game-menu{grid-template-columns:1fr}
@@ -158,7 +160,11 @@
     };
     overlay.querySelector('#ry-game-record').textContent=records.length?records.length+' 件':'未記録';
 
-    const open=()=>{overlay.classList.add('open');openMenu()};
+    const open=()=>{
+      overlay.classList.add('open');
+      openMenu();
+      try{sessionStorage.setItem('shiki-hidden-games-found','1')}catch(_){}
+    };
     const close=()=>{overlay.classList.remove('open');stopCollect()};
     const openMenu=()=>{
       overlay.querySelectorAll('.ry-game-panel').forEach(p=>p.hidden=true);
@@ -326,23 +332,51 @@
     });
 
     /* 発見用トリガー */
-    let emblemClicks=0,emblemTimer=null;
+    let discoveryClicks=0,discoveryTimer=null;
     const bindDiscovery=(selector,limit)=>{
       document.querySelectorAll(selector).forEach(el=>{
-        el.addEventListener('click',()=>{
-          // ボタンやリンクとしての通常挙動を邪魔しない
-          clearTimeout(emblemTimer);
-          emblemClicks++;
-          emblemTimer=setTimeout(()=>{emblemClicks=0},1800);
-          if(emblemClicks>=limit){
-            emblemClicks=0;
+        let pressTimer=null;
+        const register=()=>{
+          clearTimeout(discoveryTimer);
+          discoveryClicks++;
+          discoveryTimer=setTimeout(()=>{discoveryClicks=0},2500);
+          if(discoveryClicks>=limit){
+            discoveryClicks=0;
+            clearTimeout(pressTimer);
             open();
           }
+        };
+        el.addEventListener('click',e=>{
+          register();
+          if(overlay.classList.contains('open')) e.preventDefault();
+        });
+        el.addEventListener('pointerdown',()=>{
+          clearTimeout(pressTimer);
+          pressTimer=setTimeout(()=>{
+            discoveryClicks=0;
+            open();
+          },1800);
+        });
+        ['pointerup','pointercancel','pointerleave'].forEach(type=>{
+          el.addEventListener(type,()=>clearTimeout(pressTimer));
         });
       });
     };
-    bindDiscovery('.brand-mark',7);
-    bindDiscovery('.motto',5);
+    // ロゴ3回、または標語3回。ロゴ長押しでも開く。
+    bindDiscovery('.brand-mark,.brand',3);
+    bindDiscovery('.motto',3);
+
+    let discovered=false;
+    try{discovered=sessionStorage.getItem('shiki-hidden-games-found')==='1'}catch(_){}
+    if(discovered){
+      const mini=document.createElement('button');
+      mini.type='button';
+      mini.className='ry-game-reopen';
+      mini.textContent='記録室';
+      mini.title='隠し遊戯室を開く';
+      mini.addEventListener('click',open);
+      body.appendChild(mini);
+    }
 
     window.shikiHiddenGames={open,close};
   };
