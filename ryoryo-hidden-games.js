@@ -1,0 +1,352 @@
+/* =========================================================
+   四季廳 / HIDDEN GAME CABINET
+   公開情報網の裏側にある、小さな遊戯室。
+   発見経路：
+   ・紋章を7回クリック
+   ・標語を5回クリック
+   ========================================================= */
+(()=>{
+  const boot=()=>{
+    if(document.querySelector('.ry-hidden-games')) return;
+    const body=document.body;
+
+    const css=document.createElement('style');
+    css.id='ry-hidden-games-style';
+    css.textContent=`
+      .ry-hidden-games{position:fixed;inset:0;z-index:11000;display:none;background:rgba(18,16,14,.62);backdrop-filter:blur(7px)}
+      .ry-hidden-games.open{display:block}
+      .ry-game-cabinet{position:absolute;left:50%;top:7%;transform:translateX(-50%);width:min(760px,calc(100vw - 26px));max-height:86vh;overflow:auto;background:#fffaf0;color:#2d2823;border:1px solid #a98b55;border-top:5px double #711d28;box-shadow:0 28px 100px rgba(0,0,0,.38)}
+      .ry-game-head{padding:18px 22px 15px;border-bottom:1px solid #d6c7ae;display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+      .ry-game-kicker{font:9px Georgia,serif;letter-spacing:.22em;color:#8a7650}
+      .ry-game-head h2{margin:5px 0 4px;font:500 23px "Shippori Mincho","Yu Mincho",serif;letter-spacing:.08em;color:#54131d}
+      .ry-game-head p{margin:0;font-size:11px;color:#73695f;line-height:1.7}
+      .ry-game-close{width:32px;height:32px;border:1px solid #bea983;background:#f8f0df;color:#54131d;cursor:pointer;font-size:16px;line-height:1}
+      .ry-game-body{padding:20px 22px 25px}
+      .ry-game-menu{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+      .ry-game-card{position:relative;min-height:164px;padding:17px;border:1px solid #cbb99a;background:#fcf7ed;text-align:left;cursor:pointer;transition:.18s ease}
+      .ry-game-card:hover{transform:translateY(-2px);background:#f1e5d1;border-color:#9e8150;box-shadow:0 8px 20px rgba(55,33,15,.08)}
+      .ry-game-card b{display:block;color:#8a202d;font:9px Georgia,serif;letter-spacing:.15em;margin-bottom:9px}
+      .ry-game-card strong{display:block;font:500 16px "Shippori Mincho","Yu Mincho",serif;letter-spacing:.06em;margin-bottom:8px}
+      .ry-game-card span{display:block;color:#6f665d;font-size:11px;line-height:1.75}
+      .ry-game-card em{position:absolute;right:12px;bottom:10px;color:#9d7b42;font:10px Georgia,serif;font-style:normal}
+      .ry-game-hint{margin:15px 0 0;padding:10px 12px;border-left:3px solid #243c35;background:#f1eadf;color:#665d54;font-size:10px;line-height:1.8}
+      .ry-game-panel[hidden]{display:none}
+      .ry-game-panel h3{margin:0 0 7px;font:500 20px "Shippori Mincho","Yu Mincho",serif;color:#54131d}
+      .ry-game-panel .ry-game-note{margin:0 0 15px;color:#726960;font-size:11px;line-height:1.8}
+      .ry-memory-status{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:10px 12px;border:1px solid #d2c1a3;background:#f7efe2;margin-bottom:13px;font-size:11px}
+      .ry-memory-seq{font-family:Georgia,serif;letter-spacing:.12em;color:#8a202d}
+      .ry-memory-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;max-width:480px;margin:0 auto}
+      .ry-memory-btn{aspect-ratio:1;border:1px solid #b8a17a;background:#fbf6eb;cursor:pointer;color:#2d2823;font:500 22px "Shippori Mincho","Yu Mincho",serif;transition:.15s}
+      .ry-memory-btn:hover{background:#eee2cc}
+      .ry-memory-btn.flash{background:#243c35;color:#fff8ea;transform:scale(.98)}
+      .ry-memory-btn.correct{background:#8a202d;color:#fff8ea}
+      .ry-memory-btn.wrong{background:#e8cfc9;animation:ry-shake .25s linear 2}
+      @keyframes ry-shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+      .ry-game-result{margin-top:14px;min-height:25px;color:#54131d;font-family:"Shippori Mincho","Yu Mincho",serif;letter-spacing:.05em}
+      .ry-collect-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+      .ry-collect-stage{position:relative;overflow:hidden;height:360px;border:1px solid #cbb99a;background:linear-gradient(#f7efe1,#eee4d4)}
+      .ry-season-field{position:absolute;inset:0;pointer-events:none}
+      .ry-falling-item{position:absolute;pointer-events:auto;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;border:1px solid rgba(84,19,29,.28);background:#fffaf0;box-shadow:0 3px 9px rgba(50,30,15,.12);cursor:pointer;font-size:20px;user-select:none}
+      .ry-falling-item:hover{transform:scale(1.12)}
+      .ry-collect-score{font:600 12px Georgia,serif;color:#243c35}
+      .ry-collect-timer{font:600 12px Georgia,serif;color:#8a202d}
+      .ry-collect-start,.ry-decode-submit{border:1px solid #752b2d;background:#752b2d;color:#fffaf3;padding:10px 16px;cursor:pointer;font-family:inherit;letter-spacing:.08em}
+      .ry-decode-box{padding:14px;border:1px solid #d1c1a5;background:#f7efe2}
+      .ry-decode-code{font:500 25px Georgia,serif;letter-spacing:.28em;text-align:center;color:#54131d;padding:13px 8px;border-bottom:1px solid #c8b696;margin-bottom:12px}
+      .ry-decode-choices{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+      .ry-decode-choice{border:1px solid #c4b18f;background:#fffaf0;padding:12px 6px;cursor:pointer;font:500 16px "Shippori Mincho",serif;color:#2d2823}
+      .ry-decode-choice:hover,.ry-decode-choice.selected{background:#243c35;color:#fffaf0}
+      .ry-secret-stamp{margin-top:13px;padding:12px;border:1px double #8a202d;background:#fff7ea;color:#54131d;font:500 13px "Shippori Mincho",serif;line-height:1.8}
+      .ry-hidden-footer{display:flex;justify-content:space-between;gap:14px;align-items:center;margin-top:17px;padding-top:12px;border-top:1px solid #d6c7ae;font-size:10px;color:#85796b}
+      .ry-game-back{border:0;background:transparent;color:#8a202d;cursor:pointer;font:11px "Shippori Mincho",serif}
+      .ry-game-discover{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:10990;opacity:.18;font:8px Georgia,serif;letter-spacing:.2em;color:#8a7650;pointer-events:none}
+      @media(max-width:700px){
+        .ry-game-cabinet{top:3%;max-height:92vh}
+        .ry-game-menu{grid-template-columns:1fr}
+        .ry-game-card{min-height:120px}
+        .ry-game-body{padding:17px}
+        .ry-memory-grid{gap:7px}
+        .ry-collect-stage{height:320px}
+      }
+      @media(prefers-reduced-motion:reduce){
+        .ry-memory-btn,.ry-game-card{transition:none}
+        .ry-memory-btn.wrong{animation:none}
+      }
+    `;
+    document.head.appendChild(css);
+
+    const overlay=document.createElement('div');
+    overlay.className='ry-hidden-games';
+    overlay.innerHTML=`
+      <div class="ry-game-cabinet" role="dialog" aria-modal="true" aria-labelledby="ry-game-title">
+        <div class="ry-game-head">
+          <div>
+            <div class="ry-game-kicker">IMPERIAL ARCHIVE / RESTRICTED RECREATION ROOM</div>
+            <h2 id="ry-game-title">四季廳・隠し遊戯室</h2>
+            <p>公開情報網には記録されない、小さな遊戯が三つ。</p>
+          </div>
+          <button class="ry-game-close" type="button" aria-label="閉じる">×</button>
+        </div>
+        <div class="ry-game-body">
+          <div class="ry-game-menu">
+            <button class="ry-game-card" type="button" data-game="memory">
+              <b>GAME I / 御璽</b><strong>四時記憶遊戯</strong>
+              <span>示された季節の順を記憶し、同じ順番で御璽を押してください。</span><em>MEMORY</em>
+            </button>
+            <button class="ry-game-card" type="button" data-game="collect">
+              <b>GAME II / 採集</b><strong>四季奉納・花葉集め</strong>
+              <span>短い間だけ現れる四季のしるしを、制限時間内に集めます。</span><em>COLLECT</em>
+            </button>
+            <button class="ry-game-card" type="button" data-game="decode">
+              <b>GAME III / 文書</b><strong>秘匿文書・四時解読</strong>
+              <span>四つの印を正しい順に並べ、秘匿指定の文書を開封します。</span><em>DECODE</em>
+            </button>
+          </div>
+          <div class="ry-game-hint">発見者記録：<span id="ry-game-record">未記録</span>　／　遊戯を完了すると、この端末にだけ残る閲覧記録があります。</div>
+
+          <section class="ry-game-panel" data-panel="memory" hidden>
+            <button class="ry-game-back" type="button">← 遊戯室へ戻る</button>
+            <h3>四時記憶遊戯</h3>
+            <p class="ry-game-note">最初に光る印を覚えてください。二回目からは一つずつ順番に押します。段位が上がるほど長くなります。</p>
+            <div class="ry-memory-status"><span>段位 <b id="ry-memory-level">一</b></span><span class="ry-memory-seq" id="ry-memory-seq">順番を準備中</span></div>
+            <div class="ry-memory-grid" id="ry-memory-grid"></div>
+            <div class="ry-game-result" id="ry-memory-result"></div>
+          </section>
+
+          <section class="ry-game-panel" data-panel="collect" hidden>
+            <button class="ry-game-back" type="button">← 遊戯室へ戻る</button>
+            <h3>四季奉納・花葉集め</h3>
+            <p class="ry-game-note">「春」「夏」「秋」「冬」のしるしをクリック。30秒で15個集めると合格です。</p>
+            <div class="ry-collect-head"><span class="ry-collect-score" id="ry-collect-score">奉納数 0 / 15</span><span class="ry-collect-timer" id="ry-collect-timer">00:30</span></div>
+            <div class="ry-collect-stage" id="ry-collect-stage"><div class="ry-season-field" id="ry-season-field"></div></div>
+            <button class="ry-collect-start" id="ry-collect-start" type="button">奉納開始</button>
+            <div class="ry-game-result" id="ry-collect-result"></div>
+          </section>
+
+          <section class="ry-game-panel" data-panel="decode" hidden>
+            <button class="ry-game-back" type="button">← 遊戯室へ戻る</button>
+            <h3>秘匿文書・四時解読</h3>
+            <p class="ry-game-note">暗号文の下に示される「四時の並び」を読んで、正しい四字の順を選んでください。</p>
+            <div class="ry-decode-box">
+              <div class="ry-decode-code" id="ry-decode-code">春 → 夏 → 秋 → 冬</div>
+              <div class="ry-decode-choices" id="ry-decode-choices"></div>
+              <div style="text-align:center;margin-top:12px"><button class="ry-decode-submit" id="ry-decode-submit" type="button">開封照合</button></div>
+            </div>
+            <div class="ry-game-result" id="ry-decode-result"></div>
+          </section>
+
+          <div class="ry-hidden-footer"><span>閲覧端末：四季廳公開情報網</span><button class="ry-game-close ry-game-close-text" type="button">閉じる</button></div>
+        </div>
+      </div>
+    `;
+    body.appendChild(overlay);
+
+    const discover=document.createElement('div');
+    discover.className='ry-game-discover';
+    discover.textContent='記録にない遊戯室';
+    body.appendChild(discover);
+
+    const recordsKey='shiki-hidden-game-records';
+    const records=JSON.parse(localStorage.getItem(recordsKey)||'[]');
+    const saveRecord=(name)=>{
+      if(!records.includes(name)){
+        records.push(name);
+        localStorage.setItem(recordsKey,JSON.stringify(records));
+      }
+      const el=overlay.querySelector('#ry-game-record');
+      if(el) el.textContent=records.length+' 件';
+    };
+    overlay.querySelector('#ry-game-record').textContent=records.length?records.length+' 件':'未記録';
+
+    const open=()=>{overlay.classList.add('open');openMenu()};
+    const close=()=>{overlay.classList.remove('open');stopCollect()};
+    const openMenu=()=>{
+      overlay.querySelectorAll('.ry-game-panel').forEach(p=>p.hidden=true);
+      overlay.querySelector('.ry-game-menu').hidden=false;
+      stopCollect();
+    };
+    const openPanel=(name)=>{
+      overlay.querySelector('.ry-game-menu').hidden=true;
+      overlay.querySelectorAll('.ry-game-panel').forEach(p=>p.hidden=p.dataset.panel!==name);
+      if(name==='memory')startMemory();
+      if(name==='decode')startDecode();
+    };
+
+    overlay.querySelectorAll('.ry-game-close').forEach(b=>b.addEventListener('click',close));
+    overlay.querySelectorAll('.ry-game-card').forEach(b=>b.addEventListener('click',()=>openPanel(b.dataset.game)));
+    overlay.querySelectorAll('.ry-game-back').forEach(b=>b.addEventListener('click',openMenu));
+    overlay.addEventListener('click',e=>{if(e.target===overlay)close()});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&overlay.classList.contains('open'))close()});
+
+    /* GAME I: 四時記憶 */
+    const symbols=[
+      {k:'spring',char:'春'}, {k:'summer',char:'夏'},
+      {k:'autumn',char:'秋'}, {k:'winter',char:'冬'},
+    ];
+    let memSeq=[],memPos=0,memLocked=false,memLevel=1;
+    const memGrid=overlay.querySelector('#ry-memory-grid');
+    const memResult=overlay.querySelector('#ry-memory-result');
+    const memLevelEl=overlay.querySelector('#ry-memory-level');
+    const memSeqEl=overlay.querySelector('#ry-memory-seq');
+    const makeMemoryGrid=()=>{
+      memGrid.innerHTML=symbols.map((s,i)=>`<button type="button" class="ry-memory-btn" data-k="${s.k}" aria-label="${s.char}">${s.char}</button>`).join('');
+      memGrid.querySelectorAll('.ry-memory-btn').forEach(btn=>btn.addEventListener('click',()=>memoryClick(btn)));
+    };
+    const flashSequence=()=>{
+      memLocked=true;
+      memSeqEl.textContent='順番を記憶してください';
+      memGrid.querySelectorAll('.ry-memory-btn').forEach(b=>b.classList.remove('flash','correct','wrong'));
+      memSeq.forEach((k,i)=>{
+        setTimeout(()=>{
+          const b=memGrid.querySelector(`[data-k="${k}"]`);
+          if(!b)return;
+          b.classList.add('flash');
+          setTimeout(()=>b.classList.remove('flash'),380);
+        },500+i*650);
+      });
+      setTimeout(()=>{
+        memLocked=false;
+        memPos=0;
+        memSeqEl.textContent='いま見た順に押してください';
+      },500+memSeq.length*650);
+    };
+    const startMemory=()=>{
+      memLevel=1;
+      memLevelEl.textContent='一';
+      memResult.textContent='';
+      makeMemoryGrid();
+      nextMemoryRound();
+    };
+    const nextMemoryRound=()=>{
+      const order=[...symbols].sort(()=>Math.random()-.5).slice(0,Math.min(4,2+memLevel));
+      memSeq=order.map(x=>x.k);
+      memSeqEl.textContent='順番を記憶中…';
+      flashSequence();
+    };
+    const memoryClick=btn=>{
+      if(memLocked)return;
+      const expected=memSeq[memPos];
+      if(btn.dataset.k!==expected){
+        btn.classList.add('wrong');setTimeout(()=>btn.classList.remove('wrong'),500);
+        memResult.textContent='照合失敗。もう一度この段位から。';
+        saveRecord('四時記憶遊戯');
+        setTimeout(()=>nextMemoryRound(),700);
+        return;
+      }
+      btn.classList.add('correct');
+      setTimeout(()=>btn.classList.remove('correct'),250);
+      memPos++;
+      if(memPos>=memSeq.length){
+        if(memLevel>=3){
+          memResult.innerHTML='照合成功。<strong>「四時ヲ絶ヤス事勿レ。」</strong>　閲覧記録を登録しました。';
+          saveRecord('四時記憶遊戯');
+          memLocked=true;
+        }else{
+          memLevel++;
+          memLevelEl.textContent=['一','二','三','四'][memLevel-1];
+          memResult.textContent='正解。次の段位へ。';
+          setTimeout(nextMemoryRound,650);
+        }
+      }
+    };
+
+    /* GAME II: 花葉集め */
+    let collectTimer=null,collectTick=null,collectScore=0;
+    const field=overlay.querySelector('#ry-season-field');
+    const scoreEl=overlay.querySelector('#ry-collect-score');
+    const timerEl=overlay.querySelector('#ry-collect-timer');
+    const collectResult=overlay.querySelector('#ry-collect-result');
+    const startCollect=()=>{
+      stopCollect();
+      collectScore=0;let left=30;
+      scoreEl.textContent='奉納数 0 / 15';timerEl.textContent='00:30';collectResult.textContent='';
+      field.innerHTML='';
+      const spawn=()=>{
+        const item=document.createElement('button');
+        item.type='button';item.className='ry-falling-item';
+        const s=symbols[Math.floor(Math.random()*symbols.length)];
+        item.textContent=s.char;item.setAttribute('aria-label',s.char+'を拾う');
+        item.style.left=(4+Math.random()*86)+'%';item.style.top=(4+Math.random()*82)+'%';
+        item.addEventListener('click',()=>{
+          collectScore++;
+          scoreEl.textContent='奉納数 '+collectScore+' / 15';
+          item.remove();
+          if(collectScore>=15){
+            collectResult.textContent='奉納完了。四時の記録が一件追加されました。';
+            saveRecord('四季奉納・花葉集め');
+            stopCollect();
+          }
+        },{once:true});
+        field.appendChild(item);
+        setTimeout(()=>item.isConnected&&item.remove(),1900);
+      };
+      for(let i=0;i<8;i++)setTimeout(spawn,i*180);
+      collectTimer=setInterval(()=>{
+        left--;timerEl.textContent='00:'+(left<10?'0':'')+left;
+        spawn();
+        if(left<=0){
+          stopCollect();
+          if(collectScore<15)collectResult.textContent='奉納未完。もう一度、四時を集めてください。';
+        }
+      },1000);
+    };
+    const stopCollect=()=>{
+      clearInterval(collectTimer);collectTimer=null;
+      clearInterval(collectTick);collectTick=null;
+      if(field)field.innerHTML='';
+    };
+    overlay.querySelector('#ry-collect-start').addEventListener('click',startCollect);
+
+    /* GAME III: 四時暗号 */
+    const decodeCode=overlay.querySelector('#ry-decode-code');
+    const decodeChoices=overlay.querySelector('#ry-decode-choices');
+    const decodeResult=overlay.querySelector('#ry-decode-result');
+    const decodeSubmit=overlay.querySelector('#ry-decode-submit');
+    let decodeAnswer=[],decodePick=[];
+    const startDecode=()=>{
+      decodePick=[];
+      const order=[...symbols].sort(()=>Math.random()-.5);
+      decodeAnswer=order.map(x=>x.k);
+      decodeCode.textContent=order.map(x=>x.char).join('　→　');
+      decodeChoices.innerHTML=order.map((x,i)=>`<button type="button" class="ry-decode-choice" data-k="${x.k}">${x.char}</button>`).join('');
+      decodeResult.textContent='';
+      decodeChoices.querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>{
+        if(decodePick.includes(btn.dataset.k))return;
+        decodePick.push(btn.dataset.k);btn.classList.add('selected');
+      }));
+    };
+    decodeSubmit.addEventListener('click',()=>{
+      if(decodePick.length!==decodeAnswer.length){decodeResult.textContent='四つすべて選んでください。';return}
+      if(decodePick.join('|')===decodeAnswer.join('|')){
+        decodeResult.innerHTML='<div class="ry-secret-stamp">秘匿解除・閲覧許可。<br>《四季ヲ絶ヤス事勿レ》の原文記録へ接続――ただし、これは公開情報網には表示されません。</div>';
+        saveRecord('秘匿文書・四時解読');
+      }else{
+        decodeResult.textContent='順序が違います。並び直してください。';
+      }
+    });
+
+    /* 発見用トリガー */
+    let emblemClicks=0,emblemTimer=null;
+    const bindDiscovery=(selector,limit)=>{
+      document.querySelectorAll(selector).forEach(el=>{
+        el.addEventListener('click',()=>{
+          // ボタンやリンクとしての通常挙動を邪魔しない
+          clearTimeout(emblemTimer);
+          emblemClicks++;
+          emblemTimer=setTimeout(()=>{emblemClicks=0},1800);
+          if(emblemClicks>=limit){
+            emblemClicks=0;
+            open();
+          }
+        });
+      });
+    };
+    bindDiscovery('.brand-mark',7);
+    bindDiscovery('.motto',5);
+
+    window.shikiHiddenGames={open,close};
+  };
+
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});
+  else boot();
+})();
