@@ -28,6 +28,10 @@
       .ry-game-head p{margin:0;font-size:11px;color:#73695f;line-height:1.7}
       .ry-game-close{width:32px;height:32px;border:1px solid #bea983;background:#f8f0df;color:#54131d;cursor:pointer;font-size:16px;line-height:1}
       .ry-game-body{padding:20px 22px 25px}
+      .ry-game-jurisdiction{display:flex;flex-wrap:wrap;gap:0;margin:-4px 0 16px;border:1px solid #cbb99a;background:#f3ecdf;font:9px "Shippori Mincho","Yu Mincho",serif;letter-spacing:.1em;color:#5e554b}
+      .ry-game-jurisdiction span{padding:7px 11px;border-right:1px solid #cbb99a}
+      .ry-game-jurisdiction span:first-child{color:#54131d;font-weight:600}
+      .ry-game-jurisdiction span:last-child{border-right:0;color:#243c35}
       .ry-game-menu{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
       .ry-game-card{position:relative;min-height:164px;padding:17px;border:1px solid #cbb99a;background:#fcf7ed;text-align:left;cursor:pointer;transition:.18s ease}
       .ry-game-card:hover{transform:translateY(-2px);background:#f1e5d1;border-color:#9e8150;box-shadow:0 8px 20px rgba(55,33,15,.08)}
@@ -88,63 +92,63 @@
     overlay.innerHTML=`
       <div class="ry-game-cabinet" role="dialog" aria-modal="true" aria-labelledby="ry-game-title">
         <div class="ry-game-head">
-          <div class="ry-game-meta"><span>機關コード　SHIKI-ADM-04</span><span>利用区分　内部事務補助</span><span>状態　接続可</span></div>
+          <div class="ry-game-meta"><span>官廳符號　SHIKI-04</span><span>系統區分　帝國官務</span><span>通信狀態　正常</span></div>
           <div>
-            <div class="ry-game-kicker">RYORYO GOVERNMENT / INTERNAL ADMINISTRATIVE TERMINAL</div>
-            <h2 id="ry-game-title">四季廳・内部事務補助端末</h2>
-            <p>本端末は公開情報網から分離された内部事務補助機能です。一般利用者への案内は要しません。</p>
+            <div class="ry-game-kicker">HINOMOTO IMPERIAL GOVERNMENT / SHIKI CHO</div>
+            <h2 id="ry-game-title">日ノ本帝國 四季廳・官務端末</h2>
+            <p>本端末は帝國官務網の内部系統に属します。四季神祇行政に関する官務処理、文書照合その他の庁務補助に使用します。</p>
           </div>
           <button class="ry-game-close" type="button" aria-label="閉じる">×</button>
         </div>
-        <div class="ry-game-body">
+        <div class="ry-game-body"><div class="ry-game-jurisdiction"><span>日ノ本帝國</span><span>四季神祇行政</span><span>勅命行政機關</span></div>
           <div class="ry-game-menu">
             <button class="ry-game-card" type="button" data-game="memory">
-              <b>事務補助 01 / 順序照合</b><strong>四時順序照合訓練</strong>
-              <span>提示された四時の順序を記憶し、同一順序で標章を照合してください。</span><em>SEQUENCE CHECK</em>
+              <b>官務訓練 01 / 四時照合</b><strong>四時官務・順序照合</strong>
+              <span>官務標準に基づき、四時の巡行順を記憶し、同一順序にて標章を照合してください。</span><em>SEQUENCE CHECK</em>
             </button>
             <button class="ry-game-card" type="button" data-game="collect">
-              <b>事務補助 02 / 標章収集</b><strong>季節標章収集訓練</strong>
-              <span>表示される四季標章を所定時間内に収集し、受付件数を満たしてください。</span><em>MARK COLLECTION</em>
+              <b>官務訓練 02 / 標章受納</b><strong>季節標章・受納査定</strong>
+              <span>四季標章を所定時間内に受納し、定数に達した時点で処理を終了してください。</span><em>MARK COLLECTION</em>
             </button>
             <button class="ry-game-card" type="button" data-game="decode">
-              <b>事務補助 03 / 文書照合</b><strong>秘匿文書・四時分類照合</strong>
-              <span>文書に付された四時記号を照合し、正規の分類順を確定してください。</span><em>DOCUMENT CHECK</em>
+              <b>官務訓練 03 / 文書審査</b><strong>秘匿文書・四時分類審査</strong>
+              <span>文書に付された四時符を審査し、帝國官務規程における正規分類順を確定してください。</span><em>DOCUMENT CHECK</em>
             </button>
           </div>
-          <div class="ry-game-hint">利用記録：<span id="ry-game-record">未記録</span>　／　本端末で実行した補助事務のみ、この端末内の閲覧記録に保存されます。</div>
+          <div class="ry-game-hint">官務履歷：<span id="ry-game-record">未記録</span>　／　本端末における処理履歷は、この端末内の記録簿にのみ保存されます。</div>
 
           <section class="ry-game-panel" data-panel="memory" hidden>
-            <button class="ry-game-back" type="button">← 内部事務一覧へ</button>
-            <h3>四時順序照合訓練</h3>
-            <p class="ry-game-note">提示される四時標章を記憶し、同一順序で照合します。正常終了後は次の照合段階へ移行します。</p>
-            <div class="ry-memory-status"><span>照合段階 <b id="ry-memory-level">一</b></span><span class="ry-memory-seq" id="ry-memory-seq">順番を準備中</span></div>
+            <button class="ry-game-back" type="button">← 官務目錄へ</button>
+            <h3>四時官務・順序照合</h3>
+            <p class="ry-game-note">四時標章を記憶し、同一順序にて照合します。正常処理後、次の審査段階へ移行します。</p>
+            <div class="ry-memory-status"><span>審査階次 <b id="ry-memory-level">一</b></span><span class="ry-memory-seq" id="ry-memory-seq">順番を準備中</span></div>
             <div class="ry-memory-grid" id="ry-memory-grid"></div>
             <div class="ry-game-result" id="ry-memory-result"></div>
           </section>
 
           <section class="ry-game-panel" data-panel="collect" hidden>
-            <button class="ry-game-back" type="button">← 内部事務一覧へ</button>
-            <h3>季節標章収集訓練</h3>
-            <p class="ry-game-note">「春」「夏」「秋」「冬」の標章を収集してください。制限時間30秒、基準件数15件。</p>
-            <div class="ry-collect-head"><span class="ry-collect-score" id="ry-collect-score">受付件数 0 / 15</span><span class="ry-collect-timer" id="ry-collect-timer">00:30</span></div>
+            <button class="ry-game-back" type="button">← 官務目錄へ</button>
+            <h3>季節標章・受納査定</h3>
+            <p class="ry-game-note">「春」「夏」「秋」「冬」の標章を受納してください。制限時間30秒、受納定数15件。</p>
+            <div class="ry-collect-head"><span class="ry-collect-score" id="ry-collect-score">受納件数 0 / 15</span><span class="ry-collect-timer" id="ry-collect-timer">00:30</span></div>
             <div class="ry-collect-stage" id="ry-collect-stage"><div class="ry-season-field" id="ry-season-field"></div></div>
-            <button class="ry-collect-start" id="ry-collect-start" type="button">収集開始</button>
+            <button class="ry-collect-start" id="ry-collect-start" type="button">受納開始</button>
             <div class="ry-game-result" id="ry-collect-result"></div>
           </section>
 
           <section class="ry-game-panel" data-panel="decode" hidden>
-            <button class="ry-game-back" type="button">← 内部事務一覧へ</button>
-            <h3>秘匿文書・四時分類照合</h3>
-            <p class="ry-game-note">表示された四時分類コードを確認し、同じ順序で記号を選択してください。</p>
+            <button class="ry-game-back" type="button">← 官務目錄へ</button>
+            <h3>秘匿文書・四時分類審査</h3>
+            <p class="ry-game-note">付與された四時分類符を確認し、規程上の順序に従って標章を選択してください。</p>
             <div class="ry-decode-box">
               <div class="ry-decode-code" id="ry-decode-code">春 → 夏 → 秋 → 冬</div>
               <div class="ry-decode-choices" id="ry-decode-choices"></div>
-              <div style="text-align:center;margin-top:12px"><button class="ry-decode-submit" id="ry-decode-submit" type="button">分類照合</button></div>
+              <div style="text-align:center;margin-top:12px"><button class="ry-decode-submit" id="ry-decode-submit" type="button">分類審査</button></div>
             </div>
             <div class="ry-game-result" id="ry-decode-result"></div>
           </section>
 
-          <div class="ry-hidden-footer"><span>接続先：四季廳 内部事務補助端末　｜　機關コード：SHIKI-ADM-04</span><button class="ry-game-close ry-game-close-text" type="button">閉じる</button></div>
+          <div class="ry-hidden-footer"><span>接續先：日ノ本帝國 四季廳 官務端末　｜　官廳符號：SHIKI-04</span><button class="ry-game-close ry-game-close-text" type="button">閉じる</button></div>
         </div>
       </div>
     `;
@@ -220,7 +224,7 @@
       setTimeout(()=>{
         memLocked=false;
         memPos=0;
-        memSeqEl.textContent='提示順に標章を照合してください';
+        memSeqEl.textContent='提示順に四時標章を照合してください';
       },500+memSeq.length*650);
     };
     const startMemory=()=>{
@@ -242,7 +246,7 @@
       if(btn.dataset.k!==expected){
         btn.classList.add('wrong');setTimeout(()=>btn.classList.remove('wrong'),500);
         memResult.textContent='照合失敗。もう一度この段位から。';
-        saveRecord('四時順序照合訓練');
+        saveRecord('四時官務・順序照合');
         setTimeout(()=>nextMemoryRound(),700);
         return;
       }
@@ -252,7 +256,7 @@
       if(memPos>=memSeq.length){
         if(memLevel>=3){
           memResult.innerHTML='照合成功。<strong>「四時ヲ絶ヤス事勿レ。」</strong>　閲覧記録を登録しました。';
-          saveRecord('四時順序照合訓練');
+          saveRecord('四時官務・順序照合');
           memLocked=true;
         }else{
           memLevel++;
@@ -272,7 +276,7 @@
     const startCollect=()=>{
       stopCollect();
       collectScore=0;let left=30;
-      scoreEl.textContent='受付件数 0 / 15';timerEl.textContent='00:30';collectResult.textContent='';
+      scoreEl.textContent='受納件数 0 / 15';timerEl.textContent='00:30';collectResult.textContent='';
       field.innerHTML='';
       const spawn=()=>{
         const item=document.createElement('button');
@@ -285,8 +289,8 @@
           scoreEl.textContent='奉納数 '+collectScore+' / 15';
           item.remove();
           if(collectScore>=15){
-            collectResult.textContent='収集基準到達。事務処理記録を登録しました。';
-            saveRecord('季節標章収集訓練');
+            collectResult.textContent='受納定数到達。官務處理を完了し、記録簿への登錄を終了しました。';
+            saveRecord('季節標章・受納査定');
             stopCollect();
           }
         },{once:true});
@@ -299,7 +303,7 @@
         spawn();
         if(left<=0){
           stopCollect();
-          if(collectScore<15)collectResult.textContent='基準件数未達。再実行してください。';
+          if(collectScore<15)collectResult.textContent='受納定数未達。官務手續を再執行してください。';
         }
       },1000);
     };
@@ -331,10 +335,10 @@
     decodeSubmit.addEventListener('click',()=>{
       if(decodePick.length!==decodeAnswer.length){decodeResult.textContent='四つすべて選んでください。';return}
       if(decodePick.join('|')===decodeAnswer.join('|')){
-        decodeResult.innerHTML='<div class="ry-secret-stamp">照合成立・分類確定。<br>文書番号：SHIKI-ARCH-001　｜　公開区分：非公開　｜　閲覧記録：登録済</div>';
-        saveRecord('秘匿文書・四時分類照合');
+        decodeResult.innerHTML='<div class="ry-secret-stamp">審査成立・分類確定。<br>文書番號：四季廳秘-001　｜　取扱區分：秘　｜　官務履歷：登錄済</div>';
+        saveRecord('秘匿文書・四時分類審査');
       }else{
-        decodeResult.textContent='分類順が一致しません。再度照合してください。';
+        decodeResult.textContent='分類順序不一致。帝國官務規程に照らし、再審査してください。';
       }
     });
 
