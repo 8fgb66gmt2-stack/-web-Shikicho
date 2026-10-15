@@ -373,8 +373,8 @@
         });
       });
     };
-    // ロゴ3回、または標語3回。ロゴ長押しでも開く。
-    bindDiscovery('.brand-mark,.brand',3);
+    // 紋章はクリック1回で春月との調査を開くため、隠しゲームの多重判定から除外。
+    // 隠しゲームは標語の3回クリック、または長押しで発見できる。
     bindDiscovery('.motto',3);
 
     let discovered=false;
