@@ -725,3 +725,265 @@ main.shiki-portal{
 @media(prefers-reduced-motion:reduce){
   *,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 }
+
+
+/* ==========================================================
+   玲瓏浪漫・明彩調整
+   黒に近い面を減らし、翡翠・青磁・薔薇・象牙・シャンパン金へ。
+   ========================================================== */
+:root{
+  --rrl-ink:#35291f;
+  --rrl-muted:#756251;
+  --rrl-paper:#fbf5e9;
+  --rrl-paper-bright:#fffdf6;
+  --rrl-paper-shadow:#eee0ca;
+  --rrl-wine:#813b49;
+  --rrl-wine-deep:#68313d;
+  --rrl-forest:#4e7764;
+  --rrl-forest-deep:#3f6655;
+  --rrl-gold:#c0a064;
+  --rrl-gold-hi:#f2dfb0;
+  --rrl-line:#d1bb92;
+}
+html{background:#e5d8c4!important}
+body{
+  background:
+    radial-gradient(ellipse at 8% 4%,rgba(255,255,255,.88),transparent 29%),
+    radial-gradient(ellipse at 92% 26%,rgba(190,119,132,.06),transparent 25%),
+    repeating-linear-gradient(90deg,rgba(117,88,52,.018) 0 1px,transparent 1px 46px),
+    #fbf5e9!important;
+  color:#35291f!important;
+}
+body:after{
+  border-color:rgba(192,160,100,.62)!important;
+  outline-color:rgba(129,59,73,.13)!important;
+}
+
+/* 上部帯・銘板は黒緑から明るい翡翠へ */
+.imperial-header{
+  background:linear-gradient(100deg,#496d5b,#5d8069 54%,#88505b)!important;
+  border-top-color:#e7d19b!important;border-bottom-color:#c3a66b!important;
+  box-shadow:0 3px 12px rgba(65,48,32,.09)!important;
+}
+.shiki-v4-masthead{
+  background:
+    radial-gradient(ellipse at 80% 0%,rgba(255,238,192,.22),transparent 36%),
+    linear-gradient(112deg,#7e4651 0%,#537762 56%,#426552 100%)!important;
+  box-shadow:inset 0 -4px 0 rgba(255,238,192,.06),0 8px 20px rgba(65,48,32,.08)!important;
+}
+.shiki-v4-masthead:before{border-color:rgba(255,239,199,.48)!important}
+.shiki-v4-kicker{color:#fff0c9!important}
+.shiki-v4-title,.shiki-v4-title span{color:#fffaf0!important;text-shadow:0 1px 8px rgba(43,38,27,.13)!important}
+.shiki-v4-sub,.shiki-v4-date{color:#fff5e4!important}
+.shiki-v4-date{border-left-color:rgba(255,241,210,.58)!important}
+.shiki-v4-date strong{color:#ffe7ab!important}
+
+/* 入口ナビと本廳舎ヘッダー */
+.shiki-v4-nav{
+  background:linear-gradient(180deg,#527963,#406552)!important;
+  border-top-color:#e7d19b!important;border-bottom-color:#c3a66b!important;
+  box-shadow:0 5px 14px rgba(65,48,32,.08)!important
+}
+.shiki-v4-nav a{color:#fffaf0!important;border-color:rgba(255,245,218,.25)!important}
+.shiki-v4-nav a small{color:#ffedbd!important}
+.shiki-v4-nav a:hover{background:rgba(255,245,218,.14)!important;color:#fff!important}
+.shiki-v4-motto{
+  background:linear-gradient(90deg,#e9d9be,#fbf5e7 18%,#fffaf0 50%,#f6ead6 82%,#e9d9be)!important
+}
+.site-header{
+  background:linear-gradient(115deg,#527762 0%,#64846b 58%,#8b5360 100%)!important;
+  border-top-color:#e7d19b!important;border-bottom-color:#c3a66b!important;
+  box-shadow:0 5px 17px rgba(65,48,32,.10)!important
+}
+.site-header:before{background:rgba(55,88,68,.55)!important;color:#fff1cf!important}
+.brand,.brand strong{color:#fffaf0!important}
+.brand-mark{background:#854956!important;border-color:#f0dca9!important;color:#fff0c8!important}
+.brand small{color:#fff0d0!important}
+#global-nav a{color:#fffaf0!important;border-left-color:rgba(255,245,218,.30)!important}
+#global-nav a:hover{background:rgba(255,250,230,.14)!important;color:#fff!important}
+.menu-toggle{color:#fffaf0!important;border-color:rgba(255,241,210,.72)!important}
+
+/* 法令・行政情報：白い紙を主役に */
+.law-banner{background:linear-gradient(90deg,#eee0c7,#fff9ec 26%,#fff9ec 74%,#eee0c7)!important}
+.law-banner a{background:#813b49!important;color:#fff9ee!important}
+.government-utility{background:linear-gradient(180deg,#eee0c9,#fbf5e9)!important}
+.government-utility nav a{background:#fffdf6!important;border-color:#d7c29a!important}
+.government-utility nav a span,.utility-heading>strong{color:#813b49!important}
+.government-utility nav a small{color:#665544!important}
+
+/* 本文の基調を青磁色とアイボリーに */
+main.shiki-portal{
+  background:#fffdf6!important;
+  box-shadow:0 0 0 1px #cbb58b,0 0 0 4px rgba(192,160,100,.10),0 18px 42px rgba(62,43,27,.09)!important
+}
+.portal-registry{
+  background:linear-gradient(100deg,#4b705c,#63856c 52%,#87525e)!important;
+  color:#fffaf0!important;border-color:#d2b77c!important
+}
+.portal-registry,.portal-registry p,.portal-registry span,.portal-registry a{color:#fffaf0!important}
+.portal-registry .registry-code,.portal-registry .registry-status{color:#ffedbd!important}
+.portal-shell{background:#fffdf6!important}
+.portal-rail{
+  background:linear-gradient(180deg,#6b896f,#52765f 76%,#87515d)!important;
+  border-color:#d3b77c!important;box-shadow:none!important
+}
+.rail-title,.rail-nav a,.rail-index,.rail-bottom,.rail-bottom small{color:#fffaf0!important}
+.rail-index,.rail-nav a:before{color:#ffedbd!important}
+.rail-rule{background:linear-gradient(90deg,transparent,#e8d09b,transparent)!important}
+.rail-nav a{border-bottom-color:rgba(255,245,218,.30)!important}
+.rail-nav a:hover{background:rgba(255,250,231,.15)!important;color:#fff!important}
+.rail-bottom{border-top-color:rgba(255,245,218,.4)!important}
+.portal-document-head{background:linear-gradient(110deg,#fffdf6,#f3e8d5)!important}
+.portal-document-head h1{color:#813b49!important}
+.national-context{background:linear-gradient(180deg,#f0e2cb,#fbf5e9)!important}
+.national-timeline li{background:rgba(255,253,246,.92)!important;border-color:#d9c59f!important}
+.national-timeline li.current{background:linear-gradient(135deg,#93545f,#66866e)!important;border-color:#c7a96b!important}
+.national-timeline li.current b,.national-timeline li.current span{color:#fffaf0!important}
+
+/* HEROは深夜の黒幕ではなく、翡翠色の舞台幕に */
+.hero{
+  background:
+    radial-gradient(ellipse at 78% 50%,rgba(255,231,171,.20),transparent 28%),
+    radial-gradient(ellipse at 5% 100%,rgba(148,69,85,.52),transparent 43%),
+    linear-gradient(118deg,#456c58 0%,#5b8067 51%,#80505b 100%)!important;
+  border-color:#d9bd7f!important;
+  box-shadow:inset 0 0 60px rgba(45,41,27,.08)!important
+}
+.hero:before{border-color:rgba(255,239,199,.72)!important;box-shadow:inset 0 0 0 5px rgba(255,239,199,.06)!important}
+.hero:after{color:#ffedc2!important}
+.hero-watermark{color:rgba(255,240,203,.11)!important}
+.vertical-label,.hero .kicker,.hero .hero-rule,.hero .hero-rule span{color:#fff0c4!important}
+.hero h1{color:#fffaf0!important;text-shadow:0 2px 15px rgba(40,37,27,.15)!important}
+.hero h1 em{color:#ffe3a2!important}
+.hero-lead{color:#fffaf0!important;border-left-color:#f1d99e!important;text-shadow:none!important}
+.hero-rule i{background:linear-gradient(90deg,transparent,#f0d99f,transparent)!important}
+.four-season-wheel{border-color:rgba(255,238,195,.77)!important;box-shadow:0 0 0 8px rgba(255,238,195,.07),0 0 0 18px rgba(255,238,195,.035)!important}
+.four-season-wheel:before{border-color:rgba(255,238,195,.47)!important}
+.four-season-wheel:after{border-color:rgba(255,238,195,.34)!important}
+.season-wheel-center{background:linear-gradient(145deg,#985664,#7b414e)!important;color:#fffaf0!important;border-color:#f1dba5!important}
+.season-wheel-item b{background:rgba(70,108,83,.94)!important;border-color:#e6cc8a!important;color:#fffaf0!important}
+.season-wheel-item small{color:#fff0cc!important;text-shadow:0 1px 5px rgba(39,57,43,.32)!important}
+
+/* 状況表示・秘資料も暗すぎない色調へ */
+.season-canon-band{
+  background:linear-gradient(90deg,#87515d,#52765e 28%,#67866d 72%,#87515d)!important;
+  border-color:#cfb174!important
+}
+.season-canon-band b{color:#ffedbd!important}
+.season-canon-band i{color:#fffaf0!important}
+.portal-current-grid{background:#f0e2ca!important}
+.season-status{
+  background:linear-gradient(105deg,#995764,#854653 48%,#a26870)!important;
+  border-color:#e2c98e!important;box-shadow:inset 0 0 24px rgba(60,32,28,.06)!important
+}
+.season-status .eyebrow{color:#ffedc2!important}
+.season-status h2{color:#fffaf0!important}
+.status-light{background:rgba(67,103,79,.28)!important;border-color:rgba(255,238,195,.62)!important;border-left-color:#f1d99e!important}
+.status-light b,.status-light small,#last-updated{color:#fffaf0!important}
+.arg-teaser{
+  background:radial-gradient(ellipse at 10% 0%,rgba(255,238,195,.13),transparent 35%),linear-gradient(110deg,#5a7961,#68886d 54%,#8b5360)!important;
+  border-color:#e2c98e!important
+}
+.arg-teaser-mark{color:#fff0c8!important;border-color:#ffe8b1!important}
+.arg-eyebrow{color:#ffefc4!important}
+.arg-teaser h2{color:#fffaf0!important}
+.arg-teaser p{color:#fff0df!important}
+.arg-teaser a{background:linear-gradient(135deg,#fff0ca,#d7b675)!important;color:#4a3029!important;border-color:#fff5d9!important}
+.arg-teaser a:hover{background:#fff9e8!important;color:#813b49!important}
+
+/* 検索・カードは文字を濃く、台紙を明るく */
+.portal-person-frame{background:linear-gradient(135deg,#8b5360,#a56872 48%,#7d4754)!important;border-color:#d7b978!important;box-shadow:none!important}
+.portal-person-frame .person-search-section,.person-search-section{
+  background:linear-gradient(145deg,#fffdf6,#f5ead8)!important;color:#35291f!important;border-color:#d2bd94!important
+}
+.person-search-section h2{color:#813b49!important}
+.person-search-intro,.person-record p{color:#514337!important}
+#person-search-input{color:#35291f!important;background:#fffdf9!important}
+#person-search-button{background:linear-gradient(135deg,#90515d,#78404b)!important;color:#fffaf0!important}
+.portal-person-frame:before{color:#fff0c4!important}
+.shiki-admin-search{background:linear-gradient(145deg,#fffdf6,#f2e5d0)!important;color:#35291f!important;border-color:#cfb783!important}
+.shiki-admin-search h2{color:#813b49!important}
+.shiki-admin-search p,.shiki-admin-search-status{color:#514337!important}
+.shiki-admin-search-stamp{color:#813b49!important}
+.shiki-admin-search input,.shiki-admin-search select{color:#35291f!important;background:#fffdf9!important}
+.shiki-admin-search button{background:linear-gradient(135deg,#90515d,#78404b)!important;color:#fffaf0!important}
+.shiki-admin-result{background:#fffdf7!important}
+.shiki-admin-result strong,.shiki-admin-result small{color:#813b49!important}
+.shiki-admin-result span{color:#514337!important}
+.portal-file-tabs{background:linear-gradient(90deg,#ebdcc3,#fff7e7 50%,#ebdcc3)!important}
+.file-tab{background:transparent!important;border-right-color:#d4bd92!important}
+.file-tab span{color:#907146!important}
+.file-tab b{color:#813b49!important}
+
+/* 通常セクションはアイボリーを基本にして、見出しは葡萄酒色 */
+.section-title h2,.section-title>div h2{color:#813b49!important}
+.news-section{background:linear-gradient(180deg,#f4e8d4,#fffaf0)!important}
+.news-list article a{color:#35291f!important}
+.news-list article>span{background:#fffaf0!important}
+.about-grid .mission-card{background:linear-gradient(145deg,#fffdf6,#f0e1cb)!important}
+.mission-card,.mission-card p,.mission-card span,.mission-card a{color:#514337!important}
+.mission-card strong{color:#813b49!important}
+
+/* 深い緑のセクションも、黒ではなく明るい青磁色へ */
+.guards-section,.departments-section{
+  background:
+    radial-gradient(ellipse at 50% 0%,rgba(255,238,195,.12),transparent 44%),
+    linear-gradient(125deg,#52745e,#63856b 58%,#81515b)!important;
+  border-color:#d8bd82!important
+}
+.guards-section .section-title h2,.departments-section .section-title h2{color:#fffaf0!important}
+.guards-section .section-title>span,.guards-section .section-title p,
+.departments-section .section-title>span,.departments-section .section-title p{color:#fff0c6!important}
+.guards-section .section-intro,.guards-section p,
+.departments-section .section-intro,.departments-section p{color:#fff7e9!important}
+.guards-section .department-grid{background:rgba(255,245,218,.16)!important;border-color:rgba(255,239,199,.45)!important}
+.guards-section .department-grid article{
+  background:linear-gradient(145deg,#6a896f,#50735c)!important;border-color:rgba(255,239,199,.38)!important;border-top-color:#e1c37f!important
+}
+.guards-section .department-grid article h3,.guards-section .department-grid article strong{color:#fffaf0!important}
+.guards-section .department-grid article p,.guards-section .department-grid article small{color:#fff0df!important}
+.departments-section .org-node.chief{
+  background:linear-gradient(135deg,#a46770,#884956)!important;border-color:#f0d89f!important;color:#fffaf0!important
+}
+.departments-section .org-node.chief span,.departments-section .org-node.chief p,
+.departments-section .org-node.chief small,.departments-section .org-node.chief strong{color:#fffaf0!important}
+.departments-section .org-grid article{background:rgba(255,250,240,.13)!important;border-color:rgba(255,239,199,.48)!important}
+.departments-section .org-grid article h3,.departments-section .org-grid article strong{color:#fffaf0!important}
+.departments-section .org-grid article p,.departments-section .org-grid article small{color:#fff2df!important}
+.departments-section .org-line{background:#f0d89f!important}
+.duties-section,.procurement-section,.contact-section,.official-notice-section,.related-agencies-section{
+  background:linear-gradient(180deg,#f2e5d0,#fffaf0)!important
+}
+.duty-grid article,.admin-index,.admin-index-grid a,.related-agencies-section .related-agency,
+.contact-box{background:#fffdf6!important}
+.duty-grid article h3,.admin-index-heading h2,.related-agencies-section .related-agency h3{color:#813b49!important}
+.duty-grid article p,.related-agencies-section .related-agency p,.contact-box p{color:#514337!important}
+
+/* 横断ARGとフッター：真っ黒を避けた翡翠色・ローズグリーン */
+.cross-arg{
+  background:radial-gradient(ellipse at 50% 0%,rgba(255,238,195,.16),transparent 45%),linear-gradient(120deg,#4b6f59,#66846a 60%,#86505b)!important;
+  border-color:#d9bd80!important
+}
+.cross-arg .cross-arg-panel{background:rgba(49,83,61,.32)!important;border-color:rgba(255,239,199,.55)!important;box-shadow:inset 0 0 0 5px rgba(255,239,199,.06)!important}
+.cross-arg h2,.cross-arg strong{color:#fffaf0!important}
+.cross-arg p,.cross-arg span{color:#fff2df!important}
+.cross-arg a{color:#fff0c4!important}
+.site-footer,.shiki-v4-footer{
+  background:radial-gradient(ellipse at 50% 0%,rgba(255,238,195,.12),transparent 50%),linear-gradient(135deg,#4b6a57,#557762 56%,#80505b)!important;
+  color:#fff5e7!important;border-color:#d9bd80!important;box-shadow:none!important
+}
+.site-footer,.site-footer p,.site-footer span,.shiki-v4-footer p{color:#fff2df!important}
+.site-footer strong,.shiki-v4-footer strong{color:#fffaf0!important}
+.site-footer small,.shiki-v4-footer small,.site-footer a,.shiki-v4-footer a{color:#ffedbd!important}
+.site-footer:before,.shiki-v4-footer:before{color:rgba(255,239,199,.58)!important}
+.site-footer:after{color:rgba(255,239,199,.10)!important}
+.shiki-v4-footer .motto{color:#ffedbd!important}
+.shiki-v4-footer .imperial-network-dock{border-color:rgba(255,239,199,.45)!important}
+
+/* 画面幅が小さい場合も、明度と文字のコントラストを維持 */
+@media(max-width:700px){
+  .portal-rail{background:linear-gradient(180deg,#67876e,#52745e)!important}
+  .shiki-v4-nav{background:#527963!important}
+  .hero{background:linear-gradient(125deg,#52745e,#63856b 58%,#87515d)!important}
+  .four-season-wheel{opacity:.38!important}
+}
