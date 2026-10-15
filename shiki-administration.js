@@ -30,6 +30,14 @@
     });
   });
 
+  [
+    {type:'law',label:'法令・告示',title:'帝國法令・告示',body:'日ノ本帝國憲法 四季廳設置法 四季祭祀法 法令 告示 訓令 通達 条文 改正',href:'constitution.html'},
+    {type:'archive',label:'附属資料室',title:'附属資料室・公開資料目録',body:'公開目録 神祇災害記録 護衛官服務記録 封緘記録 帝國大學共同研究 資料 閲覧案内',href:'archive.html'},
+    {type:'security',label:'護衛警備局',title:'護衛警備局・組織及び業務',body:'現人神特殊警備 護衛官 組織役職 賊對策 関係機關連携 警備',href:'security.html'},
+    {type:'history',label:'沿革詳覽',title:'沿革詳覽・日ノ本帝國史',body:'神世 帝國成立 朝幕時代 玲瓏時代 国家史 沿革 年表',href:'history.html'},
+    {type:'miyauchi',label:'宮内廳との連携',title:'宮内廳との連携',body:'現人神と帝家 宮内課長 南海美哉臣 宮内廳 皇室 連携',href:'miyauchi.html'}
+  ].forEach(record => records.push({...record,order:records.length}));
+
   const normalize = value => (value || '').toLocaleLowerCase('ja').replace(/[\s　・／\/「」『』【】（）()、。,:：;；]/g,'');
   const render = () => {
     const query = normalize(input.value);
