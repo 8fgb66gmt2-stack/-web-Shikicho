@@ -1,141 +1,39 @@
-/* 四季廳・行政情報網 改訂様式
-   既存の構成・各ページ・ARGの導線を維持し、官廳の可読性と情報階層を補強する。 */
-:root{
-  --shiki-ink:#20252b;
-  --shiki-muted:#69727d;
-  --shiki-navy:#101d30;
-  --shiki-navy-2:#172942;
-  --shiki-red:#8b2435;
-  --shiki-red-dark:#641a29;
-  --shiki-gold:#b69a63;
-  --shiki-paper:#f5f2eb;
-  --shiki-card:#fffdf8;
-  --shiki-line:#d8d1c4;
-}
-html{scroll-behavior:smooth;scroll-padding-top:96px}
-body{
-  color:var(--shiki-ink);
-  background:linear-gradient(180deg,#e8e3d9 0,#f6f3ed 28rem,#f5f2eb 100%);
-  font-kerning:normal;
-}
-body:before{opacity:.035}
-a{transition:color .18s ease,border-color .18s ease,background-color .18s ease,transform .18s ease}
-a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
-  outline:3px solid #c6a96d;outline-offset:3px
-}
-.site-header,.site-header-inner,.header-inner{isolation:isolate}
-.site-header{
-  background:rgba(14,27,44,.97)!important;
-  border-bottom:3px solid var(--shiki-red)!important;
-  box-shadow:0 7px 24px rgba(12,20,31,.18)
-}
-#global-nav a{font-size:.83rem;letter-spacing:.045em}
-#global-nav a:hover{color:#e6c98e}
-.law-banner{background:#f9f6ef;border-bottom:1px solid var(--shiki-line)}
-.law-banner-inner{max-width:1240px}
-.law-banner-label .mark{background:var(--shiki-red-dark)!important}
-.law-banner a{font-weight:700;border-bottom:1px solid var(--shiki-gold)}
-.government-utility{background:#e9e4d9;border-bottom:1px solid #d1c8b8}
-.government-utility-inner{max-width:1240px}
-.government-utility nav a{border-left:1px solid rgba(30,42,57,.15)}
-.government-utility nav a:hover{background:rgba(255,253,248,.8)}
-.shiki-portal{background:transparent}
-.portal-registry{background:var(--shiki-navy)!important;color:#e9e2d3!important;border-bottom:1px solid #34455a}
-.portal-registry-inner{max-width:1240px}
-.registry-code{color:#d5b878!important;letter-spacing:.14em}
-.registry-status{color:#e7d6ad!important}
-#home>.hero,.shiki-portal>.hero{border-bottom:1px solid var(--shiki-line)}
-.season-status{background:#fffdf8!important;border-bottom:1px solid var(--shiki-line)}
-.status-inner{max-width:1180px}
-.status-light{background:#f1f5ef;border:1px solid #cbd9c7;border-radius:3px;padding:.55rem .8rem}
-.status-light b{color:#2f6448}
-.arg-teaser{background:#f0e8dd!important;border-block:1px solid #d7c6b5}
-.arg-teaser .arg-teaser-mark{background:var(--shiki-red-dark)!important}
-.portal-person-frame{background:transparent!important}
-.person-search-section{
-  max-width:1180px;margin:30px auto!important;padding:28px clamp(18px,4vw,44px)!important;
-  background:var(--shiki-card)!important;border:1px solid var(--shiki-line)!important;
-  border-top:3px solid var(--shiki-navy)!important;box-shadow:0 8px 24px rgba(28,35,43,.045)
-}
-.person-search-section h2{letter-spacing:.08em}
-.person-search-form input,.shiki-admin-search input,.shiki-admin-search select{
-  min-height:46px;border:1px solid #b9b4aa;background:#fffefa;color:var(--shiki-ink);
-  border-radius:2px;padding:10px 13px;font:inherit
-}
-.person-search-form button,.shiki-admin-search button{
-  min-height:46px;border:1px solid var(--shiki-red-dark);border-radius:2px;
-  padding:10px 22px;background:var(--shiki-red-dark);color:#fff;font:inherit;font-weight:700;
-  cursor:pointer
-}
-.person-search-form button:hover,.shiki-admin-search button:hover{background:var(--shiki-navy);border-color:var(--shiki-navy)}
+/* 追加機能だけを整える。既存サイト全体の配色・余白・文字組みは変更しない。 */
 .shiki-admin-search{
-  max-width:1180px;margin:0 auto 34px;padding:clamp(22px,4vw,38px);
-  background:linear-gradient(120deg,#14243a,#1d3048);color:#f5f0e6;
-  border:1px solid #30445c;border-top:3px solid var(--shiki-gold);
-  box-shadow:0 12px 30px rgba(14,27,44,.12)
+  box-sizing:border-box;
+  width:min(100% - 32px,1180px);
+  margin:24px auto 30px;
+  padding:24px;
+  color:#25252a;
+  background:#fffdf8;
+  border:1px solid #d6cbb9;
+  border-top:3px solid #752b2d;
 }
-.shiki-admin-search-head{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:22px}
-.shiki-admin-search-kicker{font-size:.7rem;letter-spacing:.16em;color:#d6bc80;text-transform:uppercase}
-.shiki-admin-search h2{margin:.35rem 0 .4rem;font-size:clamp(1.25rem,2.5vw,1.8rem);font-weight:600;letter-spacing:.08em}
-.shiki-admin-search p{margin:0;color:#d4dbe4;font-size:.88rem;line-height:1.9}
-.shiki-admin-search-stamp{flex:0 0 auto;display:grid;place-items:center;width:62px;height:62px;border:1px solid rgba(214,188,128,.7);color:#e0c88f;font-size:.75rem;letter-spacing:.08em;transform:rotate(3deg)}
-.shiki-admin-search-form{display:grid;grid-template-columns:minmax(0,1fr) minmax(155px,.28fr) auto;gap:9px}
-.shiki-admin-search input::placeholder{color:#777d84}
-.shiki-admin-search-results{margin-top:18px}
-.shiki-admin-search-status{font-size:.8rem;color:#e0c88f;margin:0 0 10px}
-.shiki-admin-result-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
-.shiki-admin-result{
-  display:block;min-width:0;padding:13px 15px;border:1px solid rgba(224,232,240,.19);
-  background:rgba(255,255,255,.045);color:#f8f4ec
+.shiki-admin-search *{box-sizing:border-box}
+.shiki-admin-search-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px}
+.shiki-admin-search-kicker{font-size:.75rem;letter-spacing:.12em;color:#752b2d}
+.shiki-admin-search h2{margin:.35rem 0 .5rem;font-size:1.35rem;line-height:1.5;font-weight:600;color:#29231f}
+.shiki-admin-search p{margin:0;line-height:1.8;font-size:.95rem;color:#554a40}
+.shiki-admin-search-stamp{flex:0 0 auto;display:grid;place-items:center;width:52px;height:52px;border:1px solid #b08a4a;color:#752b2d;font-size:.75rem}
+.shiki-admin-search-form{display:grid;grid-template-columns:minmax(0,1fr) minmax(160px,.35fr) auto;gap:8px}
+.shiki-admin-search input,.shiki-admin-search select{min-width:0;min-height:44px;padding:10px 12px;border:1px solid #a99e8e;border-radius:2px;background:#fff;color:#25252a;font:inherit}
+.shiki-admin-search input::placeholder{color:#6a655e}
+.shiki-admin-search button{min-height:44px;padding:10px 18px;border:1px solid #752b2d;border-radius:2px;background:#752b2d;color:#fff;font:inherit;font-weight:600;cursor:pointer}
+.shiki-admin-search button:hover{background:#54131d}
+.shiki-admin-search :focus-visible{outline:3px solid #b08a4a;outline-offset:3px}
+.shiki-admin-search-results{margin-top:16px}
+.shiki-admin-search-status{margin:0 0 10px;font-size:.9rem;color:#554a40}
+.shiki-admin-result-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.shiki-admin-result{display:block;min-width:0;padding:13px;border:1px solid #d6cbb9;background:#fff;color:#29231f;text-decoration:none}
+.shiki-admin-result:hover{border-color:#752b2d;background:#fbf5eb}
+.shiki-admin-result small{display:block;margin-bottom:4px;color:#752b2d;font-size:.75rem}
+.shiki-admin-result strong{display:block;font-size:.95rem;line-height:1.65}
+.shiki-admin-result span{display:block;margin-top:5px;color:#554a40;font-size:.85rem;line-height:1.7}
+.shiki-admin-empty{padding:14px;border:1px dashed #b8a17a;color:#554a40;line-height:1.8}
+@media(max-width:700px){
+ .shiki-admin-search{width:calc(100% - 28px);padding:18px;margin:20px auto 24px}
+ .shiki-admin-search-head{gap:10px}
+ .shiki-admin-search-stamp{width:42px;height:42px}
+ .shiki-admin-search-form,.shiki-admin-result-list{grid-template-columns:1fr}
 }
-.shiki-admin-result:hover{background:rgba(255,255,255,.1);border-color:#d6bc80;transform:translateY(-1px)}
-.shiki-admin-result small{display:block;color:#d6bc80;font-size:.7rem;letter-spacing:.08em;margin-bottom:4px}
-.shiki-admin-result strong{display:block;font-size:.91rem;font-weight:600;line-height:1.7}
-.shiki-admin-result span{display:block;margin-top:5px;color:#d4dbe4;font-size:.78rem;line-height:1.7}
-.shiki-admin-empty{padding:15px;border:1px dashed rgba(224,232,240,.3);color:#e0e4e9;font-size:.86rem}
-.portal-file-tabs{max-width:1180px;margin-inline:auto}
-.portal-file-tabs .file-tab{border-color:var(--shiki-line)}
-.section{scroll-margin-top:100px}
-.section-title{border-bottom:1px solid var(--shiki-line);padding-bottom:14px;margin-bottom:28px}
-.section-title>span{color:var(--shiki-red)!important;font-variant-numeric:tabular-nums}
-.section-title h2{color:var(--shiki-navy);letter-spacing:.07em}
-.section-title p{color:#7b6b58;letter-spacing:.12em}
-.section-intro{max-width:850px;line-height:2}
-.news-list article{
-  border-bottom:1px solid var(--shiki-line);
-  grid-template-columns:120px 64px minmax(0,1fr)
-}
-.news-list article>a{line-height:1.85}
-.news-list article>a:hover{color:var(--shiki-red-dark)}
-.news-list article>span{border:1px solid #d8c8b9;background:#f3ece3;color:#6c2933}
-.about-grid,.mission-card,.org-node,.org-grid article,.shiki-department-registry article,
-.duty-grid article,.contact-box,.related-agency{
-  border-radius:2px!important;box-shadow:0 4px 15px rgba(24,32,42,.035)
-}
-.mission-card{background:var(--shiki-navy)!important;color:#f7f0e3!important;border-top:3px solid var(--shiki-gold)}
-.mission-card strong{color:#ead4a2!important}
-.god-panel,.department-grid article{border-color:var(--shiki-line)}
-.record-status.is-public{background:#e8f1e9;color:#315b3e;border:1px solid #c4d9c7}
-.org-node.chief{background:var(--shiki-navy)!important;border-top:3px solid var(--shiki-gold)}
-.org-node.chief strong{color:#f0dfb6}
-.org-grid article,.shiki-department-registry article{background:var(--shiki-card);border:1px solid var(--shiki-line)}
-.duty-grid article{background:var(--shiki-card);border:1px solid var(--shiki-line);border-top:2px solid var(--shiki-red)}
-.duty-grid article>b{color:var(--shiki-red)}
-.contact-box{background:var(--shiki-card);border:1px solid var(--shiki-line);border-left:4px solid var(--shiki-red)}
-.related-agencies-section{background:#eae5db!important;border-top:1px solid var(--shiki-line)}
-.related-agency{background:#fffdf8!important;border:1px solid var(--shiki-line)!important}
-.related-agency:hover{border-color:var(--shiki-gold)!important;transform:translateY(-2px)}
-.related-agency strong{color:var(--shiki-navy)}
-.site-footer{background:var(--shiki-navy)!important;border-top:3px solid var(--shiki-red)}
-.site-footer a{color:#e4d4b4}
-.site-footer a:hover{color:#fff}
-#classified-records{scroll-margin-top:100px}
-@media(max-width:760px){
-  .shiki-admin-search{margin:0 14px 26px}
-  .shiki-admin-search-head{gap:12px}
-  .shiki-admin-search-stamp{width:48px;height:48px;font-size:.65rem}
-  .shiki-admin-search-form{grid-template-columns:1fr}
-  .shiki-admin-result-list{grid-template-columns:1fr}
-  .news-list article{grid-template-columns:1fr;gap:4px}
-}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+@media(prefers-reduced-motion:reduce){.shiki-admin-search *{scroll-behavior:auto}}
