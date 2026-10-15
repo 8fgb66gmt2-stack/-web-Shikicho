@@ -30,14 +30,14 @@
     });
   });
 
-  const normalize = value => (value || '').toLocaleLowerCase('ja').replace(/[\s　・／/「」『』【】（）()、。,:：;；]/g,'');
+  const normalize = value => (value || '').toLocaleLowerCase('ja').replace(/[\s　・／\/「」『』【】（）()、。,:：;；]/g,'');
   const render = () => {
     const query = normalize(input.value);
     const type = category.value;
     const found = records.filter(record => {
       const matchesType = type === 'all' || record.type === type;
       const haystack = normalize(record.title + ' ' + record.body + ' ' + record.label);
-      const matchesQuery = !query || query.split(/(?=)/).filter(Boolean).length === 0 || haystack.includes(query);
+      const matchesQuery = !query || haystack.includes(query);
       return matchesType && matchesQuery;
     }).slice(0, 12);
 
