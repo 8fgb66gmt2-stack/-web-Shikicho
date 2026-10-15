@@ -37,3 +37,55 @@
  .shiki-admin-search-form,.shiki-admin-result-list{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){.shiki-admin-search *{scroll-behavior:auto}}
+
+
+/* 暗色の背景上で青系文字が沈まないよう、文字色のコントラストを明示する。 */
+.portal-registry,
+.portal-registry p,
+.portal-registry span,
+.portal-registry strong,
+.portal-registry a,
+.hero .hero-lead,
+.hero .hero-rule,
+.hero a,
+.mission-card,
+.mission-card p,
+.mission-card span,
+.mission-card strong,
+.mission-card a,
+.org-node.chief,
+.org-node.chief p,
+.org-node.chief span,
+.org-node.chief strong,
+.org-node.chief a,
+.site-footer,
+.site-footer p,
+.site-footer span,
+.site-footer strong,
+.site-footer a,
+.imperial-header,
+.imperial-header a,
+.site-header,
+.site-header a{
+  color:#fff8ed!important;
+}
+.portal-registry .registry-code,
+.portal-registry .registry-status,
+.mission-card strong,
+.org-node.chief strong,
+.site-footer a:hover,
+.imperial-header a:hover{
+  color:#ead19a!important;
+}
+.portal-registry a:hover,
+.mission-card a:hover,
+.org-node.chief a:hover,
+.site-footer a:hover{
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+.hero .kicker,
+.hero .hero-rule i,
+.hero .vertical-label{
+  color:#f0d9a2!important;
+}
