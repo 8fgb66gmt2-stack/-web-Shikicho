@@ -987,3 +987,73 @@ main.shiki-portal{
   .hero{background:linear-gradient(125deg,#52745e,#63856b 58%,#87515d)!important}
   .four-season-wheel{opacity:.38!important}
 }
+
+
+/* 紋章表示の最終補正：画像本体を擬似文字より前面に置き、欠けを防ぐ */
+.site-header .header-inner .brand{
+  display:flex!important;
+  align-items:center!important;
+  align-self:center!important;
+  overflow:visible!important;
+}
+.site-header .header-inner .brand .brand-mark{
+  box-sizing:border-box!important;
+  position:relative!important;
+  display:grid!important;
+  place-items:center!important;
+  flex:0 0 64px!important;
+  width:64px!important;
+  min-width:64px!important;
+  height:64px!important;
+  min-height:64px!important;
+  padding:0!important;
+  margin:0 2px 0 0!important;
+  overflow:visible!important;
+  line-height:0!important;
+  isolation:isolate!important;
+}
+.site-header .header-inner .brand .brand-mark img{
+  display:block!important;
+  position:relative!important;
+  inset:auto!important;
+  z-index:2!important;
+  width:100%!important;
+  height:100%!important;
+  min-width:0!important;
+  min-height:0!important;
+  max-width:none!important;
+  max-height:none!important;
+  margin:0!important;
+  padding:0!important;
+  object-fit:contain!important;
+  object-position:center center!important;
+  overflow:visible!important;
+  transform:none!important;
+  clip-path:none!important;
+}
+.site-header .header-inner .brand .brand-mark:before{
+  /* 旧スタイルの「四時」「勅」文字が紋章に重なるのを防ぐ */
+  content:none!important;
+  display:none!important;
+}
+.site-header .header-inner .brand .brand-mark:after{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  inset:5px!important;
+  z-index:3!important;
+  pointer-events:none!important;
+  border:1px solid rgba(240,220,169,.68)!important;
+  box-sizing:border-box!important;
+}
+@media(max-width:700px){
+  .site-header .header-inner .brand .brand-mark{
+    flex-basis:54px!important;
+    width:54px!important;
+    min-width:54px!important;
+    height:54px!important;
+    min-height:54px!important;
+    margin-right:1px!important;
+  }
+  .site-header .header-inner .brand .brand-mark:after{inset:4px!important}
+}
