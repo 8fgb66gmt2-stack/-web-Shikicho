@@ -3091,15 +3091,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 
 
 <script>
-/* 調査パネルは初期化時に必ず閉じる。表示はユーザー操作時のみ。 */
+/* 初期表示は閉じ、以後は表示状態に合わせて読み上げ状態を同期する。 */
 (() => {
   const panel = document.getElementById('shiki-investigation');
   if (!panel) return;
   panel.classList.remove('is-visible');
   panel.setAttribute('aria-hidden','true');
-  const observer = new MutationObserver(() => {
-    if (!panel.dataset.userOpened) panel.classList.remove('is-visible');
-  });
+  const syncAccessibilityState = () => {
+    panel.setAttribute('aria-hidden', panel.classList.contains('is-visible') ? 'false' : 'true');
+  };
+  const observer = new MutationObserver(syncAccessibilityState);
   observer.observe(panel,{attributes:true,attributeFilter:['class']});
 })();
 </script>
