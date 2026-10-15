@@ -2931,7 +2931,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
     <div>
       <span class="shiki-admin-search-kicker">PUBLIC RECORDS / ADMINISTRATIVE INDEX</span>
       <h2 id="shiki-admin-search-title">公開行政情報検索</h2>
-      <p>四季廳の官報・公告、組織、所管業務および関係行政機關の公開情報を検索できます。<br>資料の原本は、原則として所管するページに掲載しています。</p>
+      <p>四季廳の官報・公告、組織、所管業務、法令、附属資料室および関係行政機關の公開情報を検索できます。<br>資料の原本は、原則として所管するページに掲載しています。</p>
     </div>
     <div class="shiki-admin-search-stamp" aria-hidden="true">公示<br>索引</div>
   </div>
@@ -2944,6 +2944,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
       <option value="organization">組織・各局・各課</option>
       <option value="duties">業務案内</option>
       <option value="agencies">関係行政機關</option>
+      <option value="law">法令・告示</option>
+      <option value="archive">附属資料室</option>
+      <option value="security">護衛警備局</option>
+      <option value="history">沿革詳覽</option>
+      <option value="miyauchi">宮内廳との連携</option>
     </select>
     <button id="shiki-admin-submit" type="button">公開情報を検索</button>
   </form>
@@ -2978,7 +2983,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
       <section id="guards" class="section guards-section"><div class="content-width"><div class="section-title"><span>04</span><div><p>IMPERIAL GUARDIANS</p><h2>現人神護衛官</h2></div></div><p class="section-intro">現人神護衛官は、その名の通り現人神の身辺警護を専門とする職です。現人神本人の安全確保のみならず、神祇災害、異常事案、襲撃等への対応を担います。</p><div class="department-grid"><article><b>春</b><span>春の現人神護衛官</span><h3>花葉 さくら</h3><p>春の現人神・花葉雛菊の護衛官。雛菊の姉。帝國大學にて東欧史を専門とする教授を務める。</p><small>専門：東欧史・ヴラド三世研究</small></article><article><b>夏</b><span>夏の現人神護衛官</span><h3>葉桜 あやめ</h3><p>夏の現人神・葉桜瑠璃の護衛官。瑠璃の姉。夏局と連携し、季節警備を担う。</p><small>専門：警備・神祇災害對策</small></article><article><b>秋</b><span>秋の現人神護衛官</span><h3>阿佐美 竜胆</h3><p>秋の現人神・祝月杏莉の護衛官。幼い現人神の生活と安全を第一に職務にあたる。</p><small>専門：護衛・保全</small></article><article><b>冬</b><span>冬の現人神護衛官</span><h3>雪柳 残雪</h3><p>冬の現人神・森林太郎／薄氷宮幸仁の護衛官。皇太子護衛も兼務する。</p><small>専門：皇族警護・冬局連携</small></article></div></div></section>
       <section id="departments" class="section departments-section"><div class="content-width">
 <div class="section-title"><span>05</span><div><p>ORGANIZATION / IMPERIAL AGENCY</p><h2>組織・各局・各課</h2></div></div>
-<div class="official-department-intro"><div><span>四季廳行政組織令・第壹條</span><strong>四季ヲ絶ヤス事勿レ。</strong><p>本廳は、四季の循環、現人神の保護、祭祀その他四季神祇に関する行政を掌る。</p></div><aside><b>機密度</b><strong>通常行政資料</strong><small>※ 雛菊の昼寝を妨げる事案は最優先で処理する。</small></aside></div>
+<div class="official-department-intro"><div><span>四季廳行政組織令・第壹條</span><strong>四季ヲ絶ヤス事勿レ。</strong><p>本廳は、四季の循環、現人神の保護、祭祀その他四季神祇に関する行政を掌る。</p></div><aside><b>機密度</b><strong>通常行政資料</strong><small>庁務上の緊急事案は、所管及び緊急性に応じて適切に処理する。</small></aside></div>
 <div class="org-chart">
 <div class="org-node chief"><span>四季廳長官　／　THE COMMISSIONER</span><strong>花葉 春月</strong><small>四季行政全般を統轄。帝國政府・宮内廳・各局との調整を担う。</small></div><div class="org-line"></div>
 <div class="org-caption">第一階　｜　季節行政を担う四局</div>
@@ -2990,13 +2995,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 </div>
 <div class="org-caption">第二階　｜　庁内横断・専門行政</div>
 <div class="shiki-department-registry">
-<article><b>CONSERVATION</b><strong>保全課</strong><span>四季循環・神域・霊脈その他の保全</span><small>「正常」の定義について最も会議が長い。</small></article>
-<article><b>EXTERNAL AFFAIRS</b><strong>外事課</strong><span>外部機関・地方機関・対外事案の調整</span><small>他省庁からの電話が多い。</small></article>
-<article><b>RITUAL AFFAIRS</b><strong>四季祭祀課</strong><span>祭祀儀礼・神域行事・記録の統括</span><small>年間行事予定表が異様に分厚い。</small></article>
+<article><b>CONSERVATION</b><strong>保全課</strong><span>四季循環・神域・霊脈その他の保全</span><small>四季循環の観測基準及び保全水準の策定を所管する。</small></article>
+<article><b>EXTERNAL AFFAIRS</b><strong>外事課</strong><span>外部機関・地方機関・対外事案の調整</span><small>関係機關との連絡調整及び対外事案の窓口を担う。</small></article>
+<article><b>RITUAL AFFAIRS</b><strong>四季祭祀課</strong><span>祭祀儀礼・神域行事・記録の統括</span><small>年間祭祀計画、執行記録及び関係儀礼文書を管理する。</small></article>
 <article><b>PALACE AFFAIRS</b><strong>宮内課</strong><span>皇室・宮内廳との連絡および共同事務</span><small>課長：南海美哉臣。帝國大學非常勤教授を兼任。</small></article>
 </div>
-<div class="security-teaser"><span>第三階　／　SPECIAL SECURITY ORGANIZATION</span><strong>護衛警備局　―― 現人神専門警護部局</strong><p>現人神専門テロリスト「賊」への対処、現人神特殊警備、神祇災害時の合同警備その他の高危険度事案を担当。</p><div class="security-notice"><b>局内通達</b>「護衛対象を最優先とせよ。なお、対象が雛菊の場合は本人の意向を尊重しつつ、勝手に菓子を与えないこと。」</div><a href="security.html">護衛警備局の組織・業務を見る　→</a></div>
-<div class="agency-note"><span>庁内備考</span><p>※ 各局間の縄張り争いは存在しないものとする。<br>※ 長官室への無断入室は原則禁止。<br>※ 次官による雛菊への過度な頬ずりについては、本規程の対象外とする。</p><small>四季廳総務課　｜　組織図更新：玲瓏106年</small></div>
+<div class="security-teaser"><span>第三階　／　SPECIAL SECURITY ORGANIZATION</span><strong>護衛警備局　―― 現人神専門警護部局</strong><p>現人神専門テロリスト「賊」への対処、現人神特殊警備、神祇災害時の合同警備その他の高危険度事案を担当。</p><div class="security-notice"><b>局内通達</b>「護衛対象の安全確保を最優先とし、本人の意思及び安全上必要な措置を勘案して職務を執行すること。」</div><a href="security.html">護衛警備局の組織・業務を見る　→</a></div>
+<div class="agency-note"><span>庁内備考</span><p>各局は所管事務に基づき相互に連携し、事務処理上の疑義が生じた場合は所定の手続により調整する。<br>執務区域への入室は、当該区域に定められた手続に従うこと。</p><small>四季廳総務課　｜　組織図更新：玲瓏106年</small></div>
 </div></div></section>
     </div>
   </div>
