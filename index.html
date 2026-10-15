@@ -2926,7 +2926,32 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 </section>
       </section>
 
-      <div class="portal-file-tabs">
+      <section class="shiki-admin-search" aria-labelledby="shiki-admin-search-title">
+  <div class="shiki-admin-search-head">
+    <div>
+      <span class="shiki-admin-search-kicker">PUBLIC RECORDS / ADMINISTRATIVE INDEX</span>
+      <h2 id="shiki-admin-search-title">公開行政情報検索</h2>
+      <p>四季廳の官報・公告、組織、所管業務および関係行政機關の公開情報を検索できます。<br>資料の原本は、原則として所管するページに掲載しています。</p>
+    </div>
+    <div class="shiki-admin-search-stamp" aria-hidden="true">公示<br>索引</div>
+  </div>
+  <form class="shiki-admin-search-form" role="search" onsubmit="return false">
+    <input id="shiki-admin-query" type="search" placeholder="キーワードを入力（例：四季祭祀、護衛、入札）" aria-label="公開行政情報のキーワード">
+    <select id="shiki-admin-category" aria-label="検索対象の分類">
+      <option value="all">すべての分類</option>
+      <option value="notice">官報・公告</option>
+      <option value="procurement">調達・公募</option>
+      <option value="organization">組織・各局・各課</option>
+      <option value="duties">業務案内</option>
+      <option value="agencies">関係行政機關</option>
+    </select>
+    <button id="shiki-admin-submit" type="button">公開情報を検索</button>
+  </form>
+  <div id="shiki-admin-results" class="shiki-admin-search-results">
+    <p class="shiki-admin-search-status">キーワードを入力するか、分類を選択して検索してください。</p>
+  </div>
+</section>
+<div class="portal-file-tabs">
         <div class="file-tab"><span>PUBLIC / 01</span><b>公開情報</b></div>
         <div class="file-tab"><span>DIVINE / 02</span><b>神籍・制度</b></div>
         <div class="file-tab"><span>GUARD / 03</span><b>護衛・保全</b></div>
@@ -3567,6 +3592,8 @@ p.appendChild(d);
 <link rel="stylesheet" href="grand-redesign.css?v=20261008-2">
 <link rel="stylesheet" href="ryoryo-roman-master.css?v=20261008-1">
 <link rel="stylesheet" href="readable-portal.css?v=20261008-1">
+<link rel="stylesheet" href="shiki-administration.css?v=20261015-1">
+<script src="shiki-administration.js?v=20261015-1" defer></script>
 <script src="ryoryo-gimmicks.js?v=20261008-1"></script>
 <script src="ryoryo-hidden-games.js?v=20261008-1"></script>
 
