@@ -119,6 +119,14 @@
     currentReturnStage=new URLSearchParams(location.search).get('return')||'';
     try{if(!currentReturnStage)currentReturnStage=localStorage.getItem('shikiReturnStage')||'';localStorage.removeItem('shikiReturnStage')}catch(e){}
     if(currentReturnStage==='achievement40'){showAchievement40Dialogue();return}
+    if(currentReturnStage==='record18'){
+      if(record18Solved()){
+        lines=['……第十八號、読んだんだね。','照合は済んだんだ。花葉雛菊の記録が、欠落期間の中心にある。','……君が見つけたことを、もう少し一緒に整理しよう。'];
+      }else{
+        lines=['……第十八號の記録を見てきたんだね。','まだ照合は終わっていないみたいだ。','「欠落期間」と「現人神」の欄を、もう一度確認してみよう。'];
+      }
+      index=0;next.textContent='次へ　›';openPanel();return;
+    }
     if(currentReturnStage==='record19'){showRecord19Final();return}
     if(currentReturnStage==='record15'){lines=['……第十五號の照合、済んだんだね。','じゃあ、次は第十六號だ。','目録には「資料未登録」とある。','でも、関連記録の存在だけは確認されている。','……変だよね。','僕たちがまだ中身を見ていない以上、今は推測しかできない。','だから、先にN.I.U. ARCHIVE 16を見てみようか。','そこに何が残されているのか――君と一緒に確かめたい。'];}
     else if(currentReturnStage==='archive17'||record17Read()){showRecord17Dialogue();return}
