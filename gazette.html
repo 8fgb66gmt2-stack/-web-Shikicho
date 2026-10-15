@@ -38,11 +38,16 @@ body{background:#f6eedf!important;color:var(--ink)!important}
 .gazette-stamp{display:inline-block;margin-top:8px;border:1px solid #a95a61;color:#a95a61;padding:6px 10px;letter-spacing:.16em;transform:rotate(-3deg)}
 .gazette-foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:34px;padding-top:18px;border-top:1px solid #c5a975;font-size:11px;color:#806d55}
 .gazette-foot a{color:var(--red);text-decoration:none;border-bottom:1px solid #c5a975;padding-bottom:3px}
+.gazette-navigation{display:flex!important;flex-wrap:wrap;gap:12px;margin:0 0 20px;position:relative;z-index:1000;pointer-events:auto!important}
+.gazette-navigation a{display:inline-flex!important;align-items:center;gap:8px;padding:11px 16px;border:1px solid #b99a61;background:#fffaf0;color:#813b49!important;text-decoration:none!important;font-size:12px;letter-spacing:.04em;position:relative;z-index:1001;pointer-events:auto!important;cursor:pointer;box-shadow:0 2px 8px rgba(69,46,24,.06)}
+.gazette-navigation a:hover{background:#f0e2c9}
+.gazette-navigation a:focus-visible{outline:2px solid #813b49;outline-offset:3px}
 @media(max-width:600px){.gazette-wrap{margin:26px auto 60px;padding:0 15px}.gazette-masthead{padding:27px 22px}.gazette-record header{padding:12px 15px}.gazette-content{padding:21px 17px 24px}.gazette-number{margin-left:0}}
 </style>
 </head>
 <body>
 <main class="gazette-wrap">
+<nav class="gazette-navigation" aria-label="ページ案内"><a href="https://8fgb66gmt2-stack.github.io/-web-Shikicho/index.html#news">← 四季廳公式サイトへ戻る</a><a href="https://8fgb66gmt2-stack.github.io/-web-Shikicho/index.html#news">官報・公告一覧へ</a></nav>
 <div class="gazette-topline"><span>日ノ本帝國　｜　四季神祇行政</span><span>PUBLIC INFORMATION · 01</span></div>
 <header class="gazette-masthead">
 <small>AGENCY OF THE FOUR SEASONS / OFFICIAL GAZETTE</small>
@@ -103,7 +108,7 @@ body{background:#f6eedf!important;color:var(--ink)!important}
 </div>
 </article>
 
-<footer class="gazette-foot"><span>SHIKI AGENCY / PUBLIC INFORMATION</span><a href="index.html#news">四季廳本廳舎・官報一覧へ戻る　↗</a></footer>
+<footer class="gazette-foot"><span>SHIKI AGENCY / PUBLIC INFORMATION</span><a href="https://8fgb66gmt2-stack.github.io/-web-Shikicho/index.html#news">四季廳本廳舎・官報一覧へ戻る　↗</a></footer>
 </main>
 </body>
 </html>
