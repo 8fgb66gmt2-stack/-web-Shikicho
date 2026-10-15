@@ -1,0 +1,727 @@
+/* ==========================================================
+   玲瓏浪漫・四季廳本廳舍 UI 最終意匠
+   Taisho Imperial Belle Époque / lacquer, ivory, gilt, brocade
+   既存の情報構成を維持し、装飾・階層・可読性のみを統一する。
+   ========================================================== */
+:root{
+  --rrl-ink:#2d241f;
+  --rrl-muted:#6d5b4c;
+  --rrl-paper:#f8f0e2;
+  --rrl-paper-bright:#fffaf0;
+  --rrl-paper-shadow:#e9dac2;
+  --rrl-wine:#722331;
+  --rrl-wine-deep:#3c101b;
+  --rrl-forest:#173029;
+  --rrl-forest-deep:#0d1c19;
+  --rrl-gold:#b89a5d;
+  --rrl-gold-hi:#ead5a0;
+  --rrl-line:#c6b18b;
+  --rrl-shadow:rgba(38,22,17,.18);
+}
+html{background:#d9cbb5!important}
+body{
+  color:var(--rrl-ink)!important;
+  background:
+    radial-gradient(ellipse at 8% 4%,rgba(255,255,255,.74),transparent 27%),
+    radial-gradient(ellipse at 92% 26%,rgba(114,35,49,.055),transparent 24%),
+    repeating-linear-gradient(90deg,rgba(117,88,52,.025) 0 1px,transparent 1px 42px),
+    repeating-linear-gradient(0deg,rgba(117,88,52,.018) 0 1px,transparent 1px 5px),
+    var(--rrl-paper)!important;
+}
+body:before{opacity:.045!important;background-image:radial-gradient(#6b5138 .5px,transparent .65px)!important;background-size:5px 5px!important}
+body:after{
+  inset:9px!important;border:1px solid rgba(184,154,93,.7)!important;
+  outline:1px solid rgba(114,35,49,.17)!important;outline-offset:4px!important;
+  box-shadow:inset 0 0 0 5px rgba(184,154,93,.055)!important;
+}
+::selection{background:var(--rrl-wine)!important;color:var(--rrl-paper-bright)!important}
+a{transition:color .22s ease,background-color .22s ease,border-color .22s ease,box-shadow .22s ease}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
+  outline:2px solid var(--rrl-gold)!important;outline-offset:3px!important
+}
+
+/* ── 帝國上帯：金泥の細工を施した深緑の帯 ── */
+.imperial-header{
+  color:#f8efdf!important;
+  background:linear-gradient(100deg,#101f1b 0%,#1c352d 48%,#32131b 100%)!important;
+  border-top:2px solid var(--rrl-gold)!important;
+  border-bottom:4px double var(--rrl-gold)!important;
+  box-shadow:0 4px 14px rgba(31,19,14,.14)!important;
+}
+.imperial-header-inner{max-width:1480px!important;min-height:38px!important;letter-spacing:.12em!important}
+.imperial-header-inner>*{border-left-color:rgba(234,213,160,.22)!important}
+.imperial-header-inner>*:first-child{color:var(--rrl-gold-hi)!important}
+.imperial-header a,.imperial-header-inner a{color:#f5ead8!important}
+.imperial-header a:hover,.imperial-header-inner a:hover{color:var(--rrl-gold-hi)!important;background:rgba(234,213,160,.08)!important}
+.imperial-header .current,.imperial-header-inner .current{
+  color:var(--rrl-gold-hi)!important;background:rgba(114,35,49,.58)!important;
+  box-shadow:inset 0 -2px 0 var(--rrl-gold)!important
+}
+
+/* ── 官廳銘板・ロゴ ── */
+.shiki-v4-masthead{
+  position:relative!important;overflow:hidden!important;
+  color:#f8efdf!important;
+  background:
+    radial-gradient(ellipse at 80% 0%,rgba(184,154,93,.14),transparent 35%),
+    linear-gradient(112deg,#3a111c 0%,#1c3029 57%,#10201c 100%)!important;
+  border-bottom:1px solid var(--rrl-gold)!important;
+  box-shadow:inset 0 -5px 0 rgba(184,154,93,.08),0 10px 28px rgba(31,19,14,.12)!important;
+}
+.shiki-v4-masthead:before{
+  content:"";position:absolute;inset:10px 12px;pointer-events:none;
+  border:1px solid rgba(234,213,160,.30);
+}
+.shiki-v4-masthead:after{
+  content:"❦";position:absolute;right:5%;bottom:-58px;pointer-events:none;
+  color:rgba(234,213,160,.08);font:180px Georgia,serif;line-height:1
+}
+.shiki-v4-masthead .inner{
+  position:relative;z-index:1;max-width:1440px!important;
+  padding:27px clamp(24px,5vw,72px)!important;min-height:155px!important;
+}
+.shiki-v4-kicker{
+  color:var(--rrl-gold-hi)!important;font:10px Georgia,serif!important;
+  letter-spacing:.25em!important
+}
+.shiki-v4-title{
+  color:#fff6e6!important;font-family:"Shippori Mincho","Yu Mincho",serif!important;
+  font-size:clamp(28px,3.1vw,42px)!important;letter-spacing:.20em!important;
+  text-shadow:0 2px 18px rgba(0,0,0,.22)
+}
+.shiki-v4-title span{color:#fff6e6!important;text-shadow:0 0 1px var(--rrl-gold-hi)}
+.shiki-v4-sub{color:#e4d7c1!important;letter-spacing:.10em!important;font-size:12px!important}
+.shiki-v4-date{
+  color:#e4d5bb!important;border-left:1px solid rgba(234,213,160,.42)!important;
+  padding-left:24px!important;font-size:11px!important
+}
+.shiki-v4-date strong{color:var(--rrl-gold-hi)!important;font-family:Georgia,serif!important;letter-spacing:.12em}
+
+/* ── 第一行政目次：緞帳のようなナビゲーション ── */
+.shiki-v4-nav{
+  background:linear-gradient(180deg,#1b3029,#10201c)!important;
+  border-top:1px solid rgba(234,213,160,.45)!important;
+  border-bottom:4px double var(--rrl-gold)!important;
+  box-shadow:0 7px 18px rgba(35,22,15,.13)!important;
+}
+.shiki-v4-nav .inner{max-width:1440px!important}
+.shiki-v4-nav a{
+  color:#f4ead8!important;border-left:1px solid rgba(234,213,160,.16)!important;
+  font-family:"Shippori Mincho","Yu Mincho",serif!important;
+  letter-spacing:.10em!important;padding:13px 15px!important;
+}
+.shiki-v4-nav a:last-child{border-right:1px solid rgba(234,213,160,.16)!important}
+.shiki-v4-nav a small{color:#c5aa73!important;font:8px Georgia,serif!important;letter-spacing:.15em!important}
+.shiki-v4-nav a:hover{color:#fff8e9!important;background:linear-gradient(180deg,rgba(184,154,93,.12),rgba(114,35,49,.25))!important}
+.shiki-v4-nav a:hover small{color:var(--rrl-gold-hi)!important}
+
+/* ── 創設理念：金縁の羊皮紙 ── */
+.shiki-v4-motto{
+  padding:25px clamp(16px,4vw,56px)!important;
+  background:
+    radial-gradient(ellipse at center,rgba(255,255,255,.85),transparent 70%),
+    linear-gradient(90deg,#e7d7bc,#f7efdf 18%,#fff9ec 50%,#f2e5cf 82%,#e7d7bc)!important;
+  border-bottom:1px solid var(--rrl-gold)!important;
+}
+.shiki-v4-motto .paper{
+  position:relative!important;max-width:1280px!important;margin:auto!important;
+  padding:28px clamp(22px,4vw,48px)!important;
+  background:rgba(255,250,240,.77)!important;
+  border:1px solid var(--rrl-line)!important;
+  outline:1px solid rgba(184,154,93,.35)!important;outline-offset:5px!important;
+  box-shadow:0 12px 30px rgba(65,42,25,.08),inset 0 0 0 5px rgba(184,154,93,.06)!important;
+}
+.shiki-v4-motto .paper:before,.shiki-v4-motto .paper:after{
+  content:"❦";position:absolute;top:50%;transform:translateY(-50%);
+  color:rgba(114,35,49,.20);font:28px Georgia,serif
+}
+.shiki-v4-motto .paper:before{left:12px}.shiki-v4-motto .paper:after{right:12px}
+.shiki-v4-motto .label{color:#8b7146!important;font:9px Georgia,serif!important;letter-spacing:.22em!important}
+.shiki-v4-motto h2{
+  color:var(--rrl-wine)!important;font-family:"Shippori Mincho","Yu Mincho",serif!important;
+  font-size:clamp(24px,3vw,35px)!important;letter-spacing:.13em!important;
+  border-bottom:1px solid var(--rrl-line)!important
+}
+.shiki-v4-motto h2 span{color:var(--rrl-wine-deep)!important}
+.shiki-v4-motto p{color:#55473b!important;line-height:2.1!important;font-size:13px!important}
+.shiki-v4-motto .principle{
+  background:linear-gradient(145deg,#efe3d0,#e5d3b8)!important;
+  border:1px solid #c8b18b!important;border-top:3px double var(--rrl-gold)!important;
+  padding:21px 24px!important
+}
+.shiki-v4-motto .principle b{color:var(--rrl-wine)!important;letter-spacing:.12em}
+.shiki-v4-motto .principle li{color:#514337!important;border-bottom:1px solid rgba(150,119,73,.18)!important}
+
+/* ── 本廳舎の見出し：深緑に象牙と金 ── */
+.site-header{
+  position:relative!important;color:#fff6e6!important;
+  background:linear-gradient(115deg,#13251f 0%,#20382f 58%,#31131c 100%)!important;
+  border-top:4px double var(--rrl-gold)!important;
+  border-bottom:4px double var(--rrl-gold)!important;
+  box-shadow:0 8px 25px rgba(40,24,18,.18)!important;
+}
+.site-header:before{
+  color:#dcc79e!important;background:rgba(9,22,18,.5)!important;
+  border-bottom:1px solid rgba(234,213,160,.22)!important;
+  letter-spacing:.15em!important
+}
+.header-inner{max-width:1440px!important;min-height:92px!important}
+.brand,.brand strong{color:#fff6e6!important}
+.brand-mark{
+  border:1px solid var(--rrl-gold-hi)!important;background:#37131d!important;
+  color:var(--rrl-gold-hi)!important;
+  box-shadow:inset 0 0 0 4px rgba(234,213,160,.08),0 0 0 2px rgba(184,154,93,.2)!important
+}
+.brand-mark:after{border-color:rgba(234,213,160,.55)!important}
+.brand-mark img{filter:drop-shadow(0 2px 3px rgba(0,0,0,.2))}
+.brand strong{
+  font-family:"Shippori Mincho","Yu Mincho",serif!important;
+  font-size:29px!important;letter-spacing:.28em!important;text-shadow:0 1px 12px rgba(0,0,0,.14)
+}
+.brand small{color:#d9c8a8!important;font-size:9px!important;letter-spacing:.21em!important}
+#global-nav{align-self:stretch!important}
+#global-nav a{
+  color:#f8efdf!important;font-family:"Shippori Mincho","Yu Mincho",serif!important;
+  font-size:11px!important;letter-spacing:.08em!important;
+  border-left:1px solid rgba(234,213,160,.20)!important
+}
+#global-nav a:hover{color:var(--rrl-gold-hi)!important;background:rgba(184,154,93,.11)!important}
+#global-nav a:after{background:linear-gradient(90deg,transparent,var(--rrl-gold-hi),transparent)!important}
+.menu-toggle{color:#fff5e3!important;border-color:rgba(234,213,160,.55)!important;background:rgba(255,255,255,.04)!important}
+
+/* ── 法令・行政情報の帯 ── */
+.law-banner{
+  background:linear-gradient(90deg,#e7d8bf,#fbf4e6 28%,#fbf4e6 72%,#e7d8bf)!important;
+  border-bottom:1px solid var(--rrl-gold)!important;box-shadow:inset 0 -4px 0 rgba(184,154,93,.08)!important
+}
+.law-banner-label .mark{color:var(--rrl-wine)!important;border:1px solid var(--rrl-gold)!important;box-shadow:inset 0 0 0 3px rgba(184,154,93,.08)!important}
+.law-banner-label span{color:#806a48!important}
+.law-banner-label strong{color:var(--rrl-wine)!important}
+.law-banner a{background:var(--rrl-wine)!important;color:#fff6e6!important;border-color:var(--rrl-gold)!important;box-shadow:inset 0 0 0 1px rgba(234,213,160,.18)!important}
+.law-banner a:after{color:var(--rrl-gold-hi)!important}
+.law-banner a:hover{background:var(--rrl-wine-deep)!important;box-shadow:0 4px 14px rgba(60,16,27,.15)!important}
+.government-utility{
+  background:linear-gradient(180deg,#f0e5d2,#f9f2e4)!important;
+  border-bottom:1px solid var(--rrl-line)!important;
+  box-shadow:inset 0 1px 0 #fffaf1!important
+}
+.government-utility-inner{max-width:1420px!important}
+.utility-heading>span{color:#8b7146!important;font:9px Georgia,serif!important;letter-spacing:.18em!important}
+.utility-heading>strong{color:var(--rrl-wine)!important;font-family:"Shippori Mincho","Yu Mincho",serif!important;letter-spacing:.13em!important}
+.government-utility nav a{
+  background:rgba(255,250,240,.82)!important;border:1px solid #d1bd98!important;
+  box-shadow:inset 0 0 0 3px rgba(184,154,93,.045)!important
+}
+.government-utility nav a b{color:var(--rrl-gold)!important;font:11px Georgia,serif!important}
+.government-utility nav a span{color:var(--rrl-wine)!important}
+.government-utility nav a small{color:#756451!important}
+.government-utility nav a:hover{background:#fffaf0!important;border-color:var(--rrl-gold)!important;transform:translateY(-2px);box-shadow:0 8px 18px rgba(66,44,27,.08)!important}
+
+/* ── 本文外枠・公文書の表紙 ── */
+main.shiki-portal{
+  max-width:1500px!important;width:calc(100% - 28px)!important;
+  background:var(--rrl-paper-bright)!important;
+  box-shadow:0 0 0 1px #b9a27a,0 0 0 5px rgba(184,154,93,.12),0 22px 55px rgba(48,30,19,.13)!important;
+}
+.portal-registry{
+  color:#f6ead7!important;
+  background:linear-gradient(100deg,#10211c,#1d352c 50%,#34141d)!important;
+  border-top:1px solid var(--rrl-gold)!important;border-bottom:4px double var(--rrl-gold)!important
+}
+.portal-registry-inner{
+  max-width:1440px!important;padding:11px 30px!important;
+  letter-spacing:.15em!important
+}
+.portal-registry .registry-code{color:var(--rrl-gold-hi)!important;font-weight:bold}
+.portal-registry .registry-status{color:#f8eddb!important}
+.portal-shell{background:var(--rrl-paper-bright)!important}
+.portal-rail{
+  background:
+    radial-gradient(ellipse at 50% 4%,rgba(234,213,160,.09),transparent 43%),
+    linear-gradient(180deg,#1b342c,#10211c 70%,#35141d)!important;
+  border-right:4px double var(--rrl-gold)!important;
+  box-shadow:inset -7px 0 0 rgba(184,154,93,.04)!important
+}
+.portal-rail .rail-seal{filter:drop-shadow(0 5px 12px rgba(0,0,0,.22))}
+.rail-title,.rail-nav a,.rail-index,.rail-bottom,.rail-bottom small{color:#f4ead8!important}
+.rail-title{font-family:"Shippori Mincho","Yu Mincho",serif!important;letter-spacing:.16em!important}
+.rail-rule{background:linear-gradient(90deg,transparent,var(--rrl-gold),transparent)!important}
+.rail-index{color:var(--rrl-gold-hi)!important}
+.rail-nav a{
+  border-bottom:1px solid rgba(234,213,160,.17)!important;
+  padding-top:12px!important;padding-bottom:12px!important
+}
+.rail-nav a:before{color:var(--rrl-gold)!important}
+.rail-nav a:hover{color:var(--rrl-gold-hi)!important;background:rgba(234,213,160,.07)!important;padding-left:14px!important}
+.rail-bottom{border-top:1px solid rgba(234,213,160,.26)!important}
+.rail-bottom small{color:#d5bd8a!important}
+
+/* 文書番号欄 */
+.portal-document-head{
+  position:relative!important;
+  background:linear-gradient(110deg,#fffaf0,#f0e3cd)!important;
+  border-bottom:1px solid var(--rrl-gold)!important;
+  box-shadow:inset 0 -5px 0 rgba(184,154,93,.07)!important
+}
+.portal-document-head:after{
+  content:"";position:absolute;left:24px;right:24px;bottom:7px;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(184,154,93,.48),transparent);pointer-events:none
+}
+.portal-document-head .document-class{color:#8f7142!important;font:9px Georgia,serif!important;letter-spacing:.2em!important}
+.portal-document-head h1{
+  color:var(--rrl-wine)!important;font-family:"Shippori Mincho","Yu Mincho",serif!important;
+  font-weight:500!important;letter-spacing:.13em!important
+}
+.portal-document-head p{color:#675747!important}
+.document-meta{border-left:1px solid var(--rrl-line)!important}
+.document-meta dt{color:#8c7148!important}
+.document-meta dd{color:var(--rrl-wine)!important}
+.document-meta>div{border-bottom:1px solid rgba(184,154,93,.22)!important}
+
+/* ── 国家沿革：博物館の展示ケースのごとく ── */
+.national-context{
+  background:
+    radial-gradient(ellipse at center,rgba(255,255,255,.65),transparent 70%),
+    linear-gradient(180deg,#eadbc3,#f6eddd)!important;
+  border-bottom:1px solid var(--rrl-line)!important
+}
+.national-context-inner{max-width:1260px!important;padding-top:42px!important;padding-bottom:42px!important}
+.national-context-heading>span{color:#8e7348!important;font:9px Georgia,serif!important;letter-spacing:.22em!important}
+.national-context-heading h2{color:var(--rrl-wine)!important;font-family:"Shippori Mincho","Yu Mincho",serif!important;letter-spacing:.13em!important}
+.national-context-heading p{color:#5d4e41!important}
+.national-timeline{gap:8px!important}
+.national-timeline li{
+  position:relative!important;background:rgba(255,250,240,.72)!important;
+  border:1px solid #d0ba92!important;box-shadow:inset 0 0 0 3px rgba(184,154,93,.045)!important;
+  padding:12px!important
+}
+.national-timeline li b{color:var(--rrl-wine)!important}
+.national-timeline li span{color:#5e5043!important}
+.national-timeline li.current{
+  background:linear-gradient(135deg,#3c101b,#722331)!important;border-color:var(--rrl-gold)!important;
+  box-shadow:inset 0 0 0 3px rgba(234,213,160,.12)!important
+}
+.national-timeline li.current b,.national-timeline li.current span{color:#fff1dc!important}
+.national-timeline li.current:after{color:var(--rrl-gold-hi)!important}
+.national-history-link{
+  display:inline-block!important;color:var(--rrl-wine)!important;border-bottom:1px solid var(--rrl-gold)!important;
+  padding:8px 2px!important
+}
+.national-history-link:hover{color:#3c101b!important;background:rgba(184,154,93,.08)!important}
+
+/* ── HERO：緞帳と金箔、四季の紋章 ── */
+.hero{
+  position:relative!important;overflow:hidden!important;
+  background:
+    radial-gradient(ellipse at 78% 50%,rgba(184,154,93,.15),transparent 26%),
+    radial-gradient(ellipse at 5% 100%,rgba(114,35,49,.58),transparent 42%),
+    linear-gradient(118deg,#101e1a 0%,#18332b 52%,#32121c 100%)!important;
+  border-top:1px solid rgba(234,213,160,.35)!important;
+  border-bottom:8px double var(--rrl-gold)!important;
+  box-shadow:inset 0 0 90px rgba(0,0,0,.19)!important
+}
+.hero:before{
+  inset:18px!important;border:1px solid rgba(234,213,160,.58)!important;
+  box-shadow:inset 0 0 0 5px rgba(234,213,160,.035)!important
+}
+.hero:after{
+  content:"❦　SHIKI AGENCY　❦　玲瓏百六年"!important;
+  color:rgba(234,213,160,.75)!important;font:10px Georgia,serif!important;
+  letter-spacing:.25em!important;border:0!important;opacity:1!important
+}
+.hero-watermark{color:rgba(234,213,160,.055)!important;text-shadow:0 0 40px rgba(234,213,160,.035)!important}
+.vertical-label{color:#e6d2a1!important;font-family:"Shippori Mincho",serif!important}
+.hero .kicker{color:var(--rrl-gold-hi)!important;letter-spacing:.32em!important}
+.hero h1{
+  color:#fff7e8!important;font-family:"Shippori Mincho","Yu Mincho",serif!important;
+  font-weight:500!important;letter-spacing:.15em!important;
+  text-shadow:0 2px 22px rgba(0,0,0,.25)!important
+}
+.hero h1 em{color:#e7c98b!important}
+.hero-lead{
+  color:#f7eddd!important;border-left:2px solid var(--rrl-gold)!important;
+  padding-left:20px!important;text-shadow:0 1px 9px rgba(0,0,0,.2)!important;
+  line-height:2.2!important
+}
+.hero-rule{color:#e9d49f!important;letter-spacing:.16em!important}
+.hero-rule i{background:linear-gradient(90deg,transparent,var(--rrl-gold-hi),transparent)!important}
+.four-season-wheel{
+  border:1px solid rgba(234,213,160,.56)!important;
+  box-shadow:0 0 0 8px rgba(234,213,160,.035),0 0 0 18px rgba(234,213,160,.025),0 16px 60px rgba(0,0,0,.15)!important
+}
+.four-season-wheel:before{border-color:rgba(234,213,160,.35)!important}
+.four-season-wheel:after{border-color:rgba(234,213,160,.22)!important}
+.season-wheel-center{
+  background:linear-gradient(145deg,#742536,#3b101b)!important;
+  color:#fff1db!important;border-color:var(--rrl-gold-hi)!important;
+  box-shadow:inset 0 0 0 4px rgba(234,213,160,.08),0 4px 17px rgba(0,0,0,.2)!important
+}
+.season-wheel-center small{color:var(--rrl-gold-hi)!important}
+.season-wheel-item b{
+  background:rgba(15,31,25,.94)!important;border:1px solid var(--rrl-gold)!important;
+  color:#fff3df!important;box-shadow:0 3px 14px rgba(0,0,0,.16)!important
+}
+.season-wheel-item small{color:#ead8b5!important;text-shadow:0 1px 6px #10201b!important}
+
+/* 四季の四つの結び */
+.season-canon-band{
+  color:#f7ead6!important;
+  background:linear-gradient(90deg,#32121b,#18332b 26%,#20392f 74%,#32121b)!important;
+  border-top:1px solid var(--rrl-gold)!important;border-bottom:4px double var(--rrl-gold)!important
+}
+.season-canon-band span{border-right:1px solid rgba(234,213,160,.2)!important}
+.season-canon-band b{color:var(--rrl-gold-hi)!important}
+.season-canon-band i{color:#f2e4ce!important}
+
+/* ── 状況告示と秘資料：対照的な二枚の銘板 ── */
+.portal-current-grid{background:#ede0ca!important}
+.season-status{
+  background:linear-gradient(105deg,#3f111e,#7a2432 48%,#441620)!important;
+  border-top:1px solid var(--rrl-gold)!important;border-bottom:5px double var(--rrl-gold)!important;
+  box-shadow:inset 0 0 34px rgba(0,0,0,.11)!important
+}
+.status-inner{max-width:1380px!important;min-height:112px!important}
+.season-status .eyebrow{color:var(--rrl-gold-hi)!important;font:9px Georgia,serif!important;letter-spacing:.18em!important}
+.season-status h2{color:#fff3e1!important;font-family:"Shippori Mincho","Yu Mincho",serif!important;letter-spacing:.08em!important}
+.status-light{border:1px solid rgba(234,213,160,.38)!important;border-left:3px solid var(--rrl-gold)!important;background:rgba(15,30,24,.28)!important}
+.status-light b,.status-light small,#last-updated{color:#fff2df!important}
+.status-light span{box-shadow:0 0 0 4px rgba(132,190,132,.14),0 0 13px rgba(132,190,132,.26)!important}
+.arg-teaser{
+  background:
+    radial-gradient(ellipse at 10% 0%,rgba(184,154,93,.10),transparent 35%),
+    linear-gradient(110deg,#11231d,#25151a 85%)!important;
+  border-top:1px solid rgba(234,213,160,.45)!important;border-bottom:5px double var(--rrl-gold)!important
+}
+.arg-teaser-mark{
+  color:var(--rrl-gold-hi)!important;border:1px solid var(--rrl-gold-hi)!important;
+  box-shadow:inset 0 0 0 4px rgba(234,213,160,.07)!important
+}
+.arg-eyebrow{color:var(--rrl-gold-hi)!important;font:9px Georgia,serif!important;letter-spacing:.2em!important}
+.arg-teaser h2{color:#fff1dc!important;font-family:"Shippori Mincho","Yu Mincho",serif!important;font-size:20px!important}
+.arg-teaser p{color:#e0d2bd!important}
+.arg-teaser a{
+  color:#302019!important;background:linear-gradient(135deg,#f0d9a4,#bd9b5b)!important;
+  border:1px solid #f5e5bd!important;box-shadow:inset 0 0 0 2px rgba(92,57,28,.10)!important
+}
+.arg-teaser a:hover{background:#fff0cf!important;color:#3c101b!important;transform:translateY(-2px)}
+.arg-teaser a b{color:#722331!important}
+
+/* ── 記録検索：ベルベットの台紙 × 象牙紙 ── */
+.portal-person-frame{
+  background:linear-gradient(135deg,#3c101b,#722331 48%,#32131c)!important;
+  border-top:1px solid var(--rrl-gold)!important;border-bottom:1px solid var(--rrl-gold)!important;
+  box-shadow:inset 0 0 40px rgba(0,0,0,.12)!important
+}
+.portal-person-frame:before{color:var(--rrl-gold-hi)!important}
+.portal-person-frame .person-search-section,.person-search-section{
+  background:
+    radial-gradient(ellipse at 100% 0%,rgba(184,154,93,.07),transparent 32%),
+    var(--rrl-paper-bright)!important;
+  color:var(--rrl-ink)!important;border:1px solid var(--rrl-line)!important;
+  border-top:4px double var(--rrl-gold)!important;
+  box-shadow:0 12px 28px rgba(18,10,8,.12),inset 0 0 0 4px rgba(184,154,93,.04)!important
+}
+.person-search-kicker{color:#8b6b3f!important;font:9px Georgia,serif!important;letter-spacing:.2em!important}
+.person-search-section h2{color:var(--rrl-wine)!important;font-family:"Shippori Mincho","Yu Mincho",serif!important}
+.person-search-intro,.person-record p{color:#55473c!important}
+#person-search-input{background:#fffdf8!important;border:1px solid #bca77f!important;color:#2d241f!important}
+#person-search-input::placeholder{color:#837461!important}
+#person-search-button{background:linear-gradient(135deg,#762633,#43121c)!important;color:#fff3e1!important;border:1px solid var(--rrl-gold)!important}
+#person-search-button:hover{background:#321019!important}
+.person-record{border-top:1px solid #d4bf98!important}
+.person-record h3{color:var(--rrl-wine)!important}
+.person-record small{color:#8e7044!important}
+.person-clue{color:var(--rrl-wine)!important;background:#f4e9d6!important;border-color:var(--rrl-gold)!important}
+
+/* ── 公開行政情報検索：真鍮の銘板 ── */
+.shiki-admin-search{
+  background:linear-gradient(145deg,#fffaf0,#f0e3ce)!important;
+  border:1px solid #c7ad7c!important;border-top:4px double var(--rrl-gold)!important;
+  box-shadow:inset 0 0 0 4px rgba(184,154,93,.045),0 12px 26px rgba(56,36,22,.07)!important;
+  color:var(--rrl-ink)!important
+}
+.shiki-admin-search h2{color:var(--rrl-wine)!important;border-bottom:1px solid var(--rrl-line)!important}
+.shiki-admin-search p,.shiki-admin-search-status{color:#5b4d40!important}
+.shiki-admin-search-kicker{color:#8c6e3c!important;letter-spacing:.19em!important}
+.shiki-admin-search-stamp{
+  color:var(--rrl-wine)!important;border:1px solid var(--rrl-gold)!important;
+  box-shadow:inset 0 0 0 3px rgba(184,154,93,.08)!important
+}
+.shiki-admin-search input,.shiki-admin-search select{
+  background:#fffdf8!important;color:#2d241f!important;border-color:#bba77f!important
+}
+.shiki-admin-search button{
+  background:linear-gradient(135deg,#792936,#45131e)!important;
+  color:#fff4e3!important;border-color:var(--rrl-gold)!important
+}
+.shiki-admin-search button:hover{background:#311019!important}
+.shiki-admin-result{
+  background:#fffaf1!important;border-color:#d6c39e!important;box-shadow:inset 0 0 0 2px rgba(184,154,93,.035)!important
+}
+.shiki-admin-result small{color:#8d6d3f!important}
+.shiki-admin-result strong{color:var(--rrl-wine)!important}
+.shiki-admin-result span{color:#5a4c3f!important}
+.shiki-admin-result:hover{background:#f3e6d0!important;border-color:var(--rrl-gold)!important;box-shadow:0 6px 14px rgba(64,42,26,.06)!important}
+
+/* ── 目次の四枚：装飾を揃える ── */
+.portal-file-tabs{
+  background:linear-gradient(90deg,#e5d4b9,#faf1e0 50%,#e5d4b9)!important;
+  border-top:5px double var(--rrl-gold)!important;border-bottom:1px solid var(--rrl-line)!important
+}
+.file-tab{
+  background:transparent!important;border-right:1px solid #cdb994!important;
+  box-shadow:inset 0 0 0 4px rgba(184,154,93,.035)!important;min-height:83px!important
+}
+.file-tab span{color:#8c7047!important;font:9px Georgia,serif!important;letter-spacing:.14em!important}
+.file-tab b{color:var(--rrl-wine)!important;font-family:"Shippori Mincho","Yu Mincho",serif!important}
+.file-tab:hover{background:rgba(255,250,240,.82)!important}
+
+/* ── 通常の各節：羊皮紙の綴じ目と章飾り ── */
+.section{
+  position:relative!important;
+  border-bottom:1px solid var(--rrl-line)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.65)!important
+}
+.section:before{
+  background:linear-gradient(90deg,transparent,rgba(184,154,93,.68),transparent)!important;
+  height:1px!important;opacity:.9!important
+}
+.section-title{position:relative!important}
+.section-title>span{
+  color:#9b7b48!important;font:10px Georgia,serif!important;letter-spacing:.3em!important
+}
+.section-title p{color:#89735a!important;font:9px Georgia,serif!important;letter-spacing:.17em!important}
+.section-title h2,.section-title>div h2{
+  color:var(--rrl-wine)!important;font-family:"Shippori Mincho","Yu Mincho",serif!important;
+  font-weight:500!important;letter-spacing:.13em!important
+}
+.section-title:after{
+  color:var(--rrl-gold)!important;background:inherit!important
+}
+.news-section{background:linear-gradient(180deg,#f3e8d5,#fbf5e9)!important}
+.news-list{border-top:4px double var(--rrl-wine)!important;border-bottom:4px double var(--rrl-wine)!important}
+.news-list article{border-bottom:1px solid #d7c3a0!important}
+.news-list article>span{color:var(--rrl-wine)!important;border-color:#cbb28a!important;background:rgba(255,250,240,.6)!important}
+.news-list article time{color:#806e59!important}
+.news-list article a{color:#352820!important}
+.news-list article a:after{color:var(--rrl-gold)!important}
+.news-list article:hover{background:rgba(184,154,93,.09)!important}
+.document-copy,.section-intro{color:#5d4d40!important}
+.document-copy .lead{color:#34271f!important;border-left-color:var(--rrl-wine)!important}
+.about-grid .mission-card{
+  color:#342820!important;background:linear-gradient(145deg,#fffaf0,#e9dac3)!important;
+  border:1px solid #d0b88f!important;border-top:4px double var(--rrl-gold)!important;
+  box-shadow:7px 8px 0 rgba(80,44,28,.06)!important
+}
+.mission-card,.mission-card p,.mission-card span,.mission-card a{color:#5a493a!important}
+.mission-card strong{color:var(--rrl-wine)!important}
+.mission-card>span{color:#8b7148!important}
+.mission-card small{color:#796854!important}
+
+/* 四季神籍：季節色の上に金縁を */
+.god-tabs{border-top:1px solid var(--rrl-line)!important;border-bottom:1px solid var(--rrl-line)!important}
+.god-tab{
+  border-top:4px solid var(--rrl-gold)!important;
+  background:linear-gradient(180deg,#f9f0e0,#eadcc6)!important;color:#4a3a2f!important;
+  font-family:"Shippori Mincho","Yu Mincho",serif!important
+}
+.god-tab:nth-child(1){border-top-color:#cb8ea0!important}
+.god-tab:nth-child(2){border-top-color:#c8a24c!important}
+.god-tab:nth-child(3){border-top-color:#885844!important}
+.god-tab:nth-child(4){border-top-color:#9bbdc9!important}
+.god-tab.active{
+  background:linear-gradient(145deg,#20382e,#13251e)!important;color:#fff3df!important;
+  box-shadow:inset 0 -3px 0 var(--rrl-gold),inset 0 0 0 1px rgba(234,213,160,.18)!important
+}
+.god-panel{
+  background:var(--rrl-paper-bright)!important;border:1px solid var(--rrl-line)!important;
+  border-top:3px double var(--rrl-gold)!important;border-bottom:4px double var(--rrl-gold)!important;
+  box-shadow:0 8px 22px rgba(56,37,23,.055)!important
+}
+.god-panel h3{color:var(--rrl-wine)!important;font-family:"Shippori Mincho","Yu Mincho",serif!important}
+.god-panel dt{color:var(--rrl-wine)!important}
+.god-panel dd{color:#57483a!important}
+.season-kanji{color:rgba(114,35,49,.13)!important;border-color:var(--rrl-line)!important}
+
+/* 護衛官：深緑の名鑑。文字色は象牙色で統一 */
+.guards-section{
+  background:
+    radial-gradient(ellipse at 50% 0%,rgba(184,154,93,.10),transparent 42%),
+    linear-gradient(135deg,#1d392f,#10221c 72%,#2d121a)!important;
+  border-top:5px double var(--rrl-gold)!important;border-bottom:5px double var(--rrl-gold)!important
+}
+.guards-section .section-title h2,.guards-section h3{color:#fff1dc!important}
+.guards-section .section-title>span,.guards-section .section-title p{color:var(--rrl-gold-hi)!important}
+.guards-section .section-intro,.guards-section p{color:#e4d8c5!important}
+.guards-section .department-grid{
+  background:rgba(234,213,160,.16)!important;border:1px solid rgba(234,213,160,.42)!important
+}
+.guards-section .department-grid article{
+  background:linear-gradient(145deg,#203d32,#12271f)!important;
+  border:1px solid rgba(234,213,160,.20)!important;border-top:3px solid var(--rrl-gold)!important;
+  box-shadow:inset 0 0 0 3px rgba(234,213,160,.025)!important
+}
+.guards-section .department-grid article h3,.guards-section .department-grid article strong{color:#fff1dc!important}
+.guards-section .department-grid article p,.guards-section .department-grid article small{color:#d9cbb5!important}
+
+/* 組織図：金線の官制図 */
+.departments-section{
+  background:
+    radial-gradient(ellipse at 50% 0%,rgba(184,154,93,.1),transparent 40%),
+    linear-gradient(135deg,#10221c,#1d372e 60%,#34131d)!important;
+  border-top:7px double var(--rrl-gold)!important;border-bottom:7px double var(--rrl-gold)!important
+}
+.departments-section .section-title h2{color:#fff3df!important}
+.departments-section .section-title>span,.departments-section .section-title p{color:var(--rrl-gold-hi)!important}
+.departments-section .section-intro,.departments-section p{color:#e2d7c5!important}
+.departments-section .org-node.chief{
+  color:#fff0dc!important;background:linear-gradient(135deg,#7a2634,#3b111b)!important;
+  border:1px solid var(--rrl-gold-hi)!important;box-shadow:inset 0 0 0 4px rgba(234,213,160,.06),0 9px 24px rgba(0,0,0,.12)!important
+}
+.departments-section .org-node.chief span,.departments-section .org-node.chief p,.departments-section .org-node.chief small{color:#f1e0c9!important}
+.departments-section .org-node.chief strong{color:#fff5e2!important;font-family:"Shippori Mincho","Yu Mincho",serif!important}
+.departments-section .org-line{background:linear-gradient(180deg,var(--rrl-gold-hi),var(--rrl-gold))!important}
+.departments-section .org-grid article{
+  color:#eee1cd!important;background:rgba(255,250,240,.045)!important;
+  border:1px solid rgba(234,213,160,.3)!important;box-shadow:inset 0 0 0 3px rgba(234,213,160,.025)!important
+}
+.departments-section .org-grid article h3,.departments-section .org-grid article strong{color:#fff0dc!important}
+.departments-section .org-grid article p,.departments-section .org-grid article small{color:#dcd0bd!important}
+
+/* 業務・調達・相談：簡潔な制度美 */
+.duties-section{background:linear-gradient(180deg,#e7d8c0,#f4e9d6)!important}
+.duty-grid{border-top:4px double var(--rrl-wine)!important}
+.duty-grid article{
+  background:rgba(255,250,240,.8)!important;border-bottom:1px solid #d2bc96!important;
+  box-shadow:inset 0 0 0 3px rgba(184,154,93,.035)!important
+}
+.duty-grid article h3{color:var(--rrl-wine)!important;font-family:"Shippori Mincho","Yu Mincho",serif!important}
+.duty-grid article p{color:#5b4c3e!important}
+.duty-grid article:after{color:var(--rrl-gold)!important}
+.procurement-section{background:linear-gradient(145deg,#f9f1e3,#e9dac4)!important}
+.procurement-section a,.contact-box a{color:var(--rrl-wine)!important;border-color:var(--rrl-gold)!important}
+.procurement-section a:hover,.contact-box a:hover{background:#f0e1c8!important}
+.contact-section{background:#f4ead8!important}
+.contact-box{
+  background:linear-gradient(145deg,#fffaf0,#ead9c0)!important;
+  border:1px solid var(--rrl-line)!important;border-top:4px double var(--rrl-gold)!important;
+  box-shadow:inset 0 0 0 4px rgba(184,154,93,.04)!important
+}
+.contact-box p,.contact-box label{color:#594839!important}
+
+/* 公開告示・関係機關・横断情報 */
+.official-notice-section{background:linear-gradient(180deg,#f7eddd,#eee0c9)!important}
+.admin-index{border:1px solid var(--rrl-line)!important;border-top:4px double var(--rrl-gold)!important;background:#fffaf0!important}
+.admin-index-heading{border-bottom:1px solid var(--rrl-line)!important}
+.admin-index-heading h2{color:var(--rrl-wine)!important}
+.admin-index-grid{border-color:var(--rrl-line)!important}
+.admin-index-grid a{background:#fffaf0!important;color:#4b382a!important;border-color:var(--rrl-line)!important}
+.admin-index-grid a:hover{background:#f1e2cb!important;color:var(--rrl-wine)!important}
+.related-agencies-section{
+  background:linear-gradient(180deg,#e7d8c1,#f8efe0)!important;
+  border-top:4px double var(--rrl-gold)!important
+}
+.related-agencies-section:before{color:#8b6c40!important;letter-spacing:.24em!important}
+.related-agencies-section .section-title h2{color:var(--rrl-wine)!important}
+.related-agencies-section a{color:var(--rrl-wine)!important}
+.related-agencies-section .related-agency{
+  background:#fffaf0!important;border:1px solid var(--rrl-line)!important;
+  border-top:3px solid var(--rrl-gold)!important;box-shadow:0 8px 20px rgba(56,37,23,.06)!important
+}
+.related-agencies-section .related-agency h3,.related-agencies-section .related-agency strong{color:var(--rrl-wine)!important}
+.related-agencies-section .related-agency p{color:#5c4b3d!important}
+.cross-arg{
+  background:radial-gradient(ellipse at 50% 0%,rgba(184,154,93,.12),transparent 45%),linear-gradient(120deg,#0d1c18,#2f1119)!important;
+  border-top:5px double var(--rrl-gold)!important;border-bottom:5px double var(--rrl-gold)!important
+}
+.cross-arg .cross-arg-panel{
+  background:rgba(11,25,20,.72)!important;border:1px solid rgba(234,213,160,.4)!important;
+  box-shadow:inset 0 0 0 5px rgba(234,213,160,.035),0 15px 34px rgba(0,0,0,.13)!important
+}
+.cross-arg h2,.cross-arg strong{color:#fff0d9!important}
+.cross-arg p,.cross-arg span{color:#e0d1b9!important}
+.cross-arg a{color:var(--rrl-gold-hi)!important;border-bottom:1px solid var(--rrl-gold)!important}
+
+/* ── フッター：夜の御殿と金の箔押し ── */
+.site-footer,.shiki-v4-footer{
+  position:relative!important;overflow:hidden!important;color:#eee2ce!important;
+  background:
+    radial-gradient(ellipse at 50% 0%,rgba(184,154,93,.11),transparent 50%),
+    linear-gradient(135deg,#101f1b,#1a3028 56%,#31131b)!important;
+  border-top:7px double var(--rrl-gold)!important;
+  border-bottom:1px solid var(--rrl-gold)!important;
+  box-shadow:inset 0 9px 25px rgba(0,0,0,.16)!important
+}
+.site-footer:before,.shiki-v4-footer:before{
+  content:"❦　❧　❦";display:block;color:rgba(234,213,160,.45);
+  font:15px Georgia,serif;letter-spacing:.35em;margin:0 0 19px
+}
+.site-footer .content-width,.shiki-v4-footer .inner{position:relative;z-index:1}
+.site-footer,.site-footer p,.site-footer span,.shiki-v4-footer p{color:#e7dac6!important}
+.site-footer strong,.shiki-v4-footer strong{color:#fff1dc!important;font-family:"Shippori Mincho","Yu Mincho",serif!important}
+.site-footer small,.shiki-v4-footer small{color:var(--rrl-gold-hi)!important}
+.site-footer a,.shiki-v4-footer a{color:var(--rrl-gold-hi)!important;border-color:rgba(234,213,160,.55)!important}
+.site-footer a:hover,.shiki-v4-footer a:hover{color:#fff7e8!important}
+.site-footer:after{
+  color:rgba(234,213,160,.06)!important;
+  text-shadow:0 0 24px rgba(234,213,160,.025)!important
+}
+.shiki-v4-footer .motto{color:var(--rrl-gold-hi)!important;font-family:"Shippori Mincho","Yu Mincho",serif!important;letter-spacing:.18em!important}
+.shiki-v4-footer .imperial-network-dock{border-color:rgba(234,213,160,.3)!important}
+.footer-emblem{filter:drop-shadow(0 0 13px rgba(234,213,160,.12))}
+
+/* 暗部の文字は象牙・金、明部の文字は墨・葡萄酒色に固定 */
+.portal-registry,.portal-registry p,.portal-registry span,.portal-registry a{color:#f6ead7!important}
+.hero,.hero p,.hero .hero-lead,.hero .hero-rule,.hero a{color:#f7eddd!important}
+.hero .kicker,.hero .vertical-label,.hero .hero-rule span{color:var(--rrl-gold-hi)!important}
+.org-node.chief,.org-node.chief p,.org-node.chief span,.org-node.chief a{color:#fff0dc!important}
+.site-header,.site-header a{color:#fff6e6!important}
+.imperial-header,.imperial-header a{color:#f8efdf!important}
+.site-footer,.site-footer a{color:#eee2ce!important}
+.mission-card,.mission-card p,.mission-card span,.mission-card a{color:#5a493a!important}
+.shiki-admin-search,.shiki-admin-search p,.shiki-admin-search span{color:var(--rrl-ink)!important}
+
+/* モバイルでは細工を残し、余白と文字の見やすさを優先 */
+@media(max-width:1000px){
+  .shiki-v4-masthead .inner{padding:23px 25px!important}
+  .shiki-v4-date{padding-left:16px!important}
+  .shiki-v4-nav a{padding:11px 10px!important}
+  .portal-rail{border-right:0!important;border-bottom:5px double var(--rrl-gold)!important}
+  .portal-rail .rail-nav a{border-bottom:0!important;border-right:1px solid rgba(234,213,160,.18)!important}
+  .portal-document-head:after{left:14px;right:14px}
+}
+@media(max-width:700px){
+  body:after{inset:4px!important;outline-offset:2px!important}
+  main.shiki-portal{width:100%!important;box-shadow:none!important}
+  .shiki-v4-masthead:before{inset:7px!important}
+  .shiki-v4-masthead .inner{padding:22px 22px!important;gap:16px!important}
+  .shiki-v4-title{font-size:28px!important;letter-spacing:.12em!important}
+  .shiki-v4-sub{font-size:10px!important;line-height:1.8!important}
+  .shiki-v4-date{border-left:0!important;border-top:1px solid rgba(234,213,160,.28)!important;padding:12px 0 0!important}
+  .shiki-v4-nav .inner{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .shiki-v4-nav a{border-bottom:1px solid rgba(234,213,160,.12)!important;padding:10px!important}
+  .shiki-v4-motto .paper{padding:24px 19px!important;outline-offset:3px!important}
+  .shiki-v4-motto .paper:before,.shiki-v4-motto .paper:after{display:none!important}
+  .site-header{position:relative!important}
+  .brand strong{font-size:21px!important;letter-spacing:.13em!important}
+  .portal-registry-inner{gap:7px 13px!important;padding:9px 14px!important}
+  .portal-document-head{padding:22px 20px!important}
+  .national-context-inner{padding:31px 20px!important}
+  .hero{min-height:610px!important}
+  .hero:before{inset:11px!important}
+  .hero:after{right:20px!important;bottom:22px!important;font-size:8px!important;letter-spacing:.12em!important}
+  .hero-inner{padding:82px 25px 55px!important}
+  .hero h1{font-size:clamp(42px,12vw,61px)!important;letter-spacing:.06em!important}
+  .hero-lead{font-size:12px!important;padding-left:13px!important}
+  .four-season-wheel{width:240px!important;height:240px!important;right:-6%!important;top:66%!important;opacity:.28!important}
+  .season-status .status-inner{padding:20px!important}
+  .arg-teaser .content-width{padding:23px 20px!important}
+  .portal-person-frame{padding:24px 14px!important}
+  .shiki-admin-search{width:calc(100% - 28px)!important;padding:19px!important}
+  .section{padding-top:62px!important;padding-bottom:62px!important}
+  .portal-file-tabs{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .site-footer:after{font-size:28px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+}
