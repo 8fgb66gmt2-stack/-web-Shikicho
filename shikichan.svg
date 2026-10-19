@@ -1,29 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" role="img" aria-labelledby="title desc">
-  <title id="title">しきちょうちゃん</title>
-  <desc id="desc">象牙色の丸い動物。垂れ耳と臙脂色の帽子、金色の花飾りが特徴の四季廳公式マスコット。</desc>
-  <defs>
-    <linearGradient id="fur" x1="0" y1="0" x2="0.8" y2="1"><stop offset="0" stop-color="#fffdf6"/><stop offset="1" stop-color="#eadfcf"/></linearGradient>
-    <linearGradient id="wine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9a4657"/><stop offset="1" stop-color="#70283b"/></linearGradient>
-    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f1dca0"/><stop offset="1" stop-color="#b58a42"/></linearGradient>
-  </defs>
-  <ellipse cx="240" cy="427" rx="126" ry="18" fill="#5a2a31" opacity=".10"/>
-  <path d="M154 215 C105 180 88 219 105 281 C116 323 147 334 171 301 C184 282 177 242 154 215Z" fill="url(#fur)" stroke="#b8a48f" stroke-width="4"/>
-  <path d="M326 215 C375 180 392 219 375 281 C364 323 333 334 309 301 C296 282 303 242 326 215Z" fill="url(#fur)" stroke="#b8a48f" stroke-width="4"/>
-  <path d="M143 229 C120 222 120 253 132 281 C139 297 150 300 158 286" fill="none" stroke="#c7a6b4" stroke-width="12" stroke-linecap="round"/>
-  <path d="M337 229 C360 222 360 253 348 281 C341 297 330 300 322 286" fill="none" stroke="#c7a6b4" stroke-width="12" stroke-linecap="round"/>
-  <path d="M166 327 C165 290 185 272 240 272 C295 272 315 290 314 327 L327 393 C328 412 305 420 286 411 L194 411 C175 420 152 412 153 393Z" fill="url(#fur)" stroke="#b8a48f" stroke-width="4"/>
-  <path d="M177 326 Q240 359 303 326 L315 389 Q240 416 165 389Z" fill="url(#wine)" stroke="#682638" stroke-width="4"/>
-  <path d="M240 351 L240 403" stroke="url(#gold)" stroke-width="3"/><circle cx="240" cy="365" r="7" fill="url(#gold)"/>
-  <path d="M139 220 C139 156 179 120 240 120 C301 120 341 156 341 220 C341 285 301 322 240 322 C179 322 139 285 139 220Z" fill="url(#fur)" stroke="#b8a48f" stroke-width="4"/>
-  <path d="M148 176 Q156 111 240 108 Q324 111 332 176 L148 176Z" fill="url(#wine)" stroke="#682638" stroke-width="4"/>
-  <path d="M137 175 Q240 158 343 175 Q337 194 240 195 Q143 194 137 175Z" fill="#70283b" stroke="#b58a42" stroke-width="4"/>
-  <path d="M169 151 Q240 112 311 151" fill="none" stroke="#d4b878" stroke-width="3" opacity=".85"/>
-  <g transform="translate(240 150)" fill="url(#gold)" stroke="#7c542b" stroke-width="1.5"><ellipse cx="0" cy="-10" rx="5" ry="9"/><ellipse cx="9.5" cy="-3" rx="5" ry="9" transform="rotate(72 9.5 -3)"/><ellipse cx="6" cy="8" rx="5" ry="9" transform="rotate(144 6 8)"/><ellipse cx="-6" cy="8" rx="5" ry="9" transform="rotate(216 -6 8)"/><ellipse cx="-9.5" cy="-3" rx="5" ry="9" transform="rotate(288 -9.5 -3)"/><circle r="4" fill="#fff1c7"/></g>
-  <ellipse cx="201" cy="235" rx="7" ry="10" fill="#40312e"/><ellipse cx="279" cy="235" rx="7" ry="10" fill="#40312e"/>
-  <circle cx="203" cy="232" r="2.5" fill="#fffdf5"/><circle cx="281" cy="232" r="2.5" fill="#fffdf5"/>
-  <ellipse cx="180" cy="258" rx="15" ry="8" fill="#e7a2a7" opacity=".75"/><ellipse cx="300" cy="258" rx="15" ry="8" fill="#e7a2a7" opacity=".75"/>
-  <path d="M224 254 Q240 269 256 254" fill="none" stroke="#8e5960" stroke-width="4" stroke-linecap="round"/>
-  <ellipse cx="151" cy="366" rx="18" ry="25" fill="url(#fur)" stroke="#b8a48f" stroke-width="3" transform="rotate(-24 151 366)"/><ellipse cx="329" cy="366" rx="18" ry="25" fill="url(#fur)" stroke="#b8a48f" stroke-width="3" transform="rotate(24 329 366)"/>
-  <path d="M106 111 l5 12 12 5 -12 5 -5 12 -5 -12 -12 -5 12 -5Z" fill="url(#gold)"/><path d="M371 132 l4 9 9 4 -9 4 -4 9 -4 -9 -9 -4 9 -4Z" fill="#c7a6b4"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 520" role="img" aria-labelledby="title desc">
+<title id="title">四季廳公式マスコット しきちょうちゃん</title>
+<desc id="desc">象牙色のふわふわした丸い顔、薄藤色の長い垂れ耳、金の花章をつけた臙脂色の制帽と、金の花飾りがある臙脂色の制服を着た、かわいらしい四季廳のマスコット。</desc>
+<defs>
+ <linearGradient id="fur" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#fffdf7"/><stop offset="1" stop-color="#eee3d9"/></linearGradient>
+ <linearGradient id="wine" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#7b2944"/><stop offset="1" stop-color="#421426"/></linearGradient>
+ <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff0b8"/><stop offset=".5" stop-color="#d6ad5c"/><stop offset="1" stop-color="#9b6b32"/></linearGradient>
+ <linearGradient id="ear" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e9dfe9"/><stop offset="1" stop-color="#b7a4c3"/></linearGradient>
+</defs>
+<ellipse cx="240" cy="491" rx="140" ry="16" fill="#5a2638" opacity=".12"/>
+<!-- long floppy ears -->
+<path d="M159 190 C104 158 77 207 88 278 C95 329 122 364 155 350 C180 337 181 283 175 239Z" fill="url(#fur)" stroke="#59404a" stroke-width="5" stroke-linejoin="round"/>
+<path d="M321 190 C376 158 403 207 392 278 C385 329 358 364 325 350 C300 337 299 283 305 239Z" fill="url(#fur)" stroke="#59404a" stroke-width="5" stroke-linejoin="round"/>
+<path d="M137 211 C112 215 112 269 129 304 C138 323 151 329 160 309 C166 287 158 242 137 211Z" fill="url(#ear)"/>
+<path d="M343 211 C368 215 368 269 351 304 C342 323 329 329 320 309 C314 287 322 242 343 211Z" fill="url(#ear)"/>
+<!-- body, tiny feet and sleeves -->
+<ellipse cx="199" cy="467" rx="30" ry="23" fill="url(#fur)" stroke="#59404a" stroke-width="4"/>
+<ellipse cx="281" cy="467" rx="30" ry="23" fill="url(#fur)" stroke="#59404a" stroke-width="4"/>
+<path d="M164 322 Q240 296 316 322 L345 424 Q332 458 291 458 L189 458 Q148 458 135 424Z" fill="url(#fur)" stroke="#59404a" stroke-width="5"/>
+<path d="M164 335 Q240 367 316 335 L344 411 Q318 448 286 444 L194 444 Q162 448 136 411Z" fill="url(#wine)" stroke="#2f1020" stroke-width="5" stroke-linejoin="round"/>
+<path d="M177 356 L137 416 Q122 437 106 420 L91 401 Q87 391 101 379 L149 341Z" fill="url(#wine)" stroke="#2f1020" stroke-width="5"/>
+<path d="M303 341 L351 379 Q365 391 359 401 L344 420 Q328 437 313 416 L273 356Z" fill="url(#wine)" stroke="#2f1020" stroke-width="5"/>
+<path d="M184 355 L149 407 M296 355 L331 407" stroke="url(#gold)" stroke-width="4" fill="none"/>
+<path d="M211 359 L192 420 L216 407 L240 430 L264 407 L288 420 L269 359Z" fill="#f0e4dc" stroke="#d4b36d" stroke-width="3"/>
+<path d="M221 365 L212 413 L240 398 L268 413 L259 365Z" fill="#a72c50" stroke="#e0bb73" stroke-width="2"/>
+<!-- head -->
+<path d="M139 239 C136 170 175 132 240 132 C305 132 344 170 341 239 C338 311 301 345 240 345 C179 345 142 311 139 239Z" fill="url(#fur)" stroke="#59404a" stroke-width="5"/>
+<!-- cap crown -->
+<path d="M102 190 C104 133 160 91 240 88 C320 91 376 133 378 190 C349 213 131 213 102 190Z" fill="url(#wine)" stroke="#32101f" stroke-width="6" stroke-linejoin="round"/>
+<path d="M113 180 Q240 150 367 180" fill="none" stroke="url(#gold)" stroke-width="5"/>
+<path d="M94 193 Q240 161 386 193 Q378 218 240 220 Q102 218 94 193Z" fill="#52172e" stroke="url(#gold)" stroke-width="5"/>
+<circle cx="113" cy="198" r="9" fill="url(#gold)" stroke="#8a5d30" stroke-width="2"/><circle cx="367" cy="198" r="9" fill="url(#gold)" stroke="#8a5d30" stroke-width="2"/>
+<!-- five-petal flower badge -->
+<g transform="translate(240 157)" fill="url(#gold)" stroke="#754c2b" stroke-width="2">
+ <ellipse cy="-14" rx="8" ry="13"/><ellipse cx="13" cy="-4" rx="8" ry="13" transform="rotate(72 13 -4)"/><ellipse cx="8" cy="11" rx="8" ry="13" transform="rotate(144 8 11)"/><ellipse cx="-8" cy="11" rx="8" ry="13" transform="rotate(216 -8 11)"/><ellipse cx="-13" cy="-4" rx="8" ry="13" transform="rotate(288 -13 -4)"/><circle r="5" fill="#fff0bd"/>
+</g>
+<!-- eyes, lashes, highlights -->
+<path d="M172 242 Q173 222 190 220 Q207 222 208 242" fill="#54203b" stroke="#54203b" stroke-width="5" stroke-linecap="round"/>
+<path d="M272 242 Q273 222 290 220 Q307 222 308 242" fill="#54203b" stroke="#54203b" stroke-width="5" stroke-linecap="round"/>
+<ellipse cx="190" cy="244" rx="17" ry="22" fill="#60213d"/><ellipse cx="290" cy="244" rx="17" ry="22" fill="#60213d"/>
+<ellipse cx="190" cy="251" rx="13" ry="13" fill="#b53c66"/><ellipse cx="290" cy="251" rx="13" ry="13" fill="#b53c66"/>
+<circle cx="185" cy="235" r="6" fill="#fff8ef"/><circle cx="285" cy="235" r="6" fill="#fff8ef"/>
+<circle cx="197" cy="257" r="3" fill="#f7dfe8"/><circle cx="297" cy="257" r="3" fill="#f7dfe8"/>
+<path d="M172 222 l-8 -8 M181 219 l-3 -10 M272 219 l3 -10 M300 222 l8 -8" stroke="#54203b" stroke-width="4" stroke-linecap="round"/>
+<ellipse cx="160" cy="276" rx="16" ry="8" fill="#e8a0ad" opacity=".8"/><ellipse cx="320" cy="276" rx="16" ry="8" fill="#e8a0ad" opacity=".8"/>
+<path d="M224 274 Q232 284 240 276 Q248 284 256 274" fill="none" stroke="#442a32" stroke-width="4" stroke-linecap="round"/>
+<!-- collar and floral ornaments -->
+<path d="M177 323 Q240 346 303 323 L288 346 Q240 365 192 346Z" fill="#3a1427" stroke="url(#gold)" stroke-width="3"/>
+<g fill="url(#gold)" stroke="#71472a" stroke-width="1.5">
+ <g transform="translate(191 346)"><ellipse cy="-9" rx="5" ry="8"/><ellipse cx="8" cy="-2" rx="5" ry="8" transform="rotate(72 8 -2)"/><ellipse cx="5" cy="7" rx="5" ry="8" transform="rotate(144 5 7)"/><ellipse cx="-5" cy="7" rx="5" ry="8" transform="rotate(216 -5 7)"/><ellipse cx="-8" cy="-2" rx="5" ry="8" transform="rotate(288 -8 -2)"/><circle r="3"/></g>
+ <g transform="translate(289 346)"><ellipse cy="-9" rx="5" ry="8"/><ellipse cx="8" cy="-2" rx="5" ry="8" transform="rotate(72 8 -2)"/><ellipse cx="5" cy="7" rx="5" ry="8" transform="rotate(144 5 7)"/><ellipse cx="-5" cy="7" rx="5" ry="8" transform="rotate(216 -5 7)"/><ellipse cx="-8" cy="-2" rx="5" ry="8" transform="rotate(288 -8 -2)"/><circle r="3"/></g>
+ <circle cx="240" cy="353" r="12"/>
+</g>
+<path d="M225 365 L217 396 M255 365 L263 396" stroke="#d5ad5e" stroke-width="4" stroke-linecap="round"/>
+<path d="M225 367 L220 394 L240 384 L260 394 L255 367Z" fill="#a92d50" stroke="#e4bd72" stroke-width="2"/>
+<!-- tiny gold stitching -->
+<path d="M126 397 l10 -4 -3 9 M354 397 l-10 -4 3 9 M170 413 l9 -3 -3 8 M310 413 l-9 -3 3 8" fill="none" stroke="url(#gold)" stroke-width="3" stroke-linecap="round"/>
+<g fill="#d8b56d"><circle cx="240" cy="417" r="4"/><circle cx="240" cy="432" r="3"/></g>
 </svg>
