@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" role="img" aria-labelledby="title desc">
+  <title id="title">しきちょうちゃん</title>
+  <desc id="desc">象牙色の丸い動物。垂れ耳と臙脂色の帽子、金色の花飾りが特徴の四季廳公式マスコット。</desc>
+  <defs>
+    <linearGradient id="fur" x1="0" y1="0" x2="0.8" y2="1"><stop offset="0" stop-color="#fffdf6"/><stop offset="1" stop-color="#eadfcf"/></linearGradient>
+    <linearGradient id="wine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9a4657"/><stop offset="1" stop-color="#70283b"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f1dca0"/><stop offset="1" stop-color="#b58a42"/></linearGradient>
+  </defs>
+  <ellipse cx="240" cy="427" rx="126" ry="18" fill="#5a2a31" opacity=".10"/>
+  <path d="M154 215 C105 180 88 219 105 281 C116 323 147 334 171 301 C184 282 177 242 154 215Z" fill="url(#fur)" stroke="#b8a48f" stroke-width="4"/>
+  <path d="M326 215 C375 180 392 219 375 281 C364 323 333 334 309 301 C296 282 303 242 326 215Z" fill="url(#fur)" stroke="#b8a48f" stroke-width="4"/>
+  <path d="M143 229 C120 222 120 253 132 281 C139 297 150 300 158 286" fill="none" stroke="#c7a6b4" stroke-width="12" stroke-linecap="round"/>
+  <path d="M337 229 C360 222 360 253 348 281 C341 297 330 300 322 286" fill="none" stroke="#c7a6b4" stroke-width="12" stroke-linecap="round"/>
+  <path d="M166 327 C165 290 185 272 240 272 C295 272 315 290 314 327 L327 393 C328 412 305 420 286 411 L194 411 C175 420 152 412 153 393Z" fill="url(#fur)" stroke="#b8a48f" stroke-width="4"/>
+  <path d="M177 326 Q240 359 303 326 L315 389 Q240 416 165 389Z" fill="url(#wine)" stroke="#682638" stroke-width="4"/>
+  <path d="M240 351 L240 403" stroke="url(#gold)" stroke-width="3"/><circle cx="240" cy="365" r="7" fill="url(#gold)"/>
+  <path d="M139 220 C139 156 179 120 240 120 C301 120 341 156 341 220 C341 285 301 322 240 322 C179 322 139 285 139 220Z" fill="url(#fur)" stroke="#b8a48f" stroke-width="4"/>
+  <path d="M148 176 Q156 111 240 108 Q324 111 332 176 L148 176Z" fill="url(#wine)" stroke="#682638" stroke-width="4"/>
+  <path d="M137 175 Q240 158 343 175 Q337 194 240 195 Q143 194 137 175Z" fill="#70283b" stroke="#b58a42" stroke-width="4"/>
+  <path d="M169 151 Q240 112 311 151" fill="none" stroke="#d4b878" stroke-width="3" opacity=".85"/>
+  <g transform="translate(240 150)" fill="url(#gold)" stroke="#7c542b" stroke-width="1.5"><ellipse cx="0" cy="-10" rx="5" ry="9"/><ellipse cx="9.5" cy="-3" rx="5" ry="9" transform="rotate(72 9.5 -3)"/><ellipse cx="6" cy="8" rx="5" ry="9" transform="rotate(144 6 8)"/><ellipse cx="-6" cy="8" rx="5" ry="9" transform="rotate(216 -6 8)"/><ellipse cx="-9.5" cy="-3" rx="5" ry="9" transform="rotate(288 -9.5 -3)"/><circle r="4" fill="#fff1c7"/></g>
+  <ellipse cx="201" cy="235" rx="7" ry="10" fill="#40312e"/><ellipse cx="279" cy="235" rx="7" ry="10" fill="#40312e"/>
+  <circle cx="203" cy="232" r="2.5" fill="#fffdf5"/><circle cx="281" cy="232" r="2.5" fill="#fffdf5"/>
+  <ellipse cx="180" cy="258" rx="15" ry="8" fill="#e7a2a7" opacity=".75"/><ellipse cx="300" cy="258" rx="15" ry="8" fill="#e7a2a7" opacity=".75"/>
+  <path d="M224 254 Q240 269 256 254" fill="none" stroke="#8e5960" stroke-width="4" stroke-linecap="round"/>
+  <ellipse cx="151" cy="366" rx="18" ry="25" fill="url(#fur)" stroke="#b8a48f" stroke-width="3" transform="rotate(-24 151 366)"/><ellipse cx="329" cy="366" rx="18" ry="25" fill="url(#fur)" stroke="#b8a48f" stroke-width="3" transform="rotate(24 329 366)"/>
+  <path d="M106 111 l5 12 12 5 -12 5 -5 12 -5 -12 -12 -5 12 -5Z" fill="url(#gold)"/><path d="M371 132 l4 9 9 4 -9 4 -4 9 -4 -9 -9 -4 9 -4Z" fill="#c7a6b4"/>
+</svg>
