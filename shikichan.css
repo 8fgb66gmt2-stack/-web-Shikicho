@@ -37,3 +37,14 @@
 .shikichan-footer p{margin:5px 0;letter-spacing:.1em}
 .shikichan-footer small{color:#c4b69c}
 @media(max-width:650px){.shikichan-width{width:min(100% - 28px,1120px)}.shikichan-hero{grid-template-columns:1fr;gap:12px}.shikichan-hero-art img{width:min(76%,280px)}.shikichan-nav a{padding:11px 10px}.shikichan-profile-list{grid-template-columns:92px minmax(0,1fr)}.shikichan-profile-list dt,.shikichan-profile-list dd{padding:10px 7px;font-size:12px}}
+
+/* Home-page mascot notice: intentionally restrained to match the official portal */
+.shikichan-banner{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(130px,.55fr);align-items:center;gap:24px;margin:28px 0 34px;padding:clamp(20px,3vw,32px);border:1px solid #cbb99a;border-left:4px solid #87384d;background:linear-gradient(125deg,#fffaf0,#f1e5d1);color:#29231f}
+.shikichan-banner__content{min-width:0}
+.shikichan-banner h2{margin:7px 0 10px;color:#87384d;font-family:"Shippori Mincho","Yu Mincho",serif;font-size:clamp(23px,3vw,32px);font-weight:500;letter-spacing:.1em}
+.shikichan-banner__content>p:not(.shikichan-eyebrow){line-height:1.9;font-size:13px}
+.shikichan-banner__motto{color:#243c35;font-weight:700;letter-spacing:.08em}
+.shikichan-banner__art img{display:block;width:min(100%,210px);height:auto;margin-inline:auto}
+.shikichan-link{display:inline-block;margin-top:5px;padding:9px 13px;border:1px solid #87384d;color:#87384d;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.04em}
+.shikichan-link:hover,.shikichan-link:focus-visible{background:#87384d;color:#fffaf0}
+@media(max-width:600px){.shikichan-banner{grid-template-columns:1fr;gap:8px}.shikichan-banner__art{grid-row:1}.shikichan-banner__art img{width:min(48%,170px)}}
