@@ -3935,5 +3935,79 @@ const overlay=make('div','ip-search-overlay');overlay.id='ip-search-overlay';ove
   .org-grid article:hover{transform:none!important}
 }
 </style>
+<style id="ryoryo-seasonal-contrast-hotfix">
+/* 四季局カード：既存の濃色テーマ指定より優先し、文字と背景のコントラストを確保 */
+.departments-section .org-grid article.season-spring,
+.departments-section .org-grid article.season-summer,
+.departments-section .org-grid article.season-autumn,
+.departments-section .org-grid article.season-winter{
+  background:#fffaf0!important;
+  background-image:linear-gradient(155deg,#fffdf7 0%,#f5ead6 100%)!important;
+  border-color:#bda77f!important;
+  color:#2c2923!important;
+}
+.departments-section .org-grid article.season-spring .org-season-jp,
+.departments-section .org-grid article.season-summer .org-season-jp,
+.departments-section .org-grid article.season-autumn .org-season-jp,
+.departments-section .org-grid article.season-winter .org-season-jp{
+  color:#74232c!important;
+  font-weight:700!important;
+}
+.departments-section .org-grid article.season-spring .org-season-en,
+.departments-section .org-grid article.season-summer .org-season-en,
+.departments-section .org-grid article.season-autumn .org-season-en,
+.departments-section .org-grid article.season-winter .org-season-en{
+  color:#765a2c!important;
+  opacity:1!important;
+}
+.departments-section .org-grid article.season-spring>strong,
+.departments-section .org-grid article.season-summer>strong,
+.departments-section .org-grid article.season-autumn>strong,
+.departments-section .org-grid article.season-winter>strong{
+  color:#243d33!important;
+  opacity:1!important;
+  text-shadow:none!important;
+  border-bottom-color:#c7ad7a!important;
+}
+.departments-section .org-grid article.season-spring>small,
+.departments-section .org-grid article.season-summer>small,
+.departments-section .org-grid article.season-autumn>small,
+.departments-section .org-grid article.season-winter>small{
+  color:#453e35!important;
+  opacity:1!important;
+  text-shadow:none!important;
+}
+.departments-section .org-grid article.season-spring>em,
+.departments-section .org-grid article.season-summer>em,
+.departments-section .org-grid article.season-autumn>em,
+.departments-section .org-grid article.season-winter>em{
+  color:#70232b!important;
+  opacity:1!important;
+  text-shadow:none!important;
+}
+.departments-section .org-grid article.season-spring>em b,
+.departments-section .org-grid article.season-summer>em b,
+.departments-section .org-grid article.season-autumn>em b,
+.departments-section .org-grid article.season-winter>em b{
+  background:#e9dbc1!important;
+  color:#62491f!important;
+  border:1px solid #d2bb8e!important;
+  opacity:1!important;
+}
+@media (forced-colors: active){
+  .departments-section .org-grid article.season-spring,
+  .departments-section .org-grid article.season-summer,
+  .departments-section .org-grid article.season-autumn,
+  .departments-section .org-grid article.season-winter{
+    border:1px solid CanvasText!important;
+  }
+  .departments-section .org-grid article.season-spring *,
+  .departments-section .org-grid article.season-summer *,
+  .departments-section .org-grid article.season-autumn *,
+  .departments-section .org-grid article.season-winter *{
+    color:CanvasText!important;
+  }
+}
+</style>
 </body>
 </html>
