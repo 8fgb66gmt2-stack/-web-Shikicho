@@ -1,0 +1,39 @@
+/* SHIKICHO-CHAN / official mascot page */
+.shikichan-document{--sc-wine:#87384d;--sc-green:#243c35;--sc-paper:#f8f0df;--sc-ink:#29231f;--sc-gold:#b08a4a;background:var(--sc-paper);color:var(--sc-ink)}
+.shikichan-width{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+.shikichan-masthead{padding:28px 0 24px;background:#172b27;color:#f8f0df;border-bottom:4px double var(--sc-gold)}
+.shikichan-kicker{margin:0 0 10px;color:#d4b878;font-size:11px;letter-spacing:.16em}
+.shikichan-agency{margin:0;font-family:"Shippori Mincho","Yu Mincho",serif;font-size:clamp(27px,4vw,40px);letter-spacing:.16em}
+.shikichan-agency span{font-size:.55em;letter-spacing:.1em}
+.shikichan-subtitle{margin:10px 0 0;color:#e2d6c0;font-size:12px;letter-spacing:.12em}
+.shikichan-nav{background:#fffaf0;border-bottom:1px solid #c8b99f}
+.shikichan-nav .shikichan-width{display:flex;flex-wrap:wrap;gap:0}
+.shikichan-nav a{padding:13px 16px;color:#6e2637;text-decoration:none;font-size:12px;border-right:1px solid #e2d5c2}
+.shikichan-nav a:hover,.shikichan-nav a:focus-visible{background:#f0e3d0;text-decoration:underline}
+.shikichan-main{padding-block:28px 64px}
+.shikichan-document-meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-bottom:12px;border-bottom:1px solid #b8a17a;color:#766653;font-size:10px;letter-spacing:.1em}
+.shikichan-hero{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center;margin-top:24px;padding:clamp(22px,4vw,44px);border:1px solid #cbb99a;background:linear-gradient(135deg,#fffaf0,#f1e5d1)}
+.shikichan-label,.shikichan-section-en{margin:0;color:var(--sc-wine);font-size:10px;font-weight:700;letter-spacing:.16em}
+.shikichan-hero h1{margin:10px 0 14px;color:var(--sc-wine);font-family:"Shippori Mincho","Yu Mincho",serif;font-size:clamp(30px,5vw,48px);font-weight:500;letter-spacing:.1em}
+.shikichan-hero-copy>p:not(.shikichan-label):not(.shikichan-motto){line-height:2}
+.shikichan-motto{margin-top:24px;color:var(--sc-green);font-family:"Shippori Mincho","Yu Mincho",serif;font-weight:700;letter-spacing:.12em}
+.shikichan-hero-art{margin:0;text-align:center}
+.shikichan-hero-art img{display:block;width:min(100%,320px);margin-inline:auto}
+.shikichan-hero-art figcaption{margin-top:8px;color:#766653;font-size:10px;letter-spacing:.08em}
+.shikichan-section{margin-top:34px;padding:clamp(20px,3vw,32px);border:1px solid #d8c9b2;background:rgba(255,250,240,.75);scroll-margin-top:18px}
+.shikichan-section h2{margin:8px 0 20px;padding-bottom:12px;border-bottom:1px solid #cbb99a;color:var(--sc-wine);font-family:"Shippori Mincho","Yu Mincho",serif;font-size:22px;font-weight:500;letter-spacing:.08em}
+.shikichan-section p{line-height:2}
+.shikichan-profile-list{display:grid;grid-template-columns:minmax(120px,.35fr) minmax(0,1fr);margin:0}
+.shikichan-profile-list dt,.shikichan-profile-list dd{margin:0;padding:12px 10px;border-bottom:1px solid #e1d5c3;line-height:1.8}
+.shikichan-profile-list dt{color:var(--sc-wine);font-weight:700}
+.shikichan-note{padding:12px 15px;border-left:3px solid var(--sc-gold);background:#f1e7d5;font-size:12px}
+.shikichan-activity-list{padding-left:1.4em;line-height:2.1}
+.shikichan-activity-list li::marker{color:var(--sc-wine)}
+.shikichan-voice{border-left:4px solid var(--sc-wine)}
+.shikichan-voice>p:last-child{font-family:"Shippori Mincho","Yu Mincho",serif;font-size:18px}
+.shikichan-return{margin-top:28px}
+.shikichan-return a{color:var(--sc-wine);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:3px}
+.shikichan-footer{padding:28px 0;background:#172b27;color:#e9dbc2;text-align:center;border-top:4px double var(--sc-gold)}
+.shikichan-footer p{margin:5px 0;letter-spacing:.1em}
+.shikichan-footer small{color:#c4b69c}
+@media(max-width:650px){.shikichan-width{width:min(100% - 28px,1120px)}.shikichan-hero{grid-template-columns:1fr;gap:12px}.shikichan-hero-art img{width:min(76%,280px)}.shikichan-nav a{padding:11px 10px}.shikichan-profile-list{grid-template-columns:92px minmax(0,1fr)}.shikichan-profile-list dt,.shikichan-profile-list dd{padding:10px 7px;font-size:12px}}
