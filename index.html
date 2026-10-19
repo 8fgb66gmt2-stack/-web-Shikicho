@@ -3008,10 +3008,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 <div class="org-line" aria-hidden="true"></div>
 <div class="org-caption"><span class="org-step">第一階</span><strong>季節行政を担う四局</strong><small>SEASONAL BUREAUS</small></div>
 <div class="org-grid">
-  <article class="season-spring"><span class="org-season-jp">春局</span><span class="org-season-en">SPRING BUREAU</span><strong>京極 馨</strong><small>春季行政・巡行・保全</small><em><b>現人神</b> 花葉 雛菊</em></article>
-  <article class="season-summer"><span class="org-season-jp">夏局</span><span class="org-season-en">SUMMER BUREAU</span><strong>九鬼 湊</strong><small>夏季行政・巡行・保全</small><em><b>現人神</b> 葉桜 瑠璃</em></article>
-  <article class="season-autumn"><span class="org-season-jp">秋局</span><span class="org-season-en">AUTUMN BUREAU</span><strong>日向 瑞穂</strong><small>秋季行政・巡行・保全</small><em><b>現人神</b> 祝月 杏莉</em></article>
-  <article class="season-winter"><span class="org-season-jp">冬局</span><span class="org-season-en">WINTER BUREAU</span><strong>石田 雅向</strong><small>冬季行政・巡行・保全</small><em><b>現人神</b> 薄氷宮 幸仁</em></article>
+  <article class="season-spring" style="background:#fffaf0!important;background-image:linear-gradient(155deg,#fffdf7 0%,#f5ead6 100%)!important;border:1px solid #bda77f!important;border-top:3px double #bd7884!important;color:#2c2923!important;opacity:1!important;filter:none!important;"><span class="org-season-jp" style="color:#74232c!important;font-weight:700!important;opacity:1!important;">春局</span><span class="org-season-en" style="color:#765a2c!important;opacity:1!important;">SPRING BUREAU</span><strong style="color:#243d33!important;opacity:1!important;text-shadow:none!important;">京極 馨</strong><small style="color:#453e35!important;opacity:1!important;text-shadow:none!important;">春季行政・巡行・保全</small><em style="color:#70232b!important;opacity:1!important;text-shadow:none!important;"><b style="background:#e9dbc1!important;color:#62491f!important;border:1px solid #d2bb8e!important;">現人神</b> 花葉 雛菊</em></article>
+  <article class="season-summer" style="background:#fffaf0!important;background-image:linear-gradient(155deg,#fffdf7 0%,#f5ead6 100%)!important;border:1px solid #bda77f!important;border-top:3px double #c19b51!important;color:#2c2923!important;opacity:1!important;filter:none!important;"><span class="org-season-jp" style="color:#74232c!important;font-weight:700!important;opacity:1!important;">夏局</span><span class="org-season-en" style="color:#765a2c!important;opacity:1!important;">SUMMER BUREAU</span><strong style="color:#243d33!important;opacity:1!important;text-shadow:none!important;">九鬼 湊</strong><small style="color:#453e35!important;opacity:1!important;text-shadow:none!important;">夏季行政・巡行・保全</small><em style="color:#70232b!important;opacity:1!important;text-shadow:none!important;"><b style="background:#e9dbc1!important;color:#62491f!important;border:1px solid #d2bb8e!important;">現人神</b> 葉桜 瑠璃</em></article>
+  <article class="season-autumn" style="background:#fffaf0!important;background-image:linear-gradient(155deg,#fffdf7 0%,#f5ead6 100%)!important;border:1px solid #bda77f!important;border-top:3px double #b9684c!important;color:#2c2923!important;opacity:1!important;filter:none!important;"><span class="org-season-jp" style="color:#74232c!important;font-weight:700!important;opacity:1!important;">秋局</span><span class="org-season-en" style="color:#765a2c!important;opacity:1!important;">AUTUMN BUREAU</span><strong style="color:#243d33!important;opacity:1!important;text-shadow:none!important;">日向 瑞穂</strong><small style="color:#453e35!important;opacity:1!important;text-shadow:none!important;">秋季行政・巡行・保全</small><em style="color:#70232b!important;opacity:1!important;text-shadow:none!important;"><b style="background:#e9dbc1!important;color:#62491f!important;border:1px solid #d2bb8e!important;">現人神</b> 祝月 杏莉</em></article>
+  <article class="season-winter" style="background:#fffaf0!important;background-image:linear-gradient(155deg,#fffdf7 0%,#f5ead6 100%)!important;border:1px solid #bda77f!important;border-top:3px double #8396a8!important;color:#2c2923!important;opacity:1!important;filter:none!important;"><span class="org-season-jp" style="color:#74232c!important;font-weight:700!important;opacity:1!important;">冬局</span><span class="org-season-en" style="color:#765a2c!important;opacity:1!important;">WINTER BUREAU</span><strong style="color:#243d33!important;opacity:1!important;text-shadow:none!important;">石田 雅向</strong><small style="color:#453e35!important;opacity:1!important;text-shadow:none!important;">冬季行政・巡行・保全</small><em style="color:#70232b!important;opacity:1!important;text-shadow:none!important;"><b style="background:#e9dbc1!important;color:#62491f!important;border:1px solid #d2bb8e!important;">現人神</b> 薄氷宮 幸仁</em></article>
 </div>
 <div class="org-caption"><span class="org-step">第二階</span><strong>庁内横断・専門行政</strong><small>INTERNAL &amp; SPECIALIST OFFICES</small></div>
 <div class="shiki-department-registry">
@@ -4007,6 +4007,20 @@ const overlay=make('div','ip-search-overlay');overlay.id='ip-search-overlay';ove
   .departments-section .org-grid article.season-winter *{
     color:CanvasText!important;
   }
+}
+</style>
+<style id="ryoryo-seasonal-contrast-final">
+html body #departments.departments-section .org-chart .org-grid>article.season-spring,
+html body #departments.departments-section .org-chart .org-grid>article.season-summer,
+html body #departments.departments-section .org-chart .org-grid>article.season-autumn,
+html body #departments.departments-section .org-chart .org-grid>article.season-winter{
+ background:#fffaf0!important;background-image:linear-gradient(155deg,#fffdf7 0%,#f5ead6 100%)!important;color:#2c2923!important;opacity:1!important;filter:none!important
+}
+html body #departments.departments-section .org-chart .org-grid>article.season-spring *,
+html body #departments.departments-section .org-chart .org-grid>article.season-summer *,
+html body #departments.departments-section .org-chart .org-grid>article.season-autumn *,
+html body #departments.departments-section .org-chart .org-grid>article.season-winter *{
+ opacity:1!important;text-shadow:none!important
 }
 </style>
 </body>
