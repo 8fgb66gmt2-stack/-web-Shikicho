@@ -3052,7 +3052,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   opacity:1!important;visibility:visible!important;pointer-events:auto!important;transform:none!important;
 }
 .shiki-investigation-head{display:flex;align-items:center;justify-content:space-between;padding:9px 14px;border-bottom:1px solid rgba(61,48,38,.14);background:#f2ede2}
-.shiki-investigation-close{border:0;background:transparent;color:#756e65;font-size:17px;line-height:1;cursor:pointer;padding:2px 4px}
+.shiki-investigation-close{position:relative;z-index:2;pointer-events:auto;border:0;background:transparent;color:#756e65;font-size:17px;line-height:1;cursor:pointer;padding:2px 4px}
 .shiki-investigation-body{padding:17px 18px 15px}
 .shiki-investigation-name{display:inline-block;color:#752b2d;font-size:11px;font-weight:600;letter-spacing:.13em;border-bottom:1px solid #aa8d55;padding-bottom:2px}
 .shiki-investigation-text{margin:10px 0 14px;font-size:13px;line-height:1.95;min-height:52px;white-space:pre-line}
@@ -3074,7 +3074,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 <div class="shiki-investigation" id="shiki-investigation" aria-live="polite" aria-label="春月とのサイト内調査">
   <div class="shiki-investigation-head">
     <small>SHIKI AGENCY / SITE INVESTIGATION</small>
-    <button class="shiki-investigation-close" id="shiki-investigation-close" aria-label="会話を閉じる">×</button>
+    <button type="button" class="shiki-investigation-close" id="shiki-investigation-close" aria-label="会話を閉じる">×</button>
   </div>
   <div class="shiki-investigation-body">
     <span class="shiki-investigation-name" id="shiki-investigation-name">花葉 春月</span>
@@ -3245,9 +3245,27 @@ document.querySelectorAll('.god-tab').forEach(btn=>btn.addEventListener('click',
   }
 
   function closePanel() {
+    // 閉じる時は表示状態だけでなく、途中の会話モードも解除する。
     panel.classList.remove('is-visible');
+    panel.setAttribute('aria-hidden', 'true');
     hint.classList.add('is-visible');
+    newsInvestigationMode = false;
+    newsInvestigationIndex = 0;
+    investigationMode = false;
+    investigationIndex = 0;
+    emblemInvestigationMode = false;
+    index = 0;
+    window.__shikiPortalReturn = null;
+    window.__shikiArchiveReturn = null;
+    window.__shikiAuthorReturn = null;
+    window.__shikiAuthorInvestigation = null;
+    if (saveControls) saveControls.hidden = true;
     try { sessionStorage.setItem('shikiInvestigationStarted', '1'); } catch(e) {}
+    if (location.hash === '#shiki-investigation') {
+      try { history.replaceState({}, '', location.pathname + location.search); } catch(e) {}
+    }
+    // フォーカスが非表示領域に残らないよう、開くボタンへ戻す。
+    if (hint && hint.focus) hint.focus();
   }
 
   next.addEventListener('click', () => {
@@ -3321,7 +3339,20 @@ document.querySelectorAll('.god-tab').forEach(btn=>btn.addEventListener('click',
     }
   });
 
-  close.addEventListener('click', closePanel);
+  // ×は他の会話処理より先に受け取り、必ず閉じる。
+  close.type = 'button';
+  close.addEventListener('click', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    closePanel();
+  }, true);
+  // Escキーでも閉じられるようにする。
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && panel.classList.contains('is-visible')) {
+      event.preventDefault();
+      closePanel();
+    }
+  }, true);
   hint.addEventListener('click', openPanel);
 
   const returnParam = new URLSearchParams(location.search).get('return');
