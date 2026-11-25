@@ -1378,3 +1378,24 @@ body[data-shiki-page="index"] .ry-scroll-label{color:#866f48!important}
   body[data-shiki-page="index"] .section{break-inside:avoid!important}
   body[data-shiki-page="index"] .hero{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
+
+
+/* 選択した季節に応じて、天象儀の観測盤だけが静かに色調を変える。
+   選択状態は閲覧操作上のフォーカスであり、実際の巡行状況を示すものではない。 */
+body[data-shiki-season-focus="spring"]{--sg-focus-season:#bd8497;--sg-focus-season-wash:rgba(189,132,151,.14)}
+body[data-shiki-season-focus="summer"]{--sg-focus-season:#c39b45;--sg-focus-season-wash:rgba(195,155,69,.14)}
+body[data-shiki-season-focus="autumn"]{--sg-focus-season:#a66c4c;--sg-focus-season-wash:rgba(166,108,76,.14)}
+body[data-shiki-season-focus="winter"]{--sg-focus-season:#89aebe;--sg-focus-season-wash:rgba(137,174,190,.16)}
+body[data-shiki-page="index"] .home-astrarium-wheel{
+  border-color:var(--sg-focus-season,var(--sg-gold))!important;
+  box-shadow:0 0 0 7px var(--sg-focus-season-wash,transparent),0 12px 28px rgba(66,48,24,.08)!important;
+  transition:border-color .28s,box-shadow .28s!important;
+}
+body[data-shiki-page="index"] .home-astrarium .astrarium-node[aria-pressed="true"]{
+  border-color:var(--sg-focus-season,var(--sg-gold))!important;
+  outline-color:var(--sg-focus-season,var(--sg-wine))!important;
+}
+body[data-shiki-page="index"] .home-astrarium-detail{
+  border-color:var(--sg-focus-season,var(--sg-gold))!important;
+  transition:border-color .28s!important;
+}
