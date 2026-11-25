@@ -75,7 +75,7 @@ const init=()=>{
  const hide=()=>{layer.hidden=true;trigger.setAttribute('aria-expanded','false');lastFocus?.focus?.();trigger.focus();};
  trigger.addEventListener('click',open);close.addEventListener('click',hide);
  layer.addEventListener('click',e=>{if(e.target===layer)hide()});
- layer.addEventListener('keydown',e=>{if(e.key!=='Tab')return;const focusables=[input,close,...results.querySelectorAll('a[href]')];const first=focusables[0],last=focusables[focusables.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}});
+ layer.addEventListener('keydown',e=>{if(e.key!=='Tab')return;const focusables=[close,input,...results.querySelectorAll('a[href]')];const first=focusables[0],last=focusables[focusables.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}});
  input.addEventListener('input',render);
  input.addEventListener('keydown',e=>{
   if(e.key==='ArrowDown'){e.preventDefault();setActive(active+1)}
