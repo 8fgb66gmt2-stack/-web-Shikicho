@@ -1,0 +1,83 @@
+/* 四季廳 第三次大型拡張・共通意匠 */
+:root{--shiki-ink:#302c25;--shiki-paper:#f7f0e3;--shiki-paper-deep:#eee2ce;--shiki-gold:#ad8950;--shiki-red:#762b35;--shiki-green:#263e35;--shiki-line:rgba(128,96,51,.32);--shiki-serif:"Yu Mincho","Hiragino Mincho ProN","Noto Serif JP",serif}
+.third-page{margin:0;background:var(--shiki-paper);color:var(--shiki-ink);font-family:var(--shiki-serif);line-height:1.85}
+.third-page a{color:var(--shiki-red);text-underline-offset:4px}
+.third-page .third-topline{padding:8px 20px;background:var(--shiki-green);color:#f5eddd;font:10px/1.5 Georgia,serif;letter-spacing:.18em;text-align:center}
+.third-page .third-header{position:relative;padding:28px 22px 24px;border-bottom:4px double var(--shiki-gold);background:linear-gradient(135deg,#fffaf0,#eee2cd)}
+.third-page .third-header-inner{max-width:1180px;margin:auto;display:flex;align-items:center;gap:18px}
+.third-page .third-seal{width:56px;height:56px;display:grid;place-items:center;border:3px double var(--shiki-gold);border-radius:50%;color:var(--shiki-red);font-size:25px}
+.third-page .third-brand-kicker{font:10px Georgia,serif;letter-spacing:.2em;color:#80643c}
+.third-page .third-brand-title{margin:2px 0;color:var(--shiki-red);font-size:clamp(23px,4vw,34px);letter-spacing:.13em}
+.third-page .third-brand-sub{margin:0;font-size:12px;color:#675b4b}
+.third-page .third-clock{margin-left:auto;text-align:right;font-size:11px;color:#685d4d}
+.third-page .third-nav{border-bottom:1px solid var(--shiki-line);background:#f4ead9}
+.third-page .third-nav-inner{max-width:1180px;margin:auto;display:flex;flex-wrap:wrap;gap:0 22px;padding:11px 20px}
+.third-page .third-nav a{font-size:12px;text-decoration:none;color:#4e463a}
+.third-page .third-nav a:hover{text-decoration:underline}
+.third-page .third-main{max-width:1180px;margin:auto;padding:34px 20px 76px}
+.third-page .third-crumb{font-size:11px;color:#8a795e;margin-bottom:18px}
+.third-page .third-title-block{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:end;padding:0 0 23px;border-bottom:1px solid var(--shiki-line);margin-bottom:28px}
+.third-page .third-eyebrow{font:10px Georgia,serif;letter-spacing:.2em;color:#94713e}
+.third-page h1.third-title{font-size:clamp(30px,5vw,48px);font-weight:500;letter-spacing:.12em;color:var(--shiki-red);margin:4px 0 7px}
+.third-page .third-lead{max-width:760px;margin:0;color:#5e5548;font-size:14px}
+.third-page .third-docmark{min-width:110px;padding:12px;border:3px double var(--shiki-gold);text-align:center;color:#846a3f;font-size:12px;letter-spacing:.12em}
+.third-page .third-section{margin:34px 0}
+.third-page .third-section-head{display:flex;align-items:baseline;gap:13px;border-bottom:1px solid var(--shiki-line);padding-bottom:10px;margin-bottom:17px}
+.third-page .third-section-head span{font:italic 17px Georgia,serif;color:var(--shiki-gold)}
+.third-page .third-section-head h2{margin:0;color:var(--shiki-green);font-size:22px;font-weight:500;letter-spacing:.1em}
+.third-page .third-panel{background:rgba(255,252,245,.78);border:1px solid var(--shiki-line);box-shadow:0 7px 24px rgba(66,48,24,.05);padding:22px}
+.third-page .third-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.third-page .third-card{background:rgba(255,252,245,.82);border:1px solid var(--shiki-line);padding:17px;min-width:0}
+.third-page .third-card h3{margin:3px 0 8px;color:var(--shiki-red);font-size:17px;font-weight:600}
+.third-page .third-card p{font-size:13px;margin:6px 0;color:#5d5549}
+.third-page .third-card small,.third-page .third-muted{font-size:11px;color:#83745e}
+.third-page .third-kicker{font:9px Georgia,serif;letter-spacing:.17em;color:#94713e}
+.third-page .third-tag{display:inline-block;border:1px solid var(--shiki-line);padding:2px 8px;margin:3px 4px 3px 0;font-size:10px;color:#6b5a40}
+.third-page .third-button,.third-page button.third-button{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1px solid var(--shiki-gold);background:var(--shiki-green);color:#fff8e9;padding:10px 15px;font:inherit;font-size:12px;text-decoration:none;cursor:pointer}
+.third-page .third-button:hover{background:#365849}
+.third-page input,.third-page select{max-width:100%;border:1px solid #bca77f;background:#fffdf8;padding:12px;color:var(--shiki-ink);font:inherit;font-size:14px}
+.third-page input:focus-visible,.third-page select:focus-visible,.third-page button:focus-visible,.third-page a:focus-visible{outline:3px solid #a47c3f;outline-offset:3px}
+.third-page .third-searchbar{display:grid;grid-template-columns:minmax(0,1fr) 180px auto;gap:10px}
+.third-page .third-result-list{display:grid;gap:10px;margin-top:18px}
+.third-page .third-result{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;border-bottom:1px solid var(--shiki-line);padding:12px 2px}
+.third-page .third-result h3{margin:0;font-size:15px;color:var(--shiki-red)}
+.third-page .third-result p{margin:3px 0;font-size:12px;color:#62594b}
+.third-page .third-result a{font-size:12px;white-space:nowrap}
+.third-page .third-astrarium{position:relative;overflow:hidden;background:radial-gradient(circle at center,#fffaf0 0,#f1e4ce 58%,#e8d9bf 100%);border:3px double var(--shiki-gold);padding:25px}
+.third-page .astrarium-layout{display:grid;grid-template-columns:minmax(260px,1fr) minmax(260px,.9fr);gap:25px;align-items:center}
+.third-page .astrarium-wheel{width:min(100%,420px);aspect-ratio:1;margin:auto;position:relative;border:1px solid rgba(139,105,56,.5);border-radius:50%;background:repeating-radial-gradient(circle,transparent 0 37px,rgba(157,123,72,.16) 38px 39px),conic-gradient(from -45deg,rgba(194,133,143,.22) 0 25%,rgba(207,177,103,.24) 25% 50%,rgba(169,108,72,.22) 50% 75%,rgba(127,151,164,.24) 75% 100%)}
+.third-page .astrarium-wheel:before,.third-page .astrarium-wheel:after{content:"";position:absolute;inset:10%;border:1px solid rgba(139,105,56,.36);border-radius:50%}
+.third-page .astrarium-wheel:after{inset:25%;border-style:dashed}
+.third-page .astrarium-center{position:absolute;inset:39%;display:grid;place-content:center;text-align:center;border:3px double var(--shiki-gold);border-radius:50%;background:#fff8e9;color:var(--shiki-red);font-size:22px}
+.third-page .astrarium-center small{font:9px Georgia,serif;letter-spacing:.15em;color:#927246}
+.third-page .astrarium-node{position:absolute;width:38%;min-height:68px;border:1px solid var(--shiki-gold);background:rgba(255,251,242,.94);color:var(--shiki-ink);cursor:pointer;padding:7px;text-align:center;font-family:inherit;box-shadow:0 3px 12px rgba(66,48,24,.1)}
+.third-page .astrarium-node b{display:block;font-size:22px;color:var(--shiki-red);line-height:1.2}
+.third-page .astrarium-node small{font:9px Georgia,serif;letter-spacing:.1em}
+.third-page .astrarium-node[aria-pressed=true]{outline:3px solid var(--shiki-red);outline-offset:2px;background:#fff}
+.third-page .astrarium-node.spring{top:2%;left:31%}.third-page .astrarium-node.summer{right:1%;top:36%}.third-page .astrarium-node.autumn{bottom:2%;left:31%}.third-page .astrarium-node.winter{left:1%;top:36%}
+.third-page .astrarium-detail{min-height:270px;border-left:3px double var(--shiki-gold);padding:10px 0 10px 23px}
+.third-page .astrarium-detail h3{font-size:25px;color:var(--shiki-red);margin:4px 0}
+.third-page .astrarium-detail dl{display:grid;grid-template-columns:100px 1fr;gap:7px 12px;font-size:12px}
+.third-page .astrarium-detail dt{color:#8a7147}.third-page .astrarium-detail dd{margin:0}
+.third-page .third-status{display:inline-block;background:#e6eddf;color:#2c5a3c;padding:3px 9px;font-size:11px;border:1px solid #b7c7ac}
+.third-page .third-footer{padding:24px 20px;background:var(--shiki-green);color:#f4ead8;text-align:center;font-size:11px}
+.third-page .third-footer a{color:#e9d5a5}
+.third-page .facility-layout{display:grid;grid-template-columns:230px 1fr;gap:18px}
+.third-page .facility-zones{display:grid;gap:8px;align-content:start}
+.third-page .facility-zones button{padding:12px;border:1px solid var(--shiki-line);background:#f7eddd;color:#4b4031;text-align:left;font:inherit;cursor:pointer}
+.third-page .facility-zones button[aria-pressed=true]{background:var(--shiki-green);color:#fff5e3}
+.third-page .facility-map{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-content:start}
+.third-page .facility-room{min-height:95px;text-align:left;background:#fffaf0;border:1px solid var(--shiki-line);padding:13px;cursor:pointer;color:var(--shiki-ink);font:inherit}
+.third-page .facility-room strong{display:block;color:var(--shiki-red);font-size:15px}
+.third-page .facility-room[aria-pressed=true]{outline:2px solid var(--shiki-gold);background:#f3e7d2}
+.third-page .facility-detail{margin-top:15px}
+.third-page .third-calendar{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.third-page .third-calendar article{padding:16px;border-top:3px double var(--shiki-gold);background:#fffaf0}
+.third-page .third-calendar b{font-size:22px;color:var(--shiki-red)}
+.third-page .third-locked{border:1px solid #9a7c56;background:repeating-linear-gradient(135deg,#eee2cf 0 8px,#e7d8c1 8px 16px);padding:18px}
+.third-page .third-lock-seal{display:inline-block;border:3px double var(--shiki-red);color:var(--shiki-red);padding:8px 14px;letter-spacing:.18em;transform:rotate(-2deg)}
+.third-page .third-progress{height:8px;background:#e6dac6;margin:10px 0;overflow:hidden}.third-page .third-progress span{display:block;height:100%;background:var(--shiki-gold);width:0}
+.third-page .third-notice{border-left:3px solid var(--shiki-red);background:#f2e7d5;padding:13px 16px;font-size:12px}
+@media(max-width:760px){.third-page .third-header-inner{align-items:flex-start}.third-page .third-clock{display:none}.third-page .third-title-block{grid-template-columns:1fr}.third-page .third-docmark{display:none}.third-page .third-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.third-page .astrarium-layout{grid-template-columns:1fr}.third-page .astrarium-detail{border-left:0;border-top:3px double var(--shiki-gold);padding:18px 0 0}.third-page .facility-layout{grid-template-columns:1fr}.third-page .facility-zones{grid-template-columns:repeat(2,1fr)}.third-page .third-calendar{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.third-page .third-main{padding:25px 14px 55px}.third-page .third-grid{grid-template-columns:1fr}.third-page .third-searchbar{grid-template-columns:1fr}.third-page .facility-map{grid-template-columns:1fr}.third-page .astrarium-wheel{width:min(100%,340px)}.third-page .astrarium-node{min-height:58px;width:40%;padding:5px}.third-page .astrarium-node b{font-size:19px}.third-page .third-nav-inner{gap:7px 14px}.third-page .third-calendar{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.third-page *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
