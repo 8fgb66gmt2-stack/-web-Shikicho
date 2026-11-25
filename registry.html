@@ -21,6 +21,10 @@
 <article class="third-card"><span class="third-kicker">IMPERIAL LAW</span><h3>法令・行政規程</h3><span class="third-tag">一般公開</span><p>日ノ本帝國憲法および四季廳関係法令。</p><a href="constitution.html">法令を閲覧 →</a></article>
 </div></div></section>
 <section class="third-section"><div class="third-section-head"><span>04</span><h2>保存資料・閲覧履歴</h2></div><div class="third-panel"><h3>この端末に保存された資料</h3><p class="third-muted">検索結果の「保存」操作でお気に入りに登録したリンクは、このブラウザ内に保存されます。別端末・別ブラウザとは同期されません。</p><div id="third-favourites" class="third-result-list"></div><button type="button" class="third-button" id="third-clear-favourites">保存資料を消去</button></div></section>
+<section class="third-section"><div class="third-section-head"><span>05</span><h2>閲覧者証・閲覧履歴</h2></div><div class="third-grid">
+<article class="third-card" data-reader-card><span class="third-kicker">VISITOR PASS</span><h3>仮想閲覧者証</h3><p>この端末の閲覧者証を発行しています。</p></article>
+<article class="third-card"><span class="third-kicker">PERSONAL ARCHIVE</span><h3>閲覧履歴</h3><div data-third-history><p class="third-muted">履歴を読み込んでいます。</p></div></article>
+</div><p><button class="third-button" type="button" data-third-print>臺帳を印刷する</button></p></section>
 <div class="third-notice">この臺帳は、既存の公開ページおよび公開目録に記載された情報を再索引化したものです。未公表の職員情報、神域固有名、観測数値、未確認の法令番号は追加していません。</div>
 <script>
 (()=>{const root=document.getElementById('third-favourites');if(!root)return;const read=()=>{try{return JSON.parse(localStorage.getItem('shikiThirdFavourites')||'[]')}catch{return []}};const render=()=>{root.replaceChildren();const items=read();if(!items.length){root.textContent='保存された資料はありません。';return;}items.forEach(url=>{const row=document.createElement('p');const a=document.createElement('a');a.href=url;a.textContent=url;row.append(a);root.append(row);});};document.getElementById('third-clear-favourites')?.addEventListener('click',()=>{localStorage.removeItem('shikiThirdFavourites');render();});render();})();
