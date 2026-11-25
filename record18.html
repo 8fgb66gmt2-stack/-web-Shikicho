@@ -9,6 +9,7 @@
 body{margin:0;background:#0b0b0d;color:#ddd5c7;font-family:serif}.record{max-width:920px;margin:auto;padding:58px 24px 100px}.head{border-bottom:1px solid rgba(185,165,110,.4);padding-bottom:24px}.kicker{font:11px/1.5 Arial,sans-serif;letter-spacing:.22em;color:#b9a56e}h1{font-size:clamp(30px,5vw,56px);font-weight:400;letter-spacing:.12em;margin:16px 0 5px}.meta{color:#817a70;font-size:11px;letter-spacing:.12em}.paper{margin-top:38px;background:#e7e0d3;color:#252329;padding:clamp(28px,6vw,64px);box-shadow:0 12px 40px rgba(0,0,0,.35)}.paper h2{font-size:23px;font-weight:500;letter-spacing:.12em;margin:0 0 25px}.paper p{line-height:2.15;margin:12px 0}.stamp{border-left:2px solid #8b2029;padding:12px 18px;margin:28px 0;color:#514a43}.blank{padding:20px;border:1px dashed #9b9387;margin:25px 0}.choices{display:grid;gap:10px;margin-top:22px}.choices button{padding:13px 16px;border:1px solid #8b2029;background:#f0eadf;color:#4b2527;text-align:left;font:14px serif;cursor:pointer}.choices button:hover{background:#e6d9cf}.result{margin-top:18px;line-height:1.9;min-height:28px}.next{display:none;margin-top:18px;padding:11px 16px;border:1px solid #8b2029;background:#8b2029;color:#fff;text-decoration:none;font-size:13px}.back{display:inline-block;margin-top:35px;color:#b9a56e;text-decoration:none}
 </style>
 <link rel="stylesheet" href="shiki-design-system.css?v=20261125-1">
+<link rel="stylesheet" href="shiki-imperial-architecture.css?v=20261125-1">
 </head>
 <body>
 <a class="skip-link" href="#main-content">本文へ移動</a><main class="record" id="main-content">
@@ -37,4 +38,5 @@ document.querySelectorAll('#choices button').forEach(b=>b.addEventListener('clic
  if(b.dataset.answer==='correct'){result.innerHTML='照合一致。<br><br>……そう。探すべきだったのは「春を守った人」ではなく、「春そのものとして記録された人」だ。<br>花葉雛菊。彼女の記録が、この欠落期間の中心にある。<br><br>別冊資料への参照権限を付与します。';next.style.display='inline-block';try{localStorage.setItem('shikiRecord18Solved','1')}catch(e){}}
  else{result.textContent='照合不一致。第十八號に記された「現人神」の欄をもう一度確認してください。'}
 }));
-</script></body></html>
+</script><script src="shiki-imperial-architecture.js?v=20261125-1"></script>
+</body></html>

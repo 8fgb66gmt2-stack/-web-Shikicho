@@ -1,0 +1,216 @@
+/* IMPERIAL SHIKICHO / THE GRAND REIRO ROMANTIQUE
+   Shared architectural layer. Additive only: legacy page structures and story logic remain intact.
+*/
+:root{
+  --ia-paper:#f5efe3;
+  --ia-ivory:#fffaf1;
+  --ia-parchment:#e9ddc8;
+  --ia-ink:#302920;
+  --ia-muted:#716456;
+  --ia-jade:#24483d;
+  --ia-jade-deep:#18342d;
+  --ia-wine:#7b2935;
+  --ia-wine-deep:#561d28;
+  --ia-gold:#ad8950;
+  --ia-gold-light:#ddc58f;
+  --ia-rule:rgba(153,119,65,.34);
+  --ia-shadow:0 18px 48px rgba(48,35,22,.12);
+}
+html{scroll-padding-top:6rem;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{font-kerning:normal;text-rendering:optimizeLegibility}
+:where(main){min-width:0}
+:where(main h1,main h2,main h3){text-wrap:balance}
+:where(a){text-underline-offset:.22em;text-decoration-thickness:from-font}
+:where(button,input,select,textarea){font:inherit}
+:where(img,svg,video,canvas){max-width:100%}
+:where(table){border-collapse:collapse;max-width:100%}
+:where(th,td){overflow-wrap:anywhere}
+:where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--ia-gold)!important;outline-offset:3px!important}
+:where(button,input[type=button],input[type=submit]){-webkit-tap-highlight-color:transparent}
+::selection{background:var(--ia-wine);color:var(--ia-ivory)}
+/* The shared page grammar: a quiet paper field, a precise rule, and restrained gilt. */
+.third-page .third-header,.q-head,.cc-header,.portal-renaissance .pr-header{
+  border-bottom:3px double var(--ia-gold);
+}
+.third-page .third-topline,.q-top,.cc-topline{
+  background:linear-gradient(90deg,var(--ia-jade-deep),var(--ia-jade) 48%,var(--ia-jade-deep));
+  color:#fff8e9;
+}
+.third-page .third-footer,.q-footer,.cc-footer{
+  background:var(--ia-jade-deep);
+  border-top:3px double var(--ia-gold);
+  color:#f6eddd;
+}
+.third-page .third-footer a,.q-footer a,.cc-footer a{color:var(--ia-gold-light)}
+/* Homepage: remove the accidental near-black strips and restore the ivory / jade / wine hierarchy. */
+body[data-shiki-page="index"] .law-banner{
+  background:linear-gradient(105deg,#24483d,#1b382f)!important;
+  border-bottom:1px solid rgba(221,197,143,.65)!important;
+  box-shadow:0 8px 24px rgba(28,48,39,.12)!important;
+}
+body[data-shiki-page="index"] .law-banner-label .mark{
+  border-color:var(--ia-gold-light)!important;color:var(--ia-gold-light)!important;
+}
+body[data-shiki-page="index"] .law-banner-label span,
+body[data-shiki-page="index"] .law-banner-label strong{color:#fff8e9!important}
+body[data-shiki-page="index"] .law-banner a{
+  color:#fff8e9!important;border-color:rgba(221,197,143,.72)!important;
+}
+body[data-shiki-page="index"] .law-banner a:hover{background:rgba(255,250,241,.1)!important}
+body[data-shiki-page="index"] .arg-teaser{
+  color:var(--ia-ink)!important;
+  background:
+    radial-gradient(ellipse at 80% 50%,rgba(173,137,80,.12),transparent 48%),
+    linear-gradient(110deg,#fffaf1,#eee3d1)!important;
+  border-top:1px solid var(--ia-rule)!important;
+  border-bottom:1px solid var(--ia-rule)!important;
+}
+body[data-shiki-page="index"] .arg-teaser .content-width{max-width:1240px}
+body[data-shiki-page="index"] .arg-teaser-mark{
+  border:1px solid var(--ia-gold)!important;
+  color:var(--ia-wine)!important;
+  background:rgba(255,250,241,.72);
+}
+body[data-shiki-page="index"] .arg-eyebrow{color:#8b6c39!important}
+body[data-shiki-page="index"] .arg-teaser h2{color:var(--ia-wine-deep)!important}
+body[data-shiki-page="index"] .arg-teaser p{color:var(--ia-muted)!important}
+body[data-shiki-page="index"] .arg-teaser a{
+  color:var(--ia-wine-deep)!important;
+  border-color:rgba(123,41,53,.4)!important;
+  background:rgba(255,250,241,.42);
+}
+body[data-shiki-page="index"] .arg-teaser a:hover{background:#fffaf1!important;border-color:var(--ia-gold)!important}
+/* Eight-way administrative compass. Its eight live links are also keyboard reachable. */
+.imperial-knowledge-arc{
+  position:relative;isolation:isolate;overflow:hidden;
+  padding:clamp(46px,6vw,82px) 24px;
+  color:var(--ia-ink);
+  background:
+    radial-gradient(ellipse at 50% 42%,rgba(255,255,255,.92),transparent 52%),
+    repeating-linear-gradient(0deg,rgba(103,78,44,.025) 0 1px,transparent 1px 7px),
+    linear-gradient(135deg,#f8f2e7,#e9ddc9);
+  border-block:4px double var(--ia-gold);
+}
+.imperial-knowledge-arc:before,.imperial-knowledge-arc:after{
+  content:"";position:absolute;pointer-events:none;z-index:-1;border:1px solid rgba(173,137,80,.24);border-radius:50%;
+}
+.imperial-knowledge-arc:before{width:min(82vw,980px);aspect-ratio:1;left:50%;top:50%;transform:translate(-50%,-42%)}
+.imperial-knowledge-arc:after{width:min(66vw,780px);aspect-ratio:1;left:50%;top:50%;transform:translate(-50%,-42%)}
+.ia-heading{max-width:850px;margin:0 auto 34px;text-align:center}
+.ia-kicker{display:block;color:#8b6c39;font:10px/1.5 Georgia,serif;letter-spacing:.24em}
+.ia-heading h2{margin:9px 0 10px;color:var(--ia-wine-deep);font:500 clamp(25px,3vw,38px)/1.5 "Yu Mincho","Hiragino Mincho ProN",serif;letter-spacing:.14em}
+.ia-heading p{max-width:690px;margin:0 auto;color:var(--ia-muted);font-size:13px;line-height:2}
+.ia-orbit{
+  position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  grid-template-rows:repeat(3,minmax(132px,auto));gap:12px;
+  width:min(100%,1030px);margin:0 auto;isolation:isolate;
+}
+.ia-orbit:before{
+  content:"";position:absolute;z-index:-1;inset:9% 13%;border:1px solid rgba(173,137,80,.4);
+  border-radius:50%;background:radial-gradient(circle,rgba(255,250,241,.2) 0 46%,transparent 47%);
+}
+.ia-node{
+  position:relative;display:flex;flex-direction:column;justify-content:center;gap:6px;
+  min-width:0;padding:20px 21px;text-decoration:none!important;
+  border:1px solid rgba(173,137,80,.55);
+  background:linear-gradient(145deg,rgba(255,250,241,.96),rgba(242,233,216,.94));
+  box-shadow:0 8px 24px rgba(57,42,24,.055);
+  color:var(--ia-ink)!important;
+  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease,background .22s ease;
+}
+.ia-node:before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:3px;background:var(--ia-gold)}
+.ia-node small{font:10px Georgia,serif;letter-spacing:.18em;color:#967442}
+.ia-node strong{font:500 clamp(14px,1.5vw,18px)/1.5 "Yu Mincho","Hiragino Mincho ProN",serif;letter-spacing:.08em;color:var(--ia-wine-deep)}
+.ia-node span{font-size:11px;line-height:1.7;color:var(--ia-muted)}
+.ia-node:hover{transform:translateY(-3px);border-color:var(--ia-wine);box-shadow:var(--ia-shadow);background:#fffdf8}
+.ia-node:focus-visible{outline:3px solid var(--ia-wine)!important;outline-offset:3px!important}
+.ia-node:nth-child(1){grid-area:1/2}
+.ia-node:nth-child(2){grid-area:1/3}
+.ia-node:nth-child(3){grid-area:2/3}
+.ia-node:nth-child(4){grid-area:3/3}
+.ia-node:nth-child(5){grid-area:3/2}
+.ia-node:nth-child(6){grid-area:3/1}
+.ia-node:nth-child(7){grid-area:2/1}
+.ia-node:nth-child(8){grid-area:1/1}
+.ia-core{
+  grid-area:2/2;align-self:center;justify-self:center;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:8px;width:min(100%,190px);aspect-ratio:1;
+  padding:18px;border:1px solid var(--ia-gold-light);border-radius:50%;
+  outline:5px solid rgba(173,137,80,.14);outline-offset:5px;
+  color:#fff8e9;text-align:center;
+  background:radial-gradient(circle at 40% 28%,#42695b 0,#24483d 55%,#18342d 100%);
+  box-shadow:inset 0 0 0 5px rgba(221,197,143,.16),0 15px 36px rgba(30,55,44,.18);
+}
+.ia-core img{width:62px;height:62px;object-fit:contain;filter:drop-shadow(0 2px 5px rgba(0,0,0,.2))}
+.ia-core strong{font:500 14px/1.5 "Yu Mincho","Hiragino Mincho ProN",serif;letter-spacing:.18em}
+.ia-core small{font:9px Georgia,serif;letter-spacing:.16em;color:var(--ia-gold-light)}
+.ia-search-link{display:block;width:max-content;max-width:100%;margin:28px auto 0;padding:11px 22px;border:1px solid var(--ia-wine);color:var(--ia-wine-deep)!important;background:rgba(255,250,241,.72);text-decoration:none!important;font-size:12px;letter-spacing:.1em}
+.ia-search-link:hover{background:var(--ia-wine);color:#fffaf1!important}
+@media(max-width:760px){
+ .ia-orbit{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto;gap:9px}
+ .ia-orbit:before{display:none}
+ .ia-node:nth-child(n){grid-area:auto;min-height:116px;padding:15px 14px}
+ .ia-core{grid-area:1/1/2/3;order:-1;width:145px;margin:0 auto 10px}
+ .ia-core img{width:48px;height:48px}
+ .ia-heading{margin-bottom:25px}
+}
+@media(max-width:430px){
+ .imperial-knowledge-arc{padding-inline:14px}
+ .ia-orbit{grid-template-columns:1fr}
+ .ia-core{grid-area:auto;order:-1;width:132px}
+ .ia-node:nth-child(n){min-height:unset;padding:14px 17px}
+}
+.skip-link{
+ position:absolute;z-index:10040;top:.7rem;left:.7rem;transform:translateY(-180%);
+ padding:.7rem 1rem;border:1px solid var(--ia-gold);background:var(--ia-ivory);
+ color:var(--ia-wine-deep);box-shadow:0 4px 18px rgba(40,30,18,.18);text-decoration:none;
+}
+.skip-link:focus{transform:translateY(0)}
+/* Keyboard command palette, reading ruler and return-to-top controls. */
+.shiki-reading-progress{position:fixed;z-index:10020;left:0;top:0;width:100%;height:3px;background:transparent;pointer-events:none}
+.shiki-reading-progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--ia-gold),var(--ia-wine),var(--ia-jade));box-shadow:0 0 8px rgba(173,137,80,.35)}
+.shiki-command-trigger,.shiki-back-top{
+  position:fixed;z-index:10010;right:22px;display:grid;place-items:center;
+  border:1px solid var(--ia-gold);color:#fffaf1;background:var(--ia-jade);
+  box-shadow:0 8px 24px rgba(35,52,42,.2);cursor:pointer;
+  transition:transform .2s ease,background .2s ease,opacity .2s ease;
+}
+.shiki-command-trigger{bottom:22px;grid-auto-flow:column;gap:9px;padding:12px 16px;font-size:12px;letter-spacing:.08em}
+.shiki-back-top{right:28px;bottom:82px;width:42px;height:42px;border-radius:50%;font-size:19px;opacity:0;pointer-events:none}
+.shiki-back-top.is-visible{opacity:1;pointer-events:auto}
+.shiki-command-trigger:hover,.shiki-back-top:hover{background:var(--ia-wine);transform:translateY(-2px)}
+.shiki-command-trigger kbd{padding:2px 5px;border:1px solid rgba(255,250,241,.38);font:10px Georgia,serif;color:#f0dfb9}
+.shiki-command-layer[hidden]{display:none!important}
+.shiki-command-layer{position:fixed;z-index:10030;inset:0;display:grid;place-items:start center;padding:12vh 18px 24px;background:rgba(22,35,29,.58);backdrop-filter:blur(5px)}
+.shiki-command-dialog{width:min(100%,650px);max-height:min(72vh,700px);overflow:hidden;border:1px solid var(--ia-gold);background:var(--ia-ivory);box-shadow:0 28px 90px rgba(0,0,0,.28)}
+.shiki-command-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;border-bottom:1px solid var(--ia-rule);background:linear-gradient(100deg,#f8f1e4,#fffaf1)}
+.shiki-command-head strong{color:var(--ia-wine-deep);font:500 15px "Yu Mincho","Hiragino Mincho ProN",serif;letter-spacing:.12em}
+.shiki-command-close{border:1px solid var(--ia-rule);background:transparent;color:var(--ia-muted);padding:5px 10px;cursor:pointer}
+.shiki-command-search{padding:16px 20px 12px}
+.shiki-command-search input{display:block;width:100%;padding:14px 15px;border:1px solid rgba(173,137,80,.65);background:#fffdf8;color:var(--ia-ink);font:15px "Yu Mincho","Hiragino Mincho ProN",serif;outline-offset:2px}
+.shiki-command-hint{margin:8px 2px 0;color:var(--ia-muted);font-size:10px}
+.shiki-command-results{max-height:42vh;overflow:auto;padding:0 12px 14px}
+.shiki-command-results a{display:grid;grid-template-columns:76px minmax(0,1fr);gap:12px;align-items:center;padding:12px 10px;border-top:1px solid rgba(173,137,80,.18);color:var(--ia-ink);text-decoration:none}
+.shiki-command-results a:hover,.shiki-command-results a[aria-selected=true]{background:#f0e7d7}
+.shiki-command-results small{color:#8d6d3d;font:10px Georgia,serif;letter-spacing:.1em}
+.shiki-command-results strong{display:block;color:var(--ia-wine-deep);font:500 13px "Yu Mincho","Hiragino Mincho ProN",serif}
+.shiki-command-results span{display:block;margin-top:3px;color:var(--ia-muted);font-size:10px;line-height:1.6}
+.shiki-command-empty{padding:22px;text-align:center;color:var(--ia-muted);font-size:12px}
+@media(max-width:600px){
+ .shiki-command-trigger{right:12px;bottom:12px;padding:11px 13px}
+ .shiki-command-trigger kbd{display:none}
+ .shiki-back-top{right:17px;bottom:70px}
+ .shiki-command-layer{padding:7vh 10px 16px}
+ .shiki-command-head,.shiki-command-search{padding-inline:13px}
+ .shiki-command-results a{grid-template-columns:58px minmax(0,1fr)}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto!important}
+ .ia-node,.shiki-command-trigger,.shiki-back-top{transition:none!important}
+ .ia-node:hover,.shiki-command-trigger:hover,.shiki-back-top:hover{transform:none}
+}
+@media print{
+ .shiki-reading-progress,.shiki-command-trigger,.shiki-back-top,.shiki-command-layer{display:none!important}
+ .imperial-knowledge-arc{break-inside:avoid;background:#fff!important}
+ .ia-node{box-shadow:none!important;background:#fff!important}
+}

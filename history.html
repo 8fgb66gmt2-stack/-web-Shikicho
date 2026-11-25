@@ -60,6 +60,7 @@ body{background-color:var(--paper);background-image:radial-gradient(ellipse at 1
 <link rel="stylesheet" href="shiki-design-system.css?v=20261125-1">
 
 <link rel="stylesheet" href="shiki-document-redesign.css?v=20261125-1">
+<link rel="stylesheet" href="shiki-imperial-architecture.css?v=20261125-1">
 </head>
 <body class="history-page">
 <a class="skip-link" href="#main-content">本文へ移動</a>
@@ -348,5 +349,6 @@ body{background-color:var(--paper);background-image:radial-gradient(ellipse at 1
 <script>
 (()=>{const input=document.getElementById('history-search');const clear=document.getElementById('history-search-clear');const chapters=[...document.querySelectorAll('.chapter')];const back=document.getElementById('backtop');function search(){const q=(input.value||'').trim().toLowerCase();let shown=0;chapters.forEach(ch=>{const text=(ch.innerText+' '+(ch.dataset.search||'')).toLowerCase();const match=!q||text.includes(q);ch.classList.toggle('hidden',!match);if(match)shown++;});document.querySelectorAll('.timeline-head').forEach(h=>{if(h.querySelector('h2')){const next=h.nextElementSibling;const visible=next&&[...next.querySelectorAll('.chapter')].some(c=>!c.classList.contains('hidden'));h.classList.toggle('hidden',!!q&&!visible);if(next&&next.classList.contains('timeline'))next.classList.toggle('hidden',!!q&&!visible);}});let msg=document.getElementById('no-results');if(!shown){if(!msg){msg=document.createElement('div');msg.id='no-results';msg.className='no-results';msg.textContent='該当する史料は見つかりませんでした。別の語句で検索してください。';document.getElementById('history-timeline').appendChild(msg)}else msg.classList.remove('hidden')}else if(msg)msg.classList.add('hidden');}input.addEventListener('input',search);clear.addEventListener('click',()=>{input.value='';search();input.focus()});window.addEventListener('scroll',()=>back.classList.toggle('visible',window.scrollY>420),{passive:true});back.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));})();
 </script>
+<script src="shiki-imperial-architecture.js?v=20261125-1"></script>
 </body>
 </html>

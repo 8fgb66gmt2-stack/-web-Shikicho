@@ -35,6 +35,7 @@ h1{font-size:clamp(30px,5vw,56px);font-weight:400;letter-spacing:.12em;margin:16
 </style>
 
 <link rel="stylesheet" href="shiki-design-system.css?v=20261125-1">
+<link rel="stylesheet" href="shiki-imperial-architecture.css?v=20261125-1">
 </head>
 <body>
 <a class="skip-link" href="#main-content">本文へ移動</a>
@@ -86,5 +87,6 @@ function check(){const v=input.value.trim().replace(/\s/g,'');if(v==='春'||v===
 btn.addEventListener('click',check);input.addEventListener('keydown',e=>{if(e.key==='Enter')check();});
 document.getElementById('back-to-archive').addEventListener('click',()=>{try{if(localStorage.getItem('shikiRecord15Solved')==='1')localStorage.setItem('shikiReturnStage','record15')}catch(e){}});
 </script>
+<script src="shiki-imperial-architecture.js?v=20261125-1"></script>
 </body>
 </html>
