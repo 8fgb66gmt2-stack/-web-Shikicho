@@ -1,0 +1,29 @@
+/* 附属資料室・公文書相互照合臺。既存のARG導線・資料表示には干渉しない追加レイヤー。 */
+.archive-crossref{max-width:1080px;margin:54px auto;padding:30px clamp(16px,3vw,34px);border:1px solid rgba(185,165,110,.48);background:linear-gradient(145deg,rgba(255,250,241,.98),rgba(237,227,208,.96));color:#302920;box-shadow:0 16px 42px rgba(22,18,14,.12)}
+.archive-crossref-head>span{font:10px Georgia,serif;letter-spacing:.2em;color:#967442}
+.archive-crossref-head h2{margin:9px 0;color:#56252d;font:500 clamp(22px,3vw,30px)/1.5 "Yu Mincho","Hiragino Mincho ProN",serif;letter-spacing:.1em}
+.archive-crossref-head p,.archive-crossref-note{color:#716456;font-size:12px;line-height:1.9}
+.archive-crossref-controls{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:14px;align-items:end;margin:24px 0 18px}
+.archive-crossref-controls label{display:grid;gap:8px;color:#765d38;font-size:11px;letter-spacing:.08em}
+.archive-crossref-controls select{width:100%;min-width:0;padding:12px;border:1px solid rgba(173,137,80,.65);background:#fffdf8;color:#302920;font:inherit;font-size:13px}
+.archive-crossref-mark{padding:0 4px 10px;color:#9a7a48;font:20px Georgia,serif}
+.archive-crossref-result{min-width:0}
+.archive-crossref-table{width:100%;border-collapse:collapse;table-layout:fixed;background:rgba(255,253,248,.75);font-size:12px}
+.archive-crossref-table th,.archive-crossref-table td{padding:12px 14px;border:1px solid rgba(173,137,80,.28);text-align:left;vertical-align:top;overflow-wrap:anywhere;line-height:1.8}
+.archive-crossref-table thead th{background:#24483d;color:#fff8e9;font-weight:500}
+.archive-crossref-table thead th:first-child{width:18%;background:#18342d}
+.archive-crossref-table tbody th{color:#765d38;background:#f0e7d7;font-weight:600}
+.archive-crossref-table a{color:#7b2935;text-underline-offset:3px}
+.archive-crossref-shared{margin-top:18px;padding:16px 18px;border-left:3px solid #ad8950;background:rgba(255,253,248,.72)}
+.archive-crossref-shared h3{margin:0 0 8px;color:#56252d;font:500 14px "Yu Mincho","Hiragino Mincho ProN",serif}
+.archive-crossref-shared p{margin:0;color:#51483d;font-size:12px;line-height:1.9}
+.archive-crossref-shared .is-empty{color:#716456}
+.archive-crossref-note{margin:16px 0 0;padding-top:12px;border-top:1px solid rgba(173,137,80,.25);font-size:10px}
+@media(max-width:640px){
+ .archive-crossref{margin:34px 12px;padding:22px 14px}
+ .archive-crossref-controls{grid-template-columns:1fr;gap:10px}
+ .archive-crossref-mark{display:none}
+ .archive-crossref-table th,.archive-crossref-table td{padding:9px 8px;font-size:11px}
+ .archive-crossref-table thead th:first-child{width:20%}
+}
+@media print{.archive-crossref{box-shadow:none;break-inside:avoid}.archive-crossref-controls select{border:0;padding:0}}
