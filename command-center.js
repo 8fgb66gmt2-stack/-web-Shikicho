@@ -4,7 +4,7 @@
 const R=window.ShikiRegistryData,D=window.ShikiFourthData;
 const $=(s,r=document)=>r.querySelector(s);
 const make=(tag,cls,txt)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(txt!==undefined)n.textContent=txt;return n;};
-const normalize=s=>String(s||'').normalize('NFKC').toLocaleLowerCase('ja').replace(/[\\s　]/g,'');
+const normalize=s=>String(s||'').normalize('NFKC').toLocaleLowerCase('ja').replace(/[\s　]/g,'');
 const safeRead=key=>{try{return JSON.parse(localStorage.getItem(key)||'[]')}catch{return []}};
 const safeWrite=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value))}catch{}};
 if(!R||!D){const t=$('[data-cc-results]');if(t)t.textContent='公開索引を読み込めませんでした。ページを再読み込みしてください。';return;}
