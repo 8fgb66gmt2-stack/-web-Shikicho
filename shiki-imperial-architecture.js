@@ -52,7 +52,7 @@ const init=()=>{
  const onScroll=()=>{if(!raf)raf=requestAnimationFrame(update)};
  window.addEventListener('scroll',onScroll,{passive:true});window.addEventListener('resize',onScroll);update();
  top.addEventListener('click',()=>window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}));
- const trigger=document.createElement('button');trigger.type='button';trigger.className='shiki-command-trigger';trigger.innerHTML='<span>情報を探す</span><kbd>Ctrl K</kbd>';trigger.setAttribute('aria-haspopup','dialog');body.append(trigger);
+ const trigger=document.createElement('button');trigger.type='button';trigger.className='shiki-command-trigger';trigger.innerHTML='<span>情報を探す</span><kbd>Ctrl K</kbd>';trigger.setAttribute('aria-haspopup','dialog');trigger.setAttribute('aria-keyshortcuts','Control+K Meta+K');body.append(trigger);
  const layer=document.createElement('div');layer.className='shiki-command-layer';layer.hidden=true;
  layer.innerHTML='<section class="shiki-command-dialog" role="dialog" aria-modal="true" aria-labelledby="shiki-command-title"><header class="shiki-command-head"><strong id="shiki-command-title">四季廳・統合探索端末</strong><button type="button" class="shiki-command-close">閉じる　Esc</button></header><div class="shiki-command-search"><input type="search" autocomplete="off" spellcheck="false" aria-label="人物・組織・公文書・施設・ページを検索" placeholder="名稱・分類・所管・資料番号を入力"><p class="shiki-command-hint">公開ページと公開索引を横断します。Ctrl + K でいつでも開けます。</p></div><div class="shiki-command-results" role="listbox" aria-label="検索結果"></div></section>';
  body.append(layer);
