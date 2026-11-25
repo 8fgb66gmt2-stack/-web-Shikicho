@@ -35,6 +35,7 @@ const dataItems=()=>{
 const init=()=>{
  const body=document.body;if(!body||body.dataset.iaReady==='true')return;
  body.dataset.iaReady='true';
+ if(document.querySelector('.secret-investigation-entry'))body.classList.add('has-secret-investigation-entry');
  const main=document.querySelector('main');
  if(main&&!document.querySelector('.skip-link')){
   if(!main.id){let id='shiki-main-content',n=2;while(document.getElementById(id))id='shiki-main-content-'+n++;main.id=id;}
