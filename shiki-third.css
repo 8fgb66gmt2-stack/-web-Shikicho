@@ -81,3 +81,16 @@
 @media(max-width:760px){.third-page .third-header-inner{align-items:flex-start}.third-page .third-clock{display:none}.third-page .third-title-block{grid-template-columns:1fr}.third-page .third-docmark{display:none}.third-page .third-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.third-page .astrarium-layout{grid-template-columns:1fr}.third-page .astrarium-detail{border-left:0;border-top:3px double var(--shiki-gold);padding:18px 0 0}.third-page .facility-layout{grid-template-columns:1fr}.third-page .facility-zones{grid-template-columns:repeat(2,1fr)}.third-page .third-calendar{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.third-page .third-main{padding:25px 14px 55px}.third-page .third-grid{grid-template-columns:1fr}.third-page .third-searchbar{grid-template-columns:1fr}.third-page .facility-map{grid-template-columns:1fr}.third-page .astrarium-wheel{width:min(100%,340px)}.third-page .astrarium-node{min-height:58px;width:40%;padding:5px}.third-page .astrarium-node b{font-size:19px}.third-page .third-nav-inner{gap:7px 14px}.third-page .third-calendar{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.third-page *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+/* 附属資料室・第三次拡張の公文書管理導線 */
+.archive-third-index{max-width:1080px;margin:38px auto 22px;padding:25px 22px;border:3px double #ad8950;background:linear-gradient(135deg,#fffaf0,#eee2ce);color:#302c25}
+.archive-third-head>span{font:10px Georgia,serif;letter-spacing:.18em;color:#94713e}
+.archive-third-head h2{margin:5px 0;color:#762b35;font:500 clamp(22px,3vw,30px) "Yu Mincho","Hiragino Mincho ProN",serif;letter-spacing:.1em}
+.archive-third-head p,.archive-third-note{font-size:12px;color:#625849}
+.archive-third-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:18px 0}
+.archive-third-links a{display:block;padding:15px;border:1px solid rgba(128,96,51,.32);background:#fffaf0;color:#762b35;text-decoration:none}
+.archive-third-links a b,.archive-third-links a small{display:block}
+.archive-third-links a b{font-size:14px}
+.archive-third-links a small{margin-top:5px;color:#756852;font-size:11px}
+.archive-third-links a:hover{background:#f3e7d2}
+@media(max-width:650px){.archive-third-links{grid-template-columns:1fr}}
