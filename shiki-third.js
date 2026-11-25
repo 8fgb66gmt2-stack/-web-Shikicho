@@ -1,6 +1,14 @@
 /* 四季廳 第三次大型拡張・操作層 */
 (() => {
   'use strict';
+/* Load the shared command palette and reading tools once per page. */
+if(!document.querySelector('script[data-shiki-architecture]')){
+  const architecture=document.createElement('script');
+  architecture.src='shiki-imperial-architecture.js?v=20261125-1';
+  architecture.dataset.shikiArchitecture='true';
+  document.head.appendChild(architecture);
+}
+
   const data = window.ShikiRegistryData;
   if (!data) return;
   const $ = (selector, root=document) => root.querySelector(selector);
