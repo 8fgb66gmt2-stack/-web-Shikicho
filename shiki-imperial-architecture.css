@@ -197,6 +197,9 @@ body[data-shiki-page="index"] .arg-teaser a:hover{background:#fffaf1!important;b
 .shiki-command-results span{display:block;margin-top:3px;color:var(--ia-muted);font-size:10px;line-height:1.6}
 .shiki-command-empty{padding:22px;text-align:center;color:var(--ia-muted);font-size:12px}
 @media(max-width:600px){
+ /* Homepage's fixed investigation link spans almost the full bottom edge on phones. */
+ body.has-secret-investigation-entry .shiki-command-trigger{right:12px;bottom:78px}
+ body.has-secret-investigation-entry .shiki-back-top{right:17px;bottom:136px}
  .shiki-command-trigger{right:12px;bottom:12px;padding:11px 13px}
  .shiki-command-trigger kbd{display:none}
  .shiki-back-top{right:17px;bottom:70px}
