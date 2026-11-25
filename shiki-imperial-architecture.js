@@ -25,7 +25,7 @@ const norm=s=>String(s||'').normalize('NFKC').toLocaleLowerCase('ja').replace(/[
 const dataItems=()=>{
  const R=window.ShikiRegistryData||{},items=[];
  const add=(arr,type,fn)=>{if(Array.isArray(arr))arr.forEach(x=>{const v=fn(x);if(v&&v.title&&v.url&&v.url!=='#')items.push(v)})};
- add(R.people,'人物',x=>({title:x.name,type:'人物',desc:[x.role,x.unit,x.tags].filter(Boolean).join('／'),url:x.url||x.related}));
+ add(R.people,'人物',x=>({title:x.name,type:'人物',desc:[x.role,x.unit,x.tags].filter(Boolean).join('／'),url:x.url}));
  add(R.offices,'組織',x=>({title:x.name,type:'組織',desc:[x.scope,x.lead].filter(Boolean).join('／'),url:x.url}));
  add(R.documents,'公文書',x=>({title:x.title,type:'公文書',desc:[x.id,x.class,x.department,x.people,x.event].filter(Boolean).join('／'),url:x.url}));
  add(R.seasons,'神籍',x=>({title:[x.name,x.deity].filter(Boolean).join('・'),type:'神籍',desc:[x.registry,x.power,x.bureau,x.guardian].filter(Boolean).join('／'),url:x.url||x.record}));
@@ -35,6 +35,11 @@ const dataItems=()=>{
 const init=()=>{
  const body=document.body;if(!body||body.dataset.iaReady==='true')return;
  body.dataset.iaReady='true';
+ const main=document.querySelector('main');
+ if(main&&!document.querySelector('.skip-link')){
+  if(!main.id){let id='shiki-main-content',n=2;while(document.getElementById(id))id='shiki-main-content-'+n++;main.id=id;}
+  const skip=document.createElement('a');skip.className='skip-link';skip.href='#'+main.id;skip.textContent='本文へ移動';body.prepend(skip);
+ }
  const progress=document.createElement('div');progress.className='shiki-reading-progress';progress.setAttribute('aria-hidden','true');progress.innerHTML='<span></span>';body.prepend(progress);
  const bar=progress.firstElementChild;
  const top=document.createElement('button');top.type='button';top.className='shiki-back-top';top.setAttribute('aria-label','ページ先頭へ戻る');top.textContent='↑';body.append(top);
