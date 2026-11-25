@@ -105,3 +105,6 @@
   .third-page .third-panel,.third-page .third-card{box-shadow:none;break-inside:avoid}
   .third-page a{color:#222;text-decoration:none}
 }
+
+.third-page .third-seal{overflow:hidden;padding:4px;background:radial-gradient(circle,#fffaf0 0,#ead9bd 100%)}
+.third-page .third-seal img{display:block;width:100%;height:100%;object-fit:contain}
