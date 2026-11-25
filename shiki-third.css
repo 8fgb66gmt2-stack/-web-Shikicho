@@ -94,3 +94,6 @@
 .archive-third-links a small{margin-top:5px;color:#756852;font-size:11px}
 .archive-third-links a:hover{background:#f3e7d2}
 @media(max-width:650px){.archive-third-links{grid-template-columns:1fr}}
+
+.third-page .skip-link{position:absolute;left:12px;top:-60px;z-index:1000;padding:9px 13px;background:#263e35;color:#fff8e9;border:2px solid #ad8950}
+.third-page .skip-link:focus{top:12px}
