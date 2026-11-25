@@ -97,3 +97,11 @@
 
 .third-page .skip-link{position:absolute;left:12px;top:-60px;z-index:1000;padding:9px 13px;background:#263e35;color:#fff8e9;border:2px solid #ad8950}
 .third-page .skip-link:focus{top:12px}
+
+@media print{
+  .third-page .third-topline,.third-page .third-nav,.third-page .third-footer,.third-page .third-button,.third-page button{display:none!important}
+  .third-page{background:#fff;color:#111}
+  .third-page .third-main{max-width:none;padding:0}
+  .third-page .third-panel,.third-page .third-card{box-shadow:none;break-inside:avoid}
+  .third-page a{color:#222;text-decoration:none}
+}
