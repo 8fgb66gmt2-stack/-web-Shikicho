@@ -4,54 +4,47 @@
 - 調査基準ブランチ: `main`
 - 調査日: 2026-11-25
 - 作業ブランチ: `improvement/ryoryo-portal-audit`
-- 状態: 第一次静的調査。全ページ・全機能の実機検証は未完了。
+- 状態: リポジトリ全体の静的棚卸しを実施。ブラウザ実機検証・全リンク到達性検証は未完了。
 
 ## 1. 調査方針
 
 既存の設定、本文、内部リンク、SVG紋章、探索要素、隠し機能を保護する。初期段階では既存ファイルの削除・置換を行わず、調査記録と追加型の改善から着手する。
 
-## 2. トップページの確認事項
+## 2. リポジトリ構成
 
-`index.html` は約244 KB。次の外部CSSを読み込んでいることを確認した。
+mainブランチのGit treeを再帰取得し、全ファイルを確認した。トップ階層と下位ディレクトリにHTML、CSS、JavaScript、SVGが混在している。
 
-- `style.css`
-- `imperial.css`
-- `ryoryo.css`
-- `ryoryo-v6.css`
-- `ryoryo-government-final.css`
-- `grand-redesign.css`（同一HTML内で複数回参照）
-- `ryoryo-romance-master.css`
-- `archive-fix.css`
-- `report-room.css`
-- `shiki-exploration.css`
-- `ryoryo-official-v2.css`
-- `ryoryo-government-v3.css`
-- `shiki-imperial-v4.css`
-- `ryoryo-roman-master.css`
-- `readable-portal.css`
-- `shiki-administration.css`
-- `shiki-ryoryo-luxury.css`
+### HTMLページ（確認できた全29ファイル）
 
-JavaScriptから追加読み込みされるCSSもあるため、HTML上の参照だけで実際のカスケード順を判断してはならない。重複参照の整理は、依存関係と表示差分を検証した後に行う。
+- 本廳・主要案内: `index.html`, `chief-office.html`, `miyauchi.html`, `history.html`
+- 官報・法令: `gazette.html`, `constitution.html`
+- 記録・探索: `archive.html`, `record15.html`, `record17.html`, `record18.html`, `record19.html`, `season-crosscheck.html`, `manuscript-hg04.html`, `work-record.html`
+- 警備・治安: `security.html`, `national-security.html`, `national-security/index.html`, `national-security/personnel/index.html`
+- 文藝廳: `bungeicho/index.html`, `bungeicho/about.html`, `bungeicho/archive.html`, `bungeicho/awards.html`, `bungeicho/links.html`, `bungeicho/notices.html`, `bungeicho/sitemap.html`, `bungeicho/staff.html`, `bungeicho/support.html`
 
-トップページで確認した主なスクリプト:
+### その他の主要アセット
 
-- `shiki-exploration.js`
-- `shiki-administration.js`
-- `ryoryo-gimmicks.js`
-- `ryoryo-hidden-games.js`
+- ルートCSS: `style.css`, `imperial.css`, `government.css`, `grand-redesign.css`, `readable-portal.css`, `report-room.css`, `ryoryo-final.css`, `ryoryo-government-final.css`, `ryoryo-government-v3.css`, `ryoryo-official-v2.css`, `ryoryo-roman-master.css`, `ryoryo-romance-master.css`, `ryoryo-v6.css`, `ryoryo.css`, `shiki-administration.css`, `shiki-exploration.css`, `shiki-imperial-v4.css`, `shiki-ryoryo-luxury.css`, `shikichan-identity.css`, `shikichan.css`, `taisho-roman.css`, `archive-fix.css`
+- ルートJavaScript: `script.js`, `ryoryo-gimmicks.js`, `ryoryo-hidden-games.js`, `shiki-administration.js`, `shiki-exploration.js`
+- SVG: `shiki-emblem.svg`, `shikichan.svg`
+- 文藝廳固有アセット: `bungeicho/style.css`, `bungeicho/site.js`
 
-## 3. 確認できた主要ページ
+## 3. ページ別の読み込み構成・所見
 
-| ページ | ファイル | 初期確認 |
+| ページ群 | 読み込み・構成 | 所見 |
 |---|---|---|
-| 本廳舎 | `index.html` | 官報導線、組織案内、現人神、検索、通報窓口、探索・隠し要素 |
-| 官報・公告 | `gazette.html` | 個別告示へのアンカーを確認 |
-| 法令 | `constitution.html` | 複数章構成、探索スクリプト参照 |
-| 附属資料室 | `archive.html` | 複数記録ページ、探索・進行管理 |
-| 護衛警備局 | `security.html` | 独自の官廳文書風スタイル |
+| `index.html` | 17系統以上のCSS参照、複数JS | CSSの重複参照と動的追加読み込みがある。カスケード順の調査を優先 |
+| `gazette.html` | 7系統のCSS | トップページと近い多層構成。共通化の候補 |
+| `constitution.html`, `miyauchi.html` | style / imperial / ryoryo / exploration系 | 探索スクリプトを共有 |
+| `archive.html`, `season-crosscheck.html` | style / imperial / exploration系（後者はryoryoも） | ページ横断の探索導線を保持 |
+| `chief-office.html` | style / imperial / ryoryo / report-room | 通報窓口との導線を持つ |
+| `security.html` | ryoryo-official-v2中心 | 他ページと異なるスタイル構成 |
+| `history.html` | Google Fontsを直接読み込み | 共通CSSの読込構成が他ページと異なる |
+| `record*.html`, `manuscript-hg04.html`, `work-record.html` | style / imperial系 | 記録文書のテンプレート化候補 |
+| `bungeicho/*.html` | 文藝廳専用style.css / site.js | 独立した小サイトとして設計されている |
+| `national-security/**` | 外部CSS・JS参照なし | ページ内スタイル中心。別系統の政府サイト意匠 |
 
-上記は初期確認できたページであり、サイト全体の完全なページ一覧ではない。
+注: `index.html` は約269 KB（Git treeのサイズは268,990 bytes）。以前の概算より正確なGit tree値を採用した。トップページにはSVGのdata URIも埋め込まれている。HTML内のCSS/JS参照と、JavaScriptが後から追加するCSSを区別して調査する必要がある。
 
 ## 4. 保護すべき既存機能・仕掛け
 
@@ -63,6 +56,7 @@ JavaScriptから追加読み込みされるCSSもあるため、HTML上の参照
 - 四時索引・公文書コマンド等の演出
 - 紋章・標語の操作を契機とする隠しゲーム
 - 官報の個別記録アンカー、関連機關への外部リンク
+- 文藝廳の独立ナビゲーションとページ間リンク
 
 これらの解放条件、保存キー、DOMフック、リンク先は、改修時に変更前後を比較する。
 
@@ -70,11 +64,15 @@ JavaScriptから追加読み込みされるCSSもあるため、HTML上の参照
 
 ### 優先度 高: CSSの読み込み・上書き関係
 
-トップページで多数のCSS参照と重複参照が見つかった。スクリプトによる動的読み込みもある。まず各ページの参照一覧、セレクタの重複、最終的な適用順を記録する。現段階で一括削除・統合は行わない。
+トップページで多数のCSS参照と重複参照が見つかった。スクリプトによる動的読み込みもある。各ページの参照一覧、セレクタの重複、最終的な適用順を記録する。現段階で一括削除・統合は行わない。
 
-### 優先度 高: ページ間の共通意匠
+### 優先度 高: サイト内の複数デザイン体系
 
-ページごとに読み込むCSS構成が異なる。共通ヘッダー、本文幅、見出し、文書メタデータ、リンク状態などを比較し、共通化可能な部分とページ固有の意匠を分離する。
+本廳・官報・記録文書・文藝廳・治安機構の各ページ群は、異なるCSS構成と情報設計を持つ。全ページを単一テンプレートへ押し込むのではなく、共通する基礎規則と機關ごとの個性を分ける。
+
+### 優先度 高: 内部リンクの整合性
+
+ページ群が複数階層に分かれ、相対パスとアンカーリンクが混在する。特に階層下のページ、記録ページからの戻りリンク、外部資料へのリンクを機械的に検査する。
 
 ### 優先度 中: インラインスタイル
 
@@ -90,20 +88,20 @@ JavaScriptから追加読み込みされるCSSもあるため、HTML上の参照
 
 ## 6. 次の作業
 
-1. リポジトリ全体のHTML/CSS/JS/SVG一覧を確定する。
-2. 各HTMLのCSS・JS依存関係と内部リンクを抽出する。
+1. CSS・JSの参照関係と動的読み込みを全ページで確定する。
+2. 内部リンクとアンカーの存在確認を行う。
 3. 主要ページをPC・スマートフォンで表示確認する。
-4. 現行トップページのスクリーンショットと機能チェックリストを基準資料として保存する。
+4. 現行トップページの表示と機能を回帰テスト用の基準として記録する。
 5. 追加型のデザイントークン・共通コンポーネント案を作成する。
 6. トップページから小さく改修し、既存機能を回帰テストする。
 
 ## 7. 未検証事項
 
 - GitHub Pagesの公開設定・デプロイ状態
-- 全HTMLページと全アセットの完全な一覧
 - すべての相対リンク・外部リンクの到達性
 - 実ブラウザでのコンソールエラー、レスポンシブ表示
 - フォーム送信の実際のバックエンド動作
 - すべての隠し要素・分岐の到達条件
+- キーボード・スクリーンリーダーでの操作性
 
 未検証の項目は、完了したものとして扱わない。
