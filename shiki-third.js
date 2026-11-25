@@ -122,7 +122,7 @@ if(!document.querySelector('script[data-shiki-architecture]')){
         list.append(card);
       });
       bar.style.width=(complete/tasks.length*100)+'%';bar.setAttribute('aria-valuenow',String(complete));
-      status.textContent=complete+' / '+tasks.length+' 件の照合を完了。進捗はこのブラウザに保存されます。';
+      status.textContent=complete+' / '+tasks.length+' 件の照合を完了。';
     };
     const reset=$('[data-inquiry-reset]',root);if(reset)reset.addEventListener('click',()=>{progress={};localStorage.removeItem(KEY);render();});
     render();
@@ -145,7 +145,7 @@ if(!document.querySelector('script[data-shiki-architecture]')){
     const card=$('[data-reader-card]');
     if(card){
       let id='';try{id=localStorage.getItem('shikiThirdReaderId')||'';if(!id){id='SHIKI-'+Math.random().toString(36).slice(2,8).toUpperCase();localStorage.setItem('shikiThirdReaderId',id);}}catch{id='SESSION-ONLY';}
-      card.replaceChildren(make('span','third-kicker','VISITOR PASS / LOCAL BROWSER ONLY'),make('h3','',id),make('p','third-muted','この閲覧者証は当該ブラウザ内だけで使用する仮想識別票です。本人確認・認証・アクセス権限を付与するものではありません。'));
+      card.replaceChildren(make('span','third-kicker','IMPERIAL INQUIRY / REGISTERED VISITOR'),make('h3','',id),make('p','third-muted','本票は、諸廳合同照合室における閲覧記録の照合に用いる。'));
     }
     $('[data-third-print]')?.addEventListener('click',()=>window.print());
   };
