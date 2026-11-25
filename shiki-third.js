@@ -108,7 +108,7 @@
           const form=make('form','third-searchbar'),input=make('input');input.type='text';input.autocomplete='off';input.placeholder='照合語を入力';input.setAttribute('aria-label',t.title+'の照合語');
           const button=make('button','third-button','照合');button.type='submit';form.append(input,button);
           const feedback=make('p','third-muted','照合語は関連資料の記載から確認してください。');
-          form.addEventListener('submit',e=>{e.preventDefault();const value=input.value.trim().replace(/[\s　]/g,'').toLocaleUpperCase();const answer=t.answer.replace(/[\s　]/g,'').toLocaleUpperCase();if(value===answer){progress[t.id]=true;localStorage.setItem(KEY,JSON.stringify(progress));render();}else feedback.textContent='照合不成立。関連資料をもう一度確認してください。';});
+          form.addEventListener('submit',e=>{e.preventDefault();const value=input.value.trim().replace(/[\s　]/g,'').toLocaleUpperCase();const answer=t.answer.replace(/[\s　]/g,'').toLocaleUpperCase();if(value===answer){progress[t.id]=true;try{localStorage.setItem(KEY,JSON.stringify(progress));}catch{}render();}else feedback.textContent='照合不成立。関連資料をもう一度確認してください。';});
           card.append(form,feedback);
         }
         list.append(card);
