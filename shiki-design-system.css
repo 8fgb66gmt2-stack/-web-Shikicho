@@ -1,0 +1,164 @@
+/* 四季廳共通意匠基盤
+   Design system foundation / additive layer
+   既存の機關別意匠・物語上の仕掛けを上書きせず、可読性と操作性を補強する。
+*/
+:root{
+  --shiki-paper:#f4efe5;
+  --shiki-paper-light:#fffaf1;
+  --shiki-paper-deep:#e8ddca;
+  --shiki-ink:#302a24;
+  --shiki-ink-soft:#62594f;
+  --shiki-crimson:#762b32;
+  --shiki-crimson-deep:#511d25;
+  --shiki-jade:#29483d;
+  --shiki-jade-light:#668477;
+  --shiki-antique-gold:#aa8951;
+  --shiki-antique-gold-light:#d4bd8c;
+  --shiki-rule:rgba(83,65,45,.24);
+  --shiki-focus:#8b5c20;
+  --shiki-content-width: min(1180px, calc(100% - 2.5rem));
+}
+
+html{
+  scroll-padding-top:5.5rem;
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+
+body{
+  text-rendering:optimizeLegibility;
+  -webkit-font-smoothing:antialiased;
+}
+
+[id]{
+  scroll-margin-top:5.5rem;
+}
+
+a{
+  text-underline-offset:.2em;
+  text-decoration-thickness:from-font;
+}
+
+a:hover{
+  text-decoration-thickness:1px;
+}
+
+:where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{
+  outline:2px solid var(--shiki-focus);
+  outline-offset:3px;
+}
+
+:where(button,input,select,textarea){
+  font:inherit;
+}
+
+:where(input,select,textarea){
+  max-width:100%;
+}
+
+:where(img,svg,video,canvas){
+  max-width:100%;
+}
+
+:where(table){
+  max-width:100%;
+}
+
+:where(th,td){
+  overflow-wrap:anywhere;
+}
+
+:where(pre,code){
+  overflow-wrap:anywhere;
+}
+
+:where(button,[role="button"],input[type="button"],input[type="submit"]){
+  -webkit-tap-highlight-color:transparent;
+}
+
+:where(button:disabled,input:disabled,select:disabled,textarea:disabled){
+  cursor:not-allowed;
+  opacity:.68;
+}
+
+::selection{
+  background:var(--shiki-crimson);
+  color:#fffaf1;
+}
+
+/* 既存ページにスキップリンクがある場合の共通表示 */
+.skip-link{
+  position:absolute;
+  z-index:10000;
+  top:.75rem;
+  left:.75rem;
+  transform:translateY(-180%);
+  padding:.7rem 1rem;
+  border:1px solid var(--shiki-antique-gold);
+  background:var(--shiki-paper-light);
+  color:var(--shiki-crimson-deep);
+  text-decoration:none;
+  box-shadow:0 3px 12px rgba(35,25,16,.18);
+}
+.skip-link:focus{
+  transform:translateY(0);
+}
+
+/* 公文書・記録文書に再利用できる小さな共通部品 */
+.shiki-document-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.45rem 1.2rem;
+  align-items:baseline;
+  padding:.65rem 0;
+  border-top:1px solid var(--shiki-antique-gold);
+  border-bottom:1px solid var(--shiki-rule);
+  color:var(--shiki-ink-soft);
+  font-size:.78rem;
+  line-height:1.8;
+  letter-spacing:.04em;
+}
+.shiki-document-meta strong{
+  color:var(--shiki-crimson);
+  font-weight:600;
+}
+.shiki-document-rule{
+  height:3px;
+  margin:1.2rem 0;
+  border:0;
+  border-top:1px solid var(--shiki-antique-gold);
+  border-bottom:1px solid var(--shiki-antique-gold);
+}
+.shiki-document-note{
+  padding:.85rem 1rem;
+  border-left:3px solid var(--shiki-antique-gold);
+  background:rgba(232,221,202,.42);
+  color:var(--shiki-ink-soft);
+  font-size:.88rem;
+  line-height:1.9;
+}
+
+@media(max-width:640px){
+  html{scroll-padding-top:4.5rem}
+  [id]{scroll-margin-top:4.5rem}
+  :where(th,td){padding-inline:.55rem}
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+  *,*::before,*::after{
+    scroll-behavior:auto!important;
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+  }
+}
+
+@media(forced-colors:active){
+  :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{
+    outline:2px solid Highlight;
+  }
+  .shiki-document-meta,.shiki-document-note{
+    border-color:CanvasText;
+  }
+}
