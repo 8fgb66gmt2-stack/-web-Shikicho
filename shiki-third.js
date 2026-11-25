@@ -92,8 +92,8 @@
     const KEY='shikiThirdInquiry', saved=()=>{try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch{return {}}};
     let progress=saved();
     const tasks=[
-      {id:'one',title:'第十五號の照合',hint:'記録に残る「帰る場所」を確認する。',answer:'帰る場所',url:'record15.html'},
-      {id:'two',title:'第十八號・第十九號の照合',hint:'春季巡行欠落と保護記録を続けて読む。',answer:'花葉春月',url:'record19.html'},
+      {id:'one',title:'第十五號の照合',hint:'記録に残る「帰る場所」を確認する。',answer:'春',url:'record15.html'},
+      {id:'two',title:'第十八號・第十九號の照合',hint:'春季巡行欠落と保護記録を続けて読む。',answer:'花葉雛菊',url:'record19.html'},
       {id:'three',title:'諸廳合同照合',hint:'官報枢府・宮内廳・四季廳の識別符を照合する。',answer:'SHIKI-04KUNAICHO-02KANPO-12',url:'https://8fgb66gmt2-stack.github.io/-The-Official-Portal-of-the-Imperial-Cabinet-Privy-Council/record-zero.html'}
     ];
     const list=$('[data-inquiry-list]',root), status=$('[data-inquiry-status]',root), bar=$('[data-inquiry-progress]',root);
