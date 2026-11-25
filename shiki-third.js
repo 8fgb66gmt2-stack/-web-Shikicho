@@ -24,12 +24,11 @@
       detail.append(make('h3','',s.name+'　'+s.deity+(s.alias?'／'+s.alias:'')));
       detail.append(make('p','',s.note));
       const dl=make('dl');
-      [['神籍',s.registry],['神性',s.power],['所管局',s.bureau],['局長',s.director],['専属護衛官',s.guardian],['巡行状況',s.status],['神域・保全', '神域保全課および'+s.bureau+'の所管資料を参照']];
+      const dlPairs=[['神籍',s.registry],['神性',s.power],['所管局',s.bureau],['局長',s.director],['専属護衛官',s.guardian],['巡行状況',s.status],['神域・保全','神域保全課および'+s.bureau+'の所管資料を参照']];
       for(const [k,v] of dlPairs){dl.append(make('dt','',k),make('dd','',v));}
       detail.append(dl);
       const link=make('a','third-button','関連資料を開く　→');link.href=s.record;detail.append(link);
     };
-    const dlPairs=[['神籍',''],['神性',''],['所管局',''],['局長',''],['専属護衛官',''],['巡行状況',''],['神域・保全','']];
     root.querySelectorAll('[data-season-select]').forEach(b=>b.addEventListener('click',()=>render(b.dataset.seasonSelect)));
     render('spring');
   };
