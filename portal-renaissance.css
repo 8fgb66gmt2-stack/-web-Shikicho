@@ -84,7 +84,7 @@
 .pr-directory-toolbar{display:grid;grid-template-columns:minmax(0,1fr) 250px auto;gap:12px;align-items:center;margin:22px 0 18px;padding:12px;border:1px solid rgba(178,145,86,.42);background:rgba(238,225,201,.65)}
 .pr-directory-search{display:flex;align-items:center;gap:10px;min-width:0;padding:0 12px;border:1px solid #c9b58f;background:#fffdf7;color:#977b4b}
 .pr-directory-search>span{font-size:22px}
-.pr-directory-search input{width:100%;min-width:0;height:42px;border:0;outline:0;background:transparent;color:var(--pr-ink);font:11px inherit}
+.pr-directory-search input{width:100%;min-width:0;height:42px;border:0;outline:0;background:transparent;color:var(--pr-ink);font-family:inherit;font-size:11px}
 .pr-directory-search kbd{padding:2px 6px;border:1px solid #cdbb99;background:#f6eedf;color:#8c7859;font:10px Georgia,serif}
 .pr-category-select{display:flex;align-items:center;gap:9px;min-width:0;padding:0 10px;border:1px solid #c9b58f;background:#fffdf7}
 .pr-category-select>span{color:#967a4d;font-size:9px;white-space:nowrap}
