@@ -1,0 +1,26 @@
+(()=>{'use strict';
+const root=document.querySelector('[data-archive-crossref]'),data=window.ShikiRegistryData;
+if(!root||!data||!Array.isArray(data.documents))return;
+const a=root.querySelector('[data-archive-doc-a]'),b=root.querySelector('[data-archive-doc-b]'),out=root.querySelector('[data-archive-compare]');
+const make=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n};
+const docs=data.documents;
+docs.forEach((doc,i)=>{const label=[doc.number,doc.title].filter(Boolean).join('　／　');[a,b].forEach(select=>{const o=make('option','',label);o.value=doc.id;select.append(o)})});
+a.value='SH-ARCHIVE-015';b.value='SH-ARCHIVE-018';
+const get=id=>docs.find(x=>x.id===id);
+const names=doc=>(doc.people||'').split(/[・／、,，]/).map(x=>x.trim()).filter(Boolean);
+const link=doc=>{const wrap=make('span');const x=make('a','',doc.url&&doc.url!=='#'?'原資料・関連頁を開く →':'資料室目録を開く →');x.href=doc.url||'archive.html';wrap.append(x);return wrap};
+const render=()=>{
+ const left=get(a.value),right=get(b.value);if(!left||!right)return;
+ out.replaceChildren();
+ const table=make('table','archive-crossref-table'),thead=make('thead'),head=make('tr');
+ [make('th','', '照合項目'),make('th','',left.number+'　'+left.title),make('th','',right.number+'　'+right.title)].forEach(x=>head.append(x));
+ thead.append(head);table.append(thead);const body=make('tbody');
+ const rows=[['資料番号',left.id,right.id],['標題',left.title,right.title],['記録年月',left.date||'臺帳記載なし',right.date||'臺帳記載なし'],['閲覧区分',left.class,right.class],['所管・寄託元',left.department,right.department],['臺帳記載の関係項目',left.people||'臺帳記載なし',right.people||'臺帳記載なし'],['事件・主題',left.event||'臺帳記載なし',right.event||'臺帳記載なし'],['概要',left.summary,right.summary]];
+ rows.forEach(([label,x,y])=>{const tr=make('tr'),th=make('th','',label),td1=make('td','',x),td2=make('td','',y);tr.append(th,td1,td2);body.append(tr)});
+ const tr=make('tr'),label=make('th','', '原資料への導線'),td1=make('td'),td2=make('td');td1.append(link(left));td2.append(link(right));tr.append(label,td1,td2);body.append(tr);table.append(body);out.append(table);
+ const lnames=names(left),rnames=names(right),shared=lnames.filter((name,i)=>rnames.includes(name)&&lnames.indexOf(name)===i);
+ const box=make('section','archive-crossref-shared'),h=make('h3','', '共通記載項目（臺帳上）'),p=make('p',shared.length?'':'is-empty',shared.length?shared.join('　／　'):'両資料の「関係項目」欄に共通する記載はありません。');
+ box.append(h,p);out.append(box);
+};
+a.addEventListener('change',render);b.addEventListener('change',render);render();
+})();
