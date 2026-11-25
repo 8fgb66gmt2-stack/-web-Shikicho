@@ -1,0 +1,279 @@
+/* 四季廳公文書・下層ページ共通改修
+   官報、法令、資料室、局務案内、帝國史の閲覧体験を統一する。
+   各ページ固有の本文・記録番号・アンカー・探索機能は変更しない。
+*/
+:root{
+ --doc-ink:#2b251f;--doc-muted:#6e6255;--doc-paper:#f4ecdc;--doc-white:#fffaf0;
+ --doc-wine:#742432;--doc-forest:#18352c;--doc-gold:#b59458;--doc-line:#cbb894;
+}
+body.gazette-page,body.archive-page,body.history-page,body.security-page,
+body[data-shiki-page="constitution"]{
+ background:
+  radial-gradient(ellipse at 50% 0,rgba(255,255,255,.75),transparent 40%),
+  repeating-linear-gradient(0deg,rgba(92,67,39,.016) 0 1px,transparent 1px 6px),
+  var(--doc-paper)!important;color:var(--doc-ink)!important;
+}
+body.gazette-page a,body.archive-page a,body.history-page a,
+body.security-page a,body[data-shiki-page="constitution"] a{
+ text-underline-offset:.22em;
+}
+body.gazette-page :where(a,button,input,select,textarea):focus-visible,
+body.archive-page :where(a,button,input,select,textarea):focus-visible,
+body.history-page :where(a,button,input,select,textarea):focus-visible,
+body.security-page :where(a,button,input,select,textarea):focus-visible,
+body[data-shiki-page="constitution"] :where(a,button,input,select,textarea):focus-visible{
+ outline:3px solid var(--doc-gold)!important;outline-offset:3px!important;
+}
+
+/* Official gazette */
+body.gazette-page .gazette-wrap{
+ width:min(1120px,calc(100% - 40px))!important;max-width:1120px!important;
+ margin:34px auto 70px!important;padding:0 0 32px!important;
+ border:1px solid var(--doc-line)!important;background:var(--doc-white)!important;
+ box-shadow:0 18px 48px rgba(43,29,19,.10)!important;
+}
+body.gazette-page .gazette-navigation{
+ display:flex!important;flex-wrap:wrap!important;justify-content:space-between!important;
+ gap:10px!important;padding:13px 28px!important;background:var(--doc-forest)!important;
+ border-bottom:3px double var(--doc-gold)!important;
+}
+body.gazette-page .gazette-navigation a{color:#f5ead8!important;font-size:11px!important}
+body.gazette-page .gazette-topline{
+ display:flex!important;justify-content:space-between!important;gap:12px!important;
+ padding:10px 36px!important;background:#eee2ce!important;color:#806d50!important;
+ font-size:9px!important;letter-spacing:.12em!important;
+}
+body.gazette-page .gazette-masthead{
+ position:relative!important;padding:52px clamp(24px,6vw,76px) 40px!important;
+ background:linear-gradient(125deg,#fffaf0,#efe1cb)!important;
+ border-bottom:4px double var(--doc-gold)!important;text-align:center!important;
+}
+body.gazette-page .gazette-masthead small{color:#927448!important;font:10px Georgia,serif!important;letter-spacing:.24em!important}
+body.gazette-page .gazette-masthead h1{
+ margin:15px 0!important;color:var(--doc-wine)!important;
+ font-family:"Shippori Mincho","Yu Mincho",serif!important;
+ font-size:clamp(38px,6vw,62px)!important;font-weight:500!important;letter-spacing:.2em!important;
+}
+body.gazette-page .gazette-masthead p{max-width:720px!important;margin:0 auto!important;color:#655748!important;font-size:12px!important;line-height:2.1!important}
+body.gazette-page .gazette-meta{
+ display:flex!important;justify-content:center!important;flex-wrap:wrap!important;
+ gap:8px 24px!important;margin-top:24px!important;padding-top:14px!important;
+ border-top:1px solid var(--doc-line)!important;color:#79684f!important;font-size:10px!important;
+}
+body.gazette-page .gazette-record{
+ margin:28px clamp(18px,4vw,52px)!important;border:1px solid var(--doc-line)!important;
+ background:#fffdf7!important;box-shadow:0 7px 18px rgba(43,29,19,.045)!important;
+ scroll-margin-top:24px!important;
+}
+body.gazette-page .gazette-record>header{
+ display:flex!important;flex-wrap:wrap!important;align-items:center!important;gap:8px 18px!important;
+ padding:12px 20px!important;background:#eee2ce!important;border-bottom:1px solid var(--doc-line)!important;
+ color:#665642!important;font-size:10px!important;
+}
+body.gazette-page .gazette-kind{color:var(--doc-wine)!important;border-left:2px solid var(--doc-gold)!important;padding-left:9px!important}
+body.gazette-page .gazette-number{margin-left:auto!important;color:#806c4b!important;font-family:Georgia,serif!important}
+body.gazette-page .gazette-content{padding:clamp(20px,4vw,38px)!important}
+body.gazette-page .gazette-content h2{
+ margin:0 0 22px!important;color:var(--doc-wine)!important;
+ font-family:"Shippori Mincho","Yu Mincho",serif!important;font-size:clamp(19px,2.4vw,25px)!important;
+ line-height:1.8!important;font-weight:600!important;
+}
+body.gazette-page .gazette-content h3{margin:25px 0 10px!important;color:var(--doc-forest)!important;border-bottom:1px solid var(--doc-line)!important;padding-bottom:8px!important}
+body.gazette-page .gazette-content p,body.gazette-page .gazette-content li{color:#453b31!important;font-size:13px!important;line-height:2.15!important}
+body.gazette-page .gazette-content ul{padding-left:1.5em!important}
+body.gazette-page .gazette-signature{
+ position:relative!important;margin:30px 0 0 auto!important;padding:16px 18px!important;
+ width:min(100%,330px)!important;border-top:1px solid var(--doc-line)!important;
+ color:#655747!important;text-align:right!important;font-size:11px!important;line-height:2!important;
+}
+body.gazette-page .gazette-stamp{display:inline-block!important;margin-top:8px!important;padding:4px 12px!important;border:2px solid var(--doc-wine)!important;color:var(--doc-wine)!important;letter-spacing:.15em!important}
+body.gazette-page .gazette-foot{
+ display:flex!important;justify-content:space-between!important;flex-wrap:wrap!important;gap:12px!important;
+ margin:30px clamp(18px,4vw,52px) 0!important;padding:18px 0!important;
+ border-top:3px double var(--doc-gold)!important;color:#766448!important;font-size:10px!important;
+}
+body.gazette-page .gazette-foot a{color:var(--doc-wine)!important}
+
+/* Constitution as a bound legal volume */
+body[data-shiki-page="constitution"] .const-wrap{
+ width:min(1050px,calc(100% - 36px))!important;max-width:1050px!important;
+ margin:42px auto 80px!important;padding:clamp(22px,5vw,64px)!important;
+ background:#fffaf0!important;border:1px solid var(--doc-line)!important;
+ box-shadow:0 18px 48px rgba(43,29,19,.10)!important;
+}
+body[data-shiki-page="constitution"] .const-head{
+ padding:36px 20px 32px!important;text-align:center!important;
+ background:linear-gradient(135deg,#f5ead7,#fffaf0 50%,#ead9c0)!important;
+ border-top:5px double var(--doc-gold)!important;border-bottom:1px solid var(--doc-line)!important;
+}
+body[data-shiki-page="constitution"] .const-kicker{color:#907448!important;font:9px Georgia,serif!important;letter-spacing:.24em!important}
+body[data-shiki-page="constitution"] .const-head h1{
+ color:var(--doc-wine)!important;font-family:"Shippori Mincho","Yu Mincho",serif!important;
+ font-size:clamp(34px,5vw,56px)!important;letter-spacing:.2em!important;font-weight:500!important;
+}
+body[data-shiki-page="constitution"] .const-head .en{color:#7d6b52!important;font:10px Georgia,serif!important;letter-spacing:.18em!important}
+body[data-shiki-page="constitution"] .const-head .law{
+ display:inline-block!important;margin-top:18px!important;padding:6px 18px!important;
+ border:1px solid var(--doc-gold)!important;color:var(--doc-wine)!important;font-size:11px!important;
+}
+body[data-shiki-page="constitution"] .const-intro{
+ max-width:800px!important;margin:32px auto!important;padding:22px 28px!important;
+ border-left:3px double var(--doc-gold)!important;background:#f5eddf!important;
+ color:#514437!important;font-size:13px!important;line-height:2.2!important;
+}
+body[data-shiki-page="constitution"] .toc{
+ margin:35px 0 48px!important;padding:22px!important;border:1px solid var(--doc-line)!important;
+ background:#f5eddf!important;
+}
+body[data-shiki-page="constitution"] .toc-title{color:var(--doc-wine)!important;font:11px Georgia,serif!important;letter-spacing:.2em!important}
+body[data-shiki-page="constitution"] .toc-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:6px 20px!important;margin-top:14px!important}
+body[data-shiki-page="constitution"] .toc-grid a{
+ padding:9px 10px!important;border-bottom:1px solid #d9c9aa!important;color:#493c30!important;font-size:11px!important;
+}
+body[data-shiki-page="constitution"] .toc-grid a:hover{background:#fffaf0!important;color:var(--doc-wine)!important}
+body[data-shiki-page="constitution"] .chapter{
+ margin:0 0 32px!important;padding:26px clamp(16px,3vw,34px)!important;
+ border:1px solid #d7c8ad!important;background:#fffdf8!important;
+ scroll-margin-top:24px!important;
+}
+body[data-shiki-page="constitution"] .chapter-title{
+ display:flex!important;align-items:baseline!important;gap:14px!important;
+ margin-bottom:20px!important;padding-bottom:12px!important;border-bottom:2px solid var(--doc-gold)!important;
+}
+body[data-shiki-page="constitution"] .chapter-no{color:#9b7b49!important;font:9px Georgia,serif!important;letter-spacing:.2em!important}
+body[data-shiki-page="constitution"] .chapter-title h2{color:var(--doc-wine)!important;font-family:"Shippori Mincho","Yu Mincho",serif!important;font-size:22px!important}
+body[data-shiki-page="constitution"] .article{
+ display:grid!important;grid-template-columns:92px minmax(0,1fr)!important;gap:16px!important;
+ padding:15px 0!important;border-bottom:1px solid #e6ddcc!important;
+}
+body[data-shiki-page="constitution"] .article-no{color:#927448!important;font-size:11px!important;font-weight:700!important}
+body[data-shiki-page="constitution"] .article p{margin:0!important;color:#39332c!important;font-size:13px!important;line-height:2.1!important}
+
+/* Archive reading room */
+body.archive-page .archive-top{
+ background:var(--doc-forest)!important;color:#f3e8d5!important;
+ border-bottom:3px double var(--doc-gold)!important;padding:11px 22px!important;
+ font-size:10px!important;letter-spacing:.15em!important;
+}
+body.archive-page .archive-wrap{
+ width:min(1120px,calc(100% - 36px))!important;max-width:1120px!important;
+ margin:36px auto 70px!important;padding:clamp(22px,4vw,52px)!important;
+ background:#fffaf0!important;border:1px solid var(--doc-line)!important;
+ box-shadow:0 18px 48px rgba(43,29,19,.10)!important;
+}
+body.archive-page .archive-title{
+ color:var(--doc-wine)!important;font-family:"Shippori Mincho","Yu Mincho",serif!important;
+ font-size:clamp(34px,5vw,52px)!important;letter-spacing:.18em!important;font-weight:500!important;
+}
+body.archive-page .archive-kicker{color:#947448!important;font:10px Georgia,serif!important;letter-spacing:.22em!important}
+body.archive-page .archive-sub{color:#76664f!important;font-size:12px!important}
+body.archive-page .notice{
+ border:1px solid var(--doc-line)!important;border-left:4px double var(--doc-gold)!important;
+ background:#f5eddf!important;padding:20px 24px!important;color:#4f4438!important;
+}
+body.archive-page .doc-grid{
+ display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:12px!important;
+}
+body.archive-page .doc{
+ min-width:0!important;padding:19px!important;border:1px solid var(--doc-line)!important;
+ border-top:3px solid var(--doc-gold)!important;background:#fffdf7!important;
+ box-shadow:0 5px 14px rgba(43,29,19,.04)!important;color:#44392f!important;
+}
+body.archive-page .doc:hover{transform:translateY(-2px)!important;border-color:var(--doc-wine)!important;box-shadow:0 10px 20px rgba(43,29,19,.09)!important}
+body.archive-page .doc small{color:#987849!important;font:9px Georgia,serif!important;letter-spacing:.14em!important}
+body.archive-page .doc strong{color:var(--doc-wine)!important;font-size:14px!important}
+body.archive-page .doc p{color:#6d5e4d!important;font-size:11px!important;line-height:1.9!important}
+
+/* Security bureau: formal department handbook */
+body.security-page header{
+ background:linear-gradient(110deg,#142b24,#1d3b30 55%,#351820)!important;
+ border-bottom:4px double var(--doc-gold)!important;color:#fff3df!important;
+}
+body.security-page header .header-inner{max-width:1240px!important;padding:22px 26px!important}
+body.security-page header .agency{color:#fff1dc!important}
+body.security-page header .agency span{color:var(--doc-gold)!important}
+body.security-page header .header-note{color:#e4d3b3!important}
+body.security-page header nav{background:#eee1cc!important;border-bottom:1px solid var(--doc-gold)!important}
+body.security-page header nav a{color:#44372b!important}
+body.security-page header nav a.current{background:var(--doc-wine)!important;color:#fff5e5!important}
+body.security-page main{width:min(1120px,calc(100% - 36px))!important;margin:30px auto 70px!important;padding:0!important}
+body.security-page .breadcrumb{color:#8b7655!important;font-size:10px!important}
+body.security-page .hero{
+ display:grid!important;grid-template-columns:minmax(0,1.5fr) minmax(240px,.8fr)!important;
+ align-items:center!important;gap:28px!important;padding:clamp(26px,5vw,56px)!important;
+ background:linear-gradient(120deg,#18362c,#10251f 66%,#3a1921)!important;
+ border:1px solid var(--doc-gold)!important;color:#fff3df!important;
+}
+body.security-page .hero h1{color:#fff1dc!important;font-family:"Shippori Mincho","Yu Mincho",serif!important;font-size:clamp(38px,5vw,60px)!important;letter-spacing:.16em!important}
+body.security-page .hero .en{color:var(--doc-gold)!important;font:9px Georgia,serif!important;letter-spacing:.2em!important}
+body.security-page .hero p{color:#eadcc5!important}
+body.security-page .hero .badge{border:1px solid rgba(227,202,145,.55)!important;background:rgba(255,255,255,.05)!important;color:#f3e6d0!important;padding:18px!important}
+body.security-page .security-registry{
+ margin:22px 0!important;border:1px solid var(--doc-line)!important;
+ border-top:4px double var(--doc-gold)!important;background:#fffaf0!important;box-shadow:0 8px 20px rgba(43,29,19,.06)!important;
+}
+body.security-page .security-registry .sr-head{background:#eee1cc!important;color:var(--doc-wine)!important}
+body.security-page .security-registry dl{display:grid!important;grid-template-columns:130px minmax(0,1fr)!important}
+body.security-page .security-registry dt{color:#927448!important}
+body.security-page .security-registry dd{color:#453a30!important}
+body.security-page h2{color:var(--doc-wine)!important;font-family:"Shippori Mincho","Yu Mincho",serif!important;border-bottom:1px solid var(--doc-gold)!important;padding-bottom:12px!important}
+body.security-page .card,body.security-page .duty{
+ border:1px solid var(--doc-line)!important;border-top:3px solid var(--doc-gold)!important;
+ background:#fffaf0!important;box-shadow:0 7px 18px rgba(43,29,19,.05)!important;
+}
+body.security-page .card h3,body.security-page .duty h3{color:var(--doc-wine)!important}
+body.security-page .table{background:#fffaf0!important;border-color:var(--doc-line)!important}
+body.security-page .table th{background:#eee1cc!important;color:var(--doc-wine)!important}
+body.security-page .table td{color:#443a30!important}
+body.security-page .notice,body.security-page .memo{border-left:4px double var(--doc-gold)!important;background:#f1e7d7!important;color:#4f4438!important}
+body.security-page .quote{background:#18352c!important;color:#fff0d9!important;border:1px solid var(--doc-gold)!important}
+body.security-page .back{color:var(--doc-wine)!important;border-color:var(--doc-gold)!important}
+
+/* Imperial history: archive editorial layout */
+body.history-page .masthead{background:linear-gradient(115deg,#142b24,#1d3b30 55%,#351820)!important;color:#fff1dc!important;border-bottom:4px double var(--doc-gold)!important}
+body.history-page .masthead .utility{border-bottom:1px solid rgba(227,202,145,.25)!important;color:#e6d6b6!important}
+body.history-page .masthead a{color:#f0d69e!important}
+body.history-page .brand-kicker{color:var(--doc-gold)!important}
+body.history-page .brand-title{color:#fff1dc!important;font-family:"Shippori Mincho","Yu Mincho",serif!important}
+body.history-page .date-stamp{border:1px solid rgba(227,202,145,.55)!important;color:#e9d9bd!important}
+body.history-page .mainnav{background:#eee1cc!important;border-bottom:1px solid var(--doc-gold)!important}
+body.history-page .mainnav a{color:#493b2d!important}
+body.history-page .mainnav a:hover{background:var(--doc-wine)!important;color:#fff5e5!important}
+body.history-page .hero{
+ background:linear-gradient(120deg,#1a362c,#10241e 60%,#3b1921)!important;
+ border-bottom:7px double var(--doc-gold)!important;color:#fff2de!important;
+}
+body.history-page .hero h1{color:#fff2de!important;font-family:"Shippori Mincho","Yu Mincho",serif!important}
+body.history-page .hero h1 span{color:#e4c98e!important}
+body.history-page .hero p{color:#eee0ca!important}
+body.history-page .content{max-width:1120px!important}
+body.history-page .intro-panel,body.history-page .era-card,body.history-page .chapter{
+ border:1px solid var(--doc-line)!important;background:#fffaf0!important;
+ box-shadow:0 7px 20px rgba(43,29,19,.05)!important;
+}
+body.history-page .section-kicker{color:#927448!important}
+body.history-page h2,body.history-page h3{color:var(--doc-wine)!important;font-family:"Shippori Mincho","Yu Mincho",serif!important}
+body.history-page .era-card:hover{border-color:var(--doc-wine)!important;transform:translateY(-2px)!important}
+body.history-page .timeline-head{border-bottom:2px solid var(--doc-gold)!important}
+body.history-page .chapter-body p{color:#493f34!important;line-height:2.05!important}
+body.history-page .facts{background:#f2e8d8!important;border:1px solid var(--doc-line)!important}
+body.history-page .chapter-note{border-left:3px solid var(--doc-gold)!important;background:#f4ecdf!important}
+
+/* Narrow screens */
+@media(max-width:760px){
+ body.gazette-page .gazette-wrap,body.archive-page .archive-wrap,body[data-shiki-page="constitution"] .const-wrap{width:calc(100% - 20px)!important;margin:12px auto 36px!important;padding:16px!important}
+ body.gazette-page .gazette-topline{padding:9px 14px!important;font-size:8px!important}
+ body.gazette-page .gazette-masthead{padding:34px 18px 26px!important}
+ body.gazette-page .gazette-record{margin:16px 0!important}
+ body.gazette-page .gazette-record>header{padding:10px 13px!important}
+ body.gazette-page .gazette-number{margin-left:0!important}
+ body.gazette-page .gazette-content{padding:18px!important}
+ body[data-shiki-page="constitution"] .toc-grid{grid-template-columns:1fr!important}
+ body[data-shiki-page="constitution"] .article{grid-template-columns:1fr!important;gap:4px!important}
+ body.archive-page .doc-grid{grid-template-columns:1fr!important}
+ body.security-page main{width:calc(100% - 20px)!important;margin:14px auto 40px!important}
+ body.security-page .hero{grid-template-columns:1fr!important}
+ body.security-page .security-registry dl{grid-template-columns:1fr!important}
+ body.security-page .security-registry dt{padding-bottom:0!important}
+ body.history-page .mainnav-inner{overflow-x:auto!important;white-space:nowrap!important}
+}
