@@ -482,3 +482,280 @@
  .pr-hero,.pr-card,.pr-reading-notice{box-shadow:none;break-inside:avoid}
  .pr-hero{print-color-adjust:exact;-webkit-print-color-adjust:exact}
 }
+
+
+/* ═════════════════════════════════════════════════════════════
+   本廳舎意匠継承・第二精緻化
+   The portal is a chapter of the agency, not a separate brand.
+   深翡翠／臙脂の漆面、古金の二重罫、象牙の閲覧面。
+   ═════════════════════════════════════════════════════════════ */
+.portal-renaissance{
+ --pr-paper:#f4ecdc;
+ --pr-ivory:#fffaf0;
+ --pr-cream:#e7d8bf;
+ --pr-ink:#29231f;
+ --pr-muted:#6e6255;
+ --pr-wine:#742432;
+ --pr-wine-deep:#42141d;
+ --pr-gold:#b59458;
+ --pr-gold-light:#e3ca91;
+ --pr-green:#18352c;
+ --pr-green-deep:#10241e;
+ background:
+  radial-gradient(ellipse at 50% 0,rgba(255,255,255,.76),transparent 42%),
+  repeating-linear-gradient(0deg,rgba(92,67,39,.018) 0 1px,transparent 1px 6px),
+  var(--pr-paper);
+ color:var(--pr-ink);
+}
+.portal-renaissance .q-top{
+ background:linear-gradient(100deg,#101f1b 0%,#1c352d 48%,#32131b 100%);
+ color:#f8efdf;border-top:2px solid var(--pr-gold);
+ border-bottom:4px double var(--pr-gold);
+ font-size:8px;letter-spacing:.18em;
+}
+.portal-renaissance .q-head{
+ position:relative;overflow:hidden;
+ color:#f8efdf;
+ background:
+  radial-gradient(ellipse at 80% 0,rgba(184,154,93,.14),transparent 35%),
+  linear-gradient(112deg,#3a111c 0%,#1c3029 57%,#10201c 100%);
+ border:0;border-top:3px solid var(--pr-gold);
+ border-bottom:1px solid var(--pr-gold);
+ box-shadow:inset 0 -5px 0 rgba(184,154,93,.08),0 10px 28px rgba(31,19,14,.12);
+}
+.portal-renaissance .q-head:before{
+ content:"";position:absolute;inset:9px 12px;pointer-events:none;
+ border:1px solid rgba(234,213,160,.25);
+}
+.portal-renaissance .q-head:after{
+ content:"❦";position:absolute;right:5%;bottom:-59px;pointer-events:none;
+ color:rgba(234,213,160,.075);font:180px Georgia,serif;line-height:1;
+}
+.portal-renaissance .q-headin{
+ position:relative;z-index:1;max-width:1440px;min-height:126px;
+ padding:22px clamp(24px,5vw,68px);gap:22px;
+}
+.pr-brand-seal{
+ width:70px;height:70px;padding:4px;
+ border:1px solid var(--pr-gold-light);
+ outline:1px solid rgba(227,202,145,.28);outline-offset:3px;
+ background:linear-gradient(145deg,#421923,#172a23);
+ box-shadow:inset 0 0 0 4px rgba(227,202,145,.07),0 4px 14px rgba(0,0,0,.18);
+}
+.pr-brand-seal img{filter:drop-shadow(0 2px 5px rgba(0,0,0,.2))}
+.portal-renaissance .q-brand small{
+ color:#d9c18d;font:8px Georgia,serif;letter-spacing:.22em;
+}
+.portal-renaissance .q-brand strong{
+ margin:4px 0 2px;color:#fff5e5;
+ font-family:"Shippori Mincho","Yu Mincho",serif;
+ font-size:27px;font-weight:500;letter-spacing:.2em;
+ text-shadow:0 2px 18px rgba(0,0,0,.18);
+}
+.portal-renaissance .q-brand span{color:#e4d7c1;font-size:10px;letter-spacing:.1em}
+.pr-masthead-rule{
+ height:54px;background:linear-gradient(transparent,rgba(234,213,160,.58),transparent);
+}
+.portal-renaissance .q-clock{color:#e4d5bb}
+.pr-clock-label{color:#d8bd82}
+.portal-renaissance .q-clock b{color:var(--pr-gold-light)}
+.portal-renaissance .q-nav{
+ background:linear-gradient(180deg,#1b3029,#10201c);
+ border-top:1px solid rgba(234,213,160,.45);
+ border-bottom:4px double var(--pr-gold);
+ box-shadow:0 7px 18px rgba(35,22,15,.13);
+}
+.portal-renaissance .q-navin{max-width:1440px;justify-content:center}
+.portal-renaissance .q-nav a{
+ color:#f4ead8;border-left:1px solid rgba(234,213,160,.16);
+ font-family:"Shippori Mincho","Yu Mincho",serif;
+ letter-spacing:.08em;padding:13px 13px;
+}
+.portal-renaissance .q-nav a:first-child{border-left:1px solid rgba(234,213,160,.16)}
+.portal-renaissance .q-nav a:last-child{border-right:1px solid rgba(234,213,160,.16)}
+.portal-renaissance .q-nav a:hover,
+.portal-renaissance .q-nav a[aria-current="page"]{
+ color:#fff8e9;background:linear-gradient(180deg,rgba(184,154,93,.12),rgba(114,35,49,.25));
+}
+.portal-renaissance .q-nav a[aria-current="page"]:after{
+ left:18%;right:18%;bottom:4px;background:var(--pr-gold-light);
+}
+.pr-main{
+ max-width:1440px;padding:27px clamp(22px,3vw,46px) 82px;
+ background:rgba(255,250,240,.16);
+}
+.pr-breadcrumb{color:#82735f}
+.pr-hero{
+ min-height:450px;grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr);
+ padding:66px clamp(35px,6vw,86px) 72px;
+ border:1px solid var(--pr-gold);
+ border-bottom:7px double var(--pr-gold);
+ background:
+  radial-gradient(ellipse at 76% 48%,rgba(181,148,88,.22),transparent 27%),
+  radial-gradient(ellipse at 8% 100%,rgba(116,36,50,.54),transparent 44%),
+  linear-gradient(118deg,#10231e 0%,#1b3b30 54%,#3d1721 100%);
+ box-shadow:inset 0 0 100px rgba(0,0,0,.16),0 13px 32px rgba(43,29,19,.1);
+ color:#fff4e2;
+}
+.pr-hero:before{
+ inset:15px;border:1px solid rgba(227,202,145,.55);
+ box-shadow:inset 0 0 0 5px rgba(227,202,145,.035);
+}
+.pr-hero:after{
+ right:5%;top:50%;width:360px;height:360px;transform:translateY(-50%);
+ border-color:rgba(227,202,145,.16);
+ box-shadow:0 0 0 18px rgba(227,202,145,.035),0 0 0 37px rgba(227,202,145,.022);
+}
+.pr-hero-ornament{
+ right:9%;top:50%;width:280px;height:280px;transform:translateY(-50%);
+ border-color:rgba(227,202,145,.2);
+}
+.pr-hero-ornament:before,.pr-hero-ornament:after{border-color:rgba(227,202,145,.18)}
+.pr-hero-kicker{color:var(--pr-gold-light);font-size:9px}
+.pr-hero-kicker i{background:var(--pr-gold)}
+.pr-hero-overline{color:#e4d5bb}
+.pr-hero h1{
+ color:#fff4e2;font-family:"Shippori Mincho","Yu Mincho",serif;
+ font-size:clamp(50px,6.4vw,82px);letter-spacing:.16em;
+ text-shadow:0 8px 30px rgba(0,0,0,.22);
+}
+.pr-hero h1 em{color:#e4c98e}
+.pr-hero-lead{
+ border-left-color:var(--pr-gold);
+ color:#f2e8d7;font-size:12px;line-height:2.2;
+}
+.pr-button-primary{
+ background:var(--pr-gold-light);border-color:var(--pr-gold-light);color:#4b2028;
+}
+.pr-button-secondary{
+ background:rgba(12,28,23,.34);border-color:rgba(227,202,145,.55)!important;color:#fff4e2;
+}
+.pr-hero-actions a:hover{
+ transform:translateY(-2px);background:#fff4df;border-color:#fff4df;color:#4b2028;
+}
+.pr-emblem-frame{
+ border-color:rgba(227,202,145,.72);
+ outline-color:rgba(227,202,145,.24);
+ background:radial-gradient(circle,rgba(255,248,232,.14) 0 48%,rgba(223,195,136,.08) 49% 55%,transparent 56%);
+ box-shadow:0 0 0 18px rgba(223,195,136,.035),inset 0 0 38px rgba(0,0,0,.12);
+}
+.pr-emblem-frame:before,.pr-emblem-frame:after{border-color:rgba(227,202,145,.34)}
+.pr-emblem-frame img{filter:drop-shadow(0 6px 12px rgba(0,0,0,.25))}
+.pr-emblem-caption,.pr-emblem-year{color:#e4ce9e}
+.pr-hero-emblem>p{color:#e5d2ad}
+.pr-hero-foot{
+ border-top-color:rgba(227,202,145,.28);color:#d9c49a;
+}
+.pr-principles{
+ margin-bottom:62px;border-top:4px double var(--pr-gold);
+ border-bottom:1px solid var(--pr-gold);background:linear-gradient(90deg,#e7d7bc,#fffaf0 18%,#fffaf0 82%,#e7d7bc);
+ box-shadow:0 10px 26px rgba(45,30,20,.055);
+}
+.pr-principles>a{border-right-color:rgba(181,148,88,.32);padding:18px 20px}
+.pr-principles>a:hover{background:rgba(181,148,88,.09)}
+.pr-principle-mark{
+ width:42px;height:42px;border-color:var(--pr-gold);background:#fffaf0;
+ color:var(--pr-wine);box-shadow:inset 0 0 0 3px rgba(181,148,88,.07);
+}
+.pr-principles b{color:var(--pr-wine);font-size:12px}
+.pr-principles small{color:#9b7945}
+.pr-section-heading{border-bottom:3px double var(--pr-gold);padding-bottom:17px}
+.pr-section-overline{color:#8a7458}
+.pr-section-heading h2{
+ color:var(--pr-wine);font-family:"Shippori Mincho","Yu Mincho",serif;
+ font-size:clamp(26px,3vw,34px);letter-spacing:.14em;
+}
+.pr-section-heading p{color:#6e6255;font-size:11px}
+.pr-section-index{color:#9b7945}
+.pr-directory-toolbar{
+ margin:20px 0 18px;padding:12px;
+ border:1px solid rgba(181,148,88,.38);
+ background:linear-gradient(100deg,rgba(231,215,188,.62),rgba(255,250,240,.72));
+}
+.pr-directory-search,.pr-category-select{
+ border-color:#cbb894;background:#fffaf0;
+}
+.pr-card{
+ border:1px solid rgba(198,177,139,.86);border-left:2px solid var(--pr-wine);
+ background:linear-gradient(145deg,#fffaf0,#f5ecdc 76%,#eee1cb);
+ box-shadow:0 6px 18px rgba(43,29,19,.045);
+}
+.pr-card:before{inset:6px;border-color:rgba(181,148,88,.24)}
+.pr-card:hover{
+ border-color:var(--pr-gold);background:#fffaf0;
+ box-shadow:0 12px 26px rgba(43,29,19,.09);
+}
+.pr-card-number{color:rgba(122,94,57,.68)}
+.pr-card-code{color:#9b7945}
+.pr-card>strong{color:var(--pr-wine);font-family:"Shippori Mincho","Yu Mincho",serif}
+.pr-card>p{color:#6e6255}
+.pr-card>em{border-top-color:rgba(181,148,88,.46)}
+.pr-card-feature{
+ border:1px solid var(--pr-gold);border-left:4px double var(--pr-gold);
+ border-bottom:4px double var(--pr-gold);
+ background:
+  radial-gradient(ellipse at 78% 50%,rgba(181,148,88,.19),transparent 27%),
+  linear-gradient(110deg,#3b1620 0%,#742432 54%,#18352c 100%);
+ box-shadow:0 10px 28px rgba(43,29,19,.12);
+}
+.pr-card-feature:before{border-color:rgba(227,202,145,.36)}
+.pr-card-feature-copy>strong{font-family:"Shippori Mincho","Yu Mincho",serif}
+.pr-reading-notice{
+ border-color:var(--pr-gold);border-top:3px double var(--pr-gold);
+ background:linear-gradient(100deg,#e7d8bf,#fffaf0 28%,#fffaf0 72%,#eee2cf);
+ box-shadow:0 8px 22px rgba(55,37,21,.045);
+}
+.pr-notice-seal{
+ background:#fffaf0;border-color:var(--pr-wine);
+ outline-color:rgba(181,148,88,.48);
+}
+.pr-footer{
+ background:
+  radial-gradient(ellipse at 50% 0,rgba(181,148,88,.13),transparent 48%),
+  linear-gradient(120deg,#10231e,#1a382e 58%,#351720);
+ border-top:7px double var(--pr-gold);
+}
+.pr-footer-inner>div strong{font-family:"Shippori Mincho","Yu Mincho",serif}
+@media(max-width:1050px){
+ .portal-renaissance .q-headin{min-height:112px}
+ .pr-hero{grid-template-columns:minmax(0,1.2fr) minmax(205px,.8fr);padding-right:40px;padding-left:40px}
+ .pr-emblem-frame{width:190px;height:190px}
+ .pr-emblem-frame img{width:110px;height:110px}
+}
+@media(max-width:760px){
+ .portal-renaissance .q-top{border-top-width:2px;border-bottom-width:3px}
+ .portal-renaissance .q-headin{min-height:88px;padding:14px 18px;gap:12px}
+ .portal-renaissance .q-brand strong{font-size:19px;letter-spacing:.12em}
+ .pr-brand-seal{width:54px;height:54px}
+ .portal-renaissance .q-clock b{color:var(--pr-gold-light)}
+ .portal-renaissance .q-navin{justify-content:flex-start}
+ .portal-renaissance .q-nav a{font-size:10px;padding:12px 11px}
+ .pr-main{padding:20px 16px 60px}
+ .pr-hero{
+  grid-template-columns:1fr;min-height:0;padding:38px 27px 60px;
+  background:
+   radial-gradient(ellipse at 50% 100%,rgba(181,148,88,.16),transparent 38%),
+   linear-gradient(160deg,#10231e 0%,#1b3b30 55%,#3d1721 100%);
+ }
+ .pr-hero:after{right:-60px;top:auto;bottom:-90px;width:240px;height:240px;transform:none}
+ .pr-hero-ornament{right:-38px;top:auto;bottom:-55px;width:190px;height:190px;transform:none}
+ .pr-hero-emblem{display:grid;justify-self:center;margin:5px 0 0}
+ .pr-emblem-frame{width:142px;height:142px;outline-offset:5px}
+ .pr-emblem-frame img{width:80px;height:80px}
+ .pr-emblem-caption{top:15px;font-size:7px}
+ .pr-emblem-year{bottom:14px;font-size:8px}
+ .pr-hero-foot{left:27px;right:27px}
+ .pr-principles{margin-bottom:45px}
+ .pr-reading-notice{margin-top:40px}
+}
+@media(max-width:540px){
+ .pr-main{padding-right:12px;padding-left:12px}
+ .portal-renaissance .q-clock{display:none}
+ .pr-hero{padding:31px 19px 55px}
+ .pr-hero h1{font-size:39px}
+ .pr-hero-emblem{margin-top:3px}
+ .pr-emblem-frame{width:120px;height:120px}
+ .pr-emblem-frame img{width:69px;height:69px}
+ .pr-principles{border-top-width:3px}
+ .pr-card-feature{min-height:218px}
+}
