@@ -52,8 +52,8 @@ const init=()=>{
  const onScroll=()=>{if(!raf)raf=requestAnimationFrame(update)};
  window.addEventListener('scroll',onScroll,{passive:true});window.addEventListener('resize',onScroll);update();
  top.addEventListener('click',()=>window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}));
- const trigger=document.createElement('button');trigger.type='button';trigger.className='shiki-command-trigger';trigger.innerHTML='<span>情報を探す</span><kbd>Ctrl K</kbd>';trigger.setAttribute('aria-haspopup','dialog');trigger.setAttribute('aria-keyshortcuts','Control+K Meta+K');body.append(trigger);
- const layer=document.createElement('div');layer.className='shiki-command-layer';layer.hidden=true;
+ const trigger=document.createElement('button');trigger.type='button';trigger.className='shiki-command-trigger';trigger.innerHTML='<span>情報を探す</span><kbd>Ctrl K</kbd>';trigger.setAttribute('aria-haspopup','dialog');trigger.setAttribute('aria-keyshortcuts','Control+K Meta+K');trigger.setAttribute('aria-controls','shiki-command-layer');trigger.setAttribute('aria-expanded','false');body.append(trigger);
+ const layer=document.createElement('div');layer.id='shiki-command-layer';layer.className='shiki-command-layer';layer.hidden=true;
  layer.innerHTML='<section class="shiki-command-dialog" role="dialog" aria-modal="true" aria-labelledby="shiki-command-title"><header class="shiki-command-head"><strong id="shiki-command-title">四季廳・統合探索端末</strong><button type="button" class="shiki-command-close">閉じる　Esc</button></header><div class="shiki-command-search"><input type="search" autocomplete="off" spellcheck="false" aria-label="人物・組織・公文書・施設・ページを検索" placeholder="名稱・分類・所管・資料番号を入力"><p class="shiki-command-hint">公開ページと公開索引を横断します。Ctrl + K でいつでも開けます。</p></div><div class="shiki-command-results" role="listbox" aria-label="検索結果"></div></section>';
  body.append(layer);
  const input=layer.querySelector('input'),results=layer.querySelector('.shiki-command-results'),close=layer.querySelector('.shiki-command-close');
@@ -71,10 +71,11 @@ const init=()=>{
   });
  };
  const setActive=i=>{active=Math.max(0,Math.min(visible.length-1,i));results.querySelectorAll('[role=option]').forEach((a,n)=>a.setAttribute('aria-selected',String(n===active)));results.querySelector('#shiki-command-option-'+active)?.scrollIntoView({block:'nearest'});};
- const open=()=>{lastFocus=document.activeElement;layer.hidden=false;input.value='';render();input.focus();};
- const hide=()=>{layer.hidden=true;lastFocus?.focus?.();trigger.focus();};
+ const open=()=>{lastFocus=document.activeElement;layer.hidden=false;trigger.setAttribute('aria-expanded','true');input.value='';render();input.focus();};
+ const hide=()=>{layer.hidden=true;trigger.setAttribute('aria-expanded','false');lastFocus?.focus?.();trigger.focus();};
  trigger.addEventListener('click',open);close.addEventListener('click',hide);
  layer.addEventListener('click',e=>{if(e.target===layer)hide()});
+ layer.addEventListener('keydown',e=>{if(e.key!=='Tab')return;const focusables=[input,close,...results.querySelectorAll('a[href]')];const first=focusables[0],last=focusables[focusables.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}});
  input.addEventListener('input',render);
  input.addEventListener('keydown',e=>{
   if(e.key==='ArrowDown'){e.preventDefault();setActive(active+1)}
