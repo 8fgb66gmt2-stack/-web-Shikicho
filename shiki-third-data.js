@@ -44,7 +44,7 @@ window.ShikiRegistryData = {
   ],
   documents: [
     {id:"SH-ARCHIVE-015",number:"第十五號",title:"春季神性循環・補遺記録",class:"封緘指定",date:"帝國暦二三六年",department:"四季廳附属資料室",people:"花葉 雛菊・花葉 春月・花葉 さくら",event:"春季神性波動乖離",url:"record15.html",summary:"春季神性波動の乖離と、公開巡行記録との異同を記録した寄託資料。"},
-    {id:"SH-ARCHIVE-016",number:"第十六號",title:"資料未登録",class:"関係者限定",date:"",department:"帝國大學文科附属資料室",people:"",event:"人物相関照合",url:"archive.html",summary:"関連記録の存在が附属資料室の公開目録に記載されています。"},
+    {id:"SH-ARCHIVE-016",number:"第十六號",title:"資料未登録",class:"目録未登録",date:"",department:"帝國大學文科附属資料室",people:"",event:"人物相関照合",url:"archive.html",summary:"関連記録の存在が附属資料室の公開目録に記載されています。"},
     {id:"SH-ARCHIVE-017",number:"第十七號",title:"著者名義照合記録",class:"一般公開",date:"",department:"四季廳附属資料室",people:"花葉 春月・大窪 晶与・雪柳 残雪",event:"『ヴラド・ドラクラ』著者名義照合",url:"record17.html",summary:"帝國大學側と四季廳側に残る著者名義の異同を照合した記録。"},
     {id:"SH-ARCHIVE-018",number:"第十八號",title:"春季巡行欠落記録",class:"一般公開",date:"帝國暦二三六年",department:"四季廳附属資料室",people:"花葉 雛菊・花葉 春月・雪柳 残雪",event:"春季神性波動乖離",url:"record18.html",summary:"公開行政記録の正常判定と寄託資料の欠落期間を対照した追補記録。"},
     {id:"SH-ARCHIVE-019",number:"第十九號",title:"別冊保護記録",class:"関係者限定",date:"帝國暦二三六年",department:"四季廳・護衛官記録",people:"花葉 雛菊・花葉 春月",event:"春の現人神の保護",url:"record19.html",summary:"春の現人神に関する保護記録。詳細な私的記録は本人の要請により非公開。"},
