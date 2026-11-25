@@ -51,6 +51,9 @@
 <link rel="stylesheet" href="shiki-design-system.css?v=20261125-1">
 
 <link rel="stylesheet" href="shiki-document-redesign.css?v=20261125-1">\n<link rel="stylesheet" href="shiki-third.css?v=20261125-1">
+<link rel="stylesheet" href="archive-crossref.css?v=20261125-1">
+<script defer src="shiki-third-data.js?v=20261125-1"></script>
+<script defer src="archive-crossref.js?v=20261125-1"></script>
 </head>
 <body class="archive-page" data-shiki-page="archive">
 <a class="skip-link" href="#main-content">本文へ移動</a>
@@ -86,7 +89,24 @@
   </section>
   <p class="room-note">資料室記録管理番号：SH-ARCHIVE / 237<br>最終整理：帝國暦237年09月08日</p>
   <a class="back" id="back-to-shiki" href="index.html">← 四季廳本廳舍へ戻る</a>
-<section class="archive-third-index" aria-labelledby="archive-third-title">
+
+<section class="archive-crossref" data-archive-crossref aria-labelledby="archive-crossref-title">
+  <div class="archive-crossref-head">
+    <span>DOCUMENT COMPARISON / PUBLIC REGISTER</span>
+    <h2 id="archive-crossref-title">公文書・相互照合臺</h2>
+    <p>公開臺帳に登録された書誌事項を並べ、記録間の共通項目を確認できます。原資料の本文や閲覧条件、既存の調査進行には干渉しません。</p>
+  </div>
+  <div class="archive-crossref-controls">
+    <label>照合する資料 A<select data-archive-doc-a aria-label="照合する資料 A"></select></label>
+    <span class="archive-crossref-mark" aria-hidden="true">×</span>
+    <label>照合する資料 B<select data-archive-doc-b aria-label="照合する資料 B"></select></label>
+  </div>
+  <div class="archive-crossref-result" data-archive-compare aria-live="polite">
+    <p>公開臺帳を読み込んでいます。</p>
+  </div>
+  <p class="archive-crossref-note">照合結果は公開臺帳の記載項目を機械的に比較したものです。共通記載は、資料内容の一致、因果関係、人物間の関係性を証明するものではありません。各資料の解釈は原資料を確認してください。</p>
+</section>
+\n<section class="archive-third-index" aria-labelledby="archive-third-title">
   <div class="archive-third-head"><span>RECORDS MANAGEMENT / CROSS-REFERENCE</span><h2 id="archive-third-title">公文書管理臺帳・閲覧案内</h2><p>資料番号、作成部署、関係人物、関連事件および閲覧区分を横断して確認できます。</p></div>
   <div class="archive-third-links">
     <a href="registry.html"><b>公開行政情報臺帳</b><small>人物・神籍・組織・公文書を横断検索</small></a>
