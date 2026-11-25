@@ -232,7 +232,7 @@ GitHub上の対象ファイルとCSS参照の静的確認を実施。実ブラ�
 - Git treeで新規ページ・CSS・JSの存在を確認。
 - 新規JavaScript 2ファイルは構文コンパイル検査に合格。
 - `index.html`、`astrarium.html`、`registry.html`、`facilities.html`、`investigation.html`、`archive.html`、`history.html` のID重複は検出されなかった。
-- 新規ページのローカルリンクおよびscript参照はGit tree上のファイルに解決することを確認。`national-security/` はディレクトリ内の `index.html` に解決する。
+- リポジトリ内の全31 HTMLページについてローカルhrefを走査し、参照先ファイルまたはディレクトリのindex.htmlへの解決を確認。プロトコル相対URL（外部リンク）はローカル参照から除外。\n- 主要7ページのscript参照はGit tree上のファイルに解決することを確認。
 - 実ブラウザによるPC・スマートフォン描画、操作実行、コンソール、スクリーンリーダー、実機キーボード検証は未実施。
 - GitHub Pagesの公開ビルド・デプロイおよび実公開URLでの確認は、PR統合後に別途実施する必要がある。
 - 神域固有名、神性波動の具体的数値、祭祀の確定日程、建物の実階数・部屋配置、年次統計は既存公開資料から確定できないため創作していない。
