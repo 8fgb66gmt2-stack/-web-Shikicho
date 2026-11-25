@@ -119,5 +119,27 @@
     const reset=$('[data-inquiry-reset]',root);if(reset)reset.addEventListener('click',()=>{progress={};localStorage.removeItem(KEY);render();});
     render();
   };
-  clock();astrarium();registrySearch();facilityMap();inquiry();
+  const localReaderServices = () => {
+    const path=location.pathname.split('/').pop()||'index.html';
+    const title=document.title||path;
+    try {
+      const history=JSON.parse(localStorage.getItem('shikiThirdHistory')||'[]');
+      const next=[{path,title,visitedAt:new Date().toISOString()},...history.filter(x=>x.path!==path)].slice(0,12);
+      localStorage.setItem('shikiThirdHistory',JSON.stringify(next));
+    } catch {}
+    const historyRoot=$('[data-third-history]');
+    if(historyRoot){
+      let items=[];try{items=JSON.parse(localStorage.getItem('shikiThirdHistory')||'[]')}catch{}
+      historyRoot.replaceChildren();
+      if(!items.length)historyRoot.append(make('p','third-muted','閲覧履歴はありません。'));
+      items.forEach(item=>{const row=make('p','',item.title);const a=make('a','','開く →');a.href=item.path;row.append('　',a);historyRoot.append(row);});
+    }
+    const card=$('[data-reader-card]');
+    if(card){
+      let id='';try{id=localStorage.getItem('shikiThirdReaderId')||'';if(!id){id='SHIKI-'+Math.random().toString(36).slice(2,8).toUpperCase();localStorage.setItem('shikiThirdReaderId',id);}}catch{id='SESSION-ONLY';}
+      card.replaceChildren(make('span','third-kicker','VISITOR PASS / LOCAL BROWSER ONLY'),make('h3','',id),make('p','third-muted','この閲覧者証は当該ブラウザ内だけで使用する仮想識別票です。本人確認・認証・アクセス権限を付与するものではありません。'));
+    }
+    $('[data-third-print]')?.addEventListener('click',()=>window.print());
+  };
+  clock();localReaderServices();astrarium();registrySearch();facilityMap();inquiry();
 })();
