@@ -1,3 +1,4 @@
+@import url("shiki-imperial-architecture.css?v=20261125-1");
 /* 四季廳 第三次大型拡張・共通意匠 */
 :root{--shiki-ink:#302c25;--shiki-paper:#f7f0e3;--shiki-paper-deep:#eee2ce;--shiki-gold:#ad8950;--shiki-red:#762b35;--shiki-green:#263e35;--shiki-line:rgba(128,96,51,.32);--shiki-serif:"Yu Mincho","Hiragino Mincho ProN","Noto Serif JP",serif}
 .third-page{margin:0;background:var(--shiki-paper);color:var(--shiki-ink);font-family:var(--shiki-serif);line-height:1.85}
