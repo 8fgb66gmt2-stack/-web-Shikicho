@@ -36,7 +36,11 @@ window.ShikiRegistryData = {
     {name:"葉桜 あやめ",role:"夏の現人神護衛官",unit:"夏局・護衛",tags:"警備・神祇災害對策",url:"index.html#guards",related:"security.html"},
     {name:"阿佐美 竜胆",role:"秋の現人神護衛官",unit:"秋局・護衛",tags:"護衛・保全",url:"index.html#guards",related:"record19.html"},
     {name:"雪柳 残雪",role:"冬の現人神護衛官",unit:"冬局・護衛",tags:"皇族警護・冬局連携",url:"index.html#guards",related:"record17.html"},
-    {name:"南海 美哉臣",role:"宮内課長",unit:"宮内課",tags:"宮内廳連携・帝國大學非常勤教授",url:"miyauchi.html",related:"constitution.html"}
+    {name:"南海 美哉臣",role:"宮内課長",unit:"宮内課",tags:"宮内廳連携・帝國大學非常勤教授",url:"miyauchi.html",related:"constitution.html"},
+    {name:"菊嘉 則宗",role:"名誉局長・四季廳次官",unit:"護衛警備局",tags:"行政統括・四季廳全体との調整",url:"security.html",related:"index.html#departments"},
+    {name:"道誉 山茶花",role:"護衛警備局長",unit:"護衛警備局",tags:"局務統理・合同警備指揮",url:"security.html",related:"national-security/"},
+    {name:"姫鶴 羅馬",role:"護衛警備局副局長",unit:"護衛警備局",tags:"現場運用・警備體制調整",url:"security.html",related:"national-security/"},
+    {name:"九条 翠月",role:"特殊対賊部隊「豪猪」隊長",unit:"國家治安機構",tags:"警察・特殊対賊部隊",url:"national-security/personnel/index.html",related:"national-security/index.html"}
   ],
   documents: [
     {id:"SH-ARCHIVE-015",number:"第十五號",title:"春季神性循環・補遺記録",class:"封緘指定",date:"帝國暦二三六年",department:"四季廳附属資料室",people:"花葉 雛菊・花葉 春月・花葉 さくら",event:"春季神性波動乖離",url:"record15.html",summary:"春季神性波動の乖離と、公開巡行記録との異同を記録した寄託資料。"},
