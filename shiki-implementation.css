@@ -1,0 +1,159 @@
+/* 四季廳公式情報網 — 玲瓏浪漫 実装統合レイヤー
+   Existing sections and ARG features are preserved. This file only normalizes
+   the final visual layer, responsive behavior, and keyboard accessibility. */
+:root{
+  --shiki-paper:#f6f0e5;
+  --shiki-paper-light:#fffaf1;
+  --shiki-paper-deep:#e9dfcf;
+  --shiki-ink:#302a24;
+  --shiki-muted:#70665b;
+  --shiki-red:#762630;
+  --shiki-red-deep:#551923;
+  --shiki-green:#263d35;
+  --shiki-green-deep:#1b302a;
+  --shiki-gold:#a9854e;
+  --shiki-gold-light:#d7c18d;
+  --shiki-line:#cbbda5;
+}
+html{background:var(--shiki-paper)!important;scroll-behavior:smooth}
+body{
+  color:var(--shiki-ink)!important;
+  background:
+    radial-gradient(ellipse at 50% 0,rgba(255,255,255,.72),transparent 42%),
+    repeating-linear-gradient(0deg,rgba(80,60,40,.014) 0 1px,transparent 1px 5px),
+    var(--shiki-paper)!important;
+  overflow-x:clip;
+}
+main{min-width:0}
+img,svg,video,canvas{max-width:100%}
+a{overflow-wrap:anywhere}
+button,input,select,textarea{font:inherit}
+button,a,[role="button"],input,select,textarea{ -webkit-tap-highlight-color:transparent }
+:focus-visible{
+  outline:2px solid var(--shiki-gold)!important;
+  outline-offset:3px!important;
+}
+::selection{background:var(--shiki-red)!important;color:#fffaf1!important}
+
+/* 濃色を黒に寄せず、帝國の深緑・臙脂へ統一 */
+.law-banner{
+  background:linear-gradient(105deg,var(--shiki-green-deep),var(--shiki-green))!important;
+  border-bottom:1px solid var(--shiki-gold)!important;
+  box-shadow:0 4px 16px rgba(45,35,25,.08)!important;
+}
+.law-banner-label .mark{border-color:var(--shiki-gold-light)!important;color:var(--shiki-gold-light)!important}
+.law-banner-label span,.law-banner-label strong{color:#f7f0e3!important}
+.law-banner a{border-color:rgba(215,193,141,.72)!important;color:#fffaf1!important}
+.law-banner a:hover{background:rgba(255,255,255,.08)!important}
+.arg-teaser{
+  color:var(--shiki-ink)!important;
+  background:linear-gradient(110deg,#f0e7d7,#fbf7ef 62%,#f2e8dc)!important;
+  border-top:1px solid var(--shiki-gold)!important;
+  border-bottom:1px solid var(--shiki-gold)!important;
+}
+.arg-teaser .arg-teaser-mark{background:var(--shiki-red)!important;color:#fff6e7!important;border-color:var(--shiki-gold)!important}
+.arg-teaser .arg-eyebrow{color:var(--shiki-red)!important}
+.arg-teaser p{color:var(--shiki-muted)!important}
+.arg-teaser a{color:var(--shiki-red-deep)!important;border-color:var(--shiki-gold)!important;background:rgba(255,250,241,.78)!important}
+.arg-teaser a:hover{background:#fffaf1!important}
+.shiki-investigation{
+  background:rgba(255,250,241,.98)!important;
+  color:var(--shiki-ink)!important;
+  border-color:rgba(169,133,78,.55)!important;
+  border-top-color:var(--shiki-red)!important;
+}
+.shiki-investigation-head{background:var(--shiki-paper-deep)!important}
+.shiki-investigation-name{color:var(--shiki-red)!important}
+.shiki-investigation-next,.shiki-investigation-hint{
+  color:var(--shiki-red-deep)!important;
+  border-color:var(--shiki-gold)!important;
+  background:var(--shiki-paper-light)!important;
+}
+
+/* 横幅・ナビゲーション */
+.shiki-v4-masthead,.shiki-v4-nav,.site-header,.imperial-header{min-width:0}
+.shiki-v4-nav .inner{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  align-items:stretch!important;
+  gap:0!important;
+}
+.shiki-v4-nav a{min-width:0}
+.gov-chrome-inner,.gov-breadcrumb-inner,.header-inner{min-width:0}
+.gov-tools{min-width:0}
+.gov-tools input{max-width:100%}
+.site-header{scroll-margin-top:16px}
+.section,[id]{scroll-margin-top:24px}
+
+/* ポータル・組織図の横はみ出し防止 */
+.portal-shell{min-width:0}
+.portal-body,.portal-main,.portal-content{min-width:0;max-width:100%}
+.portal-body table,.portal-main table,.portal-content table{display:block;max-width:100%;overflow-x:auto}
+.org-grid,.shiki-department-registry,.official-building-grid{min-width:0}
+.org-grid>*,.shiki-department-registry>*,.official-building-grid>*{min-width:0}
+.official-identity,.official-building{max-width:100%;min-width:0}
+.official-identity *,.official-building *{overflow-wrap:anywhere}
+.news-list a,.admin-index-grid a{overflow-wrap:anywhere}
+
+/* ダイアログは画面内で読める高さに */
+.archive-modal,.report-modal,.deity-detail-modal{
+  box-sizing:border-box;
+  padding:clamp(12px,3vw,32px)!important;
+  overscroll-behavior:contain;
+}
+.archive-box,.report-box,.deity-detail-panel{
+  box-sizing:border-box;
+  width:min(920px,100%)!important;
+  max-width:100%!important;
+  max-height:min(88dvh,900px);
+  overflow:auto!important;
+  overscroll-behavior:contain;
+}
+.archive-modal.open,.report-modal.open,.deity-detail-modal.open{align-items:flex-start!important}
+.archive-box,.report-box{margin:auto!important}
+
+/* タッチ端末・狭い画面 */
+@media(max-width:900px){
+  .shiki-v4-nav .inner{flex-wrap:nowrap!important;overflow-x:auto!important;overscroll-behavior-x:contain;scrollbar-width:thin}
+  .shiki-v4-nav a{flex:0 0 auto!important;white-space:nowrap}
+  .official-identity{grid-template-columns:72px minmax(0,1fr)!important}
+  .official-status{grid-column:1/-1}
+  .official-building-grid{grid-template-columns:1fr!important}
+  .portal-shell{grid-template-columns:minmax(0,1fr)!important}
+  .portal-rail{position:relative!important;top:auto!important}
+}
+@media(max-width:700px){
+  main{width:100%!important}
+  .section{padding-left:18px!important;padding-right:18px!important}
+  .content-width{width:100%!important}
+  .shiki-v4-masthead .inner{gap:12px!important;padding:18px 16px!important}
+  .shiki-v4-title{font-size:clamp(24px,7vw,38px)!important}
+  .shiki-v4-date{font-size:10px!important;line-height:1.8!important}
+  .shiki-v4-nav .inner{padding:0 10px!important}
+  .shiki-v4-nav a{padding:11px 12px!important;font-size:11px!important}
+  .gov-chrome-inner{padding:8px 12px!important}
+  .gov-tools{flex-wrap:wrap!important}
+  .gov-tools label{max-width:100%}
+  .gov-tools input{width:min(58vw,220px)!important}
+  .official-identity{grid-template-columns:1fr!important;padding:20px!important}
+  .official-seal{margin:0 auto}
+  .official-main{min-width:0}
+  .official-meta-grid{grid-template-columns:1fr 1fr!important}
+  .official-actions{flex-wrap:wrap}
+  .org-grid{grid-template-columns:1fr!important}
+  .shiki-department-registry{grid-template-columns:1fr!important}
+  .portal-file-tabs{overflow-x:auto;flex-wrap:nowrap!important}
+  .portal-file-tabs>*{flex:0 0 auto}
+  .archive-box,.report-box,.deity-detail-panel{padding:22px 16px!important}
+  .deity-detail-grid{grid-template-columns:1fr!important}
+  .site-footer .content-width{padding-left:18px;padding-right:18px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+@media print{
+  body,main{background:#fff!important;color:#111!important;box-shadow:none!important}
+  .law-banner,.arg-teaser,.shiki-investigation,.shiki-investigation-hint{display:none!important}
+  a{color:#111!important;text-decoration:underline!important}
+}
